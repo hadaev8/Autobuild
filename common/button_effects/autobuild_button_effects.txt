@@ -26,12 +26,11 @@ autobuild_button_effect = {
 		
 	}
 	allow = {
-		
+	
 	}
 	
 	effect = {
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-					}
+		hidden_effect = { country_event = { id = autobuild.3 } }
 		custom_tooltip = autobuild.3.tooltip
 	}
+}

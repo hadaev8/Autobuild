@@ -21,13 +21,13 @@ planet_edict = {
 	name = "free_auto_update"
 	influence_cost = 0
 	length = 0
-	potential = { 
+	potential = {
 		NOT = { has_modifier = "free_from_auto_update" }
 		NOT = { has_global_flag = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
 
-	effect = { 
+	effect = {
 	#	custom_tooltip = edict_free_from_auto_update.tooltip
 		hidden_effect = {
 			add_modifier = {
@@ -51,7 +51,7 @@ planet_edict = {
 	}
 	allow = { }
 
-	effect = { 
+	effect = {
 	#	custom_tooltip = edict_free_from_auto_build.tooltip
 		hidden_effect = {
 			add_modifier = {

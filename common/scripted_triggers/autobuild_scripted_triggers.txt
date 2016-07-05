@@ -22,8 +22,8 @@ has_any_farm = {
 		has_building = "building_hydroponics_farm_3"
 		has_building = "building_hydroponics_farm_4"
 		has_building = "building_hydroponics_farm_5"
-			}
-		}
+	}
+}
 			
 has_any_mines = {
 	or = {
@@ -36,8 +36,8 @@ has_any_mines = {
 		has_building = "building_mining_network_3"
 		has_building = "building_mining_network_4"
 		has_building = "building_mining_network_5"
-			}
-		}
+	}
+}
 			
 has_any_power_plant = {
 	or = {
@@ -53,8 +53,8 @@ has_any_power_plant = {
 		has_building = "betharian_power_plant_4"
 		has_building = "building_power_hub_1"
 		has_building = "building_power_hub_2"
-			}
-		}
+	}
+}
 		
 has_any_science_lab = {
 	or = {
@@ -71,8 +71,8 @@ has_any_science_lab = {
 		has_building = "building_engineering_facility_2"
 		has_building = "building_engineering_facility_3"
 		has_building = "building_engineering_facility_4"
-			}
-		}		
+	}
+}		
 		
 free_from_autobuild = {
 	or = {
@@ -80,68 +80,68 @@ free_from_autobuild = {
 		has_modifier = "planet_labs_auto_build"
 		has_modifier = "planet_forge_auto_build"
 		has_modifier = "planet_power_plant_auto_build"
-		}
 	}
+}
 
 tile_has_energy_1_and_more = {
 	has_resource = {
 		type = energy
 		amount > 0
-			}
-		}
+	}
+}
 
 tile_has_mins_1_and_more = {
 	has_resource = {
 		type = minerals
 		amount > 0
-			}
-		}
+	}
+}
 
 tile_has_mins_2_and_more = {
 	has_resource = {
 		type = minerals
 		amount > 1
-			}
-		}
+	}
+}
 
 tile_has_food_1_and_more = {
 	has_resource = {
 		type = food
 		amount > 0
-				}
-			}
+	}
+}
 
 tile_has_food_2_and_more = {
 	has_resource = {
 		type = food
 		amount > 1
-				}
-			}
+	}
+}
 
 tile_has_any_res_but_not_food = {
 	or = {
 		has_resource = {
 			type = energy
 			amount > 0
-				}
+		}
 		has_resource = {
 			type = minerals
 			amount > 0
-				}
+		}
 		has_resource = {
 			type = physics_research
 			amount > 0
-				}
+		}
 		has_resource = {
 			type = society_research
 			amount > 0
-				}
+		}
 		has_resource = {
 			type = engineering_research
 			amount > 0
-				}
-			}
 		}
+	}
+}
 
 tile_has_any_res = {
 	or = {
@@ -151,25 +151,24 @@ tile_has_any_res = {
 			has_resource = {
 				type = minerals
 				amount > 0
-					}
-				}
+			}
+		}
 		and = {
 			exists = owner
 			owner = { not = { has_country_flag = auto_build_7_9 } }		
 			has_resource = {
 				type = food
 				amount > 0
-						}
-					}
+			}
+		}
 		and = {
 			exists = owner
 			owner = { not = { has_country_flag = auto_build_7_10 } }
 			has_resource = {
 				type = energy
 				amount > 0
-					}
-				}
-		
+			}
+		}
 		and = {
 			exists = owner
 			owner = { not = { has_country_flag = auto_build_7_11 } }
@@ -177,33 +176,33 @@ tile_has_any_res = {
 				has_resource = {
 					type = physics_research
 					amount > 0
-						}
+				}
 				has_resource = {
 					type = society_research
 					amount > 0
-						}
+				}
 				has_resource = {
 					type = engineering_research
 					amount > 0
-						}
-					}
 				}
 			}
 		}
+	}
+}
 
 tile_has_any_science = {
 	or = {
 		has_resource = {
 			type = physics_research
 			amount > 0
-				}
+		}
 		has_resource = {
 			type = society_research
 			amount > 0
-				}
+		}
 		has_resource = {
 			type = engineering_research
 			amount > 0
-				}
-			}
 		}
+	}
+}
