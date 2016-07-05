@@ -1,71 +1,88 @@
 ﻿l_french:
- edict_auto_build:0 "Amélioration automatique"
+ autobuild_button:0 "Mesures auto"
+ autobuild.3.tooltip:0 "§HOuvre§! le menu des aménagements auto."
+ autobuild.3.name:0 "Menu des mesures auto"
+ autobuild.3.desc:0 "Ici, tu peux configurer les mesures automatiques à appliquer pour l'aménagement des cases de ton empire."
+ 
+ auto_build_0:0 "§HActiver§! toutes les mesures"
+ auto_build_0.tooltip:0 "Active toutes les mesures."
+ 
+ auto_build_remove:0 "§HDésactiver§! toutes les mesures"
+ auto_build_remove.tooltip:0 "Désactive toutes les mesures d'empire et planètaires d'aménagement automatique."
+ auto_build_exit:0 "§LQuitter le menu§!"
+ 
+ auto_build_1:0 "§GActiver§! "Amélioration automatique""
  edict_auto_build_desc:0 "Tous les bâtiments seront améliorés automatiquement, exceptés les laboratoires scientifiques basiques et ceux coûtant de l'influence."
- #Chat here
- edict_auto_build_2:0 "Amélioration auto coûtant de l'influence"
- edict_auto_build_2_desc:0 "Les bâtiments qui ont un coût en influence seront améliorés automatiquement."
+ auto_build_1_off:0 "§RDésactiver§! "Amélioration automatique""
  
- edict_auto_build_3:0 "Construction auto de nouveaux bâtiments"
- edict_auto_build_3_desc:0 "Tant que le décret est actif, une case avec crédits énergétiques et sans esclave construira une centrale électrique, une case avec minéraux construira un réseau minier, une case avec ressource de recherche et sans esclave construira un laboratoire scientique basique."
+ auto_build_2:0 "§GActiver§! "Amélioration auto coûtant de l'influence""
+ auto_build_2.tooltip:0 "Les bâtiments qui ont un coût en influence seront améliorés automatiquement."
+ auto_build_2_off:0 "§RDésactiver§! "Amélioration auto coûtant de l'influence""
  
- edict_auto_build_4:0 "Esclavage automatique"
- edict_auto_build_4_desc:0 "Tant que le décret est actif, une populations sur une case avec réseau minier, ferme, capitale planètaire, etc… sera automatiquement asservie. De manière générale, toutes les cases où les esclaves sont profitables. Les populations asservies qui n'apportent pas de bonus de rendement seront libérées."
+ auto_build_3:0 "§GActiver§! "Construction auto de nouveaux bâtiments""
+ auto_build_3.tooltip:0 "Une case avec crédits énergétiques et sans esclave construira une centrale électrique, une case avec minéraux construira un réseau minier, une case avec ressource de recherche et sans esclave construira un laboratoire scientique basique."
+ auto_build_3_off:0 "§RDésactiver§! "Construction auto de nouveaux bâtiments""
  
- edict_auto_build_4_1:0 "Un bon Xéno est un Xéno asservi !"
- edict_auto_build_4_1_desc:0 "Tant que le décret est actif, toutes les populations étrangères seront asservies."
+ auto_build_4:0 "§GActiver§! "Esclavage automatique""
+ auto_build_4.tooltip:0 "Une population sur une case avec réseau minier, ferme, capitale planètaire, etc… sera automatiquement asservie. De manière générale, toutes les cases où les esclaves sont profitables. Les populations asservies qui n'apportent pas de bonus de rendement seront libérées."
+ auto_build_4_off:0 "§RDésactiver§! "Esclavage automatique""
  
- edict_auto_build_5:0 "Amélioration des labos selon bonus planétaire"
- edict_auto_build_5_desc:0 "Tant que le décret est actif, tous les laboratoires scientifiques basiques sur une planète avec bonus pour un domaine scientifique spécifique (par exemple : puissant champ magnétique) s'amélioreront selon le bonus, afin de maximiser les rendements."
+ auto_build_4_1:0 "§GActiver§! "Un bon Xéno est un Xéno asservi !""
+ auto_build_4_1.tooltip:0 "Toutes les populations étrangères seront asservies."
+ auto_build_4_1_off:0 "§RDésactiver§! "Un bon Xéno est un Xéno asservi !""
  
- edict_auto_build_6:0 "Amélioration semi-aléatoire des laboratoires"
- edict_auto_build_6_desc:0 "Tant que le décret est actif, un laboratoires sera amélioré selon le type de ressource de la case (petit gain de productivité si votre population a un trait pour un certain domaine scientique). S'il n'y a pas de ressource, le type de laboratoire sera choisi aléatoirement (si le décret Amélioration des labos selon bonus planétaire n'est pas actif, le laboratoire sera amélioré aléatoirement même s'il existe un bonus planétaire)."
+ auto_build_4_2:0 "§GActiver§! "Les esclaves, à la mine !""
+ auto_build_4_2.tooltip:0 "Si vous avez activé la mesure Esclavage automatique, cette mesure-ci ne sera pas prise en compte. Un réseau minier sera construit sur les cases où un esclave gère une centrale électrique ou un laboratoire. Un esclave intelligent ? Un esclave qui gère nos richesses ? Quelle idée absurde !"
+ auto_build_4_2_off:0 "§RDésactiver§! "Les esclaves, à la mine !""
  
- edict_auto_build_cost:0 "Garder une réserve"
- edict_auto_build_cost_desc:0 "Tant que le décret est actif, les constructions et améliorations auront lieu si vous avez au moins 1 000 minéraux, et 250 influence si requis."
+ auto_build_5:0 "§GActiver§! "Amélioration des labos selon bonus planétaire""
+ auto_build_5.tooltip:0 "Tous les laboratoires scientifiques basiques sur une planète avec bonus pour un domaine scientifique spécifique (par exemple : puissant champ magnétique) s'amélioreront selon le bonus, afin de maximiser les rendements."
+ auto_build_5_off:0 "§RDésactiver§! "Amélioration des labos selon bonus planétaire""
  
+ auto_build_6:0 "§GActiver§! "Amélioration semi-aléatoire des laboratoires""
+ auto_build_6.tooltip:0 "Un laboratoire sera amélioré selon le type de ressource de la case (petit gain de productivité si votre population a un trait pour un certain domaine scientique). S'il n'y a pas de ressource, le type de laboratoire sera choisi aléatoirement (si le décret Amélioration des labos selon bonus planétaire n'est pas actif, le laboratoire sera amélioré aléatoirement même s'il existe un bonus planétaire)."
+ auto_build_6_off:0 "§RDésactiver§! "Amélioration semi-aléatoire des laboratoires""
+ 
+ auto_build_7_1:0 "§GActiver§! "Priorité aux finances""
+ auto_build_7_1.tooltip:0 "Il sera construit des centrales électriques sur les cases dénuées de ressources." 
+ auto_build_7_2:0 "§GActiver§! "Priorité à l'industrie""
+ auto_build_7_2.tooltip:0 "Il sera construit des réseaux miniers sur les cases dénuées de ressources."
+ auto_build_7_3:0 "§GActiver§! "Priorité à la recherche""
+ auto_build_7_3.tooltip:0 "Il sera construit des laboratoires scientiques basiques sur les cases dénuées de ressources."
+ auto_build_7_4:0 "§GActiver§! "Priorité à la recherche financée""
+ auto_build_7_4.tooltip:0 "Il sera construit sur les cases dénuées de ressources 1 centrale électrique pour 4 laboratoires scientiques basiques."
+ auto_build_7_6:0 "§GActiver§! "Développement équilibré""
+ auto_build_7_6.tooltip:0 "Il sera construit sur les cases dénuées de ressources 1 réseau minier pour 1 centrale électrique pour 1 laboratoire scientifique basique. En d'autres termes, les constructions se feront selon un ratio 1:1:1."
+ auto_build_7_7:0 "§GActiver§! "Priorité à la recherche et aux finances""
+ auto_build_7_7.tooltip:0 "Il sera construit sur les cases dénuées de ressources 1 centrale électrique pour 1 laboratoire scientifiaue basique."
+ auto_build_7_8:0 "§GActiver§! "Minéraux ignorés""
+ auto_build_7_8.tooltip:0 "Les cases avec minéraux seront considérées comme vides."
+ auto_build_7_9:0 "§GActiver§! "Nourriture ignorée""
+ auto_build_7_9.tooltip:0 "Les cases avec nourriture seront considérées comme vides."
+ auto_build_7_10:0 "§GActiver§! "Crédits énergétiques ignorés""
+ auto_build_7_10.tooltip:0 "Les cases avec crédits énergétiques seront considérées comme vides."
+ auto_build_7_11:0 "§GActiver§! "Ressources scientifiques ignorées""
+ auto_build_7_11.tooltip:0 "Les cases avec ressources scientifiques seront considérées comme vides."
+ auto_build_7_off:0 "§RDésactiver§! "Construction auto sur cases vides""
+ auto_build_7_8_off:0 "§RDésactiver§! "Minéraux ignorés""
+ auto_build_7_9_off:0 "§RDésactiver§! "Nourriture ignorée""
+ auto_build_7_10_off:0 "§RDésactiver§! "Crédits énergétiques ignorés""
+ auto_build_7_11_off:0 "§RDésactiver§! "Ressources scientifiques ignorées""
+ 
+ auto_build_8:0 "§GActiver§! "Construction auto de cliniques""
+ auto_build_8.tooltip:0 "Tant que le décret est actif, une clinique sera construite sur chaque planète où 4+ populations ont une adaptabilité inférieure à 100%, en priorité sur une case à 2 nourritures et sans minéraux, ou sur une case à 1 nourriture et sans minéral, ou sur une case à 1 nourriture avec 1 minéral, ou sur une case dénuée de ressources."
+ auto_build_8_off:0 "§RDésactiver§! "Construction auto de cliniques""
+ 
+ auto_build_cost:0 "§GActiver§! "Garder une réserve""
+ auto_build_cost.tooltip:0 "Tant que le décret est actif, les constructions et améliorations auront lieu si vous avez au moins 1 000 minéraux, et 250 influence si requis."
+ auto_build_cost_off:0 "§RDésactiver§! "Garder une réserve""
+ 
+ ## edicts
  edict_no_sector:0 "Plus besoin de secteur"
  edict_no_sector_desc:0 "Tant que le décret est actif, vous n'avez pas besoin de secteur."
  
- edict_auto_build_7_1:0 "Priorité aux finances"
- edict_auto_build_7_1_desc:0 "Tant que le décret est actif, il sera construit des centrales électriques sur les cases dénuées de ressources." 
- 
- edict_auto_build_7_2:0 "Priorité à l'industrie"
- edict_auto_build_7_2_desc:0 "Tant que le décret est actif, il sera construit des réseaux miniers sur les cases dénuées de ressources."
- 
- edict_auto_build_7_3:0 "Priorité à la recherche"
- edict_auto_build_7_3_desc:0 "Tant que le décret est actif, il sera construit des laboratoires scientiques basiques sur les cases dénuées de ressources."
- 
- edict_auto_build_7_4:0 "Priorité à la recherche financée"
- edict_auto_build_7_4_desc:0 "Tant que le décret est actif, il sera construit sur les cases dénuées de ressources 1 centrale électrique pour 4 laboratoires scientiques basiques."
- 
- edict_auto_build_7_5:0 ""
- edict_auto_build_7_5_desc:0 ""
- 
- edict_auto_build_7_6:0 "Développement équilibré"
- edict_auto_build_7_6_desc:0 "Tant que le décret est actif, il sera construit sur les cases dénuées de ressources 1 réseau minier pour 1 centrale électrique pour 1 laboratoire scientifique basique. En d'autres termes, les constructions se feront selon un ratio 1:1:1."
- 
- edict_auto_build_7_7:0 "Priorité à la recherche et aux finances"
- edict_auto_build_7_7_desc:0 "Tant que le décret est actif, il sera construit sur les cases dénuées de ressources 1 centrale électrique pour 1 laboratoire scientifiaue basique."
- 
- edict_auto_build_8:0 "Construction auto de cliniques"
- edict_auto_build_8_desc:0 "Tant que le décret est actif, une clinique sera construite sur chaque planète où 4+ populations ont une adaptabilité inférieure à 100%, en priorité sur une case à 2 nourritures et sans minéraux, ou sur une case à 1 nourriture et sans minéral, ou sur une case à 1 nourriture avec 1 minéral, ou sur une case dénuée de ressources."
- 
- edict_auto_build_4_2:0 "Les esclaves, à la mine !"
- edict_auto_build_4_2_desc:0 "Si vous avez activé le décret Esclavage automatique, ce décret ne sera pas pris en compte. Tant que ce décret est actif, un réseau minier sera construit sur les cases où un esclave gère une centrale électrique ou un laboratoire. Un esclave intelligent ? Un esclave qui gère nos richesses ? Quelle idée absurde !"
- 
- edict_auto_build_7_8:0 "Minéraux ignorés"
- edict_auto_build_7_8_desc:0 "Les cases avec minéraux seront considérées comme vides."
- 
- edict_auto_build_7_9:0 "Nourriture ignorée"
- edict_auto_build_7_8_desc:0 "Les cases avec nourriture seront considérées comme vides."
- 
- edict_auto_build_7_10:0 "Crédits énergétiques ignorés"
- edict_auto_build_7_8_desc:0 "Les cases avec crédits énergétiques seront considérées comme vides."
- 
- edict_auto_build_7_11:0 "Ressources scientifiques ignorées"
- edict_auto_build_7_8_desc:0 "Les cases avec ressources scientifiques seront considérées comme vides."
- 
- edict_clear_autobuild_planetary_edicts:0 "Aucune amélioration automatique"
+ ## planet edicts
+ edict_clear_autobuild_planetary_edicts:0 "Aucune amélioration auto"
  edict_clear_autobuild_planetary_edicts_desc:0 "Tous les décrets globaux construisant, améliorant ou asservissant automatiquement seront ignorés."
  
  edict_hide_planetary_edicts:0 "Affichage des décrets auto"
@@ -80,16 +97,6 @@
  edict_free_auto_enslave:0 "Asservissement auto ignoré"
  edict_free_auto_enslave_desc:0 "Le statut des populations, qu'elles soient libres ou asservies, ne sera pas impacté par les décrets globaux."
  
- ## modifiers:
- free_from_auto_update:0 "Améliorations auto ignorées"
- free_from_auto_update_desc:0 "Les bâtiments ne sont pas améliorés automatiquement."
- 
- free_from_auto_build:0 "Constructions auto ignorées"
- free_from_auto_build_desc:0 "Les bâtiments ne sont pas construits automatiquement."
- 
- free_from_auto_enslave:0 "Asservissement auto ignoré"
- free_from_auto_enslave_desc:0 "Les populations ne sont pas sujettes aux décrets globaux définissant la condition des populations."
- 
  edict_planet_forge_auto_build:0 "En faire un centre industriel"
  edict_planet_forge_auto_build_desc:0 "Cette planète sera reconstruite en tant que centre industriel. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Un complexe de formation d'esclaves sera construit si la planète compte 4+ esclaves, et une centrale de traitement des minéraux et des réseaux miniers seront construits sur les cases restantes. S'il existe des centrales électriques ou laboratoires, ceux-ci seront remplacés."
  
@@ -99,6 +106,16 @@
  edict_planet_labs_auto_build:0 "En faire un centre scientifique"
  edict_planet_labs_auto_build_desc:0 "Cette planète sera reconstruite en tant que centre scientifique. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Des laboratoires seront construits sur les cases restantes. S'il existe des réseaux miniers ou centrales électriques, ceux-ci seront remplacés."
  
+ ## modifiers
+ free_from_auto_update:0 "Améliorations auto ignorées"
+ free_from_auto_update_desc:0 "Les bâtiments ne sont pas améliorés automatiquement."
+ 
+ free_from_auto_build:0 "Constructions auto ignorées"
+ free_from_auto_build_desc:0 "Les bâtiments ne sont pas construits automatiquement."
+ 
+ free_from_auto_enslave:0 "Asservissement auto ignoré"
+ free_from_auto_enslave_desc:0 "Les populations ne sont pas sujettes aux décrets globaux définissant la condition des populations."
+ 
  planet_forge_auto_build:0 "Centre industriel"
  planet_forge_auto_build_desc:0 "Cette planète est reconstruite en tant que centre industriel. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Un complexe de formation d'esclaves sera construit si la planète compte 4+ esclaves, et une centrale de traitement des minéraux et des réseaux miniers seront construits sur les cases restantes. S'il existe des centrales électriques ou laboratoires, ceux-ci seront remplacés."
  
@@ -107,4 +124,3 @@
  
  planet_labs_auto_build:0 "Centre scientifique"
  planet_labs_auto_build_desc:0 "Cette planète est reconstruite en tant que centre scientifique. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Des laboratoires seront construits sur les cases restantes. S'il existe des réseaux miniers ou centrales électriques, ceux-ci seront remplacés."
- 

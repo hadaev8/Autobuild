@@ -7,7 +7,7 @@ namespace = autobuild
 ## 4_2 - replace power plants and labs if slave
 ## 5 - auto build labs by good planet
 ## 6 - auto build labs by semi random
-## 7 - 7_8 auto build in ept tiles:
+## 7 - auto build in ept tiles:
 ## 7_1 only power
 ## 7_2 only mines
 ## 7_3 only labs
@@ -20,6 +20,7 @@ namespace = autobuild
 ## 7_10 ignore energy
 ## 7_11 ignore science
 ## 8 - clinics
+## spec planets
 
 country_event = {
 	id = autobuild.1
@@ -29,122 +30,122 @@ country_event = {
 	mean_time_to_happen = { months = 3 }
 
     trigger = {
+		or = {
+			has_country_flag = auto_build_1
+			has_country_flag = auto_build_2
+			has_country_flag = auto_build_3
+			has_country_flag = auto_build_4
+			has_country_flag = auto_build_4_1
+			has_country_flag = auto_build_4_2
+			has_country_flag = auto_build_5
+			has_country_flag = auto_build_6
 			or = {
-				has_country_flag = auto_build_1
-				has_country_flag = auto_build_2
-				has_country_flag = auto_build_3
-				has_country_flag = auto_build_4
-				has_country_flag = auto_build_4_1
-				has_country_flag = auto_build_4_2
-				has_country_flag = auto_build_5
-				has_country_flag = auto_build_6
-				or = {
-					has_country_flag = auto_build_7_1
-					has_country_flag = auto_build_7_2
-					has_country_flag = auto_build_7_3
-					has_country_flag = auto_build_7_4
-				##	has_country_flag = auto_build_7_5
-					has_country_flag = auto_build_7_6
-					has_country_flag = auto_build_7_7
-						}
-				has_country_flag = auto_build_8
+				has_country_flag = auto_build_7_1
+				has_country_flag = auto_build_7_2
+				has_country_flag = auto_build_7_3
+				has_country_flag = auto_build_7_4
+			##	has_country_flag = auto_build_7_5
+				has_country_flag = auto_build_7_6
+				has_country_flag = auto_build_7_7
 					}
-				}
+			has_country_flag = auto_build_8
+		}
+	}
 
     immediate = {
 
 				## auto enslave ##
 
 				if = {
-				limit = { has_country_flag = auto_build_4 }
+					limit = { has_country_flag = auto_build_4 }
 					every_owned_planet = {
 						limit = { not = { has_modifier = "free_from_auto_enslave" } }
 						every_tile = {
-						if = {
-							limit = {
-								exists = pop
-								pop = { is_robot = no }
-								or = {
-									has_any_mines = yes
-									has_any_farm = yes									
-									has_building = "building_colony_shelter"
-									has_building = "building_capital_1"
-									has_building = "building_capital_2"
-									has_building = "building_capital_3"
-									has_building = "building_clinic"
-									has_building = "building_ancient_factory"
-									has_building = "building_agri_processing_complex"
-									has_building = "building_great_pyramid"
-								and = {
-								exists = owner
-								owner = { has_country_flag = auto_build_4_1 }
-								pop = {
-									is_being_purged = no
-									not = { is_same_species = owner.species }
-											}
-										}
-									}
-								}
-						if = {
-							limit = {
-								exists = owner
-								owner = {
-									or = {
-										has_policy_flag = slavery_allowed_regulated_xenos_only
-										has_policy_flag = slavery_allowed_xenos_only
-											}
-										}
-								exists = pop
-								pop = {
-									is_being_purged = no
-									not = { is_same_species = owner.species }
-									is_enslaved = no
-									}
-								}
-							pop = { enslave_pop = yes }
-							}
-						if = {
-							limit = {
-								exists = owner
-								owner = {
-									or = {
-										has_policy_flag = slavery_allowed_regulated
-										has_policy_flag = slavery_allowed_all
-											}
-										}
-								exists = pop
-								pop = {
-									is_being_purged = no
-									is_enslaved = no
-									}
-								}
-							pop = { enslave_pop = yes }
-							}
-						if = {
-							limit = {
-								exists = owner
-								owner = { has_policy_flag = ai_servitude }
-								exists = pop
-								pop = {
-									is_being_purged = no
-									is_enslaved = no
-									is_species = "ROBOT_POP_SPECIES_3"
-									}
-								}
-							pop = { enslave_pop = yes }
-							}
-						else = {
 							if = {
 								limit = {
 									exists = pop
-									pop = {
-										is_being_purged = no
-										is_enslaved = yes
+									pop = { is_robot = no }
+									or = {
+										has_any_mines = yes
+										has_any_farm = yes									
+										has_building = "building_colony_shelter"
+										has_building = "building_capital_1"
+										has_building = "building_capital_2"
+										has_building = "building_capital_3"
+										has_building = "building_clinic"
+										has_building = "building_ancient_factory"
+										has_building = "building_agri_processing_complex"
+										has_building = "building_great_pyramid"
+										and = {
+											exists = owner
+											owner = { has_country_flag = auto_build_4_1 }
+											pop = {
+												is_being_purged = no
+												not = { is_same_species = owner.species }
+											}
 										}
 									}
-							pop = { enslave_pop = no } }
+								}
+							if = {
+								limit = {
+									exists = owner
+									owner = {
+										or = {
+											has_policy_flag = slavery_allowed_regulated_xenos_only
+											has_policy_flag = slavery_allowed_xenos_only
+										}
+									}
+									exists = pop
+									pop = {
+										is_being_purged = no
+										not = { is_same_species = owner.species }
+										is_enslaved = no
+									}
+								}
+								pop = { enslave_pop = yes }
 							}
-						}
+							if = {
+								limit = {
+									exists = owner
+									owner = {
+										or = {
+											has_policy_flag = slavery_allowed_regulated
+											has_policy_flag = slavery_allowed_all
+												}
+											}
+									exists = pop
+									pop = {
+										is_being_purged = no
+										is_enslaved = no
+										}
+									}
+								pop = { enslave_pop = yes }
+								}
+							if = {
+								limit = {
+									exists = owner
+									owner = { has_policy_flag = ai_servitude }
+									exists = pop
+									pop = {
+										is_being_purged = no
+										is_enslaved = no
+										is_species = "ROBOT_POP_SPECIES_3"
+										}
+									}
+								pop = { enslave_pop = yes }
+								}
+							else = {
+								if = {
+									limit = {
+										exists = pop
+										pop = {
+											is_being_purged = no
+											is_enslaved = yes
+											}
+										}
+								pop = { enslave_pop = no } }
+								}
+							}
 					}
 				}
 			}
@@ -1513,6 +1514,7 @@ country_event = {
 	id = autobuild.3
 	title = "autobuild.3.name"
 	desc = "autobuild.3.desc"
+	picture = GFX_evt_alien_city
 	is_triggered_only = yes
 	
 	option = {
@@ -1528,9 +1530,9 @@ country_event = {
 					has_country_flag = auto_build_4_2
 					has_country_flag = auto_build_5
 					has_country_flag = auto_build_6
-					}
 				}
 			}
+		}
 		custom_tooltip = auto_build_0.tooltip
 		hidden_effect = {
 			set_country_flag = auto_build_1
@@ -1541,45 +1543,45 @@ country_event = {
 				set_country_flag = auto_build_4
 				set_country_flag = auto_build_4_1
 				set_country_flag = auto_build_4_2
-				}
+			}
 			set_country_flag = auto_build_5
 			set_country_flag = auto_build_6
 			country_event = { id = autobuild.3 }
-					}
 		}
+	}
 	option = {
 		name = "auto_build_1"
 		trigger = {	not = { has_country_flag = auto_build_1 } }
 		custom_tooltip = auto_build_1.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_1 }
-		}
+	}
 	option = {
 		name = "auto_build_1_off"
 		trigger = {	has_country_flag = auto_build_1 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_1 }
-		}
+	}
 	option = {
 		name = "auto_build_2"
 		trigger = {	not = { has_country_flag = auto_build_2 } }
 		custom_tooltip = auto_build_2.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_2 }
-		}
+	}
 	option = {
 		name = "auto_build_2_off"
 		trigger = {	has_country_flag = auto_build_2 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_2 }
-		}
+	}
 	option = {
 		name = "auto_build_3"
 		trigger = {	not = { has_country_flag = auto_build_3 } }
 		custom_tooltip = auto_build_3.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_3 }
-		}
+	}
 	option = {
 		name = "auto_build_3_off"
 		trigger = {	has_country_flag = auto_build_3 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_3 }
-		}
+	}
 	option = {
 		name = "auto_build_4"
 		trigger = {
@@ -1587,69 +1589,69 @@ country_event = {
 				has_policy_flag = slavery_not_allowed
 				not = { has_policy_flag = ai_servitude }
 				has_country_flag = auto_build_4
-				}
 			}
+		}
 		custom_tooltip = auto_build_4.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_4 }
-		}
+	}
 	option = {
 		name = "auto_build_4_off"
 		trigger = {	has_country_flag = auto_build_4 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_4 }
-		}
+	}
 	option = {
 		name = "auto_build_4_1"
 		trigger = {
 			has_country_flag = auto_build_4
 			not = { has_country_flag = auto_build_4_1 }
-				}
+			}
 		custom_tooltip = auto_build_4_1.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_4_1 }
-		}
+	}
 	option = {
 		name = "auto_build_4_1_off"
 		trigger = {	has_country_flag = auto_build_4_1 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_4_1 }
-		}
+	}
 	option = {
 		name = "auto_build_4_2"
 		trigger = {
 			or = {
 				not = { has_policy_flag = slavery_not_allowed }
 				has_policy_flag = ai_servitude
-				}
-			not = { has_country_flag = auto_build_4_2 }
 			}
+			not = { has_country_flag = auto_build_4_2 }
+		}
 		custom_tooltip = auto_build_4_2.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_4_2 }
-		}
+	}
 	option = {
 		name = "auto_build_4_2_off"
 		trigger = {	has_country_flag = auto_build_4_2 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_4_2 }
-		}
+	}
 	option = {
 		name = "auto_build_5"
 		trigger = {	not = { has_country_flag = auto_build_5 } }
 		custom_tooltip = auto_build_5.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_5 }
-		}
+	}
 	option = {
 		name = "auto_build_5_off"
 		trigger = {	has_country_flag = auto_build_5 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_5 }
-		}
+	}
 	option = {
 		name = "auto_build_6"
 		trigger = {	not = { has_country_flag = auto_build_6 } }
 		custom_tooltip = auto_build_6.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_6 }
-		}
+	}
 	option = {
 		name = "auto_build_6_off"
 		trigger = {	has_country_flag = auto_build_6 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_6 }
-		}
+	}
 	option = {
 		name = "auto_build_7_1"
 		trigger = {
@@ -1661,11 +1663,11 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_1.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_1 }
-		}
+	}
 	option = {
 		name = "auto_build_7_2"
 		trigger = {
@@ -1677,11 +1679,11 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_2.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_2 }
-		}
+	}
 	option = {
 		name = "auto_build_7_3"
 		trigger = {
@@ -1693,11 +1695,11 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_3.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_3 }
-		}
+	}
 	option = {
 		name = "auto_build_7_4"
 		trigger = {
@@ -1709,11 +1711,11 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_4.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_4 }
-		}
+	}
 	option = {
 		name = "auto_build_7_6"
 		trigger = {
@@ -1725,11 +1727,11 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_6.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_6 }
-		}
+	}
 	option = {
 		name = "auto_build_7_7"
 		trigger = {
@@ -1741,11 +1743,11 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_7.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_7 }
-		}
+	}
 	option = {
 		name = "auto_build_7_8"
 		trigger = {
@@ -1757,16 +1759,16 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_8.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_8 }
-		}
+	}
 	option = {
 		name = "auto_build_7_8_off"
 		trigger = {	has_country_flag = auto_build_7_8 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_7_8 }
-		}
+	}
 	option = {
 		name = "auto_build_7_9"
 		trigger = {
@@ -1778,16 +1780,16 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_9.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_9 }
-		}
+	}
 	option = {
 		name = "auto_build_7_9_off"
 		trigger = {	has_country_flag = auto_build_7_9 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_7_9 }
-		}
+	}
 	option = {
 		name = "auto_build_7_10"
 		trigger = {
@@ -1799,16 +1801,16 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_10.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_10 }
-		}
+	}
 	option = {
 		name = "auto_build_7_10_off"
 		trigger = {	has_country_flag = auto_build_7_10 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_7_10 }
-		}
+	}
 	option = {
 		name = "auto_build_7_11"
 		trigger = {
@@ -1820,16 +1822,16 @@ country_event = {
 			##	has_country_flag = auto_build_7_5
 				has_country_flag = auto_build_7_6
 				has_country_flag = auto_build_7_7
-				}
 			}
+		}
 		custom_tooltip = auto_build_7_11.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_7_11 }
-		}
+	}
 	option = {
 		name = "auto_build_7_11_off"
 		trigger = {	has_country_flag = auto_build_7_11 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_7_11 }
-		}
+	}
 	option = {
 		name = "auto_build_7_off"
 		trigger = {
@@ -1846,8 +1848,8 @@ country_event = {
 				has_country_flag = auto_build_7_9
 				has_country_flag = auto_build_7_10
 				has_country_flag = auto_build_7_11
-				}
 			}
+		}
 		hidden_effect = {
 			remove_country_flag = auto_build_7_1
 			remove_country_flag = auto_build_7_2
@@ -1861,33 +1863,33 @@ country_event = {
 			remove_country_flag = auto_build_7_10
 			remove_country_flag = auto_build_7_11
 			country_event = { id = autobuild.3 }
-					}
-				}
+		}
+	}
 	option = {
 		name = "auto_build_8"
 		trigger = {
 			has_technology = "tech_frontier_health"
 			not = { has_country_flag = auto_build_8	}
-				}
+		}
 		custom_tooltip = auto_build_8.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_8 }
-		}
+	}
 	option = {
 		name = "auto_build_8_off"
 		trigger = {	has_country_flag = auto_build_8 }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_8 }
-		}
+	}
 	option = {
 		name = "auto_build_cost"
 		trigger = {	not = { has_country_flag = auto_build_cost } }
 		custom_tooltip = auto_build_cost.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_cost }
-		}
+	}
 	option = {
 		name = "auto_build_cost_off"
 		trigger = {	has_country_flag = auto_build_cost }
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_cost }
-		}
+	}
 	option = {
 		name = "auto_build_remove"
 		trigger = {
@@ -1913,16 +1915,16 @@ country_event = {
 				has_country_flag = auto_build_7_11
 				has_country_flag = auto_build_8
 				has_country_flag = auto_build_cost
-				}
 			}
+		}
 		custom_tooltip = auto_build_remove.tooltip
 		hidden_effect = { country_event = { id = autobuild.99 } country_event = { id = autobuild.3 } }
-		}
+	}
 	option = {
 		name = "auto_build_exit"
 		hidden_effect = { country_event = { id = autobuild.1 } }
-		}
 	}
+}
 	
 ## remove planetary modifiers and flag
 country_event = {
@@ -1942,15 +1944,15 @@ country_event = {
 					has_modifier = "planet_labs_auto_build"
 					has_modifier = "planet_forge_auto_build"
 					has_modifier = "planet_power_plant_auto_build"
-					}
 				}
+			}
 			remove_modifier = "free_from_auto_update"
 			remove_modifier = "free_from_auto_build"
 			remove_modifier = "free_from_auto_enslave"
 			remove_modifier = "planet_labs_auto_build"
 			remove_modifier = "planet_forge_auto_build"
 			remove_modifier = "planet_power_plant_auto_build"
-			}
+		}
 		remove_country_flag = auto_build_1
 		remove_country_flag = auto_build_2
 		remove_country_flag = auto_build_3
@@ -1973,5 +1975,5 @@ country_event = {
 		remove_country_flag = auto_build_8
 		remove_country_flag = auto_build_cost
 		remove_global_flag  = hide_autobuild_planetary_edicts
-		}
 	}
+}

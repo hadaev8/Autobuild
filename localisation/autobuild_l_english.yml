@@ -63,12 +63,12 @@
  auto_build_7_10.tooltip:0 "Auto-build new buildings in empty tiles and tiles with energy will be considered empty."
  auto_build_7_11:0 "§GTurn On§! "Ignore Science""
  auto_build_7_11.tooltip:0 "Auto-build new buildings in empty tiles and tiles with any type of science will be considered empty."
+ auto_build_7_off:0 "§RTurn Off§! "Auto-build new buildings on tiles empty of resources""
  auto_build_7_8_off:0 "§RTurn Off§! "Ignore Minerals""
  auto_build_7_9_off:0 "§RTurn Off§! "Ignore Food""
  auto_build_7_10_off:0 "§RTurn Off§! "Ignore Energy""
  auto_build_7_11_off:0 "§RTurn Off§! "Ignore Science""
- auto_build_7_off:0 "§RTurn Off§! "Auto-build new buildings on tiles empty of resources""
- 
+  
  auto_build_8:0 "§GTurn On§! "Automatic Construction of Clinics""
  auto_build_8.tooltip:0 "Auto-build clinics on every planet where are 4 or more pops, for whom the planet is not 100% adaptive,, first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food (no more than 1 mineral), and then on any free tile (free of another building).
  auto_build_8_off:0 "§RTurn Off§! "Automatic Construction of Clinics""

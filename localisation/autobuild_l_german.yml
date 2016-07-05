@@ -1,70 +1,87 @@
 ﻿l_german:
- edict_auto_build:0 "Auto-Improve Buildings"
- edict_auto_build_desc:0 "This edict will make all buildings automatically improve, except for basic laboratories and those that cost influence."
- #Description of mod (link):
- edict_auto_build_2:0 "Auto-Improve Buildings That Cost Influence"
- edict_auto_build_2_desc:0 "This edict will make buildings that cost influence automatically improve."
+ autobuild_button:0 "Auto-build menu"
+ autobuild.3.tooltip:0 "§HOpen§! Auto-build menu"
+ autobuild.3.name:0 "Auto-build menu"
+ autobuild.3.desc:0 "Here you can configure Auto-build"
  
- edict_auto_build_3:0 "Automatic Construction of New Buildings"
- edict_auto_build_3_desc:0 "This edict will automatically make tiles with energy but without slaves build power plants, tiles with minerals build mines and tiles with scientific resources but without slaves build basic laboratories."
+ auto_build_0:0 "§HTurn On§! all of the mod's basic settings"
+ auto_build_0.tooltip:0 "Turn on all main settings"
  
- edict_auto_build_4:0 "Automatic Slavery"
- edict_auto_build_4_desc:0 "This edict will automatically enslave the population in tiles with mines, farms, planetary capitals, etc. In general, this edict auto-enslaves pops in all the tiles where slaves will profit. Where slaves are not necessary, people will be free."
+ auto_build_remove:0 "§HRemove§! all of the mod's settings"
+ auto_build_remove.tooltip:0 "Remove all of the mod flags and planet modifiers"
+ auto_build_exit:0 "§LExit the menu§!"
  
- edict_auto_build_4_1:0 "Xenos must be slaves!"
- edict_auto_build_4_1_desc:0 "This edict will automatically make all your xeno populations (races that are not your starting race) slaves."
+ auto_build_1:0 "§GTurn On§! "Auto-Improve Buildings""
+ auto_build_1.tooltip:0 "All buildings automatically improve, except for basic laboratories and those that cost influence."
+ auto_build_1_off:0 "§RTurn Off§! "Auto-Improve Buildings""
  
- edict_auto_build_5:0 "Auto-Improve Laboratories on Good Planets"
- edict_auto_build_5_desc:0 "This edict will automatically improve all the basic laboratories on planets that have a bonus modifier to a specific field of science (for example, Unstable Tectonics) to a laboratory that generates additional research of that type."
+ auto_build_2:0 "§GTurn On§! "Auto-Improve Buildings That Cost Influence""
+ auto_build_2.tooltip:0 "Buildings that cost influence automatically improve."
+ auto_build_2_off:0 "§RTurn Off§! "Auto-Improve Buildings That Cost Influence""
  
- edict_auto_build_6:0 "Semi-Random Improving Laboratories"
- edict_auto_build_6_desc:0 "This edict will make all laboratories automatically improve depending on the resource type in the tiles (useful if your population has a trait for a certain kind of science). If the resource is not present, the type of laboratory improvement will be selected at random. If you do not have the Auto-Improve Laboratories on Good Planets edict active, the laboratory will improve randomly even on planets with useful science modifiers."
+ auto_build_3:0 "§GTurn On§! "Automatic Construction of New Buildings""
+ auto_build_3.tooltip:0 "Tiles with energy but without slaves build power plants, tiles with minerals build mines and tiles with scientific resources but without slaves build basic laboratories."
+ auto_build_3_off:0 "§RTurn Off§! "Automatic Construction of New Buildings""
  
- edict_auto_build_cost:0 "Keep Resources in Reserve"
- edict_auto_build_cost_desc:0 "This edict will make automatic improvements and buildings occur only if you have 1000 minerals and 250 influence (if required)."
+ auto_build_4:0 "§GTurn On§! "Automatic Slavery""
+ auto_build_4.tooltip:0 "Enslave the population in tiles with mines, farms, planetary capitals, etc. In general, this edict auto-enslaves pops in all the tiles where slaves will profit. Where slaves are not necessary, people will be free."
+ auto_build_4_off:0 "§RTurn Off§! "Automatic Slavery""
  
+ auto_build_4_1:0 "§GTurn On§! "Xenos must be slaves!""
+ auto_build_4_1.tooltip:0 "All your xeno populations (races that are not your starting race) will be slaves."
+ auto_build_4_1_off:0 "§RTurn Off§! "Xenos must be slaves!""
+ 
+ auto_build_4_2:0 "§GTurn On§! "Give Mines to the Slaves!""
+ auto_build_4_2.tooltip:0 "Auto-build mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?
+ auto_build_4_2_off:0 "§RTurn Off§! "Give Mines to the Slaves!""
+ 
+ auto_build_5:0 "§GTurn On§! "Auto-Improve Laboratories on Good Planets""
+ auto_build_5.tooltip:0 "Improve all the basic laboratories on planets that have a bonus modifier to a specific field of science (for example, Unstable Tectonics) to a laboratory that generates additional research of that type."
+ auto_build_5_off:0 "§RTurn Off§! "Auto-Improve Laboratories on Good Planets""
+ 
+ auto_build_6:0 "§GTurn On§! "Semi-Random Improving Laboratories""
+ auto_build_6.tooltip:0 "All laboratories automatically improve depending on the resource type in the tiles (useful if your population has a trait for a certain kind of science). If the resource is not present, the type of laboratory improvement will be selected at random. If you do not have the Auto-Improve Laboratories on Good Planets edict active, the laboratory will improve randomly even on planets with useful science modifiers."
+ auto_build_6_off:0 "§RTurn Off§! "Semi-Random Improving Laboratories""
+ 
+ auto_build_7_1:0 "§GTurn On§! "Energy Priority""
+ auto_build_7_1.tooltip:0 "Auto-build power plants on tiles empty of resources."
+ auto_build_7_2:0 "§GTurn On§! "Industrial Priority""
+ auto_build_7_2.tooltip:0 "Auto-build the mines on tiles empty of resources."
+ auto_build_7_3:0 "§GTurn On§! "Research Priority""
+ auto_build_7_3.tooltip:0 "Auto-build labs on tiles empty of resources."
+ auto_build_7_4:0 "§GTurn On§! "Moderate Research Priority""
+ auto_build_7_4.tooltip:0 "Auto-build 1 power plant for every 4 labs on tiles empty of resources."
+ auto_build_7_6:0 "§GTurn On§! "Balanced Priority""
+ auto_build_7_6.tooltip:0 "Auto-build 1 mine for every 1 power plant for 1 lab on tiles empty of resources. In other words, will build at a 1:1:1 ratio."
+ auto_build_7_7:0 "§GTurn On§! "Energy/Research Priority""
+ auto_build_7_7.tooltip:0 "Auto-build 1 power plant for every 1 lab on tiles empty of resources."
+ auto_build_7_8:0 "§GTurn On§! "Ignore Minerals""
+ auto_build_7_8.tooltip:0 "Auto-build new buildings in empty tiles and tiles with minerals will be considered empty."
+ auto_build_7_9:0 "§GTurn On§! "Ignore Food""
+ auto_build_7_9.tooltip:0 "Auto-build new buildings in empty tiles and tiles with food will be considered empty."
+ auto_build_7_10:0 "§GTurn On§! "Ignore Energy""
+ auto_build_7_10.tooltip:0 "Auto-build new buildings in empty tiles and tiles with energy will be considered empty."
+ auto_build_7_11:0 "§GTurn On§! "Ignore Science""
+ auto_build_7_11.tooltip:0 "Auto-build new buildings in empty tiles and tiles with any type of science will be considered empty."
+ auto_build_7_off:0 "§RTurn Off§! "Auto-build new buildings on tiles empty of resources""
+ auto_build_7_8_off:0 "§RTurn Off§! "Ignore Minerals""
+ auto_build_7_9_off:0 "§RTurn Off§! "Ignore Food""
+ auto_build_7_10_off:0 "§RTurn Off§! "Ignore Energy""
+ auto_build_7_11_off:0 "§RTurn Off§! "Ignore Science""
+  
+ auto_build_8:0 "§GTurn On§! "Automatic Construction of Clinics""
+ auto_build_8.tooltip:0 "Auto-build clinics on every planet where are 4 or more pops, for whom the planet is not 100% adaptive,, first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food (no more than 1 mineral), and then on any free tile (free of another building).
+ auto_build_8_off:0 "§RTurn Off§! "Automatic Construction of Clinics""
+ 
+ auto_build_cost:0 "§GTurn On§! "Keep Resources in Reserve""
+ auto_build_cost.tooltip:0 "Automatic improvements and buildings occur only if you have 1000 minerals and 250 influence (if required)."
+ auto_build_cost_off:0 "§RTurn Off§! "Keep Resources in Reserve""
+ 
+ ## edicts
  edict_no_sector:0 "There is No Need for Sectors"
  edict_no_sector_desc:0 "This edict will remove the need for sectors."
  
- edict_auto_build_7_1:0 "Energy Priority"
- edict_auto_build_7_1_desc:0 "This edict will only auto-build power plants on tiles empty of resources."
- 
- edict_auto_build_7_2:0 "Industrial Priority"
- edict_auto_build_7_2_desc:0 "Will only build the mines on tiles empty of resources."
- 
- edict_auto_build_7_3:0 "Research Priority"
- edict_auto_build_7_3_desc:0 "This edict will only auto-build labs on tiles empty of resources."
- 
- edict_auto_build_7_4:0 "Moderate Research Priority"
- edict_auto_build_7_4_desc:0 "This edict will auto-build 1 power plant for every 4 labs on tiles empty of resources."
- 
- #edict_auto_build_7_5:0 ""
- #edict_auto_build_7_5_desc:0 ""
- 
- edict_auto_build_7_6:0 "Balanced Priority"
- edict_auto_build_7_6_desc:0 "This edict will auto-build 1 mine for every 1 power plant for 1 lab on tiles empty of resources. In other words, will build at a 1:1:1 ratio."
- 
- edict_auto_build_7_7:0 "Energy/Research Priority"
- edict_auto_build_7_7_desc:0 "This edict will auto-build 1 power plant for every 1 lab on tiles empty of resources."
- 
- edict_auto_build_8:0 "Automatic Construction of Clinics"
- edict_auto_build_8_desc:0 "This edict will auto-build clinics on every planet where are 4 or more pops, for whom the planet is not 100% adaptive,, first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food (no more than 1 mineral), and then on any free tile (free of another building).
- 
- edict_auto_build_4_2:0 "Give Mines to the Slaves!"
- edict_auto_build_4_2_desc:0 "This edict will auto-build mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?
- 
- edict_auto_build_7_8:0 "Ignore Minerals"
- edict_auto_build_7_8_desc:0 "This edict will auto-build new buildings in empty tiles and tiles with minerals will be considered empty."
- 
- edict_auto_build_7_9:0 "Ignore Food"
- edict_auto_build_7_9_desc:0 "This edict will auto-build new buildings in empty tiles and tiles with food will be considered empty."
- 
- edict_auto_build_7_10:0 "Ignore Energy"
- edict_auto_build_7_10_desc:0 "This edict will auto-build new buildings in empty tiles and tiles with energy will be considered empty."
- 
- edict_auto_build_7_11:0 "Ignore Science"
- edict_auto_build_7_11_desc:0 "This edict will auto-build new buildings in empty tiles and tiles with any type of science will be considered empty."
- 
+ ## planet edicts
  edict_clear_autobuild_planetary_edicts:0 "Remove All Automation"
  edict_clear_autobuild_planetary_edicts_desc:0 "On this planet all of the auto-build conditions will be removed."
  
@@ -80,7 +97,16 @@
  edict_free_auto_enslave:0 "Ignore Auto-Enslave"
  edict_free_auto_enslave_desc:0 "On this planet population will not be auto-enslaved."
  
- ## modifiers:
+ edict_planet_forge_auto_build:0 "Declare Industrial Center"
+ edict_planet_forge_auto_build_desc:0 "This planet will be rebuilt into an industrial center. One farm will be built if there are none and any existing ones will remain. A slave processing facility will be built if the planet has 4 or more slaves, and a mineral processing plant and mines will be built in the remaining tiles. If there are any power plants or laboratories, they will be replaced."
+ 
+ edict_planet_power_plant_auto_build:0 "Declare Energy Center"
+ edict_planet_power_plant_auto_build_desc:0 "This planet will be rebuilt into an energy center.  One farm will be built if there are none and any existing ones will remain. A power hub and power plants will be built in the remaining tiles. If there are any mines or laboratories, they will be replaced."
+ 
+ edict_planet_labs_auto_build:0 "Declare Research Center"
+ edict_planet_labs_auto_build_desc:0 "This planet will be rebuilt into a Research center.  One farm will be built if there are none and any existing ones will remain. Labortories will be built in the remaining tiles. If there are any mines or powerplants, they will be replaced."
+ 
+ ## modifiers
  free_from_auto_update:0 "Ignore Auto-Improve"
  free_from_auto_update_desc:0 "On this planet buildings will not improve automatically."
  
@@ -89,15 +115,6 @@
  
  free_from_auto_enslave:0 "Ignore Auto-Enslave"
  free_from_auto_enslave_desc:0 "On this planet population will not be auto-enslaved."
- 
- edict_planet_forge_auto_build:0 "Declare this planet an Industrial Center"
- edict_planet_forge_auto_build_desc:0 "This planet will be rebuilt into an industrial center. One farm will be built if there are none and any existing ones will remain. A slave processing facility will be built if the planet has 4 or more slaves, and a mineral processing plant and mines will be built in the remaining tiles. If there are any power plants or laboratories, they will be replaced."
- 
- edict_planet_power_plant_auto_build:0 "Declare this planet an Energy Center"
- edict_planet_power_plant_auto_build_desc:0 "This planet will be rebuilt into an energy center.  One farm will be built if there are none and any existing ones will remain. A power hub and power plants will be built in the remaining tiles. If there are any mines or laboratories, they will be replaced."
- 
- edict_planet_labs_auto_build:0 "Declare this planet a Research Center"
- edict_planet_labs_auto_build_desc:0 "This planet will be rebuilt into a Research center.  One farm will be built if there are none and any existing ones will remain. Labortories will be built in the remaining tiles. If there are any mines or powerplants, they will be replaced."
  
  planet_forge_auto_build:0 "Industrial Center"
  planet_forge_auto_build_desc:0 "This planet will be rebuilt into an industrial center. One farm will be built if there are none and any existing ones will remain. A slave processing facility will be built if the planet has 4 or more slaves, and a mineral processing plant and mines will be built in the remaining tiles. If there are any power plants or laboratories, they will be replaced."

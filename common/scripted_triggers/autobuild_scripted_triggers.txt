@@ -85,24 +85,24 @@ free_from_autobuild = {
 
 tile_has_energy_1_and_more = {
 	has_resource = {
-			type = energy
-			amount > 0
-				}
+		type = energy
+		amount > 0
 			}
+		}
 
 tile_has_mins_1_and_more = {
 	has_resource = {
-			type = minerals
-			amount > 0
-				}
+		type = minerals
+		amount > 0
 			}
+		}
 
 tile_has_mins_2_and_more = {
 	has_resource = {
-			type = minerals
-			amount > 1
-				}
+		type = minerals
+		amount > 1
 			}
+		}
 
 tile_has_food_1_and_more = {
 	has_resource = {
@@ -147,20 +147,29 @@ tile_has_any_res = {
 	or = {
 		and = {
 			exists = owner
-			owner = { not = { has_country_flag = auto_build_7_10 } }
-			has_resource = {
-				type = energy
-				amount > 0
-					}
-				}
-		and = {
-			exists = owner
 			owner = { not = { has_country_flag = auto_build_7_8 } }
 			has_resource = {
 				type = minerals
 				amount > 0
 					}
 				}
+		and = {
+			exists = owner
+			owner = { not = { has_country_flag = auto_build_7_9 } }		
+			has_resource = {
+				type = food
+				amount > 0
+						}
+					}
+		and = {
+			exists = owner
+			owner = { not = { has_country_flag = auto_build_7_10 } }
+			has_resource = {
+				type = energy
+				amount > 0
+					}
+				}
+		
 		and = {
 			exists = owner
 			owner = { not = { has_country_flag = auto_build_7_11 } }
@@ -179,16 +188,8 @@ tile_has_any_res = {
 						}
 					}
 				}
-		and = {
-			exists = owner
-			owner = { not = { has_country_flag = auto_build_7_9 } }		
-			has_resource = {
-				type = food
-				amount > 0
-						}
-					}
-				}
 			}
+		}
 
 tile_has_any_science = {
 	or = {
