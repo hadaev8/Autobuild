@@ -1612,10 +1612,12 @@ country_event = {
 	option = {
 		name = "auto_build_4"
 		trigger = {
-			nor = {
-				has_policy_flag = slavery_not_allowed
-				not = { has_policy_flag = ai_servitude }
-				has_country_flag = auto_build_4
+			or = {
+				nor = {
+					has_policy_flag = slavery_not_allowed
+					has_country_flag = auto_build_4
+				}
+				has_policy_flag = ai_servitude
 			}
 		}
 		custom_tooltip = auto_build_4.tooltip
