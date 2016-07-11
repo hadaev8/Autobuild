@@ -118,6 +118,13 @@ tile_has_food_2_and_more = {
 	}
 }
 
+tile_has_food_3_and_more = {
+	has_resource = {
+		type = food
+		amount > 2
+	}
+}
+
 tile_has_any_res_but_not_food = {
 	or = {
 		has_resource = {

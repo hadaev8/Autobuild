@@ -816,12 +816,12 @@ guiTypes = {
 			}
 			
 			effectbuttonType = {
-				name = "autobuild_button"
+				name = "modmenu_button"
 				quadTextureSprite = "GFX_standard_button_142_34_button"
 				position = { x = -7 y = -10}
 				buttonFont = "malgun_goth_24"
 			#	font = "malgun_goth_24"
-				buttonText = "autobuild_button"
+				buttonText = "modmenu_button"
 				
 			#	maxWidth = 540
 			#	maxHeight = 20
@@ -830,7 +830,7 @@ guiTypes = {
 				orientation = UPPER_LEFT
 			#	scale = 1.5
 				clicksound = confimation
-				effect = "autobuild_button_effect"
+				effect = "modmenu_button_effect"
 			#	custom_tooltip = autobuild.3.tooltip
 			}
 

@@ -1,0 +1,24 @@
+namespace = modmenu
+
+## menu
+country_event = {
+	id = modmenu.1
+	title = "modmenu.1.name"
+	desc = "modmenu.1.desc"
+	picture = GFX_evt_alien_city
+	is_triggered_only = yes
+	
+	option = {
+		name = "modmenu_1"
+		trigger = {
+		#	exists = autobuild.3
+		}
+		custom_tooltip = modmenu_1.tooltip
+		hidden_effect = {
+			country_event = { id = autobuild.3 }
+		}
+	}
+	option = {
+		name = "modmenu_exit"
+	}
+}
