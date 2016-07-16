@@ -55,9 +55,7 @@ country_event = {
 
     immediate = {
 
-		
-		
-		save_event_target_as = autobuild_country	
+		save_event_target_as = autobuild_country
 		## auto enslave ##
 
 		if = {
@@ -161,9 +159,21 @@ country_event = {
 				has_country_flag = auto_build_4_2
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					check_variable = {
-						which = auto_build_cost_minerals
-						value < minerals
+					or = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					or = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					or = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					or = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
 					}
 				}
 			}
@@ -232,9 +242,21 @@ country_event = {
 				}
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					check_variable = {
-						which = auto_build_cost_minerals
-						value < minerals
+					or = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					or = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					or = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					or = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
 					}
 				}
 			}
@@ -255,7 +277,10 @@ country_event = {
 							exists = pop
 							pop = {
 								is_being_purged = no
-								is_enslaved = yes
+								or = {
+									is_enslaved = yes
+									is_robot = yes
+								}
 							}
 							tile_has_any_res = no
 						}
@@ -554,9 +579,21 @@ country_event = {
 				has_country_flag = auto_build_3
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					check_variable = {
-						which = auto_build_cost_minerals
-						value < minerals
+					or = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					or = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					or = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					or = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
 					}
 				}
 			}
@@ -566,7 +603,7 @@ country_event = {
 						free_from_autobuild = no
 						free_building_tiles > 0
 						has_building = "building_colony_shelter"
-						}
+					}
 					event_target:autobuild_country = {
 						set_variable = {
 							which = autobuild_farm_planet
@@ -671,6 +708,7 @@ country_event = {
 							pop = {
 								is_being_purged = no
 								is_enslaved = no
+								is_robot = no
 							}
 							tile_has_energy_1_and_more = yes
 						}
@@ -692,6 +730,7 @@ country_event = {
 							pop = {
 								is_being_purged = no
 								is_enslaved = no
+								is_robot = no
 							}
 							tile_has_any_science = yes
 						}
@@ -812,6 +851,7 @@ country_event = {
 									pop = {
 										is_being_purged = no
 										is_enslaved = no
+										is_robot = no
 									}
 									tile_has_energy_1_and_more = yes
 								}
@@ -833,6 +873,7 @@ country_event = {
 									pop = {
 										is_being_purged = no
 										is_enslaved = no
+										is_robot = no
 									}
 									tile_has_any_science = yes
 								}
@@ -851,9 +892,21 @@ country_event = {
 				has_country_flag = auto_build_5
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					check_variable = {
-						which = auto_build_cost_minerals
-						value < minerals
+					or = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					or = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					or = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					or = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
 					}
 				}
 			}
@@ -869,10 +922,10 @@ country_event = {
 					or = {
 						has_planet_modifier = "pm_titanic_life"
 						has_planet_modifier = "pm_atmospheric_hallucinogen"
-					##	has_planet_modifier = "pm_atmospheric_hallucinogen_good"
-					##	has_planet_modifier = "pm_subterranean_civilization"
+						has_modifier = "atmospheric_hallucinogen_good"
+						has_modifier = "subterranean_civilization"
 						has_planet_modifier = "pm_dangerous_wildlife"
-					##	has_planet_modifier = "pm_society_animal_life"
+						has_modifier = "society_animal_life"
 					}
 				}
 				every_tile = {
@@ -938,9 +991,21 @@ country_event = {
 				has_country_flag = auto_build_6
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					check_variable = {
-						which = auto_build_cost_minerals
-						value < minerals
+					or = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					or = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					or = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					or = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
 					}
 				}
 			}
@@ -1008,9 +1073,21 @@ country_event = {
 				has_country_flag = auto_build_8
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					check_variable = {
-						which = auto_build_cost_minerals
-						value < minerals
+					or = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					or = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					or = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					or = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
 					}
 				}
 			}
@@ -1259,9 +1336,21 @@ country_event = {
 			limit = {
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					check_variable = {
-						which = auto_build_cost_minerals
-						value < minerals
+					or = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					or = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					or = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					or = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
 					}
 				}
 			}
@@ -1708,6 +1797,10 @@ country_event = {
 									has_any_science_lab = yes
 									has_any_mines = yes
 								}
+								nor = {
+									has_building = "building_mineral_processing_plant_1"
+									has_building = "building_mineral_processing_plant_2"
+								}
 							}
 							if = {
 								limit = {
@@ -1780,6 +1873,10 @@ country_event = {
 												has_any_power_plant = yes
 												has_any_science_lab = yes
 												has_any_mines = yes
+											}
+											nor = {
+												has_building = "building_mineral_processing_plant_1"
+												has_building = "building_mineral_processing_plant_2"
 											}
 											exists = owner
 											owner = { has_technology = "tech_neural_implants" }
@@ -1870,9 +1967,10 @@ country_event = {
 											pop = {
 												is_being_purged = no
 												is_enslaved = no
-												}
+												is_robot = no
 											}
-									add_building_construction  = "building_power_plant_1"
+										}
+										add_building_construction  = "building_power_plant_1"
 									}
 								} 
 							} 
@@ -1886,13 +1984,14 @@ country_event = {
 										pop = {
 											is_being_purged = no
 											is_enslaved = no
-											}
+											is_robot = no
+										}
 										or = {
 											has_building = no
 											has_any_mines =  yes
 											has_any_science_lab = yes
-											}
 										}
+									}
 									add_building_construction  = "building_basic_power_plant"
 								}
 							}
@@ -1920,6 +2019,7 @@ country_event = {
 							pop = {
 								is_being_purged = no
 								is_enslaved = no
+								is_robot = no
 							}
 							or = {
 								has_building = no
@@ -1940,9 +2040,21 @@ country_event = {
 				has_country_flag = auto_build_1
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					check_variable = {
-						which = auto_build_cost_minerals
-						value < minerals
+					or = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					or = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					or = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					or = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
 					}
 				}
 			}
@@ -2056,13 +2168,37 @@ country_event = {
 				or = {
 					not = { has_country_flag = auto_build_cost }
 					and = {
-						check_variable = {
-							which = auto_build_cost_minerals
-							value < minerals
+						or = {
+							or = {
+								has_country_flag = auto_build_cost_5000
+								minerals > 5000
+							}
+							or = {
+								has_country_flag = auto_build_cost_2500
+								minerals > 2500
+							}
+							or = {
+								has_country_flag = auto_build_cost_1000
+								minerals > 1000
+							}
+							or = {
+								has_country_flag = auto_build_cost_500
+								minerals > 500
+							}
 						}
-						check_variable = {
-							which = auto_build_cost_influence
-							value < influence
+						or = {
+							or = {
+								has_country_flag = auto_build_cost_inf_500
+								influence > 500
+							}
+							or = {
+								has_country_flag = auto_build_cost_inf_250
+								influence > 250
+							}
+							or = {
+								has_country_flag = auto_build_cost_inf_100
+								influence > 100
+							}
 						}
 					}
 				}
@@ -2104,37 +2240,7 @@ country_event = {
 
 ## to do: local autobuild for planets for on_actions
 		
-country_event = {
-	id = autobuild.55
-	title = "autobuild.3.name"
-	desc = "autobuild.3.desc"
-	picture = GFX_evt_alien_city
-	is_triggered_only = yes	
-	hide_window = yes	
-	immediate = {
-		set_variable = {
-			which = auto_build_cost
-			value = 500
-		}
-		if = {
-			limit = {
-				check_variable = {
-					which = auto_build_cost
-					value > minerals
-				}
-			}
-			add_minerals = -4
-			add_energy = 20
-		}
-	#	if = {
-	#		limit = {
-	#			minerals > "auto_build_cost"
-	#		}
-	#		add_minerals = -4
-	#		add_energy = -250
-	#	}
-		}
-	}
+
 ## menu
 country_event = {
 	id = autobuild.3
@@ -2201,7 +2307,7 @@ country_event = {
 		name = "auto_build_3"
 		trigger = {	not = { has_country_flag = auto_build_3 } }
 		custom_tooltip = auto_build_3.tooltip
-		hidden_effect = { country_event = { id = autobuild.3 } country_event = { id = autobuild.11 } set_country_flag = auto_build_3  }
+		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_3  }
 	}
 	option = {
 		name = "auto_build_3_off"
@@ -2514,7 +2620,6 @@ country_event = {
 		hidden_effect = {
 			country_event = { id = autobuild.3 }
 			set_country_flag = auto_build_cost
-			country_event = { id = autobuild.10 }
 		}
 	}
 	option = {
@@ -2526,16 +2631,16 @@ country_event = {
 		name = "auto_build_cost_menu"
 		trigger = { has_country_flag = auto_build_cost }
 		custom_tooltip = auto_build_cost_menu.tooltip
-		hidden_effect = { country_event = { id = autobuild.4 } }
+		hidden_effect = { country_event = { id = autobuild.4 } country_event = { id = autobuild.10 } }
 	}
 	option = {
 		name = "auto_build_farm_menu"
-		custom_tooltip = auto_build_cost_farm.tooltip
+		custom_tooltip = auto_build_farm_menu.tooltip
 		hidden_effect = { country_event = { id = autobuild.5 } }
 	}
 	
 	option = {
-		name = "auto_build_remove"
+		name = "modmenu_remove"
 		trigger = {
 			or = {
 				has_country_flag = auto_build_1
@@ -2567,11 +2672,11 @@ country_event = {
 				has_country_flag = auto_build_farm_5
 			}
 		}
-		custom_tooltip = auto_build_remove.tooltip
+		custom_tooltip = modmenu_remove.tooltip
 		hidden_effect = { country_event = { id = autobuild.99 } country_event = { id = autobuild.3 } }
 	}
 	option = {
-		name = "auto_build_exit"
+		name = "modmenu_exit"
 		hidden_effect = { country_event = { id = autobuild.1 } }
 	}
 }
@@ -2744,17 +2849,20 @@ country_event = {
 	trigger = {
 		is_ai = no
 		has_country_flag = auto_build_cost
+		nor = {
+			has_country_flag = auto_build_cost_5000
+			has_country_flag = auto_build_cost_2500
+			has_country_flag = auto_build_cost_1000
+			has_country_flag = auto_build_cost_500
+			has_country_flag = auto_build_cost_inf_500
+			has_country_flag = auto_build_cost_inf_250
+			has_country_flag = auto_build_cost_inf_100
+		}
 	}
 	
 	immediate = {
-		set_variable = {
-			which = auto_build_cost_influence
-			value = 250
-		}
-		set_variable = {
-			which = auto_build_cost_minerals
-			value = 1000
-		}
+		set_country_flag = auto_build_cost_inf_250
+		set_country_flag = auto_build_cost_1000
 	}
 }
 
@@ -2825,6 +2933,13 @@ country_event = {
 		remove_country_flag = auto_build_7_10
 		remove_country_flag = auto_build_7_11
 		remove_country_flag = auto_build_8
+		remove_country_flag = auto_build_cost_5000
+		remove_country_flag = auto_build_cost_2500
+		remove_country_flag = auto_build_cost_1000
+		remove_country_flag = auto_build_cost_500
+		remove_country_flag = auto_build_cost_inf_500
+		remove_country_flag = auto_build_cost_inf_250
+		remove_country_flag = auto_build_cost_inf_100
 		remove_global_flag  = hide_autobuild_planetary_edicts
 	}
 }

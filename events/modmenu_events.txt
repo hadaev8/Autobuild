@@ -19,6 +19,27 @@ country_event = {
 		}
 	}
 	option = {
+		name = "modmenu_2"
+		custom_tooltip = modmenu_2.tooltip
+		hidden_effect = {
+			country_event = { id = autobuild.3 }
+		}
+	}
+	option = {
+		name = "modmenu_3"
+		custom_tooltip = modmenu_3.tooltip
+		hidden_effect = {
+			country_event = { id = population_improved_menu.1 }
+		}
+	}
+	option = {
+		name = "modmenu_4"
+		custom_tooltip = modmenu_4.tooltip
+		hidden_effect = {
+		#	country_event = { id = population_improved_menu.1 }
+		}
+	}
+	option = {
 		name = "modmenu_exit"
 	}
 }

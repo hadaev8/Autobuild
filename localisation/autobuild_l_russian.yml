@@ -1,6 +1,4 @@
 ﻿l_russian:
- autobuild_button:0 "Автопостройка"
- autobuild.3.tooltip:0 "§HОткрыть§! меню автопостройки"
  autobuild.3.name:0 "Меню автопостройки"
  autobuild.3.desc:0 "Здесь вы можете настроить автопостройку"
  autobuild.4.desc:0 "Здесь вы можете настроить запас ресурсов"

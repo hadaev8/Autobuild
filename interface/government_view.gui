@@ -820,18 +820,11 @@ guiTypes = {
 				quadTextureSprite = "GFX_standard_button_142_34_button"
 				position = { x = -7 y = -10}
 				buttonFont = "malgun_goth_24"
-			#	font = "malgun_goth_24"
 				buttonText = "modmenu_button"
-				
-			#	maxWidth = 540
-			#	maxHeight = 20
-			#	fixedSize = yes
-			#	format = center
 				orientation = UPPER_LEFT
-			#	scale = 1.5
 				clicksound = confimation
 				effect = "modmenu_button_effect"
-			#	custom_tooltip = autobuild.3.tooltip
+		#		custom_tooltip = modmenu.tooltip
 			}
 
 			containerWindowType = {

@@ -1,0 +1,21 @@
+country_edict = {
+	name = "modmenu"
+	modifier = { }
+	
+	influence_cost = 0
+	
+	potential = {
+		not = { has_country_flag = timed_modmenu }
+	}
+	allow = {
+	#	not = { has_country_flag = timed_modmenu }
+	}
+	
+	effect = {
+		set_timed_country_flag = { flag = timed_modmenu days = 3 }
+		country_event = { id = modmenu.1 }
+	}
+	ai_weight = {
+		weight = 0
+	}
+}

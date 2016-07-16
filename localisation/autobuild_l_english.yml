@@ -1,16 +1,10 @@
 ﻿l_english:
- autobuild_button:0 "Auto-build menu"
- autobuild.3.tooltip:0 "§HOpen§! Auto-build menu"
  autobuild.3.name:0 "Auto-build menu"
  autobuild.3.desc:0 "Here you can configure Auto-build"
  
  auto_build_0:0 "§HTurn On§! all of the mod's basic settings"
  auto_build_0.tooltip:0 "Turn on all main settings"
- 
- auto_build_remove:0 "§HRemove§! all of the mod's settings"
- auto_build_remove.tooltip:0 "Remove all of the mod flags and planet modifiers"
- auto_build_exit:0 "§LExit the menu§!"
- 
+  
  auto_build_1:0 "§GTurn On§! "Auto-Improve Buildings""
  auto_build_1.tooltip:0 "All buildings automatically improve, except for basic laboratories and those that cost influence."
  auto_build_1_off:0 "§RTurn Off§! "Auto-Improve Buildings""
@@ -32,7 +26,7 @@
  auto_build_4_1_off:0 "§RTurn Off§! "Xenos must be slaves!""
  
  auto_build_4_2:0 "§GTurn On§! "Give Mines to the Slaves!""
- auto_build_4_2.tooltip:0 "Auto-build mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?
+ auto_build_4_2.tooltip:0 "Auto-build mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?"
  auto_build_4_2_off:0 "§RTurn Off§! "Give Mines to the Slaves!""
  
  auto_build_5:0 "§GTurn On§! "Auto-Improve Laboratories on Good Planets""
@@ -70,7 +64,7 @@
  auto_build_7_11_off:0 "§RTurn Off§! "Ignore Science""
   
  auto_build_8:0 "§GTurn On§! "Automatic Construction of Clinics""
- auto_build_8.tooltip:0 "Auto-build clinics on every planet where are 4 or more pops, for whom the planet is not 100% adaptive,, first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food (no more than 1 mineral), and then on any free tile (free of another building).
+ auto_build_8.tooltip:0 "Auto-build clinics on every planet where are 4 or more pops, for whom the planet is not 100% adaptive, first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food (no more than 1 mineral), and then on any free tile (free of another building)."
  auto_build_8_off:0 "§RTurn Off§! "Automatic Construction of Clinics""
  
  auto_build_cost:0 "§GTurn On§! "Keep Resources in Reserve""
@@ -144,4 +138,4 @@
  planet_power_plant_auto_build_desc:0 "This planet will be rebuilt into an energy center.  One farm will be built if there are none and any existing ones will remain. A power hub and power plants will be built in the remaining tiles. If there are any mines or laboratories, they will be replaced."
  
  planet_labs_auto_build:0 "Research Center"
- planet_labs_auto_build_desc:0 "This planet will be rebuilt into an industrial center. One farm will be built if there are none and any existing ones will remain. A slave processing facility will be built if the planet has 4 or more slaves, and a mineral processing plant and mines will be built in the remaining tiles. If there are any power plants or laboratories, they will be replaced."
+ planet_labs_auto_build_desc:0 "This planet will be rebuilt into an research center. Every tile with pop gain lab. If there are any power plants or mines, they will be replaced."
