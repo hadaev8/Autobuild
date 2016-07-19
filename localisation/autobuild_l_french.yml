@@ -1,15 +1,9 @@
 ﻿l_french:
- autobuild_button:0 "Mesures auto"
- autobuild.3.tooltip:0 "§HOuvre§! le menu des aménagements auto."
  autobuild.3.name:0 "Menu des mesures auto"
  autobuild.3.desc:0 "Ici, tu peux configurer les mesures automatiques à appliquer pour l'aménagement des cases de ton empire."
  
  auto_build_0:0 "§HActiver§! toutes les mesures"
  auto_build_0.tooltip:0 "Active toutes les mesures."
- 
- auto_build_remove:0 "§HDésactiver§! toutes les mesures"
- auto_build_remove.tooltip:0 "Désactive toutes les mesures d'empire et planètaires d'aménagement automatique."
- auto_build_exit:0 "§LQuitter le menu§!"
  
  auto_build_1:0 "§GActiver§! "Amélioration automatique""
  edict_auto_build_desc:0 "Tous les bâtiments seront améliorés automatiquement, exceptés les laboratoires scientifiques basiques et ceux coûtant de l'influence."
@@ -20,7 +14,7 @@
  auto_build_2_off:0 "§RDésactiver§! "Amélioration auto coûtant de l'influence""
  
  auto_build_3:0 "§GActiver§! "Construction auto de nouveaux bâtiments""
- auto_build_3.tooltip:0 "Une case avec crédits énergétiques et sans esclave construira une centrale électrique, une case avec minéraux construira un réseau minier, une case avec ressource de recherche et sans esclave construira un laboratoire scientique basique."
+ auto_build_3.tooltip:0 "Une case avec crédits énergétiques et sans esclave construira une centrale électrique, une case avec minéraux construira un réseau minier, une case avec ressource de recherche et sans esclave construira un laboratoire scientique basique. Il sera construire des fermes (par défaut 3)."
  auto_build_3_off:0 "§RDésactiver§! "Construction auto de nouveaux bâtiments""
  
  auto_build_4:0 "§GActiver§! "Esclavage automatique""
@@ -40,7 +34,7 @@
  auto_build_5_off:0 "§RDésactiver§! "Amélioration des labos selon bonus planétaire""
  
  auto_build_6:0 "§GActiver§! "Amélioration semi-aléatoire des laboratoires""
- auto_build_6.tooltip:0 "Un laboratoire sera amélioré selon le type de ressource de la case (petit gain de productivité si votre population a un trait pour un certain domaine scientique). S'il n'y a pas de ressource, le type de laboratoire sera choisi aléatoirement (si le décret Amélioration des labos selon bonus planétaire n'est pas actif, le laboratoire sera amélioré aléatoirement même s'il existe un bonus planétaire)."
+ auto_build_6.tooltip:0 "Un laboratoire sera amélioré selon les traits de la population (intéressant si votre population a un avantage de production pur tel type de sience), le type de ressource de la case (petit gain de productivité si votre population a un trait pour un certain domaine scientique). S'il n'y a pas de ressource, le type de laboratoire sera choisi aléatoirement (si le décret Amélioration des labos selon bonus planétaire n'est pas actif, le laboratoire sera amélioré aléatoirement même s'il existe un bonus planétaire)."
  auto_build_6_off:0 "§RDésactiver§! "Amélioration semi-aléatoire des laboratoires""
  
  auto_build_7_1:0 "§GActiver§! "Priorité aux finances""
@@ -74,8 +68,29 @@
  auto_build_8_off:0 "§RDésactiver§! "Construction auto de cliniques""
  
  auto_build_cost:0 "§GActiver§! "Garder une réserve""
- auto_build_cost.tooltip:0 "Tant que le décret est actif, les constructions et améliorations auront lieu si vous avez au moins 1 000 minéraux, et 250 influence si requis."
+ auto_build_cost.tooltip:0 "Tant que le décret est actif, les constructions et améliorations auront lieu si vous avez suffisamment de ressources (par défaut 1 000 minéraux et 250 influence si requis)."
  auto_build_cost_off:0 "§RDésactiver§! "Garder une réserve""
+ 
+ auto_build_cost_menu:0 "§HConfigurer§! "Garder une réserve""
+ auto_build_cost_menu.tooltip:0 "Pour définir la quantité de ressources gardées en réserve."
+ 
+ auto_build_farm_menu:0 "§HConfigurer§! le nombre de fermes"
+ auto_build_farm_menu.tooltip:0 "Pour définir le nombre de fermes (incompatible avec la mesure Construction auto sur cases vides)."
+ 
+ auto_build_cost_5000:0 "§HGarder§! 5000 minéraux"
+ auto_build_cost_2500:0 "§HGarder§! 2500 minéraux"
+ auto_build_cost_1000:0 "§HGarder§! 1000 minéraux"
+ auto_build_cost_500:0 "§HGarder§! 500 minéraux"
+ auto_build_cost_inf_500:0 "§HGarder§! 500 influence"
+ auto_build_cost_inf_250:0 "§HGarder§! 250 influence"
+ auto_build_cost_inf_100:0 "§HGarder§! 100 influence"
+ 
+ auto_build_farm_0:0 "§HNe pas construire§! de fermes"
+ auto_build_farm_1:0 "§HConstruire§! 1 ferme"
+ auto_build_farm_2:0 "§HConstruire§! 2 fermes"
+ auto_build_farm_3:0 "§HConstruire§! 3 fermes"
+ auto_build_farm_4:0 "§HConstruire§! 4 fermes"
+ auto_build_farm_5:0 "§HConstruire§! 5 fermes"
  
  ## edicts
  edict_no_sector:0 "Plus besoin de secteur"

@@ -56,8 +56,8 @@ country_event = {
     immediate = {
 
 		save_event_target_as = autobuild_country
-		## auto enslave ##
 
+		## auto enslave ##
 		if = {
 			limit = { has_country_flag = auto_build_4 }
 			every_owned_planet = {
@@ -97,7 +97,6 @@ country_event = {
 										has_policy_flag = slavery_allowed_xenos_only
 									}
 								}
-								exists = pop
 								pop = {
 									is_being_purged = no
 									not = { is_same_species = owner.species }
@@ -113,39 +112,36 @@ country_event = {
 									or = {
 										has_policy_flag = slavery_allowed_regulated
 										has_policy_flag = slavery_allowed_all
-											}
-										}
-								exists = pop
+									}
+								}
 								pop = {
 									is_being_purged = no
 									is_enslaved = no
-									}
 								}
+							}
 							pop = { enslave_pop = yes }
 							}
 							if = {
 								limit = {
 									exists = owner
 									owner = { has_policy_flag = ai_servitude }
-									exists = pop
 									pop = {
 										is_being_purged = no
 										is_enslaved = no
 										is_species = "ROBOT_POP_SPECIES_3"
-										}
 									}
+								}
 								pop = { enslave_pop = yes }
 								}
 						else = {
 							if = {
 								limit = {
-									exists = pop
 									pop = {
 										is_being_purged = no
 										is_enslaved = yes
-										}
 									}
-							pop = { enslave_pop = no } }
+								}
+								pop = { enslave_pop = no } }
 						}
 					}
 				}
@@ -159,19 +155,19 @@ country_event = {
 				has_country_flag = auto_build_4_2
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_5000
 						minerals > 5000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_2500
 						minerals > 2500
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_1000
 						minerals > 1000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_500
 						minerals > 500
 					}
@@ -188,18 +184,18 @@ country_event = {
 						}
 					}
 					every_tile = {
-							limit = {
-								exists = pop
-								pop = {
-									is_being_purged = no
-									is_enslaved = yes
-									}
-								or = {
-									has_any_power_plant = yes
-									has_any_science_lab = yes
-									}
+						limit = {
+							exists = pop
+							pop = {
+								is_being_purged = no
+								is_enslaved = yes
 							}
-							add_building_construction = "building_mining_network_1"
+							or = {
+								has_any_power_plant = yes
+								has_any_science_lab = yes
+							}
+						}
+						add_building_construction = "building_mining_network_1"
 					}
 					else = {
 						if = {
@@ -213,11 +209,11 @@ country_event = {
 									pop = {
 										is_being_purged = no
 										is_enslaved = yes
-										}
+									}
 									or = {
 										has_any_power_plant = yes
 										has_any_science_lab = yes
-										}
+									}
 								}
 								add_building_construction = "building_basic_mine"
 							}
@@ -242,19 +238,19 @@ country_event = {
 				}
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_5000
 						minerals > 5000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_2500
 						minerals > 2500
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_1000
 						minerals > 1000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_500
 						minerals > 500
 					}
@@ -277,10 +273,7 @@ country_event = {
 							exists = pop
 							pop = {
 								is_being_purged = no
-								or = {
-									is_enslaved = yes
-									is_robot = yes
-								}
+								is_slavebot = yes
 							}
 							tile_has_any_res = no
 						}
@@ -290,6 +283,7 @@ country_event = {
 						if = {
 							limit = {
 								free_from_autobuild = no
+								free_building_tiles > 0
 								has_building = "building_colony_shelter"
 							}
 							every_tile = {
@@ -298,10 +292,10 @@ country_event = {
 									exists = pop
 									pop = {
 										is_being_purged = no
-										is_enslaved = yes
-										}
-									tile_has_any_res = no
+										is_slavebot = yes
 									}
+									tile_has_any_res = no
+								}
 								add_building_construction  = "building_basic_mine"
 							}
 						}
@@ -390,7 +384,7 @@ country_event = {
 											exists = pop
 											pop = { is_being_purged = no }
 											tile_has_any_res = no
-											}
+										}
 										add_building_construction  = "building_basic_mine"
 									}
 								}
@@ -449,14 +443,14 @@ country_event = {
 										free_from_autobuild = no
 										free_building_tiles > 0
 										has_building = "building_colony_shelter"
-										}
+									}
 									every_tile = {
 										limit = {
 											has_building = no
 											exists = pop
 											pop = { is_being_purged = no }
 											tile_has_any_res = no
-											}
+										}
 										random_list = {
 											80 = { add_building_construction = "building_basic_science_lab_1" }
 											20 = { add_building_construction = "building_basic_power_plant" }
@@ -558,7 +552,7 @@ country_event = {
 											exists = pop
 											pop = { is_being_purged = no }
 											tile_has_any_res = no
-											}
+										}
 										random_list = {
 											50 = { add_building_construction = "building_basic_science_lab_1" }
 											50 = { add_building_construction = "building_basic_power_plant" }
@@ -579,19 +573,19 @@ country_event = {
 				has_country_flag = auto_build_3
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_5000
 						minerals > 5000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_2500
 						minerals > 2500
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_1000
 						minerals > 1000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_500
 						minerals > 500
 					}
@@ -892,19 +886,19 @@ country_event = {
 				has_country_flag = auto_build_5
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_5000
 						minerals > 5000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_2500
 						minerals > 2500
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_1000
 						minerals > 1000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_500
 						minerals > 500
 					}
@@ -913,71 +907,65 @@ country_event = {
 			every_owned_planet = {
 				limit = {
 					not = { has_modifier = "free_from_auto_update" }
-					free_building_tiles > 0
 					or = {
 						has_building = "building_capital_1"
 						has_building = "building_capital_2"
 						has_building = "building_capital_3"
 					}
-					or = {
-						has_planet_modifier = "pm_titanic_life"
-						has_planet_modifier = "pm_atmospheric_hallucinogen"
-						has_modifier = "atmospheric_hallucinogen_good"
-						has_modifier = "subterranean_civilization"
-						has_planet_modifier = "pm_dangerous_wildlife"
-						has_modifier = "society_animal_life"
-					}
+					has_building = "building_basic_science_lab_1"
 				}
-				every_tile = {
+				if = {
 					limit = {
-						has_building = "building_basic_science_lab_1"
-						exists = pop
-						pop = { is_being_purged = no }
+						or = {
+							has_planet_modifier = "pm_titanic_life"
+							has_planet_modifier = "pm_atmospheric_hallucinogen"
+							has_modifier = "atmospheric_hallucinogen_good"
+							has_modifier = "subterranean_civilization"
+							has_planet_modifier = "pm_dangerous_wildlife"
+							has_modifier = "society_animal_life"
+						}
 					}
-					add_building_construction = "building_biolab_1"
-				}
-			}
-			every_owned_planet = {
-				limit = {
-					free_from_autobuild = no
-					free_building_tiles > 0
-					or = {
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
+					every_tile = {
+						limit = {
+							has_building = "building_basic_science_lab_1"
+							exists = pop
+							pop = { is_being_purged = no }
+						}
+						add_building_construction = "building_biolab_1"
 					}
-					or = {
-						has_planet_modifier = "pm_strong_magnetic_field"
-						has_planet_modifier = "pm_wild_storms"
+					else = {
+						if = {
+							limit = {
+								or = {
+									has_planet_modifier = "pm_strong_magnetic_field"
+									has_planet_modifier = "pm_wild_storms"
+								}
+							}
+							every_tile = {
+								limit = {
+									has_building = "building_basic_science_lab_1"
+									exists = pop
+									pop = { is_being_purged = no }
+								}
+								add_building_construction = "building_physics_lab_1"
+							}
+							else = {
+								if = {
+									limit = {
+										has_planet_modifier = "pm_unstable_tectonics"
+									}
+									every_tile = {
+										limit = {
+											has_building = "building_basic_science_lab_1"
+											exists = pop
+											pop = { is_being_purged = no }
+										}
+									add_building_construction = "building_engineering_facility_1"
+									}
+								}
+							}
+						}
 					}
-				}
-				every_tile = {
-					limit = {
-						has_building = "building_basic_science_lab_1"
-						exists = pop
-						pop = { is_being_purged = no }
-					}
-					add_building_construction = "building_physics_lab_1"
-				}
-			}
-			every_owned_planet = {
-				limit = {
-					not = { has_modifier = "free_from_auto_update" }
-					free_building_tiles > 0
-					or = {
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-					has_planet_modifier = "pm_unstable_tectonics"
-				}
-				every_tile = {
-					limit = {
-						has_building = "building_basic_science_lab_1"
-						exists = pop
-						pop = { is_being_purged = no }
-					}
-				add_building_construction = "building_engineering_facility_1"
 				}
 			}
 		}
@@ -991,19 +979,19 @@ country_event = {
 				has_country_flag = auto_build_6
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_5000
 						minerals > 5000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_2500
 						minerals > 2500
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_1000
 						minerals > 1000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_500
 						minerals > 500
 					}
@@ -1017,6 +1005,7 @@ country_event = {
 						has_building = "building_capital_2"
 						has_building = "building_capital_3"
 					}
+					has_building = "building_basic_science_lab_1"
 				}
 				every_tile = {
 					limit = {
@@ -1024,37 +1013,147 @@ country_event = {
 						exists = pop
 						pop = { is_being_purged = no }
 					}
-				if = {
-					limit = {
-						has_resource = {
-							type = physics_research
-							amount > 0
-						}
-					}
-					add_building_construction = "building_physics_lab_1"
-					else = {
-						if = {
-							limit = {
-								has_resource = {
-									type = society_research
-									amount > 0
-								}
+					if = {
+						limit = {
+							pop = { has_trait = trait_natural_physicists }
+							has_resource = {
+								type = physics_research
+								amount > 0
 							}
-							add_building_construction = "building_biolab_1"
-							else = {
-								if = {
-									limit = {
-										has_resource = {
-											type = engineering_research
-											amount > 0
-										}
+						}
+						add_building_construction = "building_physics_lab_1"
+						else = {
+							if = {
+								limit = {
+									pop = { has_trait = trait_natural_sociologists }
+									has_resource = {
+										type = society_research
+										amount > 0
 									}
-									add_building_construction = "building_engineering_facility_1"
-									else = {
-										random_list = {
-											33 = { add_building_construction = "building_physics_lab_1" }
-											33 = { add_building_construction = "building_biolab_1" }
-											33 = { add_building_construction = "building_engineering_facility_1" }
+								}
+								add_building_construction = "building_biolab_1"
+								else = {
+									if = {
+										limit = {
+											pop = { has_trait = trait_natural_engineers }
+											has_resource = {
+												type = engineering_research
+												amount > 0
+											}
+										}
+										add_building_construction = "building_engineering_facility_1"
+										else = {
+											if = {
+												limit = {
+													pop = {
+														has_trait = trait_natural_sociologists
+														has_trait = trait_natural_engineers
+													}
+												}
+												random_list = {
+													50 = { add_building_construction = "building_biolab_1" }
+													50 = { add_building_construction = "building_engineering_facility_1" }
+												}
+												else = {
+													if = {
+														limit = {
+															pop = {
+																has_trait = trait_natural_physicists
+																has_trait = trait_natural_engineers
+															}
+														}
+														random_list = {
+															50 = { add_building_construction = "building_physics_lab_1" }
+															50 = { add_building_construction = "building_engineering_facility_1" }
+														}
+														else = {
+															if = {
+																limit = {
+																	pop = {
+																		has_trait = trait_natural_physicists
+																		has_trait = trait_natural_sociologists
+																	}
+																}
+																random_list = {
+																	50 = { add_building_construction = "building_physics_lab_1" }
+																	50 = { add_building_construction = "building_biolab_1" }
+																}
+																else = {
+																	if = {
+																		limit = {
+																			pop = { has_trait = trait_natural_physicists }
+																		}
+																		add_building_construction = "building_physics_lab_1"
+																		else = {
+																			if = {
+																				limit = {
+																					pop = { has_trait = trait_natural_sociologists }
+																				}
+																				add_building_construction = "building_biolab_1"
+																				else = {
+																					if = {
+																						limit = {
+																							pop = { has_trait = trait_natural_physicists }
+																						}
+																						add_building_construction = "building_physics_lab_1"
+																						else = {
+																							if = {
+																								limit = {
+																									pop = { has_trait = trait_natural_engineers }
+																								}
+																								add_building_construction = "building_engineering_facility_1"
+																								else = {
+																									if = {
+																										limit = {
+																											has_resource = {
+																												type = physics_research
+																												amount > 0
+																											}
+																										}
+																										add_building_construction = "building_physics_lab_1"
+																										else = {
+																											if = {
+																												limit = {
+																													has_resource = {
+																														type = society_research
+																														amount > 0
+																													}
+																												}
+																												add_building_construction = "building_biolab_1"
+																												else = {
+																													if = {
+																														limit = {
+																															has_resource = {
+																																type = engineering_research
+																																amount > 0
+																															}
+																														}
+																														add_building_construction = "building_engineering_facility_1"
+																														else = {
+																															random_list = {
+																																33 = { add_building_construction = "building_physics_lab_1" }
+																																33 = { add_building_construction = "building_biolab_1" }
+																																33 = { add_building_construction = "building_engineering_facility_1" }
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
 											}
 										}
 									}
@@ -1073,19 +1172,19 @@ country_event = {
 				has_country_flag = auto_build_8
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_5000
 						minerals > 5000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_2500
 						minerals > 2500
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_1000
 						minerals > 1000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_500
 						minerals > 500
 					}
@@ -1093,9 +1192,9 @@ country_event = {
 			}
 			every_owned_planet = {
 				limit = {
-					free_building_tiles > 0
 					is_ringworld = no
 					free_from_autobuild = no
+					free_building_tiles > 0
 					nor = {
 						has_modifier = "capital"
 						has_building = "building_clinic"
@@ -1336,19 +1435,19 @@ country_event = {
 			limit = {
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_5000
 						minerals > 5000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_2500
 						minerals > 2500
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_1000
 						minerals > 1000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_500
 						minerals > 500
 					}
@@ -2040,19 +2139,19 @@ country_event = {
 				has_country_flag = auto_build_1
 				or = {
 					not = { has_country_flag = auto_build_cost }
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_5000
 						minerals > 5000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_2500
 						minerals > 2500
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_1000
 						minerals > 1000
 					}
-					or = {
+					and = {
 						has_country_flag = auto_build_cost_500
 						minerals > 500
 					}
@@ -2169,33 +2268,33 @@ country_event = {
 					not = { has_country_flag = auto_build_cost }
 					and = {
 						or = {
-							or = {
+							and = {
 								has_country_flag = auto_build_cost_5000
 								minerals > 5000
 							}
-							or = {
+							and = {
 								has_country_flag = auto_build_cost_2500
 								minerals > 2500
 							}
-							or = {
+							and = {
 								has_country_flag = auto_build_cost_1000
 								minerals > 1000
 							}
-							or = {
+							and = {
 								has_country_flag = auto_build_cost_500
 								minerals > 500
 							}
 						}
 						or = {
-							or = {
+							and = {
 								has_country_flag = auto_build_cost_inf_500
 								influence > 500
 							}
-							or = {
+							and = {
 								has_country_flag = auto_build_cost_inf_250
 								influence > 250
 							}
-							or = {
+							and = {
 								has_country_flag = auto_build_cost_inf_100
 								influence > 100
 							}

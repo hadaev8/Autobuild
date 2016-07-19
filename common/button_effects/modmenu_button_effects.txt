@@ -31,6 +31,6 @@ modmenu_button_effect = {
 	
 	effect = {
 		hidden_effect = { from = { country_event = { id = modmenu.1 } } }
-		custom_tooltip = autobuild.3.tooltip
+		custom_tooltip = modmenu.tooltip
 	}
 }

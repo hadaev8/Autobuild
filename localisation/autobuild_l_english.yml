@@ -4,7 +4,7 @@
  
  auto_build_0:0 "§HTurn On§! all of the mod's basic settings"
  auto_build_0.tooltip:0 "Turn on all main settings"
-  
+ 
  auto_build_1:0 "§GTurn On§! "Auto-Improve Buildings""
  auto_build_1.tooltip:0 "All buildings automatically improve, except for basic laboratories and those that cost influence."
  auto_build_1_off:0 "§RTurn Off§! "Auto-Improve Buildings""
@@ -34,7 +34,7 @@
  auto_build_5_off:0 "§RTurn Off§! "Auto-Improve Laboratories on Good Planets""
  
  auto_build_6:0 "§GTurn On§! "Semi-Random Improving Laboratories""
- auto_build_6.tooltip:0 "All laboratories automatically improve depending on the resource type in the tiles (useful if your population has a trait for a certain kind of science). If the resource is not present, the type of laboratory improvement will be selected at random. If you do not have the Auto-Improve Laboratories on Good Planets edict active, the laboratory will improve randomly even on planets with useful science modifiers."
+ auto_build_6.tooltip:0 "All laboratories automatically improve depending on pop's trait (useful if you make Research Center with population genetically improved to some kind of science ), the resource type in the tiles (useful if your population has a trait for a certain kind of science). If the resource is not present, the type of laboratory improvement will be selected at random. If you do not have the Auto-Improve Laboratories on Good Planets edict active, the laboratory will improve randomly even on planets with useful science modifiers."
  auto_build_6_off:0 "§RTurn Off§! "Semi-Random Improving Laboratories""
  
  auto_build_7_1:0 "§GTurn On§! "Energy Priority""
@@ -62,7 +62,7 @@
  auto_build_7_9_off:0 "§RTurn Off§! "Ignore Food""
  auto_build_7_10_off:0 "§RTurn Off§! "Ignore Energy""
  auto_build_7_11_off:0 "§RTurn Off§! "Ignore Science""
-  
+ 
  auto_build_8:0 "§GTurn On§! "Automatic Construction of Clinics""
  auto_build_8.tooltip:0 "Auto-build clinics on every planet where are 4 or more pops, for whom the planet is not 100% adaptive, first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food (no more than 1 mineral), and then on any free tile (free of another building)."
  auto_build_8_off:0 "§RTurn Off§! "Automatic Construction of Clinics""

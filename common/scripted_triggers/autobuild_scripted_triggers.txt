@@ -76,7 +76,7 @@ has_any_science_lab = {
 		
 free_from_autobuild = {
 	or = {
-		has_modifier = "free_from_auto_update"
+		has_modifier = "free_from_auto_build"
 		has_modifier = "planet_labs_auto_build"
 		has_modifier = "planet_forge_auto_build"
 		has_modifier = "planet_power_plant_auto_build"

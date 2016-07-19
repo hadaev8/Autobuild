@@ -22,7 +22,7 @@ country_event = {
 		name = "modmenu_2"
 		custom_tooltip = modmenu_2.tooltip
 		hidden_effect = {
-			country_event = { id = autobuild.3 }
+			country_event = { id = harder_invaders_menu.1 }
 		}
 	}
 	option = {
