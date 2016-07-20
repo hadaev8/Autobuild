@@ -40,16 +40,19 @@ country_event = {
 			has_country_flag = auto_build_4_2
 			has_country_flag = auto_build_5
 			has_country_flag = auto_build_6
-			or = {
-				has_country_flag = auto_build_7_1
-				has_country_flag = auto_build_7_2
-				has_country_flag = auto_build_7_3
-				has_country_flag = auto_build_7_4
-			##	has_country_flag = auto_build_7_5
-				has_country_flag = auto_build_7_6
-				has_country_flag = auto_build_7_7
-			}
+			has_country_flag = auto_build_7_1
+			has_country_flag = auto_build_7_2
+			has_country_flag = auto_build_7_3
+			has_country_flag = auto_build_7_4
+		##	has_country_flag = auto_build_7_5
+			has_country_flag = auto_build_7_6
+			has_country_flag = auto_build_7_7
 			has_country_flag = auto_build_8
+			any_owned_planet = {
+				has_modifier = "planet_labs_auto_build"
+				has_modifier = "planet_forge_auto_build"
+				has_modifier = "planet_power_plant_auto_build"
+			}
 		}
 	}
 
@@ -120,19 +123,19 @@ country_event = {
 								}
 							}
 							pop = { enslave_pop = yes }
+						}
+						if = {
+							limit = {
+								exists = owner
+								owner = { has_policy_flag = ai_servitude }
+								pop = {
+									is_being_purged = no
+									is_enslaved = no
+									is_species = "ROBOT_POP_SPECIES_3"
+								}
 							}
-							if = {
-								limit = {
-									exists = owner
-									owner = { has_policy_flag = ai_servitude }
-									pop = {
-										is_being_purged = no
-										is_enslaved = no
-										is_species = "ROBOT_POP_SPECIES_3"
-									}
-								}
-								pop = { enslave_pop = yes }
-								}
+							pop = { enslave_pop = yes }
+						}
 						else = {
 							if = {
 								limit = {
@@ -141,7 +144,8 @@ country_event = {
 										is_enslaved = yes
 									}
 								}
-								pop = { enslave_pop = no } }
+								pop = { enslave_pop = no }
+							}
 						}
 					}
 				}
@@ -642,7 +646,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_basic_farm"
 							}
 						}
@@ -666,7 +677,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_basic_farm"
 							}
 						}
@@ -690,7 +708,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_basic_farm"
 							}
 						}
@@ -701,8 +726,7 @@ country_event = {
 							exists = pop
 							pop = {
 								is_being_purged = no
-								is_enslaved = no
-								is_robot = no
+								is_slavebot = no
 							}
 							tile_has_energy_1_and_more = yes
 						}
@@ -723,8 +747,7 @@ country_event = {
 							exists = pop
 							pop = {
 								is_being_purged = no
-								is_enslaved = no
-								is_robot = no
+								is_slavebot = no
 							}
 							tile_has_any_science = yes
 						}
@@ -785,7 +808,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_hydroponics_farm_1"
 									}
 								}
@@ -809,7 +839,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_hydroponics_farm_1"
 									}
 								}
@@ -833,7 +870,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_hydroponics_farm_1"
 									}
 								}
@@ -844,8 +888,7 @@ country_event = {
 									exists = pop
 									pop = {
 										is_being_purged = no
-										is_enslaved = no
-										is_robot = no
+										is_slavebot = no
 									}
 									tile_has_energy_1_and_more = yes
 								}
@@ -866,8 +909,7 @@ country_event = {
 									exists = pop
 									pop = {
 										is_being_purged = no
-										is_enslaved = no
-										is_robot = no
+										is_slavebot = no
 									}
 									tile_has_any_science = yes
 								}
@@ -1215,8 +1257,8 @@ country_event = {
 							limit = {
 								event_target:autobuild_country = {
 									habitability = { 
-									who = event_target:autobuild_clinic_pop
-									value < 1
+										who = event_target:autobuild_clinic_pop
+										value < 1
 									}
 								}
 							}
@@ -1463,8 +1505,6 @@ country_event = {
 				}
 				if = {			##	lets build farm 
 					limit = {
-			#			has_any_farm = no
-			#			has_building_construction = no
 						or = {
 							has_building = "building_capital_1"
 							has_building = "building_capital_2"
@@ -1503,8 +1543,8 @@ country_event = {
 								has_building = no
 								event_target:autobuild_country = {
 									check_variable = {
-									which = autobuild_farm_planet
-									value < autobuild_farm_global
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
 									}
 								}
 							}
@@ -1515,7 +1555,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_hydroponics_farm_1"
 							}
 						}
@@ -1527,8 +1574,8 @@ country_event = {
 								has_building = no
 								event_target:autobuild_country = {
 									check_variable = {
-									which = autobuild_farm_planet
-									value < autobuild_farm_global
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
 									}
 								}
 							}
@@ -1539,7 +1586,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_hydroponics_farm_1"
 							}
 						}
@@ -1551,8 +1605,8 @@ country_event = {
 								has_building = no
 								event_target:autobuild_country = {
 									check_variable = {
-									which = autobuild_farm_planet
-									value < autobuild_farm_global
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
 									}
 								}
 							}
@@ -1563,7 +1617,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_hydroponics_farm_1"
 							}
 						}
@@ -1574,8 +1635,8 @@ country_event = {
 								has_building = no
 								event_target:autobuild_country = {
 									check_variable = {
-									which = autobuild_farm_planet
-									value < autobuild_farm_global
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
 									}
 								}
 							}
@@ -1586,7 +1647,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_hydroponics_farm_1"
 							}
 						}
@@ -1597,8 +1665,8 @@ country_event = {
 								has_building = no
 								event_target:autobuild_country = {
 									check_variable = {
-									which = autobuild_farm_planet
-									value < autobuild_farm_global
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
 									}
 								}
 							}
@@ -1609,7 +1677,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_hydroponics_farm_1"
 							}
 						}
@@ -1620,8 +1695,8 @@ country_event = {
 								has_building = no
 								event_target:autobuild_country = {
 									check_variable = {
-									which = autobuild_farm_planet
-									value < autobuild_farm_global
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
 									}
 								}
 							}
@@ -1632,7 +1707,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_hydroponics_farm_1"
 							}
 						}
@@ -1643,8 +1725,8 @@ country_event = {
 								has_building = no
 								event_target:autobuild_country = {
 									check_variable = {
-									which = autobuild_farm_planet
-									value < autobuild_farm_global
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
 									}
 								}
 							}
@@ -1655,7 +1737,14 @@ country_event = {
 								}
 							}
 							if = {
-								limit = { exists = pop }
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_any_farm = no
+										}
+									}
+								}
 								add_building_construction  = "building_hydroponics_farm_1"
 							}
 						}
@@ -1695,8 +1784,8 @@ country_event = {
 										has_building = no
 										event_target:autobuild_country = {
 											check_variable = {
-											which = autobuild_farm_planet
-											value < autobuild_farm_global
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
 											}
 										}
 									}
@@ -1707,7 +1796,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_basic_farm"
 									}
 								}
@@ -1719,8 +1815,8 @@ country_event = {
 										has_building = no
 										event_target:autobuild_country = {
 											check_variable = {
-											which = autobuild_farm_planet
-											value < autobuild_farm_global
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
 											}
 										}
 									}
@@ -1731,7 +1827,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_basic_farm"
 									}
 								}
@@ -1743,8 +1846,8 @@ country_event = {
 										has_building = no
 										event_target:autobuild_country = {
 											check_variable = {
-											which = autobuild_farm_planet
-											value < autobuild_farm_global
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
 											}
 										}
 									}
@@ -1755,7 +1858,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_basic_farm"
 									}
 								}
@@ -1766,8 +1876,8 @@ country_event = {
 										has_building = no
 										event_target:autobuild_country = {
 											check_variable = {
-											which = autobuild_farm_planet
-											value < autobuild_farm_global
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
 											}
 										}
 									}
@@ -1778,7 +1888,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_basic_farm"
 									}
 								}
@@ -1789,8 +1906,8 @@ country_event = {
 										has_building = no
 										event_target:autobuild_country = {
 											check_variable = {
-											which = autobuild_farm_planet
-											value < autobuild_farm_global
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
 											}
 										}
 									}
@@ -1801,7 +1918,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_basic_farm"
 									}
 								}
@@ -1812,8 +1936,8 @@ country_event = {
 										has_building = no
 										event_target:autobuild_country = {
 											check_variable = {
-											which = autobuild_farm_planet
-											value < autobuild_farm_global
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
 											}
 										}
 									}
@@ -1824,7 +1948,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_basic_farm"
 									}
 								}
@@ -1835,8 +1966,8 @@ country_event = {
 										has_building = no
 										event_target:autobuild_country = {
 											check_variable = {
-											which = autobuild_farm_planet
-											value < autobuild_farm_global
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
 											}
 										}
 									}
@@ -1847,7 +1978,14 @@ country_event = {
 										}
 									}
 									if = {
-										limit = { exists = pop }
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_any_farm = no
+												}
+											}
+										}
 										add_building_construction  = "building_basic_farm"
 									}
 								}
@@ -1909,8 +2047,8 @@ country_event = {
 									planet = {
 										not = {	has_building = "building_slave_processing" }
 										count_pops = {
-										limit = { is_enslaved = yes }
-										count > 3								## at least 4 slaves
+											limit = { is_enslaved = yes }
+											count > 3								## at least 4 slaves
 										}
 									}
 								}
@@ -1982,8 +2120,8 @@ country_event = {
 											planet = {
 												not = {	has_building = "building_slave_processing" }
 												count_pops = {
-												limit = { is_enslaved = yes }
-												count > 3								## at least 4 slaves
+													limit = { is_enslaved = yes }
+													count > 3								## at least 4 slaves
 												}
 											}
 										}
@@ -2065,8 +2203,7 @@ country_event = {
 											exists = pop
 											pop = {
 												is_being_purged = no
-												is_enslaved = no
-												is_robot = no
+												is_slavebot = no
 											}
 										}
 										add_building_construction  = "building_power_plant_1"
@@ -2082,8 +2219,7 @@ country_event = {
 										exists = pop
 										pop = {
 											is_being_purged = no
-											is_enslaved = no
-											is_robot = no
+											is_slavebot = no
 										}
 										or = {
 											has_building = no
@@ -2117,8 +2253,7 @@ country_event = {
 							exists = pop
 							pop = {
 								is_being_purged = no
-								is_enslaved = no
-								is_robot = no
+								is_slavebot = no
 							}
 							or = {
 								has_building = no
