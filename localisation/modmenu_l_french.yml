@@ -1,9 +1,9 @@
 ﻿l_french:
- modmenu_button:0 "Menu des mods d'Had"
+ modmenu_button:0 "Menu des mods"
  modmenu.tooltip:0 "§HOuvrir§! le menu des mods d'Had."
- modmenu.1.name:0 "Menu des mods d'Had"
+ modmenu.1.name:0 "Menu des mods"
  modmenu.1.desc:0 "Ici tu peux configurer les mods."
- edict_modmenu:0 "Menu des mods d'Had"
+ edict_modmenu:0 "Menu des mods"
  edict_modmenu_desc:0 "Ici tu peux configurer les mods."
  modmenu_exit:0 "§LQuitter le menu§!"
  modmenu_remove:0 "§HDésactiver§! toutes les mesures"

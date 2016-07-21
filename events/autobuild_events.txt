@@ -139,6 +139,7 @@ country_event = {
 						else = {
 							if = {
 								limit = {
+									exists = pop
 									pop = {
 										is_being_purged = no
 										is_enslaved = yes
