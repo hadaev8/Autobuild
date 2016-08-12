@@ -1,7 +1,7 @@
 namespace = autobuild
 ## 0 - cost and farms vars
 ## 1 - auto impruve
-## 2 - auto uodate influence cost
+## 2 - auto update influence cost
 ## 3 - auto build new buildings on good tiles 		
 ## 4 - auto enslave
 ## 4_1 - xeno slaves
@@ -28,9 +28,10 @@ country_event = {
 	title = OK
 	desc = OK
 	hide_window = yes
-	mean_time_to_happen = { months = 3 }
+	mean_time_to_happen = { months = 6 }
 
-    trigger = {
+	trigger = {
+		is_ai = no
 		or = {
 			has_country_flag = auto_build_1
 			has_country_flag = auto_build_2
@@ -48,15 +49,19 @@ country_event = {
 			has_country_flag = auto_build_7_6
 			has_country_flag = auto_build_7_7
 			has_country_flag = auto_build_8
+			has_country_flag = auto_build_9
 			any_owned_planet = {
-				has_modifier = "planet_labs_auto_build"
-				has_modifier = "planet_forge_auto_build"
-				has_modifier = "planet_power_plant_auto_build"
+				or = {
+					has_modifier = "planet_forge_auto_build"
+					has_modifier = "planet_power_plant_auto_build"
+					has_modifier = "planet_labs_auto_build"
+					has_modifier = "planet_farms_auto_build"
+				}
 			}
 		}
 	}
 
-    immediate = {
+	immediate = {
 
 		save_event_target_as = autobuild_country
 
@@ -282,7 +287,7 @@ country_event = {
 							}
 							tile_has_any_res = no
 						}
-						add_building_construction  = "building_mining_network_1"
+						add_building_construction = "building_mining_network_1"
 					}
 					else = {
 						if = {
@@ -301,7 +306,7 @@ country_event = {
 									}
 									tile_has_any_res = no
 								}
-								add_building_construction  = "building_basic_mine"
+								add_building_construction = "building_basic_mine"
 							}
 						}
 					}
@@ -331,7 +336,7 @@ country_event = {
 									pop = { is_being_purged = no }
 									tile_has_any_res = no
 								}
-								add_building_construction  = "building_power_plant_1"
+								add_building_construction = "building_power_plant_1"
 							}
 							else = {
 								if = {
@@ -347,7 +352,7 @@ country_event = {
 											pop = { is_being_purged = no }
 											tile_has_any_res = no
 										}
-										add_building_construction  = "building_basic_power_plant"
+										add_building_construction = "building_basic_power_plant"
 									}
 								}
 							}
@@ -374,7 +379,7 @@ country_event = {
 									pop = { is_being_purged = no }
 									tile_has_any_res = no
 								}
-								add_building_construction  = "building_mining_network_1"
+								add_building_construction = "building_mining_network_1"
 							}
 							else = {
 								if = {
@@ -390,7 +395,7 @@ country_event = {
 											pop = { is_being_purged = no }
 											tile_has_any_res = no
 										}
-										add_building_construction  = "building_basic_mine"
+										add_building_construction = "building_basic_mine"
 									}
 								}
 							}
@@ -412,7 +417,7 @@ country_event = {
 									pop = { is_being_purged = no }
 									tile_has_any_res = no
 								}
-								add_building_construction  =  "building_basic_science_lab_1"
+								add_building_construction = "building_basic_science_lab_1"
 							}
 						}
 					}
@@ -601,7 +606,11 @@ country_event = {
 					limit = {
 						free_from_autobuild = no
 						free_building_tiles > 0
-						has_building = "building_colony_shelter"
+						or = {
+							has_building = "building_capital_1"
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+						}
 					}
 					event_target:autobuild_country = {
 						set_variable = {
@@ -651,11 +660,12 @@ country_event = {
 									or = {
 										exists = pop
 										planet = {
+											has_building_construction = no
 											has_any_farm = no
 										}
 									}
 								}
-								add_building_construction  = "building_basic_farm"
+								add_building_construction = "building_hydroponics_farm_1"
 							}
 						}
 						every_tile = {
@@ -682,11 +692,12 @@ country_event = {
 									or = {
 										exists = pop
 										planet = {
+											has_building_construction = no
 											has_any_farm = no
 										}
 									}
 								}
-								add_building_construction  = "building_basic_farm"
+								add_building_construction = "building_hydroponics_farm_1"
 							}
 						}
 						every_tile = {
@@ -713,11 +724,12 @@ country_event = {
 									or = {
 										exists = pop
 										planet = {
+											has_building_construction = no
 											has_any_farm = no
 										}
 									}
 								}
-								add_building_construction  = "building_basic_farm"
+								add_building_construction = "building_hydroponics_farm_1"
 							}
 						}
 					}
@@ -731,7 +743,7 @@ country_event = {
 							}
 							tile_has_energy_1_and_more = yes
 						}
-						add_building_construction  = "building_basic_power_plant"
+						add_building_construction = "building_power_plant_1"
 					}
 					every_tile = {
 						limit = {
@@ -740,7 +752,7 @@ country_event = {
 							pop = { is_being_purged = no }
 							tile_has_mins_1_and_more = yes
 						}
-						add_building_construction  = "building_basic_mine"
+						add_building_construction = "building_mining_network_1"
 					}
 					every_tile = {
 						limit = {
@@ -752,18 +764,14 @@ country_event = {
 							}
 							tile_has_any_science = yes
 						}
-						add_building_construction  = "building_basic_science_lab_1"
+						add_building_construction = "building_basic_science_lab_1"
 					}
 					else = {
 						if = {
 							limit = {
 								free_from_autobuild = no
 								free_building_tiles > 0
-								or = {
-									has_building = "building_capital_1"
-									has_building = "building_capital_2"
-									has_building = "building_capital_3"
-								}
+								has_building = "building_colony_shelter"
 							}
 							event_target:autobuild_country = {
 								set_variable = {
@@ -813,11 +821,12 @@ country_event = {
 											or = {
 												exists = pop
 												planet = {
+													has_building_construction = no
 													has_any_farm = no
 												}
 											}
 										}
-										add_building_construction  = "building_hydroponics_farm_1"
+										add_building_construction = "building_basic_farm"
 									}
 								}
 								every_tile = {
@@ -844,11 +853,12 @@ country_event = {
 											or = {
 												exists = pop
 												planet = {
+													has_building_construction = no
 													has_any_farm = no
 												}
 											}
 										}
-										add_building_construction  = "building_hydroponics_farm_1"
+										add_building_construction = "building_basic_farm"
 									}
 								}
 								every_tile = {
@@ -875,11 +885,12 @@ country_event = {
 											or = {
 												exists = pop
 												planet = {
+													has_building_construction = no
 													has_any_farm = no
 												}
 											}
 										}
-										add_building_construction  = "building_hydroponics_farm_1"
+										add_building_construction = "building_basic_farm"
 									}
 								}
 							}
@@ -893,7 +904,7 @@ country_event = {
 									}
 									tile_has_energy_1_and_more = yes
 								}
-								add_building_construction  = "building_power_plant_1"
+								add_building_construction = "building_basic_power_plant"
 							}
 							every_tile = {
 								limit = {
@@ -902,7 +913,7 @@ country_event = {
 									pop = { is_being_purged = no }
 									tile_has_mins_1_and_more = yes
 								}
-								add_building_construction  = "building_mining_network_1"
+								add_building_construction = "building_basic_mine"
 							}
 							every_tile = {
 								limit = {
@@ -914,9 +925,1399 @@ country_event = {
 									}
 									tile_has_any_science = yes
 								}
-								add_building_construction  = "building_basic_science_lab_1"
+								add_building_construction = "building_basic_science_lab_1"
 							}
 						}
+					}
+				}
+			}
+		}
+
+		## auto build clinics ##
+
+		if = {
+			limit = {
+				has_country_flag = auto_build_8
+				or = {
+					not = { has_country_flag = auto_build_cost }
+					and = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					and = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					and = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					and = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
+					}
+				}
+			}
+			every_owned_planet = {
+				limit = {
+					is_ringworld = no
+					free_building_tiles > 0
+					nor = {
+						has_modifier = "capital"
+						has_building = "building_clinic"
+						is_planet_class = pc_gaia
+						has_modifier = "free_from_auto_build"
+					}
+				}
+				event_target:autobuild_country = {
+					set_variable = {
+						which = autobuild_clinic
+						value = 0
+					}
+				}
+				every_tile = {
+					limit = { exists = pop }
+					pop = {
+						save_event_target_as = autobuild_clinic_pop
+						if = {
+							limit = {
+								planet = {
+									habitability = { 
+										who = event_target:autobuild_clinic_pop
+										value < 1
+									}
+								}
+							}
+							event_target:autobuild_country = {
+								change_variable = {
+									which = autobuild_clinic
+									value = 1
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_clinic
+								value > 3								# 4 pops at least
+							}
+						}
+					}
+					every_tile = {										# try found best tile
+						limit = {
+							has_building = no
+							has_blocker = no
+							tile_has_food_3_and_more = yes
+							tile_has_mins_1_and_more = no
+						}
+						add_building_construction = "building_clinic"
+						event_target:autobuild_country = {
+							set_variable = {
+								which = autobuild_clinic
+								value = 0
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_clinic
+								value > 3								# 4 pops at least
+							}
+						}
+					}
+					every_tile = {
+						limit = {
+							has_building = no
+							has_blocker = no
+							tile_has_food_2_and_more = yes
+							tile_has_mins_1_and_more = no
+						}
+						add_building_construction = "building_clinic"
+						event_target:autobuild_country = {
+							set_variable = {
+								which = autobuild_clinic
+								value = 0
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_clinic
+								value > 3								# 4 pops at least
+							}
+						}
+					}
+					every_tile = {
+						limit = {
+							has_building = no
+							has_blocker = no
+							tile_has_food_1_and_more = yes
+							tile_has_mins_1_and_more = no
+						}
+						add_building_construction = "building_clinic"
+						event_target:autobuild_country = {
+							set_variable = {
+								which = autobuild_clinic
+								value = 0
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_clinic
+								value > 3								# 4 pops at least
+							}
+						}
+					}
+					every_tile = {
+						limit = {
+							has_building = no
+							has_blocker = no
+							tile_has_food_3_and_more = yes
+							tile_has_mins_2_and_more = no
+						}
+						add_building_construction = "building_clinic"
+						event_target:autobuild_country = {
+							set_variable = {
+								which = autobuild_clinic
+								value = 0
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_clinic
+								value > 3								# 4 pops at least
+							}
+						}
+					}
+					every_tile = {
+						limit = {
+							has_building = no
+							has_blocker = no
+							tile_has_food_2_and_more = yes
+							tile_has_mins_2_and_more = no
+						}
+						add_building_construction = "building_clinic"
+						event_target:autobuild_country = {
+							set_variable = {
+								which = autobuild_clinic
+								value = 0
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_clinic
+								value > 3								# 4 pops at least
+							}
+						}
+					}
+					every_tile = {
+						limit = {
+							has_building = no
+							has_blocker = no
+							tile_has_food_1_and_more = yes
+							tile_has_mins_2_and_more = no
+						}
+						add_building_construction = "building_clinic"
+						event_target:autobuild_country = {
+							set_variable = {
+								which = autobuild_clinic
+								value = 0
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_clinic
+								value > 3								# 4 pops at least
+							}
+						}
+					}
+					every_tile = {
+						limit = {
+							has_building = no
+							has_blocker = no
+							tile_has_any_res_but_not_food = no
+						}
+						add_building_construction = "building_clinic"
+						event_target:autobuild_country = {
+							set_variable = {
+								which = autobuild_clinic
+								value = 0
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_clinic
+								value > 3								# 4 pops at least
+							}
+						}
+					}
+					every_tile = {										# clinic must be build!
+						limit = {
+							has_building = no
+							has_blocker = no
+						}
+						add_building_construction = "building_clinic"
+						event_target:autobuild_country = {
+							set_variable = {
+								which = autobuild_clinic
+								value = 0
+							}
+						}
+					}
+				}
+			}
+		}
+
+		## auto build mineral silo ##
+
+		if = {
+			limit = {
+				has_country_flag = auto_build_9
+				or = {
+					not = { has_country_flag = auto_build_cost }
+					and = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					and = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					and = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					and = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
+					}
+				}
+			}
+			every_owned_planet = {
+				limit = {
+					free_from_autobuild = no
+					is_ringworld = no
+					free_building_tiles > 0
+					nor = {
+						has_building = "building_mineral_silo_1"
+						has_building = "building_mineral_silo_2"
+						has_building = "building_mineral_silo_3"
+						has_modifier = "capital"
+						is_planet_class = pc_gaia
+					}
+					or = {
+						has_building = "building_capital_1"
+						has_building = "building_capital_2"
+						has_building = "building_capital_3"
+					}
+				}
+				random_tile = {
+					limit = {
+						has_building = no
+						has_blocker = no
+						tile_has_any_res = no
+					}
+					add_building_construction = "building_mineral_silo_1"
+				}
+			}
+		}
+
+		## planet edicts:
+
+		if = {
+			limit = {
+				or = {
+					not = { has_country_flag = auto_build_cost }
+					and = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					and = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					and = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					and = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
+					}
+				}
+			}
+			every_owned_planet = {
+				limit = {
+					or = {
+						has_modifier = "planet_forge_auto_build"
+						has_modifier = "planet_power_plant_auto_build"
+						has_modifier = "planet_labs_auto_build"
+						has_modifier = "planet_farms_auto_build"
+					}
+				}
+				if = {														##	lets build farm
+					limit = {
+						or = {
+							has_building = "building_capital_1"
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+						}
+						not = { has_modifier = "planet_farms_auto_build" }
+					}
+					event_target:autobuild_country = {
+						set_variable = {
+							which = autobuild_farm_planet
+							value = 0
+						}
+					}
+					every_tile = {
+						limit = { has_any_farm = yes }
+						event_target:autobuild_country = {
+							change_variable = {
+								which = autobuild_farm_planet
+								value = 1
+							}
+						}
+					}
+					while = {
+						limit = {
+							event_target:autobuild_country = {
+								check_variable = {
+									which = autobuild_farm_planet
+									value < autobuild_farm_global
+								}
+							}
+						}
+						every_tile = {
+							limit = {
+								tile_has_food_3_and_more = yes
+								tile_has_mins_1_and_more = no
+								has_blocker = no
+								has_building = no
+								event_target:autobuild_country = {
+									check_variable = {
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
+									}
+								}
+							}
+							event_target:autobuild_country = {
+								change_variable = {
+									which = autobuild_farm_planet
+									value = 1
+								}
+							}
+							if = {
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_building_construction = no
+											has_any_farm = no
+										}
+									}
+								}
+								add_building_construction = "building_hydroponics_farm_1"
+							}
+						}
+						every_tile = {
+							limit = {
+								tile_has_food_2_and_more = yes
+								tile_has_mins_1_and_more = no
+								has_blocker = no
+								has_building = no
+								event_target:autobuild_country = {
+									check_variable = {
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
+									}
+								}
+							}
+							event_target:autobuild_country = {
+								change_variable = {
+									which = autobuild_farm_planet
+									value = 1
+								}
+							}
+							if = {
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_building_construction = no
+											has_any_farm = no
+										}
+									}
+								}
+								add_building_construction = "building_hydroponics_farm_1"
+							}
+						}
+						every_tile = {
+							limit = {
+								tile_has_food_1_and_more = yes
+								tile_has_mins_1_and_more = no
+								has_blocker = no
+								has_building = no
+								event_target:autobuild_country = {
+									check_variable = {
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
+									}
+								}
+							}
+							event_target:autobuild_country = {
+								change_variable = {
+									which = autobuild_farm_planet
+									value = 1
+								}
+							}
+							if = {
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_building_construction = no
+											has_any_farm = no
+										}
+									}
+								}
+								add_building_construction = "building_hydroponics_farm_1"
+							}
+						}
+						every_tile = {
+							limit = {
+								tile_has_food_3_and_more = yes
+								has_blocker = no
+								has_building = no
+								event_target:autobuild_country = {
+									check_variable = {
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
+									}
+								}
+							}
+							event_target:autobuild_country = {
+								change_variable = {
+									which = autobuild_farm_planet
+									value = 1
+								}
+							}
+							if = {
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_building_construction = no
+											has_any_farm = no
+										}
+									}
+								}
+								add_building_construction = "building_hydroponics_farm_1"
+							}
+						}
+						every_tile = {
+							limit = {
+								tile_has_food_2_and_more = yes
+								has_blocker = no
+								has_building = no
+								event_target:autobuild_country = {
+									check_variable = {
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
+									}
+								}
+							}
+							event_target:autobuild_country = {
+								change_variable = {
+									which = autobuild_farm_planet
+									value = 1
+								}
+							}
+							if = {
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_building_construction = no
+											has_any_farm = no
+										}
+									}
+								}
+								add_building_construction = "building_hydroponics_farm_1"
+							}
+						}
+						every_tile = {
+							limit = {
+								tile_has_food_1_and_more = yes
+								has_blocker = no
+								has_building = no
+								event_target:autobuild_country = {
+									check_variable = {
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
+									}
+								}
+							}
+							event_target:autobuild_country = {
+								change_variable = {
+									which = autobuild_farm_planet
+									value = 1
+								}
+							}
+							if = {
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_building_construction = no
+											has_any_farm = no
+										}
+									}
+								}
+								add_building_construction = "building_hydroponics_farm_1"
+							}
+						}
+						every_tile = {
+							limit = {
+								tile_has_any_res = no
+								has_blocker = no
+								has_building = no
+								event_target:autobuild_country = {
+									check_variable = {
+										which = autobuild_farm_planet
+										value < autobuild_farm_global
+									}
+								}
+							}
+							event_target:autobuild_country = {
+								change_variable = {
+									which = autobuild_farm_planet
+									value = 1
+								}
+							}
+							if = {
+								limit = {
+									or = {
+										exists = pop
+										planet = {
+											has_building_construction = no
+											has_any_farm = no
+										}
+									}
+								}
+								add_building_construction = "building_hydroponics_farm_1"
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								has_building = "building_colony_shelter"
+								not = { has_modifier = "planet_farms_auto_build" }
+							}
+							event_target:autobuild_country = {
+								set_variable = {
+									which = autobuild_farm_planet
+									value = 0
+								}
+							}
+							every_tile = {
+								limit = { has_any_farm = yes }
+								event_target:autobuild_country = {
+									change_variable = {
+										which = autobuild_farm_planet
+										value = 1
+									}
+								}
+							}
+							while = {
+								limit = {
+									event_target:autobuild_country = {
+										check_variable = {
+											which = autobuild_farm_planet
+											value < autobuild_farm_global
+										}
+									}
+								}
+								every_tile = {
+									limit = {
+										tile_has_food_3_and_more = yes
+										tile_has_mins_1_and_more = no
+										has_blocker = no
+										has_building = no
+										event_target:autobuild_country = {
+											check_variable = {
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
+											}
+										}
+									}
+									event_target:autobuild_country = {
+										change_variable = {
+											which = autobuild_farm_planet
+											value = 1
+										}
+									}
+									if = {
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_building_construction = no
+													has_any_farm = no
+												}
+											}
+										}
+										add_building_construction = "building_basic_farm"
+									}
+								}
+								every_tile = {
+									limit = {
+										tile_has_food_2_and_more = yes
+										tile_has_mins_1_and_more = no
+										has_blocker = no
+										has_building = no
+										event_target:autobuild_country = {
+											check_variable = {
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
+											}
+										}
+									}
+									event_target:autobuild_country = {
+										change_variable = {
+											which = autobuild_farm_planet
+											value = 1
+										}
+									}
+									if = {
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_building_construction = no
+													has_any_farm = no
+												}
+											}
+										}
+										add_building_construction = "building_basic_farm"
+									}
+								}
+								every_tile = {
+									limit = {
+										tile_has_food_1_and_more = yes
+										tile_has_mins_1_and_more = no
+										has_blocker = no
+										has_building = no
+										event_target:autobuild_country = {
+											check_variable = {
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
+											}
+										}
+									}
+									event_target:autobuild_country = {
+										change_variable = {
+											which = autobuild_farm_planet
+											value = 1
+										}
+									}
+									if = {
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_building_construction = no
+													has_any_farm = no
+												}
+											}
+										}
+										add_building_construction = "building_basic_farm"
+									}
+								}
+								every_tile = {
+									limit = {
+										tile_has_food_3_and_more = yes
+										has_blocker = no
+										has_building = no
+										event_target:autobuild_country = {
+											check_variable = {
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
+											}
+										}
+									}
+									event_target:autobuild_country = {
+										change_variable = {
+											which = autobuild_farm_planet
+											value = 1
+										}
+									}
+									if = {
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_building_construction = no
+													has_any_farm = no
+												}
+											}
+										}
+										add_building_construction = "building_basic_farm"
+									}
+								}
+								every_tile = {
+									limit = {
+										tile_has_food_2_and_more = yes
+										has_blocker = no
+										has_building = no
+										event_target:autobuild_country = {
+											check_variable = {
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
+											}
+										}
+									}
+									event_target:autobuild_country = {
+										change_variable = {
+											which = autobuild_farm_planet
+											value = 1
+										}
+									}
+									if = {
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_building_construction = no
+													has_any_farm = no
+												}
+											}
+										}
+										add_building_construction = "building_basic_farm"
+									}
+								}
+								every_tile = {
+									limit = {
+										tile_has_food_1_and_more = yes
+										has_blocker = no
+										has_building = no
+										event_target:autobuild_country = {
+											check_variable = {
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
+											}
+										}
+									}
+									event_target:autobuild_country = {
+										change_variable = {
+											which = autobuild_farm_planet
+											value = 1
+										}
+									}
+									if = {
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_building_construction = no
+													has_any_farm = no
+												}
+											}
+										}
+										add_building_construction = "building_basic_farm"
+									}
+								}
+								every_tile = {
+									limit = {
+										tile_has_any_res = no
+										has_blocker = no
+										has_building = no
+										event_target:autobuild_country = {
+											check_variable = {
+												which = autobuild_farm_planet
+												value < autobuild_farm_global
+											}
+										}
+									}
+									event_target:autobuild_country = {
+										change_variable = {
+											which = autobuild_farm_planet
+											value = 1
+										}
+									}
+									if = {
+										limit = {
+											or = {
+												exists = pop
+												planet = {
+													has_building_construction = no
+													has_any_farm = no
+												}
+											}
+										}
+										add_building_construction = "building_basic_farm"
+									}
+								}
+							}	
+						}
+					}
+				}
+				if = {														## farm planet
+					limit = {
+						has_modifier = "planet_farms_auto_build"
+						or = {
+							free_building_tiles > 0
+							has_any_power_plant = yes
+							has_any_science_lab = yes
+							has_any_mines = yes
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								has_building = "building_capital_1"
+								has_building = "building_capital_2"
+								has_building = "building_capital_3"
+							}
+						}
+						every_tile = {
+							limit = {
+								or = {
+									has_building = no
+									has_any_power_plant = yes
+									has_any_science_lab = yes
+									has_any_mines = yes
+								}
+								exists = pop
+								pop = {	is_being_purged = no }
+							}
+							add_building_construction = "building_hydroponics_farm_1"
+						}
+						else = {
+							if = {
+								limit = { has_building = "building_colony_shelter" }
+								every_tile = {
+									limit = {
+										or = {
+											has_building = no
+											has_any_power_plant = yes
+											has_any_science_lab = yes
+											has_any_mines = yes
+										}
+										exists = pop
+										pop = {	is_being_purged = no }
+									}
+									add_building_construction = "building_basic_farm"
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_modifier = "planet_forge_auto_build"			## planet of mines
+						exists = owner
+						or = {
+							free_building_tiles > 0
+							has_any_power_plant = yes
+							has_any_science_lab = yes
+							and = {
+								owner = { has_technology = "tech_neural_implants" }
+								not = {	has_building = "building_slave_processing" }
+								count_pops = {
+									limit = { is_enslaved = yes }
+									count > 3								## at least 4 slaves
+								}
+							}
+							and = {
+								owner = { has_technology = "tech_mineral_processing_1" }
+								nor = {
+									has_building = "building_mineral_processing_plant_1"
+									has_building = "building_mineral_processing_plant_2"
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								has_building = "building_capital_1"
+								has_building = "building_capital_2"
+								has_building = "building_capital_3"
+							}
+						}
+						every_tile = {
+							limit = {
+								or = {
+									has_building = no
+									has_any_power_plant = yes
+									has_any_science_lab = yes
+									has_any_mines = yes
+								}
+								nor = {
+									has_building = "building_mineral_processing_plant_1"
+									has_building = "building_mineral_processing_plant_2"
+								}
+							}
+							if = {
+								limit = {
+									tile_has_mins_1_and_more = no
+									exists = owner
+									owner = { has_technology = "tech_neural_implants" }
+									planet = {
+										not = {	has_building = "building_slave_processing" }
+										count_pops = {
+											limit = { is_enslaved = yes }
+											count > 3								## at least 4 slaves
+										}
+									}
+								}
+								add_building_construction = "building_slave_processing"						
+								else = {
+									if = {
+										limit = {
+											or = {
+												has_building = no
+												has_any_power_plant = yes
+												has_any_science_lab = yes
+												has_any_mines = yes
+											}
+											planet = {
+												nor = {
+													has_building = "building_mineral_processing_plant_1"
+													has_building = "building_mineral_processing_plant_2"
+												}
+											}
+											exists = owner
+											owner = { has_technology = "tech_mineral_processing_1" }
+										}
+										add_building_construction = "building_mineral_processing_plant_1"
+										else = {
+											if = {
+												limit = {
+													or = {
+														has_building = no
+														has_any_power_plant = yes
+														has_any_science_lab = yes
+													}
+													exists = pop
+													pop = {	is_being_purged = no }
+												}
+											add_building_construction = "building_mining_network_1"
+											}
+										}
+									}
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = { has_building = "building_colony_shelter" }
+								every_tile = {
+									limit = {
+										or = {
+											has_building = no
+											has_any_power_plant = yes
+											has_any_science_lab = yes
+											has_any_mines = yes
+										}
+									}
+									if = {
+										limit = {
+											tile_has_mins_1_and_more = no
+											or = {
+												has_building = no
+												has_any_power_plant = yes
+												has_any_science_lab = yes
+												has_any_mines = yes
+											}
+											nor = {
+												has_building = "building_mineral_processing_plant_1"
+												has_building = "building_mineral_processing_plant_2"
+											}
+											exists = owner
+											owner = { has_technology = "tech_neural_implants" }
+											planet = {
+												not = {	has_building = "building_slave_processing" }
+												count_pops = {
+													limit = { is_enslaved = yes }
+													count > 3								## at least 4 slaves
+												}
+											}
+										}
+										add_building_construction = "building_slave_processing"
+										else = {
+											if = {
+												limit = {
+													or = {
+														has_building = no
+														has_any_power_plant = yes
+														has_any_science_lab = yes
+													}
+													exists = pop
+													pop = {	is_being_purged = no }
+												}
+												add_building_construction = "building_basic_mine"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_modifier = "planet_power_plant_auto_build"		## planet of power plants
+						exists = owner
+						or = {
+							free_building_tiles > 0
+							has_any_mines = yes
+							has_any_science_lab = yes
+							and = {
+								owner = { has_technology = "tech_power_hub_1" }
+								nor = {
+									has_building = "building_power_hub_1"
+									has_building = "building_power_hub_2"
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								has_building = "building_capital_1"
+								has_building = "building_capital_2"
+								has_building = "building_capital_3"
+							}
+						}
+						every_tile = {
+							limit = {
+								or = {
+									has_building = no
+									has_any_mines = yes
+									has_any_science_lab = yes
+									has_any_power_plant = yes
+								}
+							}
+							if = {
+								limit = {
+									exists = owner
+									owner = { has_technology = "tech_power_hub_1" }
+									planet = {
+										nor = {
+											has_building = "building_power_hub_1"
+											has_building = "building_power_hub_2"
+										}
+									}
+								}
+								add_building_construction = "building_power_hub_1"
+								else = {
+									if = {
+										limit = {
+											or = {
+												has_building = no
+												has_any_mines = yes
+												has_any_science_lab = yes
+											}
+											exists = pop
+											pop = {
+												is_being_purged = no
+												is_slavebot = no
+											}
+										}
+										add_building_construction = "building_power_plant_1"
+									}
+								} 
+							} 
+						}
+						else = {
+							if = {
+								limit = { has_building = "building_colony_shelter" }
+								every_tile = {
+									limit = {
+										exists = pop
+										pop = {
+											is_being_purged = no
+											is_slavebot = no
+										}
+										or = {
+											has_building = no
+											has_any_mines = yes
+											has_any_science_lab = yes
+										}
+									}
+									add_building_construction = "building_basic_power_plant"
+								}
+							}
+						}
+					} 
+				}
+				if = {
+					limit = {
+						has_modifier = "planet_labs_auto_build"				## planet of labs
+						or = {
+							free_building_tiles > 0
+							has_any_mines = yes
+							has_any_power_plant = yes
+						}
+						or = {
+							has_building = "building_capital_1"
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+							has_building = "building_colony_shelter"
+						}
+					}
+					every_tile = {
+						limit = {
+							exists = pop
+							pop = {
+								is_being_purged = no
+								is_slavebot = no
+							}
+							or = {
+								has_building = no
+								has_any_mines = yes
+								has_any_power_plant = yes
+							}
+						}
+						add_building_construction = "building_basic_science_lab_1"
+					}
+				}
+			}
+		}
+
+		## auto update buildings ##
+
+		if = {
+			limit = {
+				has_country_flag = auto_build_1
+				or = {
+					not = { has_country_flag = auto_build_cost }
+					and = {
+						has_country_flag = auto_build_cost_5000
+						minerals > 5000
+					}
+					and = {
+						has_country_flag = auto_build_cost_2500
+						minerals > 2500
+					}
+					and = {
+						has_country_flag = auto_build_cost_1000
+						minerals > 1000
+					}
+					and = {
+						has_country_flag = auto_build_cost_500
+						minerals > 500
+					}
+				}
+			}
+			every_owned_planet = {
+				if = {
+					limit = {
+						not = { has_modifier = "free_from_auto_update" }
+						has_building_construction = no
+						or = {
+							has_building = "building_capital_1"
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+						}
+					}
+					every_tile = {
+						limit = {
+							exists = pop
+							pop = { is_being_purged = no }
+							nor = {
+								has_building = "building_capital_3"
+								has_building = "building_power_plant_5"
+								has_building = "betharian_power_plant_4"
+								has_building = "building_power_hub_2"
+								has_building = "building_hydroponics_farm_5"
+								has_building = "building_mineral_silo_3"
+								has_building = "building_mining_network_5"
+								has_building = "building_mineral_processing_plant_2"
+								has_building = "building_engineering_facility_4"
+								has_building = "building_physics_lab_4"
+								has_building = "building_biolab_4"
+								and = {
+									or = {
+										has_building = "building_power_plant_4"
+										has_building = "building_hydroponics_farm_4"
+										has_building = "building_mining_network_4"
+										has_building = "building_engineering_facility_3"
+										has_building = "building_physics_lab_3"
+										has_building = "building_biolab_3"
+									}
+									planet = {
+										not = { has_building = "building_capital_3" }
+									}
+								}
+							}
+						}
+						switch = {
+							trigger = has_building
+
+							"building_basic_power_plant" = { add_building_construction = "building_power_plant_1" }
+							"building_power_plant_1" = { add_building_construction = "building_power_plant_2" }
+							"building_power_plant_2" = { add_building_construction = "building_power_plant_3" }
+							"building_power_plant_3" = { add_building_construction = "building_power_plant_4" }
+							"building_power_plant_4" = { add_building_construction = "building_power_plant_5" }
+							"building_basic_farm" = { add_building_construction = "building_hydroponics_farm_1" }
+							"building_hydroponics_farm_1" = { add_building_construction = "building_hydroponics_farm_2" }
+							"building_hydroponics_farm_2" = { add_building_construction = "building_hydroponics_farm_3" }
+							"building_hydroponics_farm_3" = { add_building_construction = "building_hydroponics_farm_4" }
+							"building_hydroponics_farm_4" = { add_building_construction = "building_hydroponics_farm_5" }
+							"building_basic_mine" = { add_building_construction = "building_mining_network_1" }
+							"building_mining_network_1" = { add_building_construction = "building_mining_network_2" }
+							"building_mining_network_2" = { add_building_construction = "building_mining_network_3" }
+							"building_mining_network_3" = { add_building_construction = "building_mining_network_4" }
+							"building_mining_network_4" = { add_building_construction = "building_mining_network_5" }
+							"building_engineering_facility_1" = { add_building_construction = "building_engineering_facility_2" }
+							"building_engineering_facility_2" = { add_building_construction = "building_engineering_facility_3" }
+							"building_engineering_facility_3" = { add_building_construction = "building_engineering_facility_4" }
+							"building_physics_lab_1" = { add_building_construction = "building_physics_lab_2" }
+							"building_physics_lab_2" = { add_building_construction = "building_physics_lab_3" }
+							"building_physics_lab_3" = { add_building_construction = "building_physics_lab_4" }
+							"building_biolab_1" = { add_building_construction = "building_biolab_2" }
+							"building_biolab_2" = { add_building_construction = "building_biolab_3" }
+							"building_biolab_3" = { add_building_construction = "building_biolab_4" }
+							"betharian_power_plant_1" = { add_building_construction = "betharian_power_plant_2" }
+							"betharian_power_plant_2" = { add_building_construction = "betharian_power_plant_3" }
+							"betharian_power_plant_3" = { add_building_construction = "betharian_power_plant_4" }
+							"building_mineral_silo_1" = { add_building_construction = "building_mineral_silo_2" }
+							"building_mineral_silo_2" = { add_building_construction = "building_mineral_silo_3" }
+							"building_primitive_factory" = { add_building_construction = "building_mining_network_1" }
+							"building_primitive_farm" = { add_building_construction = "building_hydroponics_farm_1" }
+							
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								not = { has_modifier = "free_from_auto_update" }
+								has_building_construction = no
+								has_building = "building_colony_shelter"
+							}
+							every_tile = {
+								limit = {
+									exists = pop
+									pop = { is_being_purged = no }
+								}
+								switch = {
+									trigger = has_building
+
+									"building_primitive_factory" = { add_building_construction = "building_basic_mine" }
+									"building_primitive_farm" = { add_building_construction = "building_basic_farm" }
+									
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		## auto update influence cost ##
+		if = {
+			limit = {
+				has_country_flag = auto_build_2
+				or = {
+					not = { has_country_flag = auto_build_cost }
+					and = {
+						or = {
+							and = {
+								has_country_flag = auto_build_cost_5000
+								minerals > 5000
+							}
+							and = {
+								has_country_flag = auto_build_cost_2500
+								minerals > 2500
+							}
+							and = {
+								has_country_flag = auto_build_cost_1000
+								minerals > 1000
+							}
+							and = {
+								has_country_flag = auto_build_cost_500
+								minerals > 500
+							}
+						}
+						or = {
+							and = {
+								has_country_flag = auto_build_cost_inf_500
+								influence > 500
+							}
+							and = {
+								has_country_flag = auto_build_cost_inf_250
+								influence > 250
+							}
+							and = {
+								has_country_flag = auto_build_cost_inf_100
+								influence > 100
+							}
+						}
+					}
+				}
+			}
+			every_owned_planet = {
+				limit = {
+					not = { has_modifier = "free_from_auto_update" }
+					has_building_construction = no
+					or = {
+						has_building = "building_colony_shelter"
+						has_building = "building_capital_1"
+						and = {
+							has_building = "building_capital_2"
+							is_capital = yes
+						}
+						has_building = "building_power_hub_1"
+						has_building = "building_mineral_processing_plant_1"
+					}
+				}
+				every_tile = {
+					limit = {
+						exists = pop
+						pop = { is_being_purged = no }
+					}
+					switch = {
+						trigger = has_building
+
+						"building_colony_shelter" = { add_building_construction = "building_capital_1" }
+						"building_capital_1" = { add_building_construction = "building_capital_2" }
+						"building_capital_2" = { add_building_construction = "building_capital_3" }
+						"building_power_hub_1" = { add_building_construction = "building_power_hub_2" }
+						"building_mineral_processing_plant_1" = { add_building_construction = "building_mineral_processing_plant_2" }
+				
 					}
 				}
 			}
@@ -950,6 +2351,7 @@ country_event = {
 			every_owned_planet = {
 				limit = {
 					not = { has_modifier = "free_from_auto_update" }
+					has_building_construction = no
 					or = {
 						has_building = "building_capital_1"
 						has_building = "building_capital_2"
@@ -1043,6 +2445,7 @@ country_event = {
 			every_owned_planet = {
 				limit = {
 					not = { has_modifier = "free_from_auto_update" }
+					has_building_construction = no
 					or = {
 						has_building = "building_capital_1"
 						has_building = "building_capital_2"
@@ -1208,309 +2611,531 @@ country_event = {
 			}
 		}
 
-		## auto build clinics ##
+	}
+}
 
+## local autobuild for planets for on_actions
+## local auto enslave
+planet_event = {
+	id = autobuild.101
+	title = OK
+	desc = OK
+	hide_window = yes
+	is_triggered_only = yes
+
+ 	trigger = {
+		exists = owner
+		owner = {
+			is_ai = no
+			or = {
+				has_country_flag = auto_build_4
+				has_country_flag = auto_build_4_1
+			}
+		}
+	}
+
+	immediate = {
 		if = {
 			limit = {
-				has_country_flag = auto_build_8
-				or = {
-					not = { has_country_flag = auto_build_cost }
-					and = {
-						has_country_flag = auto_build_cost_5000
-						minerals > 5000
-					}
-					and = {
-						has_country_flag = auto_build_cost_2500
-						minerals > 2500
-					}
-					and = {
-						has_country_flag = auto_build_cost_1000
-						minerals > 1000
-					}
-					and = {
-						has_country_flag = auto_build_cost_500
-						minerals > 500
-					}
-				}
+				owner = { has_country_flag = auto_build_4 }
+				not = { has_modifier = "free_from_auto_enslave" }
 			}
-			every_owned_planet = {
-				limit = {
-					is_ringworld = no
-					free_from_autobuild = no
-					free_building_tiles > 0
-					nor = {
-						has_modifier = "capital"
-						has_building = "building_clinic"
-						is_planet_class = pc_gaia
+			every_tile = {
+				if = {
+					limit = {
+						exists = pop
+						pop = { is_robot = no }
+						or = {
+							has_any_mines = yes
+							has_any_farm = yes									
+							has_building = "building_colony_shelter"
+							has_building = "building_capital_1"
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+							has_building = "building_clinic"
+							has_building = "building_ancient_factory"
+					#		has_building = "building_agri_processing_complex"
+							has_building = "building_great_pyramid"
+							and = {
+								exists = owner
+								owner = { has_country_flag = auto_build_4_1 }
+								pop = {
+									is_being_purged = no
+									not = { is_same_species = owner.species }
+								}
+							}
+						}
 					}
-				}
-				event_target:autobuild_country = {
-					set_variable = {
-						which = autobuild_clinic
-						value = 0
+					if = {
+						limit = {
+							exists = owner
+							owner = {
+								or = {
+									has_policy_flag = slavery_allowed_regulated_xenos_only
+									has_policy_flag = slavery_allowed_xenos_only
+								}
+							}
+							pop = {
+								is_being_purged = no
+								not = { is_same_species = owner.species }
+								is_enslaved = no
+							}
+						}
+						pop = { enslave_pop = yes }
 					}
-				}
-				every_tile = {
-					limit = { exists = pop }
-					pop = {
-						save_event_target_as = autobuild_clinic_pop
+					if = {
+						limit = {
+							exists = owner
+							owner = {
+								or = {
+									has_policy_flag = slavery_allowed_regulated
+									has_policy_flag = slavery_allowed_all
+								}
+							}
+							pop = {
+								is_being_purged = no
+								is_enslaved = no
+							}
+						}
+						pop = { enslave_pop = yes }
+					}
+					if = {
+						limit = {
+							exists = owner
+							owner = { has_policy_flag = ai_servitude }
+							pop = {
+								is_being_purged = no
+								is_enslaved = no
+								is_species = "ROBOT_POP_SPECIES_3"
+							}
+						}
+						pop = { enslave_pop = yes }
+					}
+					else = {
 						if = {
 							limit = {
-								event_target:autobuild_country = {
-									habitability = { 
-										who = event_target:autobuild_clinic_pop
-										value < 1
-									}
+								exists = pop
+								pop = {
+									is_being_purged = no
+									is_enslaved = yes
 								}
 							}
-							event_target:autobuild_country = {
-								change_variable = {
-									which = autobuild_clinic
-									value = 1
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						event_target:autobuild_country = {
-							check_variable = {
-								which = autobuild_clinic
-								value > 3								# 4 pops at least
-							}
-						}
-					}
-					every_tile = {										# try found best tile
-						limit = {
-							has_building = no
-							has_blocker = no
-							tile_has_food_3_and_more = yes
-							tile_has_mins_1_and_more = no
-						}
-						add_building_construction  = "building_clinic"
-						event_target:autobuild_country = {
-							set_variable = {
-								which = autobuild_clinic
-								value = 0
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						event_target:autobuild_country = {
-							check_variable = {
-								which = autobuild_clinic
-								value > 3								# 4 pops at least
-							}
-						}
-					}
-					every_tile = {
-						limit = {
-							has_building = no
-							has_blocker = no
-							tile_has_food_2_and_more = yes
-							tile_has_mins_1_and_more = no
-						}
-						add_building_construction  = "building_clinic"
-						event_target:autobuild_country = {
-							set_variable = {
-								which = autobuild_clinic
-								value = 0
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						event_target:autobuild_country = {
-							check_variable = {
-								which = autobuild_clinic
-								value > 3								# 4 pops at least
-							}
-						}
-					}
-					every_tile = {
-						limit = {
-							has_building = no
-							has_blocker = no
-							tile_has_food_1_and_more = yes
-							tile_has_mins_1_and_more = no
-						}
-						add_building_construction  = "building_clinic"
-						event_target:autobuild_country = {
-							set_variable = {
-								which = autobuild_clinic
-								value = 0
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						event_target:autobuild_country = {
-							check_variable = {
-								which = autobuild_clinic
-								value > 3								# 4 pops at least
-							}
-						}
-					}
-					every_tile = {
-						limit = {
-							has_building = no
-							has_blocker = no
-							tile_has_food_3_and_more = yes
-							tile_has_mins_2_and_more = no
-						}
-						add_building_construction  = "building_clinic"
-						event_target:autobuild_country = {
-							set_variable = {
-								which = autobuild_clinic
-								value = 0
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						event_target:autobuild_country = {
-							check_variable = {
-								which = autobuild_clinic
-								value > 3								# 4 pops at least
-							}
-						}
-					}
-					every_tile = {
-						limit = {
-							has_building = no
-							has_blocker = no
-							tile_has_food_2_and_more = yes
-							tile_has_mins_2_and_more = no
-						}
-						add_building_construction  = "building_clinic"
-						event_target:autobuild_country = {
-							set_variable = {
-								which = autobuild_clinic
-								value = 0
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						event_target:autobuild_country = {
-							check_variable = {
-								which = autobuild_clinic
-								value > 3								# 4 pops at least
-							}
-						}
-					}
-					every_tile = {
-						limit = {
-							has_building = no
-							has_blocker = no
-							tile_has_food_1_and_more = yes
-							tile_has_mins_2_and_more = no
-						}
-						add_building_construction  = "building_clinic"
-						event_target:autobuild_country = {
-							set_variable = {
-								which = autobuild_clinic
-								value = 0
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						event_target:autobuild_country = {
-							check_variable = {
-								which = autobuild_clinic
-								value > 3								# 4 pops at least
-							}
-						}
-					}
-					every_tile = {
-						limit = {
-							has_building = no
-							has_blocker = no
-							tile_has_any_res_but_not_food = no
-						}
-						add_building_construction  = "building_clinic"
-						event_target:autobuild_country = {
-							set_variable = {
-								which = autobuild_clinic
-								value = 0
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						event_target:autobuild_country = {
-							check_variable = {
-								which = autobuild_clinic
-								value > 3								# 4 pops at least
-							}
-						}
-					}
-					every_tile = {										# clinic must be build!
-						limit = {
-							has_building = no
-							has_blocker = no
-						}
-						add_building_construction  = "building_clinic"
-						event_target:autobuild_country = {
-							set_variable = {
-								which = autobuild_clinic
-								value = 0
-							}
+							pop = { enslave_pop = no }
 						}
 					}
 				}
 			}
 		}
+	}
+}
 
-		## planet edicts:
+## local auto build
+planet_event = {
+	id = autobuild.102
+	title = OK
+	desc = OK
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = owner
+		owner = {			is_ai = no			or = {				has_country_flag = auto_build_3				has_country_flag = auto_build_4_2				has_country_flag = auto_build_7_1				has_country_flag = auto_build_7_2				has_country_flag = auto_build_7_3				has_country_flag = auto_build_7_4				has_country_flag = auto_build_7_6				has_country_flag = auto_build_7_7				has_country_flag = auto_build_8				has_country_flag = auto_build_9			}			or = {				not = { has_country_flag = auto_build_cost }				and = {					has_country_flag = auto_build_cost_5000					minerals > 5000				}				and = {					has_country_flag = auto_build_cost_2500					minerals > 2500				}				and = {					has_country_flag = auto_build_cost_1000					minerals > 1000				}				and = {					has_country_flag = auto_build_cost_500					minerals > 500				}			}		}
+		free_from_autobuild = no
+		free_building_tiles > 0
+	}
+	
+	immediate = {
+	
+		owner = { save_event_target_as = autobuild_country }
+
+		## replace power plants and labs if slave ##
 
 		if = {
 			limit = {
-				or = {
-					not = { has_country_flag = auto_build_cost }
-					and = {
-						has_country_flag = auto_build_cost_5000
-						minerals > 5000
+				owner = {
+					has_country_flag = auto_build_4_2
+				}
+			}
+			if = {
+				limit = {
+					or = {
+						has_building = "building_capital_1"
+						has_building = "building_capital_2"
+						has_building = "building_capital_3"
 					}
-					and = {
-						has_country_flag = auto_build_cost_2500
-						minerals > 2500
-					}
-					and = {
-						has_country_flag = auto_build_cost_1000
-						minerals > 1000
-					}
-					and = {
-						has_country_flag = auto_build_cost_500
-						minerals > 500
+				}
+				every_tile = {					limit = {						exists = pop						pop = {							is_being_purged = no							is_enslaved = yes						}						or = {							has_any_power_plant = yes							has_any_science_lab = yes						}					}					add_building_construction = "building_mining_network_1"				}				else = {					if = {						limit = {							has_building = "building_colony_shelter"						}						every_tile = {							limit = {								exists = pop								pop = {									is_being_purged = no									is_enslaved = yes								}								or = {									has_any_power_plant = yes									has_any_science_lab = yes								}							}							add_building_construction = "building_basic_mine"						}					}
+				}			}		}
+
+		## auto build in ept tiles ##
+
+		if = {
+			limit = {
+				owner = {
+					or = {
+						has_country_flag = auto_build_7_1
+						has_country_flag = auto_build_7_2
+						has_country_flag = auto_build_7_3
+						has_country_flag = auto_build_7_4
+			#			has_country_flag = auto_build_7_5
+						has_country_flag = auto_build_7_6
+						has_country_flag = auto_build_7_7
 					}
 				}
 			}
-			every_owned_planet = {
+			if = {				limit = {					or = {						has_building = "building_capital_1"						has_building = "building_capital_2"						has_building = "building_capital_3"					}				}				every_tile = {					limit = {						has_building = no						exists = pop						pop = {							is_being_purged = no							is_slavebot = yes						}						tile_has_any_res = no					}					add_building_construction = "building_mining_network_1"				}				else = {					if = {						limit = {							has_building = "building_colony_shelter"						}						every_tile = {							limit = {								has_building = no								exists = pop								pop = {									is_being_purged = no									is_slavebot = yes								}								tile_has_any_res = no							}							add_building_construction = "building_basic_mine"						}					}				}			}
+			if = {
 				limit = {
-					or = {
-						has_modifier = "planet_forge_auto_build"
-						has_modifier = "planet_power_plant_auto_build"
-						has_modifier = "planet_labs_auto_build"
+					owner = { has_country_flag = auto_build_7_1 }
+				}				if = {					limit = {						or = {							has_building = "building_capital_1"							has_building = "building_capital_2"							has_building = "building_capital_3"						}					}					every_tile = {						limit = {							has_building = no							exists = pop							pop = { is_being_purged = no }							tile_has_any_res = no						}						add_building_construction = "building_power_plant_1"					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								add_building_construction = "building_basic_power_plant"							}						}					}				}			}
+			if = {
+				limit = {
+					owner = { has_country_flag = auto_build_7_2 }
+				}				if = {					limit = {						or = {							has_building = "building_capital_1"							has_building = "building_capital_2"							has_building = "building_capital_3"						}					}					every_tile = {						limit = {							has_building = no							exists = pop						pop = { is_being_purged = no }						tile_has_any_res = no						}						add_building_construction = "building_mining_network_1"					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								add_building_construction = "building_basic_mine"							}						}					}				}			}
+
+			if = {
+				limit = {
+					owner = { has_country_flag = auto_build_7_3 }
+				}
+					every_tile = {
+						limit = {
+							has_building = no
+							exists = pop
+							pop = { is_being_purged = no }
+							tile_has_any_res = no
+						}
+						add_building_construction = "building_basic_science_lab_1"
 					}
 				}
-				if = {			##	lets build farm 
-					limit = {
-						or = {
-							has_building = "building_capital_1"
-							has_building = "building_capital_2"
-							has_building = "building_capital_3"
+			if = {
+				limit = {
+					owner = { has_country_flag = auto_build_7_4 }
+				}
+				if = {					limit = {						or = {							has_building = "building_capital_1"							has_building = "building_capital_2"							has_building = "building_capital_3"						}					}					every_tile = {						limit = {							has_building = no							exists = pop							pop = { is_being_purged = no }							tile_has_any_res = no						}						random_list = {							80 = { add_building_construction = "building_basic_science_lab_1" }							20 = { add_building_construction = "building_power_plant_1" }						}					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								random_list = {									80 = { add_building_construction = "building_basic_science_lab_1" }									20 = { add_building_construction = "building_basic_power_plant" }								}							}						}					}				}			}
+
+			## to do build by emp prior ##
+
+			if = {
+				limit = {
+					owner = { has_country_flag = auto_build_7_6 }
+				}
+				if = {					limit = {						or = {							has_building = "building_capital_1"							has_building = "building_capital_2"							has_building = "building_capital_3"						}					}					every_tile = {						limit = {							has_building = no							exists = pop							pop = { is_being_purged = no }							tile_has_any_res = no						}						random_list = {							33 = { add_building_construction = "building_basic_science_lab_1" }							33 = { add_building_construction = "building_power_plant_1" }							33 = { add_building_construction = "building_mining_network_1" }						}					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								random_list = {									33 = { add_building_construction = "building_basic_science_lab_1" }									33 = { add_building_construction = "building_basic_power_plant" }									33 = { add_building_construction = "building_basic_mine" }								}							}						}					}				}			}
+
+			if = {
+				limit = {
+					owner = { has_country_flag = auto_build_7_7 }
+				}
+				if = {					limit = {						or = {							has_building = "building_capital_1"							has_building = "building_capital_2"							has_building = "building_capital_3"						}					}					every_tile = {						limit = {							has_building = no							exists = pop							pop = { is_being_purged = no }							tile_has_any_res = no						}						random_list = {							50 = { add_building_construction = "building_basic_science_lab_1" }							50 = { add_building_construction = "building_power_plant_1" }						}					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								random_list = {									50 = { add_building_construction = "building_basic_science_lab_1" }									50 = { add_building_construction = "building_basic_power_plant" }								}							}						}					}				}			}		}
+
+		## auto build new buildings on good tiles ##
+
+		if = {
+			limit = {
+				owner = {
+					has_country_flag = auto_build_3
+				}
+			}
+			if = {				limit = {					or = {						has_building = "building_capital_1"						has_building = "building_capital_2"						has_building = "building_capital_3"					}				}				event_target:autobuild_country = {					set_variable = {						which = autobuild_farm_planet						value = 0					}				}				every_tile = {					limit = { has_any_farm = yes }					event_target:autobuild_country = {						change_variable = {							which = autobuild_farm_planet							value = 1						}					}				}				while = {					limit = {						event_target:autobuild_country = {							check_variable = {								which = autobuild_farm_planet								value < autobuild_farm_global							}						}					}					every_tile = {						limit = {							tile_has_food_3_and_more = yes							tile_has_mins_1_and_more = no							has_blocker = no							has_building = no							event_target:autobuild_country = {								check_variable = {									which = autobuild_farm_planet									value < autobuild_farm_global								}							}						}						event_target:autobuild_country = {							change_variable = {								which = autobuild_farm_planet								value = 1							}						}						if = {							limit = {								or = {									exists = pop									planet = {										has_building_construction = no										has_any_farm = no									}								}							}							add_building_construction = "building_hydroponics_farm_1"						}					}					every_tile = {						limit = {							tile_has_food_2_and_more = yes							tile_has_mins_1_and_more = no							has_blocker = no							has_building = no							event_target:autobuild_country = {								check_variable = {									which = autobuild_farm_planet									value < autobuild_farm_global								}							}						}						event_target:autobuild_country = {							change_variable = {								which = autobuild_farm_planet								value = 1							}						}						if = {							limit = {								or = {									exists = pop									planet = {										has_building_construction = no										has_any_farm = no									}								}							}							add_building_construction = "building_hydroponics_farm_1"						}					}					every_tile = {						limit = {							tile_has_food_1_and_more = yes							tile_has_mins_1_and_more = no							has_blocker = no							has_building = no							event_target:autobuild_country = {								check_variable = {									which = autobuild_farm_planet									value < autobuild_farm_global								}							}						}						event_target:autobuild_country = {							change_variable = {								which = autobuild_farm_planet								value = 1							}						}						if = {							limit = {								or = {									exists = pop									planet = {										has_building_construction = no										has_any_farm = no									}								}							}							add_building_construction = "building_hydroponics_farm_1"						}					}				}				every_tile = {					limit = {						has_building = no						exists = pop						pop = {							is_being_purged = no							is_slavebot = no						}						tile_has_energy_1_and_more = yes					}					add_building_construction = "building_power_plant_1"				}				every_tile = {					limit = {						has_building = no						exists = pop						pop = { is_being_purged = no }						tile_has_mins_1_and_more = yes					}					add_building_construction = "building_mining_network_1"				}				every_tile = {					limit = {						has_building = no						exists = pop						pop = {							is_being_purged = no							is_slavebot = no						}						tile_has_any_science = yes					}					add_building_construction = "building_basic_science_lab_1"				}				else = {					if = {						limit = {							free_from_autobuild = no							free_building_tiles > 0							has_building = "building_colony_shelter"						}						event_target:autobuild_country = {							set_variable = {								which = autobuild_farm_planet								value = 0							}						}						every_tile = {							limit = { has_any_farm = yes }							event_target:autobuild_country = {								change_variable = {									which = autobuild_farm_planet									value = 1								}							}						}						while = {							limit = {								event_target:autobuild_country = {									check_variable = {										which = autobuild_farm_planet										value < autobuild_farm_global									}								}							}							every_tile = {								limit = {									tile_has_food_3_and_more = yes									tile_has_mins_1_and_more = no									has_blocker = no									has_building = no									event_target:autobuild_country = {										check_variable = {											which = autobuild_farm_planet											value < autobuild_farm_global										}									}								}								event_target:autobuild_country = {									change_variable = {										which = autobuild_farm_planet										value = 1									}								}								if = {									limit = {										or = {											exists = pop											planet = {												has_building_construction = no												has_any_farm = no											}										}									}									add_building_construction = "building_basic_farm"								}							}							every_tile = {								limit = {									tile_has_food_2_and_more = yes									tile_has_mins_1_and_more = no									has_blocker = no									has_building = no									event_target:autobuild_country = {										check_variable = {											which = autobuild_farm_planet											value < autobuild_farm_global										}									}								}								event_target:autobuild_country = {									change_variable = {										which = autobuild_farm_planet										value = 1									}								}								if = {									limit = {										or = {											exists = pop											planet = {												has_building_construction = no												has_any_farm = no											}										}									}									add_building_construction = "building_basic_farm"								}							}							every_tile = {								limit = {									tile_has_food_1_and_more = yes									tile_has_mins_1_and_more = no									has_blocker = no									has_building = no									event_target:autobuild_country = {										check_variable = {											which = autobuild_farm_planet											value < autobuild_farm_global										}									}								}								event_target:autobuild_country = {									change_variable = {										which = autobuild_farm_planet										value = 1									}								}								if = {									limit = {										or = {											exists = pop											planet = {												has_building_construction = no												has_any_farm = no											}										}									}									add_building_construction = "building_basic_farm"								}							}						}						every_tile = {							limit = {								has_building = no								exists = pop								pop = {									is_being_purged = no									is_slavebot = no								}								tile_has_energy_1_and_more = yes							}							add_building_construction = "building_basic_power_plant"						}						every_tile = {							limit = {								has_building = no								exists = pop								pop = { is_being_purged = no }								tile_has_mins_1_and_more = yes							}							add_building_construction = "building_basic_mine"						}						every_tile = {							limit = {								has_building = no								exists = pop								pop = {									is_being_purged = no									is_slavebot = no								}								tile_has_any_science = yes							}							add_building_construction = "building_basic_science_lab_1"						}					}				}			}		}
+	}
+}
+
+## local auto build planet
+planet_event = {
+	id = autobuild.103
+	title = OK
+	desc = OK
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = {
+			is_ai = no
+			or = {
+				not = { has_country_flag = auto_build_cost }
+				and = {
+					has_country_flag = auto_build_cost_5000
+					minerals > 5000
+				}
+				and = {
+					has_country_flag = auto_build_cost_2500
+					minerals > 2500
+				}
+				and = {
+					has_country_flag = auto_build_cost_1000
+					minerals > 1000
+				}
+				and = {
+					has_country_flag = auto_build_cost_500
+					minerals > 500
+				}
+			}
+		}
+		or = {
+			has_modifier = "planet_forge_auto_build"
+			has_modifier = "planet_power_plant_auto_build"
+			has_modifier = "planet_labs_auto_build"
+		}
+		has_building_construction = no
+	}
+
+	immediate = {
+
+		owner = { save_event_target_as = autobuild_country }
+
+		## planet edicts:
+		if = {														##	lets build farm
+			limit = {
+				or = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+				free_building_tiles > 0
+			}
+			event_target:autobuild_country = {
+				set_variable = {
+					which = autobuild_farm_planet
+					value = 0
+				}
+			}
+			every_tile = {
+				limit = { has_any_farm = yes }
+				event_target:autobuild_country = {
+					change_variable = {
+						which = autobuild_farm_planet
+						value = 1
+					}
+				}
+			}
+			while = {
+				limit = {
+					event_target:autobuild_country = {
+						check_variable = {
+							which = autobuild_farm_planet
+							value < autobuild_farm_global
 						}
+					}
+				}
+				every_tile = {
+					limit = {
+						tile_has_food_3_and_more = yes
+						tile_has_mins_1_and_more = no
+						has_blocker = no
+						has_building = no
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_farm_planet
+								value < autobuild_farm_global
+							}
+						}
+					}
+					event_target:autobuild_country = {
+						change_variable = {
+							which = autobuild_farm_planet
+							value = 1
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								exists = pop
+								planet = {
+									has_any_farm = no
+								}
+							}
+						}
+						add_building_construction = "building_hydroponics_farm_1"
+					}
+				}
+				every_tile = {
+					limit = {
+						tile_has_food_2_and_more = yes
+						tile_has_mins_1_and_more = no
+						has_blocker = no
+						has_building = no
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_farm_planet
+								value < autobuild_farm_global
+							}
+						}
+					}
+					event_target:autobuild_country = {
+						change_variable = {
+							which = autobuild_farm_planet
+							value = 1
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								exists = pop
+								planet = {
+									has_any_farm = no
+								}
+							}
+						}
+						add_building_construction = "building_hydroponics_farm_1"
+					}
+				}
+				every_tile = {
+					limit = {
+						tile_has_food_1_and_more = yes
+						tile_has_mins_1_and_more = no
+						has_blocker = no
+						has_building = no
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_farm_planet
+								value < autobuild_farm_global
+							}
+						}
+					}
+					event_target:autobuild_country = {
+						change_variable = {
+							which = autobuild_farm_planet
+							value = 1
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								exists = pop
+								planet = {
+									has_any_farm = no
+								}
+							}
+						}
+						add_building_construction = "building_hydroponics_farm_1"
+					}
+				}
+				every_tile = {
+					limit = {
+						tile_has_food_3_and_more = yes
+						has_blocker = no
+						has_building = no
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_farm_planet
+								value < autobuild_farm_global
+							}
+						}
+					}
+					event_target:autobuild_country = {
+						change_variable = {
+							which = autobuild_farm_planet
+							value = 1
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								exists = pop
+								planet = {
+									has_any_farm = no
+								}
+							}
+						}
+						add_building_construction = "building_hydroponics_farm_1"
+					}
+				}
+				every_tile = {
+					limit = {
+						tile_has_food_2_and_more = yes
+						has_blocker = no
+						has_building = no
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_farm_planet
+								value < autobuild_farm_global
+							}
+						}
+					}
+					event_target:autobuild_country = {
+						change_variable = {
+							which = autobuild_farm_planet
+							value = 1
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								exists = pop
+								planet = {
+									has_any_farm = no
+								}
+							}
+						}
+						add_building_construction = "building_hydroponics_farm_1"
+					}
+				}
+				every_tile = {
+					limit = {
+						tile_has_food_1_and_more = yes
+						has_blocker = no
+						has_building = no
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_farm_planet
+								value < autobuild_farm_global
+							}
+						}
+					}
+					event_target:autobuild_country = {
+						change_variable = {
+							which = autobuild_farm_planet
+							value = 1
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								exists = pop
+								planet = {
+									has_any_farm = no
+								}
+							}
+						}
+						add_building_construction = "building_hydroponics_farm_1"
+					}
+				}
+				every_tile = {
+					limit = {
+						tile_has_any_res = no
+						has_blocker = no
+						has_building = no
+						event_target:autobuild_country = {
+							check_variable = {
+								which = autobuild_farm_planet
+								value < autobuild_farm_global
+							}
+						}
+					}
+					event_target:autobuild_country = {
+						change_variable = {
+							which = autobuild_farm_planet
+							value = 1
+						}
+					}
+					if = {
+						limit = {
+							or = {
+								exists = pop
+								planet = {
+									has_any_farm = no
+								}
+							}
+						}
+						add_building_construction = "building_hydroponics_farm_1"
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						has_building = "building_colony_shelter"
+						free_building_tiles > 0
 					}
 					event_target:autobuild_country = {
 						set_variable = {
@@ -1519,7 +3144,9 @@ country_event = {
 						}
 					}
 					every_tile = {
-						limit = { has_any_farm = yes }
+						limit = {
+							has_any_farm = yes
+						}
 						event_target:autobuild_country = {
 							change_variable = {
 								which = autobuild_farm_planet
@@ -1564,7 +3191,7 @@ country_event = {
 										}
 									}
 								}
-								add_building_construction  = "building_hydroponics_farm_1"
+								add_building_construction = "building_basic_farm"
 							}
 						}
 						every_tile = {
@@ -1595,7 +3222,7 @@ country_event = {
 										}
 									}
 								}
-								add_building_construction  = "building_hydroponics_farm_1"
+								add_building_construction = "building_basic_farm"
 							}
 						}
 						every_tile = {
@@ -1626,7 +3253,7 @@ country_event = {
 										}
 									}
 								}
-								add_building_construction  = "building_hydroponics_farm_1"
+								add_building_construction = "building_basic_farm"
 							}
 						}
 						every_tile = {
@@ -1656,7 +3283,7 @@ country_event = {
 										}
 									}
 								}
-								add_building_construction  = "building_hydroponics_farm_1"
+								add_building_construction = "building_basic_farm"
 							}
 						}
 						every_tile = {
@@ -1686,7 +3313,7 @@ country_event = {
 										}
 									}
 								}
-								add_building_construction  = "building_hydroponics_farm_1"
+								add_building_construction = "building_basic_farm"
 							}
 						}
 						every_tile = {
@@ -1716,7 +3343,7 @@ country_event = {
 										}
 									}
 								}
-								add_building_construction  = "building_hydroponics_farm_1"
+								add_building_construction = "building_basic_farm"
 							}
 						}
 						every_tile = {
@@ -1746,287 +3373,113 @@ country_event = {
 										}
 									}
 								}
-								add_building_construction  = "building_hydroponics_farm_1"
+								add_building_construction = "building_basic_farm"
 							}
 						}
+					}	
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = "planet_forge_auto_build"			## planet of mines
+				exists = owner
+				or = {
+					free_building_tiles > 0
+					has_any_power_plant = yes
+					has_any_science_lab = yes
+					and = {
+						owner = { has_technology = "tech_neural_implants" }
+						not = {	has_building = "building_slave_processing" }
+						count_pops = {
+							limit = { is_enslaved = yes }
+							count > 3								## at least 4 slaves
+						}
 					}
-					else = {
-						if = {
-							limit = { has_building = "building_colony_shelter" }
-							event_target:autobuild_country = {
-								set_variable = {
-									which = autobuild_farm_planet
-									value = 0
-								}
-							}
-							every_tile = {
-								limit = { has_any_farm = yes }
-								event_target:autobuild_country = {
-									change_variable = {
-										which = autobuild_farm_planet
-										value = 1
-									}
-								}
-							}
-							while = {
-								limit = {
-									event_target:autobuild_country = {
-										check_variable = {
-											which = autobuild_farm_planet
-											value < autobuild_farm_global
-										}
-									}
-								}
-								every_tile = {
-									limit = {
-										tile_has_food_3_and_more = yes
-										tile_has_mins_1_and_more = no
-										has_blocker = no
-										has_building = no
-										event_target:autobuild_country = {
-											check_variable = {
-												which = autobuild_farm_planet
-												value < autobuild_farm_global
-											}
-										}
-									}
-									event_target:autobuild_country = {
-										change_variable = {
-											which = autobuild_farm_planet
-											value = 1
-										}
-									}
-									if = {
-										limit = {
-											or = {
-												exists = pop
-												planet = {
-													has_any_farm = no
-												}
-											}
-										}
-										add_building_construction  = "building_basic_farm"
-									}
-								}
-								every_tile = {
-									limit = {
-										tile_has_food_2_and_more = yes
-										tile_has_mins_1_and_more = no
-										has_blocker = no
-										has_building = no
-										event_target:autobuild_country = {
-											check_variable = {
-												which = autobuild_farm_planet
-												value < autobuild_farm_global
-											}
-										}
-									}
-									event_target:autobuild_country = {
-										change_variable = {
-											which = autobuild_farm_planet
-											value = 1
-										}
-									}
-									if = {
-										limit = {
-											or = {
-												exists = pop
-												planet = {
-													has_any_farm = no
-												}
-											}
-										}
-										add_building_construction  = "building_basic_farm"
-									}
-								}
-								every_tile = {
-									limit = {
-										tile_has_food_1_and_more = yes
-										tile_has_mins_1_and_more = no
-										has_blocker = no
-										has_building = no
-										event_target:autobuild_country = {
-											check_variable = {
-												which = autobuild_farm_planet
-												value < autobuild_farm_global
-											}
-										}
-									}
-									event_target:autobuild_country = {
-										change_variable = {
-											which = autobuild_farm_planet
-											value = 1
-										}
-									}
-									if = {
-										limit = {
-											or = {
-												exists = pop
-												planet = {
-													has_any_farm = no
-												}
-											}
-										}
-										add_building_construction  = "building_basic_farm"
-									}
-								}
-								every_tile = {
-									limit = {
-										tile_has_food_3_and_more = yes
-										has_blocker = no
-										has_building = no
-										event_target:autobuild_country = {
-											check_variable = {
-												which = autobuild_farm_planet
-												value < autobuild_farm_global
-											}
-										}
-									}
-									event_target:autobuild_country = {
-										change_variable = {
-											which = autobuild_farm_planet
-											value = 1
-										}
-									}
-									if = {
-										limit = {
-											or = {
-												exists = pop
-												planet = {
-													has_any_farm = no
-												}
-											}
-										}
-										add_building_construction  = "building_basic_farm"
-									}
-								}
-								every_tile = {
-									limit = {
-										tile_has_food_2_and_more = yes
-										has_blocker = no
-										has_building = no
-										event_target:autobuild_country = {
-											check_variable = {
-												which = autobuild_farm_planet
-												value < autobuild_farm_global
-											}
-										}
-									}
-									event_target:autobuild_country = {
-										change_variable = {
-											which = autobuild_farm_planet
-											value = 1
-										}
-									}
-									if = {
-										limit = {
-											or = {
-												exists = pop
-												planet = {
-													has_any_farm = no
-												}
-											}
-										}
-										add_building_construction  = "building_basic_farm"
-									}
-								}
-								every_tile = {
-									limit = {
-										tile_has_food_1_and_more = yes
-										has_blocker = no
-										has_building = no
-										event_target:autobuild_country = {
-											check_variable = {
-												which = autobuild_farm_planet
-												value < autobuild_farm_global
-											}
-										}
-									}
-									event_target:autobuild_country = {
-										change_variable = {
-											which = autobuild_farm_planet
-											value = 1
-										}
-									}
-									if = {
-										limit = {
-											or = {
-												exists = pop
-												planet = {
-													has_any_farm = no
-												}
-											}
-										}
-										add_building_construction  = "building_basic_farm"
-									}
-								}
-								every_tile = {
-									limit = {
-										tile_has_any_res = no
-										has_blocker = no
-										has_building = no
-										event_target:autobuild_country = {
-											check_variable = {
-												which = autobuild_farm_planet
-												value < autobuild_farm_global
-											}
-										}
-									}
-									event_target:autobuild_country = {
-										change_variable = {
-											which = autobuild_farm_planet
-											value = 1
-										}
-									}
-									if = {
-										limit = {
-											or = {
-												exists = pop
-												planet = {
-													has_any_farm = no
-												}
-											}
-										}
-										add_building_construction  = "building_basic_farm"
-									}
-								}
-							}	
+					and = {
+						owner = { has_technology = "tech_mineral_processing_1" }
+						nor = {
+							has_building = "building_mineral_processing_plant_1"
+							has_building = "building_mineral_processing_plant_2"
 						}
 					}
 				}
-				if = {
+			}
+			if = {
+				limit = {
+					or = {
+						has_building = "building_capital_1"
+						has_building = "building_capital_2"
+						has_building = "building_capital_3"
+					}
+				}
+				every_tile = {
 					limit = {
-						has_modifier = "planet_forge_auto_build"			## planet of mines
-						exists = owner
 						or = {
-							free_building_tiles > 0
+							has_building = no
 							has_any_power_plant = yes
 							has_any_science_lab = yes
-							and = {
-								owner = { has_technology = "tech_neural_implants" }
+							has_any_mines = yes
+						}
+						nor = {
+							has_building = "building_mineral_processing_plant_1"
+							has_building = "building_mineral_processing_plant_2"
+						}
+					}
+					if = {
+						limit = {
+							tile_has_mins_1_and_more = no
+							exists = owner
+							owner = { has_technology = "tech_neural_implants" }
+							planet = {
 								not = {	has_building = "building_slave_processing" }
 								count_pops = {
 									limit = { is_enslaved = yes }
 									count > 3								## at least 4 slaves
 								}
 							}
-							and = {
-								owner = { has_technology = "tech_mineral_processing_1" }
-								nor = {
-									has_building = "building_mineral_processing_plant_1"
-									has_building = "building_mineral_processing_plant_2"
+						}
+						add_building_construction = "building_slave_processing"						
+						else = {
+							if = {
+								limit = {
+									or = {
+										has_building = no
+										has_any_power_plant = yes
+										has_any_science_lab = yes
+										has_any_mines = yes
+									}
+									planet = {
+										nor = {
+											has_building = "building_mineral_processing_plant_1"
+											has_building = "building_mineral_processing_plant_2"
+										}
+									}
+									exists = owner
+									owner = { has_technology = "tech_mineral_processing_1" }
+								}
+								add_building_construction = "building_mineral_processing_plant_1"
+								else = {
+									if = {
+										limit = {
+											or = {
+												has_building = no
+												has_any_power_plant = yes
+												has_any_science_lab = yes
+											}
+											exists = pop
+											pop = {	is_being_purged = no }
+										}
+									add_building_construction = "building_mining_network_1"
+									}
 								}
 							}
 						}
 					}
+				}
+				else = {
 					if = {
-						limit = {
-							or = {
-								has_building = "building_capital_1"
-								has_building = "building_capital_2"
-								has_building = "building_capital_3"
-							}
-						}
+						limit = { has_building = "building_colony_shelter" }
 						every_tile = {
 							limit = {
 								or = {
@@ -2035,14 +3488,20 @@ country_event = {
 									has_any_science_lab = yes
 									has_any_mines = yes
 								}
-								nor = {
-									has_building = "building_mineral_processing_plant_1"
-									has_building = "building_mineral_processing_plant_2"
-								}
 							}
 							if = {
 								limit = {
 									tile_has_mins_1_and_more = no
+									or = {
+										has_building = no
+										has_any_power_plant = yes
+										has_any_science_lab = yes
+										has_any_mines = yes
+									}
+									nor = {
+										has_building = "building_mineral_processing_plant_1"
+										has_building = "building_mineral_processing_plant_2"
+									}
 									exists = owner
 									owner = { has_technology = "tech_neural_implants" }
 									planet = {
@@ -2053,7 +3512,7 @@ country_event = {
 										}
 									}
 								}
-								add_building_construction  = "building_slave_processing"						
+								add_building_construction = "building_slave_processing"
 								else = {
 									if = {
 										limit = {
@@ -2061,420 +3520,295 @@ country_event = {
 												has_building = no
 												has_any_power_plant = yes
 												has_any_science_lab = yes
-												has_any_mines = yes
 											}
-											planet = {
-												nor = {
-													has_building = "building_mineral_processing_plant_1"
-													has_building = "building_mineral_processing_plant_2"
-												}
-											}
-											exists = owner
-											owner = { has_technology = "tech_mineral_processing_1" }
+											exists = pop
+											pop = {	is_being_purged = no }
 										}
-										add_building_construction  = "building_mineral_processing_plant_1"
-										else = {
-											if = {
-												limit = {
-													or = {
-														has_building = no
-														has_any_power_plant = yes
-														has_any_science_lab = yes
-													}
-													exists = pop
-													pop = {	is_being_purged = no }
-												}
-											add_building_construction  = "building_mining_network_1"
-											}
-										}
-									}
-								}
-							}
-						}
-						else = {
-							if = {
-								limit = { has_building = "building_colony_shelter" }
-								every_tile = {
-									limit = {
-										or = {
-											has_building = no
-											has_any_power_plant = yes
-											has_any_science_lab = yes
-											has_any_mines = yes
-										}
-									}
-									if = {
-										limit = {
-											tile_has_mins_1_and_more = no
-											or = {
-												has_building = no
-												has_any_power_plant = yes
-												has_any_science_lab = yes
-												has_any_mines = yes
-											}
-											nor = {
-												has_building = "building_mineral_processing_plant_1"
-												has_building = "building_mineral_processing_plant_2"
-											}
-											exists = owner
-											owner = { has_technology = "tech_neural_implants" }
-											planet = {
-												not = {	has_building = "building_slave_processing" }
-												count_pops = {
-													limit = { is_enslaved = yes }
-													count > 3								## at least 4 slaves
-												}
-											}
-										}
-										add_building_construction  = "building_slave_processing"
-										else = {
-											if = {
-												limit = {
-													or = {
-														has_building = no
-														has_any_power_plant = yes
-														has_any_science_lab = yes
-													}
-													exists = pop
-													pop = {	is_being_purged = no }
-												}
-												add_building_construction  = "building_basic_mine"
-											}
-										}
+										add_building_construction = "building_basic_mine"
 									}
 								}
 							}
 						}
 					}
 				}
-				if = {
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = "planet_power_plant_auto_build"		## planet of power plants
+				exists = owner
+				or = {
+					free_building_tiles > 0
+					has_any_mines = yes
+					has_any_science_lab = yes
+					and = {
+						owner = { has_technology = "tech_power_hub_1" }
+						nor = {
+							has_building = "building_power_hub_1"
+							has_building = "building_power_hub_2"
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					or = {
+						has_building = "building_capital_1"
+						has_building = "building_capital_2"
+						has_building = "building_capital_3"
+					}
+				}
+				every_tile = {
 					limit = {
-						has_modifier = "planet_power_plant_auto_build"		## planet of power plants
-						exists = owner
 						or = {
-							free_building_tiles > 0
-							has_any_mines =  yes
+							has_building = no
+							has_any_mines = yes
 							has_any_science_lab = yes
-							and = {
-								owner = { has_technology = "tech_power_hub_1" }
+							has_any_power_plant = yes
+						}
+					}
+					if = {
+						limit = {
+							exists = owner
+							owner = { has_technology = "tech_power_hub_1" }
+							planet = {
 								nor = {
 									has_building = "building_power_hub_1"
 									has_building = "building_power_hub_2"
 								}
 							}
 						}
-					}
-					if = {
-						limit = {
-							or = {
-								has_building = "building_capital_1"
-								has_building = "building_capital_2"
-								has_building = "building_capital_3"
-							}
-						}
-						every_tile = {
-							limit = {
-								or = {
-									has_building = no
-									has_any_mines =  yes
-									has_any_science_lab = yes
-									has_any_power_plant = yes
-								}
-							}
-							if = {
-								limit = {
-									exists = owner
-									owner = { has_technology = "tech_power_hub_1" }
-									planet = {
-										nor = {
-											has_building = "building_power_hub_1"
-											has_building = "building_power_hub_2"
-										}
-									}
-								}
-								add_building_construction  = "building_power_hub_1"
-								else = {
-									if = {
-										limit = {
-											or = {
-												has_building = no
-												has_any_mines =  yes
-												has_any_science_lab = yes
-											}
-											exists = pop
-											pop = {
-												is_being_purged = no
-												is_slavebot = no
-											}
-										}
-										add_building_construction  = "building_power_plant_1"
-									}
-								} 
-							} 
-						}
+						add_building_construction = "building_power_hub_1"
 						else = {
 							if = {
-								limit = { has_building = "building_colony_shelter" }
-								every_tile = {
-									limit = {
-										exists = pop
-										pop = {
-											is_being_purged = no
-											is_slavebot = no
-										}
-										or = {
-											has_building = no
-											has_any_mines =  yes
-											has_any_science_lab = yes
-										}
+								limit = {
+									or = {
+										has_building = no
+										has_any_mines = yes
+										has_any_science_lab = yes
 									}
-									add_building_construction  = "building_basic_power_plant"
+									exists = pop
+									pop = {
+										is_being_purged = no
+										is_slavebot = no
+									}
 								}
+								add_building_construction = "building_power_plant_1"
 							}
-						}
+						} 
 					} 
 				}
-				if = {
-					limit = {
-						has_modifier = "planet_labs_auto_build"				## planet of labs
-						or = {
-							free_building_tiles > 0
-							has_any_mines =  yes
-							has_any_power_plant = yes
-						}
-						or = {
-							has_building = "building_capital_1"
-							has_building = "building_capital_2"
-							has_building = "building_capital_3"
-							has_building = "building_colony_shelter"
-						}
-					}
-					every_tile = {
-						limit = {
-							exists = pop
-							pop = {
-								is_being_purged = no
-								is_slavebot = no
-							}
-							or = {
-								has_building = no
-								has_any_mines =  yes
-								has_any_power_plant = yes
-							}
-						}
-						add_building_construction  = "building_basic_science_lab_1"
-					}
-				}
-			}
-		}
-		
-		## auto update buildings ##
-
-		if = {
-			limit = {
-				has_country_flag = auto_build_1
-				or = {
-					not = { has_country_flag = auto_build_cost }
-					and = {
-						has_country_flag = auto_build_cost_5000
-						minerals > 5000
-					}
-					and = {
-						has_country_flag = auto_build_cost_2500
-						minerals > 2500
-					}
-					and = {
-						has_country_flag = auto_build_cost_1000
-						minerals > 1000
-					}
-					and = {
-						has_country_flag = auto_build_cost_500
-						minerals > 500
-					}
-				}
-			}
-			every_owned_planet = {
-				if = {
-					limit = {
-						not = { has_modifier = "free_from_auto_update" }
-						or = {
-							has_building = "building_capital_1"
-							has_building = "building_capital_2"
-							has_building = "building_capital_3"
-						}
-					}
-					every_tile = {
-						limit = {
-							exists = pop
-							pop = { is_being_purged = no }
-							nor = {
-								has_building = "building_capital_3"
-								has_building = "building_power_plant_5"
-								has_building = "betharian_power_plant_4"
-								has_building = "building_power_hub_2"
-								has_building = "building_hydroponics_farm_5"
-								has_building = "building_mineral_silo_3"
-								has_building = "building_mining_network_5"
-								has_building = "building_mineral_processing_plant_2"
-								has_building = "building_engineering_facility_4"
-								has_building = "building_physics_lab_4"
-								has_building = "building_biolab_4"
-								and = {
-									or = {
-										has_building = "building_power_plant_4"
-										has_building = "building_hydroponics_farm_4"
-										has_building = "building_mining_network_4"
-										has_building = "building_engineering_facility_3"
-										has_building = "building_physics_lab_3"
-										has_building = "building_biolab_3"
-									}
-									planet = {
-										not = { has_building = "building_capital_3" }
-									}
-								}
-							}
-						}
-						switch = {
-							trigger = has_building
-
-							"building_basic_power_plant" = { add_building_construction  = "building_power_plant_1" }
-							"building_power_plant_1" = { add_building_construction  = "building_power_plant_2" }
-							"building_power_plant_2" = { add_building_construction  = "building_power_plant_3" }
-							"building_power_plant_3" = { add_building_construction  = "building_power_plant_4" }
-							"building_power_plant_4" = { add_building_construction  = "building_power_plant_5" }
-							"building_basic_farm" = { add_building_construction  = "building_hydroponics_farm_1" }
-							"building_hydroponics_farm_1" = { add_building_construction  = "building_hydroponics_farm_2" }
-							"building_hydroponics_farm_2" = { add_building_construction  = "building_hydroponics_farm_3" }
-							"building_hydroponics_farm_3" = { add_building_construction  = "building_hydroponics_farm_4" }
-							"building_hydroponics_farm_4" = { add_building_construction  = "building_hydroponics_farm_5" }
-							"building_basic_mine" = { add_building_construction  = "building_mining_network_1" }
-							"building_mining_network_1" = { add_building_construction  = "building_mining_network_2" }
-							"building_mining_network_2" = { add_building_construction  = "building_mining_network_3" }
-							"building_mining_network_3" = { add_building_construction  = "building_mining_network_4" }
-							"building_mining_network_4" = { add_building_construction  = "building_mining_network_5" }
-							"building_engineering_facility_1" = { add_building_construction  = "building_engineering_facility_2" }
-							"building_engineering_facility_2" = { add_building_construction  = "building_engineering_facility_3" }
-							"building_engineering_facility_3" = { add_building_construction  = "building_engineering_facility_4" }
-							"building_physics_lab_1" = { add_building_construction  = "building_physics_lab_2" }
-							"building_physics_lab_2" = { add_building_construction  = "building_physics_lab_3" }
-							"building_physics_lab_3" = { add_building_construction  = "building_physics_lab_4" }
-							"building_biolab_1" = { add_building_construction  = "building_biolab_2" }
-							"building_biolab_2" = { add_building_construction  = "building_biolab_3" }
-							"building_biolab_3" = { add_building_construction  = "building_biolab_4" }
-							"betharian_power_plant_1" = { add_building_construction  = "betharian_power_plant_2" }
-							"betharian_power_plant_2" = { add_building_construction  = "betharian_power_plant_3" }
-							"betharian_power_plant_3" = { add_building_construction  = "betharian_power_plant_4" }
-							"building_mineral_silo_1" = { add_building_construction  = "building_mineral_silo_2" }
-							"building_mineral_silo_2" = { add_building_construction  = "building_mineral_silo_3" }
-							"building_primitive_factory" = { add_building_construction = "building_mining_network_1" }
-							"building_primitive_farm" = { add_building_construction = "building_hydroponics_farm_1" }
-							
-						}
-					}
-					else = {
-						if = {
+				else = {
+					if = {
+						limit = { has_building = "building_colony_shelter" }
+						every_tile = {
 							limit = {
-								not = { has_modifier = "free_from_auto_update" }
-								has_building = "building_colony_shelter"
-							}
-							every_tile = {
-								limit = {
-									exists = pop
-									pop = { is_being_purged = no }
+								exists = pop
+								pop = {
+									is_being_purged = no
+									is_slavebot = no
 								}
-								switch = {
-									trigger = has_building
-
-									"building_primitive_factory" = { add_building_construction = "building_basic_mine" }
-									"building_primitive_farm" = { add_building_construction = "building_basic_farm" }
-									
+								or = {
+									has_building = no
+									has_any_mines = yes
+									has_any_science_lab = yes
 								}
 							}
+							add_building_construction = "building_basic_power_plant"
 						}
 					}
 				}
-			}
+			} 
 		}
-
-		## auto update influence cost ##
 		if = {
 			limit = {
-				has_country_flag = auto_build_2
+				has_modifier = "planet_labs_auto_build"				## planet of labs
 				or = {
-					not = { has_country_flag = auto_build_cost }
-					and = {
-						or = {
-							and = {
-								has_country_flag = auto_build_cost_5000
-								minerals > 5000
-							}
-							and = {
-								has_country_flag = auto_build_cost_2500
-								minerals > 2500
-							}
-							and = {
-								has_country_flag = auto_build_cost_1000
-								minerals > 1000
-							}
-							and = {
-								has_country_flag = auto_build_cost_500
-								minerals > 500
-							}
-						}
-						or = {
-							and = {
-								has_country_flag = auto_build_cost_inf_500
-								influence > 500
-							}
-							and = {
-								has_country_flag = auto_build_cost_inf_250
-								influence > 250
-							}
-							and = {
-								has_country_flag = auto_build_cost_inf_100
-								influence > 100
-							}
-						}
-					}
+					free_building_tiles > 0
+					has_any_mines = yes
+					has_any_power_plant = yes
+				}
+				or = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+					has_building = "building_colony_shelter"
 				}
 			}
-			every_owned_planet = {
+			every_tile = {
 				limit = {
-					not = { has_modifier = "free_from_auto_update" }
+					exists = pop
+					pop = {
+						is_being_purged = no
+						is_slavebot = no
+					}
 					or = {
-						has_building = "building_colony_shelter"
-						has_building = "building_capital_1"
-						and = {
-							has_building = "building_capital_2"
-							is_capital = yes
-							}
-						has_building = "building_power_hub_1"
-						has_building = "building_mineral_processing_plant_1"
+						has_building = no
+						has_any_mines = yes
+						has_any_power_plant = yes
 					}
 				}
-				every_tile = {
-					limit = {
-						exists = pop
-						pop = { is_being_purged = no }
-					}
-					switch = {
-						trigger = has_building
-
-						"building_colony_shelter" = { add_building_construction  = "building_capital_1" }
-						"building_capital_1" = { add_building_construction  = "building_capital_2" }
-						"building_capital_2" = { add_building_construction  = "building_capital_3" }
-						"building_power_hub_1" = { add_building_construction  = "building_power_hub_2" }
-						"building_mineral_processing_plant_1" = { add_building_construction  = "building_mineral_processing_plant_2" }
-				
-					}
-				}
+				add_building_construction = "building_basic_science_lab_1"
 			}
 		}
 	}
 }
 
-## to do: local autobuild for planets for on_actions
-		
+## local auto build planet farm
+planet_event = {
+	id = autobuild.104
+	title = OK
+	desc = OK
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = {
+			is_ai = no
+			or = {
+				not = { has_country_flag = auto_build_cost }
+				and = {
+					has_country_flag = auto_build_cost_5000
+					minerals > 5000
+				}
+				and = {
+					has_country_flag = auto_build_cost_2500
+					minerals > 2500
+				}
+				and = {
+					has_country_flag = auto_build_cost_1000
+					minerals > 1000
+				}
+				and = {
+					has_country_flag = auto_build_cost_500
+					minerals > 500
+				}
+			}
+		}
+		has_modifier = "planet_farms_auto_build"
+		has_building_construction = no
+		free_building_tiles > 0
+		has_any_power_plant = yes
+		has_any_science_lab = yes
+		has_any_mines = yes
+	}
+
+	immediate = {		if = {			limit = {				or = {					has_building = "building_capital_1"					has_building = "building_capital_2"					has_building = "building_capital_3"				}			}			every_tile = {				limit = {					or = {						has_building = no						has_any_power_plant = yes						has_any_science_lab = yes						has_any_mines = yes					}					exists = pop					pop = {	is_being_purged = no }				}				add_building_construction = "building_hydroponics_farm_1"			}			else = {				if = {					limit = { has_building = "building_colony_shelter" }					every_tile = {						limit = {							or = {								has_building = no								has_any_power_plant = yes								has_any_science_lab = yes								has_any_mines = yes							}							exists = pop							pop = {	is_being_purged = no }						}						add_building_construction = "building_basic_farm"					}				}			}		}	}
+}
+
+## local auto update
+planet_event = {
+	id = autobuild.105
+	title = OK
+	desc = OK
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = {
+			is_ai = no
+			or = {
+				not = { has_country_flag = auto_build_cost }
+				and = {
+					has_country_flag = auto_build_cost_5000
+					minerals > 5000
+				}
+				and = {
+					has_country_flag = auto_build_cost_2500
+					minerals > 2500
+				}
+				and = {
+					has_country_flag = auto_build_cost_1000
+					minerals > 1000
+				}
+				and = {
+					has_country_flag = auto_build_cost_500
+					minerals > 500
+				}
+			}
+			or = {
+				has_country_flag = auto_build_1
+				has_country_flag = auto_build_5
+				has_country_flag = auto_build_6
+			}
+		}
+		has_building_construction = no
+		not = { has_modifier = "free_from_auto_update" }
+	}
+
+	immediate = {		if = {			limit = {
+				owner = { has_country_flag = auto_build_1 }				or = {					has_building = "building_capital_1"					has_building = "building_capital_2"					has_building = "building_capital_3"				}			}			every_tile = {				limit = {					exists = pop					pop = { is_being_purged = no }					nor = {						has_building = "building_capital_3"						has_building = "building_power_plant_5"						has_building = "betharian_power_plant_4"						has_building = "building_power_hub_2"						has_building = "building_hydroponics_farm_5"						has_building = "building_mineral_silo_3"						has_building = "building_mining_network_5"						has_building = "building_mineral_processing_plant_2"						has_building = "building_engineering_facility_4"						has_building = "building_physics_lab_4"						has_building = "building_biolab_4"						and = {							or = {								has_building = "building_power_plant_4"								has_building = "building_hydroponics_farm_4"								has_building = "building_mining_network_4"								has_building = "building_engineering_facility_3"								has_building = "building_physics_lab_3"								has_building = "building_biolab_3"							}							planet = {								not = { has_building = "building_capital_3" }							}						}					}				}				switch = {					trigger = has_building
+					"building_basic_power_plant" = { add_building_construction = "building_power_plant_1" }					"building_power_plant_1" = { add_building_construction = "building_power_plant_2" }					"building_power_plant_2" = { add_building_construction = "building_power_plant_3" }					"building_power_plant_3" = { add_building_construction = "building_power_plant_4" }					"building_power_plant_4" = { add_building_construction = "building_power_plant_5" }					"building_basic_farm" = { add_building_construction = "building_hydroponics_farm_1" }					"building_hydroponics_farm_1" = { add_building_construction = "building_hydroponics_farm_2" }					"building_hydroponics_farm_2" = { add_building_construction = "building_hydroponics_farm_3" }					"building_hydroponics_farm_3" = { add_building_construction = "building_hydroponics_farm_4" }					"building_hydroponics_farm_4" = { add_building_construction = "building_hydroponics_farm_5" }					"building_basic_mine" = { add_building_construction = "building_mining_network_1" }					"building_mining_network_1" = { add_building_construction = "building_mining_network_2" }					"building_mining_network_2" = { add_building_construction = "building_mining_network_3" }					"building_mining_network_3" = { add_building_construction = "building_mining_network_4" }					"building_mining_network_4" = { add_building_construction = "building_mining_network_5" }					"building_engineering_facility_1" = { add_building_construction = "building_engineering_facility_2" }					"building_engineering_facility_2" = { add_building_construction = "building_engineering_facility_3" }					"building_engineering_facility_3" = { add_building_construction = "building_engineering_facility_4" }					"building_physics_lab_1" = { add_building_construction = "building_physics_lab_2" }					"building_physics_lab_2" = { add_building_construction = "building_physics_lab_3" }					"building_physics_lab_3" = { add_building_construction = "building_physics_lab_4" }					"building_biolab_1" = { add_building_construction = "building_biolab_2" }					"building_biolab_2" = { add_building_construction = "building_biolab_3" }					"building_biolab_3" = { add_building_construction = "building_biolab_4" }					"betharian_power_plant_1" = { add_building_construction = "betharian_power_plant_2" }					"betharian_power_plant_2" = { add_building_construction = "betharian_power_plant_3" }					"betharian_power_plant_3" = { add_building_construction = "betharian_power_plant_4" }					"building_mineral_silo_1" = { add_building_construction = "building_mineral_silo_2" }					"building_mineral_silo_2" = { add_building_construction = "building_mineral_silo_3" }					"building_primitive_factory" = { add_building_construction = "building_mining_network_1" }					"building_primitive_farm" = { add_building_construction = "building_hydroponics_farm_1" }									}			}			else = {				if = {					limit = {
+						owner = { has_country_flag = auto_build_1 }						has_building = "building_colony_shelter"					}					every_tile = {						limit = {							exists = pop							pop = { is_being_purged = no }						}						switch = {							trigger = has_building
+							"building_primitive_factory" = { add_building_construction = "building_basic_mine" }							"building_primitive_farm" = { add_building_construction = "building_basic_farm" }						}					}				}			}		}
+		if = {
+			limit = {
+				owner = { has_country_flag = auto_build_5 }				or = {					has_building = "building_capital_1"					has_building = "building_capital_2"					has_building = "building_capital_3"				}				has_building = "building_basic_science_lab_1"			}			if = {				limit = {					or = {						has_planet_modifier = "pm_titanic_life"						has_planet_modifier = "pm_atmospheric_hallucinogen"						has_modifier = "atmospheric_hallucinogen_good"						has_modifier = "subterranean_civilization"						has_planet_modifier = "pm_dangerous_wildlife"						has_modifier = "society_animal_life"					}				}				every_tile = {					limit = {						has_building = "building_basic_science_lab_1"						exists = pop						pop = { is_being_purged = no }					}					add_building_construction = "building_biolab_1"				}				else = {					if = {						limit = {							or = {								has_planet_modifier = "pm_strong_magnetic_field"								has_planet_modifier = "pm_wild_storms"							}						}						every_tile = {							limit = {								has_building = "building_basic_science_lab_1"								exists = pop								pop = { is_being_purged = no }							}							add_building_construction = "building_physics_lab_1"						}						else = {							if = {								limit = {									has_planet_modifier = "pm_unstable_tectonics"								}								every_tile = {									limit = {										has_building = "building_basic_science_lab_1"										exists = pop										pop = { is_being_purged = no }									}								add_building_construction = "building_engineering_facility_1"								}							}						}					}				}			}		}
+
+		## to do labs by emp priority ##
+
+		## labs by semi random ##
+
+		if = {
+			limit = {				owner = { has_country_flag = auto_build_6 }				or = {					has_building = "building_capital_1"					has_building = "building_capital_2"					has_building = "building_capital_3"				}				has_building = "building_basic_science_lab_1"			}			every_tile = {				limit = {					has_building = "building_basic_science_lab_1"					exists = pop					pop = { is_being_purged = no }				}				if = {					limit = {						pop = { has_trait = trait_natural_physicists }						has_resource = {							type = physics_research							amount > 0						}					}					add_building_construction = "building_physics_lab_1"					else = {						if = {							limit = {								pop = { has_trait = trait_natural_sociologists }								has_resource = {									type = society_research									amount > 0								}							}							add_building_construction = "building_biolab_1"							else = {								if = {									limit = {										pop = { has_trait = trait_natural_engineers }										has_resource = {											type = engineering_research											amount > 0										}									}									add_building_construction = "building_engineering_facility_1"									else = {										if = {											limit = {												pop = {													has_trait = trait_natural_sociologists													has_trait = trait_natural_engineers												}											}											random_list = {												50 = { add_building_construction = "building_biolab_1" }												50 = { add_building_construction = "building_engineering_facility_1" }											}											else = {												if = {													limit = {														pop = {															has_trait = trait_natural_physicists															has_trait = trait_natural_engineers														}													}													random_list = {														50 = { add_building_construction = "building_physics_lab_1" }														50 = { add_building_construction = "building_engineering_facility_1" }													}													else = {														if = {															limit = {																pop = {																	has_trait = trait_natural_physicists																	has_trait = trait_natural_sociologists																}															}															random_list = {																50 = { add_building_construction = "building_physics_lab_1" }																50 = { add_building_construction = "building_biolab_1" }															}															else = {																if = {																	limit = {																		pop = { has_trait = trait_natural_physicists }																	}																	add_building_construction = "building_physics_lab_1"																	else = {																		if = {																			limit = {																				pop = { has_trait = trait_natural_sociologists }																			}																			add_building_construction = "building_biolab_1"																			else = {																				if = {																					limit = {																						pop = { has_trait = trait_natural_physicists }																					}																					add_building_construction = "building_physics_lab_1"																					else = {																						if = {																							limit = {																								pop = { has_trait = trait_natural_engineers }																							}																							add_building_construction = "building_engineering_facility_1"																							else = {																								if = {																									limit = {																										has_resource = {																											type = physics_research																											amount > 0																										}																									}																									add_building_construction = "building_physics_lab_1"																									else = {																										if = {																											limit = {																												has_resource = {																													type = society_research																													amount > 0																												}																											}																											add_building_construction = "building_biolab_1"																											else = {																												if = {																													limit = {																														has_resource = {																															type = engineering_research																															amount > 0																														}																													}																													add_building_construction = "building_engineering_facility_1"																													else = {																														random_list = {																															33 = { add_building_construction = "building_physics_lab_1" }																															33 = { add_building_construction = "building_biolab_1" }																															33 = { add_building_construction = "building_engineering_facility_1" }																														}																													}																												}																											}																										}																									}																								}																							}																						}																					}																				}																			}																		}																	}																}															}														}													}												}											}										}									}								}							}						}					}				}			}		}	}
+}
+## local auto update influence cost
+planet_event = {
+	id = autobuild.106
+	title = OK
+	desc = OK
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = {
+			is_ai = no
+			or = {
+				not = { has_country_flag = auto_build_cost }
+				and = {
+					has_country_flag = auto_build_cost_5000
+					minerals > 5000
+				}
+				and = {
+					has_country_flag = auto_build_cost_2500
+					minerals > 2500
+				}
+				and = {
+					has_country_flag = auto_build_cost_1000
+					minerals > 1000
+				}
+				and = {
+					has_country_flag = auto_build_cost_500
+					minerals > 500
+				}
+			}
+			or = {
+				and = {
+					has_country_flag = auto_build_cost_inf_500
+					influence > 500
+				}
+				and = {
+					has_country_flag = auto_build_cost_inf_250
+					influence > 250
+				}
+				and = {
+					has_country_flag = auto_build_cost_inf_100
+					influence > 100
+				}
+			}
+			has_country_flag = auto_build_2
+		}
+		has_building_construction = no
+		not = { has_modifier = "free_from_auto_update" }
+	}
+
+	immediate = {
+		if = {			limit = {				or = {					has_building = "building_colony_shelter"					has_building = "building_capital_1"					and = {						has_building = "building_capital_2"						is_capital = yes					}					has_building = "building_power_hub_1"					has_building = "building_mineral_processing_plant_1"				}			}			every_tile = {				limit = {					exists = pop					pop = { is_being_purged = no }				}				switch = {					trigger = has_building
+					"building_colony_shelter" = { add_building_construction = "building_capital_1" }					"building_capital_1" = { add_building_construction = "building_capital_2" }					"building_capital_2" = { add_building_construction = "building_capital_3" }					"building_power_hub_1" = { add_building_construction = "building_power_hub_2" }					"building_mineral_processing_plant_1" = { add_building_construction = "building_mineral_processing_plant_2" }							}			}		}	}
+}
 
 ## menu
 country_event = {
@@ -2525,6 +3859,7 @@ country_event = {
 	option = {
 		name = "auto_build_1_off"
 		trigger = {	has_country_flag = auto_build_1 }
+		custom_tooltip = auto_build_1.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_1 }
 	}
 	option = {
@@ -2536,17 +3871,19 @@ country_event = {
 	option = {
 		name = "auto_build_2_off"
 		trigger = {	has_country_flag = auto_build_2 }
+		custom_tooltip = auto_build_2.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_2 }
 	}
 	option = {
 		name = "auto_build_3"
 		trigger = {	not = { has_country_flag = auto_build_3 } }
 		custom_tooltip = auto_build_3.tooltip
-		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_3  }
+		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_3 }
 	}
 	option = {
 		name = "auto_build_3_off"
 		trigger = {	has_country_flag = auto_build_3 }
+		custom_tooltip = auto_build_3.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_3 }
 	}
 	option = {
@@ -2566,6 +3903,7 @@ country_event = {
 	option = {
 		name = "auto_build_4_off"
 		trigger = {	has_country_flag = auto_build_4 }
+		custom_tooltip = auto_build_4.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_4 }
 	}
 	option = {
@@ -2580,6 +3918,7 @@ country_event = {
 	option = {
 		name = "auto_build_4_1_off"
 		trigger = {	has_country_flag = auto_build_4_1 }
+		custom_tooltip = auto_build_4_1.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_4_1 }
 	}
 	option = {
@@ -2597,6 +3936,7 @@ country_event = {
 	option = {
 		name = "auto_build_4_2_off"
 		trigger = {	has_country_flag = auto_build_4_2 }
+		custom_tooltip = auto_build_4_2.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_4_2 }
 	}
 	option = {
@@ -2608,6 +3948,7 @@ country_event = {
 	option = {
 		name = "auto_build_5_off"
 		trigger = {	has_country_flag = auto_build_5 }
+		custom_tooltip = auto_build_5.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_5 }
 	}
 	option = {
@@ -2619,6 +3960,7 @@ country_event = {
 	option = {
 		name = "auto_build_6_off"
 		trigger = {	has_country_flag = auto_build_6 }
+		custom_tooltip = auto_build_6.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_6 }
 	}
 	option = {
@@ -2846,7 +4188,20 @@ country_event = {
 	option = {
 		name = "auto_build_8_off"
 		trigger = {	has_country_flag = auto_build_8 }
+		custom_tooltip = auto_build_8.tooltip
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_8 }
+	}
+	option = {
+		name = "auto_build_9"
+		trigger = { not = { has_country_flag = auto_build_9	} }
+		custom_tooltip = auto_build_9.tooltip
+		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = auto_build_9 }
+	}
+	option = {
+		name = "auto_build_9_off"
+		trigger = {	has_country_flag = auto_build_9 }
+		custom_tooltip = auto_build_9.tooltip
+		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = auto_build_9 }
 	}
 	option = {
 		name = "auto_build_cost"
@@ -2898,13 +4253,23 @@ country_event = {
 				has_country_flag = auto_build_7_10
 				has_country_flag = auto_build_7_11
 				has_country_flag = auto_build_8
+				has_country_flag = auto_build_9
 				has_country_flag = auto_build_cost
-				has_country_flag = auto_build_farm_0
-				has_country_flag = auto_build_farm_1
-				has_country_flag = auto_build_farm_2
-				has_country_flag = auto_build_farm_3
-				has_country_flag = auto_build_farm_4
-				has_country_flag = auto_build_farm_5
+				has_country_flag = auto_build_cost_5000
+				has_country_flag = auto_build_cost_2500
+				has_country_flag = auto_build_cost_1000
+				has_country_flag = auto_build_cost_500
+				has_country_flag = auto_build_cost_inf_500
+				has_country_flag = auto_build_cost_inf_250
+				has_country_flag = auto_build_cost_inf_100
+				any_owned_planet = {
+					or = {
+						has_modifier = "planet_forge_auto_build"
+						has_modifier = "planet_power_plant_auto_build"
+						has_modifier = "planet_labs_auto_build"
+						has_modifier = "planet_farms_auto_build"
+					}
+				}
 			}
 		}
 		custom_tooltip = modmenu_remove.tooltip
@@ -3139,6 +4504,7 @@ country_event = {
 					has_modifier = "planet_labs_auto_build"
 					has_modifier = "planet_forge_auto_build"
 					has_modifier = "planet_power_plant_auto_build"
+					has_modifier = "planet_farms_auto_build"
 				}
 			}
 			remove_modifier = "free_from_auto_update"
@@ -3147,6 +4513,7 @@ country_event = {
 			remove_modifier = "planet_labs_auto_build"
 			remove_modifier = "planet_forge_auto_build"
 			remove_modifier = "planet_power_plant_auto_build"
+			remove_modifier = "planet_farms_auto_build"
 		}
 		remove_country_flag = auto_build_1
 		remove_country_flag = auto_build_2
@@ -3168,6 +4535,7 @@ country_event = {
 		remove_country_flag = auto_build_7_10
 		remove_country_flag = auto_build_7_11
 		remove_country_flag = auto_build_8
+		remove_country_flag = auto_build_9
 		remove_country_flag = auto_build_cost_5000
 		remove_country_flag = auto_build_cost_2500
 		remove_country_flag = auto_build_cost_1000
@@ -3175,6 +4543,6 @@ country_event = {
 		remove_country_flag = auto_build_cost_inf_500
 		remove_country_flag = auto_build_cost_inf_250
 		remove_country_flag = auto_build_cost_inf_100
-		remove_global_flag  = hide_autobuild_planetary_edicts
+		remove_global_flag = hide_autobuild_planetary_edicts
 	}
 }

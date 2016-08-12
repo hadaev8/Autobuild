@@ -67,6 +67,10 @@
  auto_build_8.tooltip:0 "Automatischer Bau von Kliniken auf Planeten mit 4 oder mehr Einwohnern, auf denen die Bewohnbarkeit nicht 100% ist. Zuerst auf Feldern mit 2 Nahrung und ohne Mineralien. Dann auf auf Feldern mit 1 Nahrung und ohne Mineralien. Dann auf Feldern mit 1 Nahrung und nicht mehr als 1 Mineralien. Dann auf Feldern ohne Ressourcen und ohne Gebäude."
  auto_build_8_off:0 "§RDeaktivieref§! "Automatischer Bau von Kliniken""
  
+ auto_build_9:0 "§GAktiviere§! "Automatischer Bau von Mineralsilos""
+ auto_build_9.tooltip:0 "Automatischer Bau von Minderalsiols auf allen Planeten mit Feldern ohne Ressourcen."
+ auto_build_9_off:0 "§RTurn Off§! "Automatischer Bau von Mineralsilos"
+ 
  auto_build_cost:0 "§GAktiviere§! "Halte Ressourcen in Reserve""
  auto_build_cost.tooltip:0 "Automatische Verbesserung wird nur durchgeführt wenn genug Ressourcen vorhanden sind. Standard: 1000 Mineralien und, sofern benötigt, 250 Einfluss."
  auto_build_cost_off:0 "§RDeaktiviere§! "Halte Ressourcen in Reserve""
@@ -97,19 +101,19 @@
  edict_no_sector_desc:0 "Dieses Edikt entfernt alle Sektorkosten und setzt sie auf 0."
  
  ## planet edicts
- edict_clear_autobuild_planetary_edicts:0 "Alle Automatisierung entfernen."
+ edict_clear_autobuild_planetary_edicts:0 "Alle Automatisierung entf.."
  edict_clear_autobuild_planetary_edicts_desc:0 "Auf diesem Planeten werden alle automatischen Baubefehle entfernt."
  
- edict_hide_planetary_edicts:0 "Blende Auto-Bau Edikte ein/aus"
+ edict_hide_planetary_edicts:0 "Hide/Show Auto-Bau Edikte"
  edict_hide_planetary_edicts_desc:0 "Dieses Edikt wird alle planetaren Auto-Bau Edikte ein- oder ausblenden."
  
- edict_free_auto_update:0 "Ignoriere automatische Verbesserungen"
+ edict_free_auto_update:0 "Ignoriere auto. Verbesserungen"
  edict_free_auto_update_desc:0 "Auf diesem Planeten werden Gebäude nicht automatisch verbessert."
  
- edict_free_auto_build:0 "Ignoriere automatisches Bauen"
+ edict_free_auto_build:0 "Ignoriere auto. Bauen"
  edict_free_auto_build_desc:0 "Auf diesem Planeten wird nicht automatisch gebaut."
  
- edict_free_auto_enslave:0 "Ignoriere automatische Sklaverei"
+ edict_free_auto_enslave:0 "Ignoriere auto. Sklaverei"
  edict_free_auto_enslave_desc:0 "Auf diesem Planeten werden Einwohner nicht automatisch versklavt."
  
  edict_planet_forge_auto_build:0 "Definiere Industriezenterum"
@@ -120,6 +124,9 @@
  
  edict_planet_labs_auto_build:0 "Definiere Forschungszentrum"
  edict_planet_labs_auto_build_desc:0 "Dieser Planet wird zum Forschungszentrum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Auf den verbliebenen Feldern werden Forschungslabore gebaut. Minen und Kraftwerke werden dabei ersetzt"
+ 
+ edict_planet_farms_auto_build:0 "Definiere Farmzentrum"
+ edict_planet_farms_auto_build_desc:0 "Dieser Plaent wird zu einem Farmzentrum umgebaut. Es werden auf allen Feldern werden Farmen gebaut. Wenn sich Minen, Kraftwerke oder Forschungslabore dort befinden werden diese ersetzt."
  
  ## modifiers
  free_auto_update:0 "Ignoriere automatische Verbesserungen"
@@ -139,3 +146,6 @@
  
  planet_labs_auto_build:0 "Definiere Forschungszentrum"
  planet_labs_auto_build_desc:0 "Dieser Planet wird zum Forschungszentrum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Auf den verbliebenen Feldern werden Forschungslabore gebaut. Minen und Kraftwerke werden dabei ersetzt"
+ 
+ planet_farms_auto_build:0 "Definiere Farmzentrum"
+ planet_farms_auto_build_desc:0 "Dieser Plaent wird zu einem Farmzentrum umgebaut. Es werden auf allen Feldern werden Farmen gebaut. Wenn sich Minen, Kraftwerke oder Forschungslabore dort befinden werden diese ersetzt."

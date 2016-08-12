@@ -4,7 +4,7 @@
  
  auto_build_0:0 "§HTurn On§! all of the mod's basic settings"
  auto_build_0.tooltip:0 "Turn on all main settings"
-  
+ 
  auto_build_1:0 "§GTurn On§! "Auto-Improve Buildings""
  auto_build_1.tooltip:0 "All buildings automatically improve, except for basic laboratories and those that cost influence."
  auto_build_1_off:0 "§RTurn Off§! "Auto-Improve Buildings""
@@ -34,7 +34,7 @@
  auto_build_5_off:0 "§RTurn Off§! "Auto-Improve Laboratories on Good Planets""
  
  auto_build_6:0 "§GTurn On§! "Semi-Random Improving Laboratories""
- auto_build_6.tooltip:0 "All laboratories automatically improve depending on the resource type in the tiles (useful if your population has a trait for a certain kind of science). If the resource is not present, the type of laboratory improvement will be selected at random. If you do not have the Auto-Improve Laboratories on Good Planets edict active, the laboratory will improve randomly even on planets with useful science modifiers."
+ auto_build_6.tooltip:0 "All laboratories automatically improve depending on pop's trait (useful if you make Research Center with population genetically improved to some kind of science ), the resource type in the tiles (useful if your population has a trait for a certain kind of science). If the resource is not present, the type of laboratory improvement will be selected at random. If you do not have the Auto-Improve Laboratories on Good Planets edict active, the laboratory will improve randomly even on planets with useful science modifiers."
  auto_build_6_off:0 "§RTurn Off§! "Semi-Random Improving Laboratories""
  
  auto_build_7_1:0 "§GTurn On§! "Energy Priority""
@@ -62,10 +62,14 @@
  auto_build_7_9_off:0 "§RTurn Off§! "Ignore Food""
  auto_build_7_10_off:0 "§RTurn Off§! "Ignore Energy""
  auto_build_7_11_off:0 "§RTurn Off§! "Ignore Science""
-  
+ 
  auto_build_8:0 "§GTurn On§! "Automatic Construction of Clinics""
- auto_build_8.tooltip:0 "Auto-build clinics on every planet where are 4 or more pops, for whom the planet is not 100% adaptive, first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food (no more than 1 mineral), and then on any free tile (free of another building)."
+ auto_build_8.tooltip:0 "Auto-build Clinics on every planet where are 4 or more pops, for whom the planet is not 100% adaptive, first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food (no more than 1 mineral), and then on any free tile (free of another building)."
  auto_build_8_off:0 "§RTurn Off§! "Automatic Construction of Clinics""
+ 
+ auto_build_9:0 "§GTurn On§! "Automatic Construction of Mineral Silo""
+ auto_build_9.tooltip:0 "Auto-build Mineral Silo on every planet with tile without resources." 
+ auto_build_9_off:0 "§RTurn Off§! "Automatic Construction of Mineral Silo""
  
  auto_build_cost:0 "§GTurn On§! "Keep Resources in Reserve""
  auto_build_cost.tooltip:0 "Automatic improvements and buildings occur only if you have enough resources (default 1000 minerals and 250 influence (if required))."
@@ -113,13 +117,16 @@
  edict_free_auto_enslave_desc:0 "On this planet population will not be auto-enslaved."
  
  edict_planet_forge_auto_build:0 "Declare Industrial Center"
- edict_planet_forge_auto_build_desc:0 "This planet will be rebuilt into an industrial center. One farm will be built if there are none and any existing ones will remain. A slave processing facility will be built if the planet has 4 or more slaves, and a mineral processing plant and mines will be built in the remaining tiles. If there are any power plants or laboratories, they will be replaced."
+ edict_planet_forge_auto_build_desc:0 "This planet will be rebuilt into an industrial center. Will be built farms (3 by default). A slave processing facility will be built if the planet has 4 or more slaves, and a mineral processing plant and mines will be built in the remaining tiles. If there are any power plants or laboratories, they will be replaced."
  
  edict_planet_power_plant_auto_build:0 "Declare Energy Center"
- edict_planet_power_plant_auto_build_desc:0 "This planet will be rebuilt into an energy center.  One farm will be built if there are none and any existing ones will remain. A power hub and power plants will be built in the remaining tiles. If there are any mines or laboratories, they will be replaced."
+ edict_planet_power_plant_auto_build_desc:0 "This planet will be rebuilt into an energy center.  Will be built farms (3 by default). A power hub and power plants will be built in the remaining tiles. If there are any mines or laboratories, they will be replaced."
  
  edict_planet_labs_auto_build:0 "Declare Research Center"
- edict_planet_labs_auto_build_desc:0 "This planet will be rebuilt into a Research center.  One farm will be built if there are none and any existing ones will remain. Labortories will be built in the remaining tiles. If there are any mines or powerplants, they will be replaced."
+ edict_planet_labs_auto_build_desc:0 "This planet will be rebuilt into a Research center.  Will be built farms (3 by default). Labortories will be built in the remaining tiles. If there are any mines or powerplants, they will be replaced."
+ 
+ edict_planet_farms_auto_build:0 "Declare Farm Center"
+ edict_planet_farms_auto_build_desc:0 "This planet will be rebuilt into a Farm center. The farm will be built on all tiles. If there are mines, power plants or laboratories, they will be replaced."
  
  ## modifiers
  free_from_auto_update:0 "Ignore Auto-Improve"
@@ -132,10 +139,13 @@
  free_from_auto_enslave_desc:0 "On this planet population will not be auto-enslaved."
  
  planet_forge_auto_build:0 "Industrial Center"
- planet_forge_auto_build_desc:0 "This planet will be rebuilt into an industrial center. One farm will be built if there are none and any existing ones will remain. A slave processing facility will be built if the planet has 4 or more slaves, and a mineral processing plant and mines will be built in the remaining tiles. If there are any power plants or laboratories, they will be replaced."
+ planet_forge_auto_build_desc:0 "This planet will be rebuilt into an industrial center. Will be built farms (3 by default). A slave processing facility will be built if the planet has 4 or more slaves, and a mineral processing plant and mines will be built in the remaining tiles. If there are any power plants or laboratories, they will be replaced."
  
  planet_power_plant_auto_build:0 "Energy Center"
- planet_power_plant_auto_build_desc:0 "This planet will be rebuilt into an energy center.  One farm will be built if there are none and any existing ones will remain. A power hub and power plants will be built in the remaining tiles. If there are any mines or laboratories, they will be replaced."
+ planet_power_plant_auto_build_desc:0 "This planet will be rebuilt into an energy center.  Will be built farms (3 by default). A power hub and power plants will be built in the remaining tiles. If there are any mines or laboratories, they will be replaced."
  
  planet_labs_auto_build:0 "Research Center"
- planet_labs_auto_build_desc:0 "This planet will be rebuilt into an research center. Every tile with pop gain lab. If there are any power plants or mines, they will be replaced."
+ planet_labs_auto_build_desc:0 "This planet will be rebuilt into a Research center.  Will be built farms (3 by default). Labortories will be built in the remaining tiles. If there are any mines or powerplants, they will be replaced."
+ 
+ planet_farms_auto_build:0 "Farm Center"
+ planet_farms_auto_build_desc:0 "This planet will be rebuilt into a Farm center. The farm will be built on all tiles. If there are mines, power plants or laboratories, they will be replaced."

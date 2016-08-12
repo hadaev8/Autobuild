@@ -1,0 +1,92 @@
+# No scope, like on_game_start
+#on_yearly_pulse = {
+#	events = {
+#	}
+#}
+
+
+# A country has increased the level of a tech, use last_increased_tech trigger to check tech and level.
+# This = Country
+on_tech_increased = {
+	events = {
+		autobuild.1
+	}
+}
+
+#A building construction has been completed.
+# This = Planet
+# From = Tile
+on_building_complete = {
+	events = {
+		autobuild.101
+		autobuild.102
+		autobuild.103
+		autobuild.104
+		autobuild.105
+		autobuild.106
+	}
+}
+
+# A building construction has been queued.
+# This = Planet
+# From = Tile
+on_building_queued = {
+	events = {
+		autobuild.101
+		autobuild.102
+		autobuild.103
+		autobuild.104
+		autobuild.105
+		autobuild.106
+	}
+}
+
+# A building construction has been unqueued.
+# This = Planet
+# From = Tile
+#on_building_unqueued = {
+#	events = {
+#	}	
+#}
+
+# A building construction has been completed, which is an upgrade of previous building.
+# This = Planet
+# From = Tile
+on_building_upgraded = {
+	events = {
+		autobuild.101
+		autobuild.102
+		autobuild.103
+		autobuild.104
+		autobuild.105
+		autobuild.106
+	}
+}
+
+# A building construction has demolished.
+# This = Planet
+# From = Tile
+on_building_demolished = {
+	events = {
+		autobuild.101
+		autobuild.102
+		autobuild.103
+		autobuild.104
+		autobuild.105
+		autobuild.106
+	}
+}
+
+# A building construction has finished, replacing another building.
+# This = Planet
+# From = Tile
+on_building_replaced = {
+	events = {
+		autobuild.101
+		autobuild.102
+		autobuild.103
+		autobuild.104
+		autobuild.105
+		autobuild.106
+	}
+}

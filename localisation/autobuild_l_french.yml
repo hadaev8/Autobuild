@@ -1,4 +1,22 @@
 ﻿l_french:
+ modmenu_button:0 "Menu des mods"
+ modmenu.tooltip:0 "§HOuvrir§! le menu des mods d'Had."
+ modmenu.1.name:0 "Menu des mods"
+ modmenu.1.desc:0 "Ici tu peux configurer les mods."
+ edict_modmenu:0 "Menu des mods"
+ edict_modmenu_desc:0 "Ici tu peux configurer les mods."
+ modmenu_exit:0 "§LQuitter le menu§!"
+ modmenu_remove:0 "§HDésactiver§! toutes les mesures"
+ modmenu_remove.tooltip:0 "Désactive toutes les mesures d'empire et planètaires d'aménagement automatique."
+ modmenu_1:0 "§HAuto Build and Improve Buildings ENG/RUS/FRA§!"
+ modmenu_1.tooltip:0 "Ici tu peux configurer §HAuto Build and Improve Buildings ENG/RUS/FRA§!, si tu as installé et activé ce mod."
+ modmenu_2:0 "§HHarder Invaders§!"
+ modmenu_2.tooltip:0 "Ici tu peux configurer §HHarder Invaders§!, si tu as installé et activé ce mod."
+ modmenu_3:0 "§HImproved Population§!"
+ modmenu_3.tooltip:0 "Ici tu peux configurer §HImproved Population§!, si tu as installé et activé ce mod."
+ 
+ 
+ 
  autobuild.3.name:0 "Menu des mesures auto"
  autobuild.3.desc:0 "Ici, tu peux configurer les mesures automatiques à appliquer pour l'aménagement des cases de ton empire."
  
@@ -64,11 +82,15 @@
  auto_build_7_11_off:0 "§RDésactiver§! "Ressources scientifiques ignorées""
  
  auto_build_8:0 "§GActiver§! "Construction auto de cliniques""
- auto_build_8.tooltip:0 "Tant que le décret est actif, une clinique sera construite sur chaque planète où 4+ populations ont une adaptabilité inférieure à 100%, en priorité sur une case à 2 nourritures et sans minéraux, ou sur une case à 1 nourriture et sans minéral, ou sur une case à 1 nourriture avec 1 minéral, ou sur une case dénuée de ressources."
+ auto_build_8.tooltip:0 "Une clinique sera construite sur chaque planète où 4+ populations ont une adaptabilité inférieure à 100%, en priorité sur une case à 2 nourritures et sans minéraux, ou sur une case à 1 nourriture et sans minéral, ou sur une case à 1 nourriture avec 1 minéral, ou sur une case dénuée de ressources."
  auto_build_8_off:0 "§RDésactiver§! "Construction auto de cliniques""
  
+ auto_build_9:0 "§GActiver§! "Construction auto de silos de minéraux""
+ auto_build_9.tooltip:0 "Construction automatique d'un silo de minéraux sur chaque planète avec une case dénuée de ressource."
+ auto_build_9_off:0 "§RDésactiver§! "Construction auto de silos de minéraux""
+ 
  auto_build_cost:0 "§GActiver§! "Garder une réserve""
- auto_build_cost.tooltip:0 "Tant que le décret est actif, les constructions et améliorations auront lieu si vous avez suffisamment de ressources (par défaut 1 000 minéraux et 250 influence si requis)."
+ auto_build_cost.tooltip:0 "Les constructions et améliorations auront lieu si vous avez suffisamment de ressources (par défaut 1 000 minéraux et 250 influence si requis)."
  auto_build_cost_off:0 "§RDésactiver§! "Garder une réserve""
  
  auto_build_cost_menu:0 "§HConfigurer§! "Garder une réserve""
@@ -113,13 +135,16 @@
  edict_free_auto_enslave_desc:0 "Le statut des populations, qu'elles soient libres ou asservies, ne sera pas impacté par les décrets globaux."
  
  edict_planet_forge_auto_build:0 "En faire un centre industriel"
- edict_planet_forge_auto_build_desc:0 "Cette planète sera reconstruite en tant que centre industriel. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Un complexe de formation d'esclaves sera construit si la planète compte 4+ esclaves, et une centrale de traitement des minéraux et des réseaux miniers seront construits sur les cases restantes. S'il existe des centrales électriques ou laboratoires, ceux-ci seront remplacés."
+ edict_planet_forge_auto_build_desc:0 "Cette planète sera reconstruite en tant que centre industriel. Des fermes seront construites (valeur à définir, par défaut 3). Un complexe de formation d'esclaves sera construit si la planète compte 4+ esclaves, et une centrale de traitement des minéraux et des réseaux miniers seront construits sur les cases restantes. S'il existe des centrales électriques ou laboratoires, ceux-ci seront remplacés."
  
  edict_planet_power_plant_auto_build:0 "En faire un centre énergétique"
- edict_planet_power_plant_auto_build_desc:0 "Cette planète sera reconstruite en tant que centre énergétique. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Une centrale d'alimentation et des centrales électriques seront construites sur les cases restantes. S'il existe des réseaux miniers ou laboratoires, ceux-ci seront remplacés."
+ edict_planet_power_plant_auto_build_desc:0 "Cette planète sera reconstruite en tant que centre énergétique. Des fermes seront construites (valeur à définir, par défaut 3). Une centrale d'alimentation et des centrales électriques seront construites sur les cases restantes. S'il existe des réseaux miniers ou laboratoires, ceux-ci seront remplacés."
  
  edict_planet_labs_auto_build:0 "En faire un centre scientifique"
- edict_planet_labs_auto_build_desc:0 "Cette planète sera reconstruite en tant que centre scientifique. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Des laboratoires seront construits sur les cases restantes. S'il existe des réseaux miniers ou centrales électriques, ceux-ci seront remplacés."
+ edict_planet_labs_auto_build_desc:0 "Cette planète sera reconstruite en tant que centre scientifique. Des fermes seront construites (valeur à définir, par défaut 3). Des laboratoires seront construits sur les cases restantes. S'il existe des réseaux miniers ou centrales électriques, ceux-ci seront remplacés."
+ 
+ edict_planet_farms_auto_build:0 "En faire un centre agricole"
+ edict_planet_farms_auto_build_desc:0 "Cette planète sera reconstruite en tant que central agricole. Des fermes seront construites sur toutes les cases. S'il existe des réseaux miniers, centrales électriques ou laboratoires, ceux-ci seront remplacés."
  
  ## modifiers
  free_from_auto_update:0 "Améliorations auto ignorées"
@@ -132,10 +157,13 @@
  free_from_auto_enslave_desc:0 "Les populations ne sont pas sujettes aux décrets globaux définissant la condition des populations."
  
  planet_forge_auto_build:0 "Centre industriel"
- planet_forge_auto_build_desc:0 "Cette planète est reconstruite en tant que centre industriel. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Un complexe de formation d'esclaves sera construit si la planète compte 4+ esclaves, et une centrale de traitement des minéraux et des réseaux miniers seront construits sur les cases restantes. S'il existe des centrales électriques ou laboratoires, ceux-ci seront remplacés."
+ planet_forge_auto_build_desc:0 "Cette planète est reconstruite en tant que centre industriel. Des fermes seront construites (valeur à définir, par défaut 3). Un complexe de formation d'esclaves sera construit si la planète compte 4+ esclaves, et une centrale de traitement des minéraux et des réseaux miniers seront construits sur les cases restantes. S'il existe des centrales électriques ou laboratoires, ceux-ci seront remplacés."
  
  planet_power_plant_auto_build:0 "Centre énergétique"
- planet_power_plant_auto_build_desc:0 "Cette planète est reconstruite en tant que centre énergétique. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Une centrale d'alimentation et des centrales électriques seront construites sur les cases restantes. S'il existe des réseaux miniers ou laboratoires, ceux-ci seront remplacés."
+ planet_power_plant_auto_build_desc:0 "Cette planète est reconstruite en tant que centre énergétique. Des fermes seront construites (valeur à définir, par défaut 3). Une centrale d'alimentation et des centrales électriques seront construites sur les cases restantes. S'il existe des réseaux miniers ou laboratoires, ceux-ci seront remplacés."
  
  planet_labs_auto_build:0 "Centre scientifique"
- planet_labs_auto_build_desc:0 "Cette planète est reconstruite en tant que centre scientifique. Une ferme sera construite s'il n'y en a aucune et celles existantes le resteront. Des laboratoires seront construits sur les cases restantes. S'il existe des réseaux miniers ou centrales électriques, ceux-ci seront remplacés."
+ planet_labs_auto_build_desc:0 "Cette planète est reconstruite en tant que centre scientifique. Des fermes seront construites (valeur à définir, par défaut 3). Des laboratoires seront construits sur les cases restantes. S'il existe des réseaux miniers ou centrales électriques, ceux-ci seront remplacés."
+ 
+ planet_farms_auto_build:0 "Centre agricole"
+ planet_farms_auto_build_desc:0 "Cette planète sera reconstruite en tant que central agricole. Des fermes seront construites sur toutes les cases. S'il existe des réseaux miniers, centrales électriques ou laboratoires, ceux-ci seront remplacés."

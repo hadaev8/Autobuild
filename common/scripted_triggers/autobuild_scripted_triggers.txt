@@ -80,72 +80,257 @@ free_from_autobuild = {
 		has_modifier = "planet_labs_auto_build"
 		has_modifier = "planet_forge_auto_build"
 		has_modifier = "planet_power_plant_auto_build"
+		has_modifier = "planet_farms_auto_build"
+		has_building_construction = yes
 	}
 }
 
 tile_has_energy_1_and_more = {
-	has_resource = {
-		type = energy
-		amount > 0
+	and = {
+		or = {
+			and = {
+				exists = owner
+				owner = { not = { has_country_flag = auto_build_7_10 } }
+			}
+			and = {
+				exists = planet
+				planet = {
+					or = {
+						has_modifier = "free_from_auto_build"
+						has_modifier = "planet_labs_auto_build"
+						has_modifier = "planet_forge_auto_build"
+						has_modifier = "planet_power_plant_auto_build"
+						has_modifier = "planet_farms_auto_build"
+					}
+				}
+			}
+		}
+		has_resource = {
+			type = energy
+			amount > 0
+		}
+		
 	}
 }
 
 tile_has_mins_1_and_more = {
-	has_resource = {
-		type = minerals
-		amount > 0
-	}
-}
-
-tile_has_mins_2_and_more = {
-	has_resource = {
-		type = minerals
-		amount > 1
-	}
-}
-
-tile_has_food_1_and_more = {
-	has_resource = {
-		type = food
-		amount > 0
-	}
-}
-
-tile_has_food_2_and_more = {
-	has_resource = {
-		type = food
-		amount > 1
-	}
-}
-
-tile_has_food_3_and_more = {
-	has_resource = {
-		type = food
-		amount > 2
-	}
-}
-
-tile_has_any_res_but_not_food = {
-	or = {
-		has_resource = {
-			type = energy
-			amount > 0
+	and = {
+		or = {
+			and = {
+				exists = owner
+				owner = { not = { has_country_flag = auto_build_7_8 } }
+			}
+			and = {
+				exists = planet
+				planet = {
+					or = {
+						has_modifier = "free_from_auto_build"
+						has_modifier = "planet_labs_auto_build"
+						has_modifier = "planet_forge_auto_build"
+						has_modifier = "planet_power_plant_auto_build"
+						has_modifier = "planet_farms_auto_build"
+					}
+				}
+			}
 		}
 		has_resource = {
 			type = minerals
 			amount > 0
 		}
-		has_resource = {
-			type = physics_research
-			amount > 0
+	}
+}
+
+tile_has_mins_2_and_more = {
+	and = {
+		or = {
+			and = {
+				exists = owner
+				owner = { not = { has_country_flag = auto_build_7_8 } }
+			}
+			and = {
+				exists = planet
+				planet = {
+					or = {
+						has_modifier = "free_from_auto_build"
+						has_modifier = "planet_labs_auto_build"
+						has_modifier = "planet_forge_auto_build"
+						has_modifier = "planet_power_plant_auto_build"
+						has_modifier = "planet_farms_auto_build"
+					}
+				}
+			}
 		}
 		has_resource = {
-			type = society_research
-			amount > 0
+			type = minerals
+			amount > 1
+		}
+	}
+}
+
+tile_has_food_1_and_more = {
+	and = {
+		or = {
+			and = {
+				exists = owner
+				owner = { not = { has_country_flag = auto_build_7_9 } }
+			}
+			and = {
+				exists = planet
+				planet = {
+					or = {
+						has_modifier = "free_from_auto_build"
+						has_modifier = "planet_labs_auto_build"
+						has_modifier = "planet_forge_auto_build"
+						has_modifier = "planet_power_plant_auto_build"
+						has_modifier = "planet_farms_auto_build"
+					}
+				}
+			}
 		}
 		has_resource = {
-			type = engineering_research
+			type = food
 			amount > 0
+		}
+	}
+}
+
+tile_has_food_2_and_more = {
+	and = {
+		or = {
+			and = {
+				exists = owner
+				owner = { not = { has_country_flag = auto_build_7_9 } }
+			}
+			and = {
+				exists = planet
+				planet = {
+					or = {
+						has_modifier = "free_from_auto_build"
+						has_modifier = "planet_labs_auto_build"
+						has_modifier = "planet_forge_auto_build"
+						has_modifier = "planet_power_plant_auto_build"
+						has_modifier = "planet_farms_auto_build"
+					}
+				}
+			}
+		}
+		has_resource = {
+			type = food
+			amount > 1
+		}
+	}
+}
+
+tile_has_food_3_and_more = {
+	and = {
+		or = {
+			and = {
+				exists = owner
+				owner = { not = { has_country_flag = auto_build_7_9 } }
+			}
+			and = {
+				exists = planet
+				planet = {
+					or = {
+						has_modifier = "free_from_auto_build"
+						has_modifier = "planet_labs_auto_build"
+						has_modifier = "planet_forge_auto_build"
+						has_modifier = "planet_power_plant_auto_build"
+						has_modifier = "planet_farms_auto_build"
+					}
+				}
+			}
+		}
+		has_resource = {
+			type = food
+			amount > 2
+		}
+	}
+}
+
+tile_has_any_res_but_not_food = {
+	or = {
+		and = {
+			or = {
+				and = {
+					exists = owner
+					owner = { not = { has_country_flag = auto_build_7_8 } }
+				}
+				and = {
+					exists = planet
+					planet = {
+						or = {
+							has_modifier = "free_from_auto_build"
+							has_modifier = "planet_labs_auto_build"
+							has_modifier = "planet_forge_auto_build"
+							has_modifier = "planet_power_plant_auto_build"
+							has_modifier = "planet_farms_auto_build"
+						}
+					}
+				}
+			}
+			has_resource = {
+				type = minerals
+				amount > 0
+			}
+		}
+		and = {
+			or = {
+				and = {
+					exists = owner
+					owner = { not = { has_country_flag = auto_build_7_10 } }
+				}
+				and = {
+					exists = planet
+					planet = {
+						or = {
+							has_modifier = "free_from_auto_build"
+							has_modifier = "planet_labs_auto_build"
+							has_modifier = "planet_forge_auto_build"
+							has_modifier = "planet_power_plant_auto_build"
+							has_modifier = "planet_farms_auto_build"
+						}
+					}
+				}
+			}
+			has_resource = {
+				type = energy
+				amount > 0
+			}
+		}
+		and = {
+			or = {
+				and = {
+					exists = owner
+					owner = { not = { has_country_flag = auto_build_7_11 } }
+				}
+				and = {
+					exists = planet
+					planet = {
+						or = {
+							has_modifier = "free_from_auto_build"
+							has_modifier = "planet_labs_auto_build"
+							has_modifier = "planet_forge_auto_build"
+							has_modifier = "planet_power_plant_auto_build"
+							has_modifier = "planet_farms_auto_build"
+						}
+					}
+				}
+			}
+			or = {
+				has_resource = {
+					type = physics_research
+					amount > 0
+				}
+				has_resource = {
+					type = society_research
+					amount > 0
+				}
+				has_resource = {
+					type = engineering_research
+					amount > 0
+				}
+			}
 		}
 	}
 }
@@ -153,32 +338,96 @@ tile_has_any_res_but_not_food = {
 tile_has_any_res = {
 	or = {
 		and = {
-			exists = owner
-			owner = { not = { has_country_flag = auto_build_7_8 } }
+			or = {
+				and = {
+					exists = owner
+					owner = { not = { has_country_flag = auto_build_7_8 } }
+				}
+				and = {
+					exists = planet
+					planet = {
+						or = {
+							has_modifier = "free_from_auto_build"
+							has_modifier = "planet_labs_auto_build"
+							has_modifier = "planet_forge_auto_build"
+							has_modifier = "planet_power_plant_auto_build"
+							has_modifier = "planet_farms_auto_build"
+						}
+					}
+				}
+			}
 			has_resource = {
 				type = minerals
 				amount > 0
 			}
 		}
 		and = {
-			exists = owner
-			owner = { not = { has_country_flag = auto_build_7_9 } }		
+			or = {
+				and = {
+					exists = owner
+					owner = { not = { has_country_flag = auto_build_7_9 } }
+				}
+				and = {
+					exists = planet
+					planet = {
+						or = {
+							has_modifier = "free_from_auto_build"
+							has_modifier = "planet_labs_auto_build"
+							has_modifier = "planet_forge_auto_build"
+							has_modifier = "planet_power_plant_auto_build"
+							has_modifier = "planet_farms_auto_build"
+						}
+					}
+				}
+			}
 			has_resource = {
 				type = food
 				amount > 0
 			}
 		}
 		and = {
-			exists = owner
-			owner = { not = { has_country_flag = auto_build_7_10 } }
+			or = {
+				and = {
+					exists = owner
+					owner = { not = { has_country_flag = auto_build_7_10 } }
+				}
+				and = {
+					exists = planet
+					planet = {
+						or = {
+							has_modifier = "free_from_auto_build"
+							has_modifier = "planet_labs_auto_build"
+							has_modifier = "planet_forge_auto_build"
+							has_modifier = "planet_power_plant_auto_build"
+							has_modifier = "planet_farms_auto_build"
+						}
+					}
+				}
+			}
 			has_resource = {
 				type = energy
 				amount > 0
 			}
 		}
 		and = {
-			exists = owner
-			owner = { not = { has_country_flag = auto_build_7_11 } }
+			or = {
+				and = {
+					exists = owner
+					owner = { not = { has_country_flag = auto_build_7_11 } }
+				}
+				and = {
+					exists = planet
+					planet = {
+						or = {
+							has_modifier = "free_from_auto_build"
+							has_modifier = "planet_labs_auto_build"
+							has_modifier = "planet_forge_auto_build"
+							has_modifier = "planet_power_plant_auto_build"
+							has_modifier = "planet_farms_auto_build"
+						}
+					}
+				}
+			}
 			or = {
 				has_resource = {
 					type = physics_research
@@ -198,18 +447,38 @@ tile_has_any_res = {
 }
 
 tile_has_any_science = {
-	or = {
-		has_resource = {
-			type = physics_research
-			amount > 0
+	and = {
+		or = {
+			and = {
+				exists = owner
+				owner = { not = { has_country_flag = auto_build_7_11 } }
+			}
+			and = {
+				exists = planet
+				planet = {
+					or = {
+						has_modifier = "free_from_auto_build"
+						has_modifier = "planet_labs_auto_build"
+						has_modifier = "planet_forge_auto_build"
+						has_modifier = "planet_power_plant_auto_build"
+						has_modifier = "planet_farms_auto_build"
+					}
+				}
+			}
 		}
-		has_resource = {
-			type = society_research
-			amount > 0
-		}
-		has_resource = {
-			type = engineering_research
-			amount > 0
+		or = {
+			has_resource = {
+				type = physics_research
+				amount > 0
+			}
+			has_resource = {
+				type = society_research
+				amount > 0
+			}
+			has_resource = {
+				type = engineering_research
+				amount > 0
+			}
 		}
 	}
 }
