@@ -149,3 +149,32 @@
  
  planet_farms_auto_build:0 "Farm Center"
  planet_farms_auto_build_desc:0 "This planet will be rebuilt into a Farm center. The farm will be built on all tiles. If there are mines, power plants or laboratories, they will be replaced."
+ 
+ #v2.3
+ auto_build_1_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nAll buildings automatically improve, except for basic laboratories and those that cost influence."
+ 
+ auto_build_2_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nBuildings that cost influence automatically improve."
+ 
+ auto_build_3_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nTiles with energy but without slaves build power plants, tiles with minerals build mines and tiles with scientific resources but without slaves build basic laboratories, will be build farms (default 3)."
+ 
+ auto_build_4_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nEnslave the population in tiles with mines, farms, planetary capitals, etc. In general, this edict auto-enslaves pops in all the tiles where slaves will profit. Where slaves are not necessary, people will be free."
+ 
+ auto_build_4_1_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nAll your xeno populations (races that are not your starting race) will be slaves."
+ 
+ auto_build_4_2_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nAuto-build mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?"
+ 
+ auto_build_5_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nImprove all the basic laboratories on planets that have a bonus modifier to a specific field of science (for example, Unstable Tectonics) to a laboratory that generates additional research of that type."
+ 
+ auto_build_6_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nAll laboratories automatically improve depending on pop's trait (useful if you make Research Center with population genetically improved to some kind of science ), the resource type in the tiles (useful if your population has a trait for a certain kind of science). If the resource is not present, the type of laboratory improvement will be selected at random. If you do not have the Auto-Improve Laboratories on Good Planets edict active, the laboratory will improve randomly even on planets with useful science modifiers."
+ 
+ 
+ auto_build_8_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nAuto-build Clinics on every planet where are 4 or more pops, for whom the planet is not 100% adaptive, first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food (no more than 1 mineral), and then on any free tile (free of another building)."
+
+ auto_build_9_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nAuto-build Mineral Silo on every planet with tile without resources." 
+
+ auto_build_cost_off.tooltip:0 "Then you press this button, it will §RTurn Off§! this setting.\nAutomatic improvements and buildings occur only if you have enough resources (default 1000 minerals and 250 influence (if required))."
+ auto_build_cost_off:0 "§RTurn Off§! "Keep Resources in Reserve""
+ 
+ auto_build_cost_menu:0 "§HConfigure§! "Keep Resources in Reserve""
+ auto_build_cost_menu_off.tooltip:0 "Here you can configure resource reserve."
+ 

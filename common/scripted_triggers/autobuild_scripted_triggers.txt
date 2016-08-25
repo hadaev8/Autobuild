@@ -24,7 +24,27 @@ has_any_farm = {
 		has_building = "building_hydroponics_farm_5"
 	}
 }
-			
+
+auto_build_tile_not_has_building = {
+	or = {
+		has_building = no
+		and = {
+			exists = owner
+			owner = {
+				has_country_flag = auto_build_farm_replace
+			}
+			or = {
+				has_building = "building_basic_farm"
+				has_building = "building_hydroponics_farm_1"
+				has_building = "building_hydroponics_farm_2"
+				has_building = "building_hydroponics_farm_3"
+				has_building = "building_hydroponics_farm_4"
+				has_building = "building_hydroponics_farm_5"
+			}
+		}
+	}
+}
+
 has_any_mines = {
 	or = {
 		has_building = "building_slave_processing"
