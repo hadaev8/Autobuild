@@ -4,6 +4,14 @@
 #	}
 #}
 
+# A fleet has entered a system
+# Scope = Fleet
+# From = System
+on_entering_system_fleet = {
+	events = {
+		autobuild.98
+	}
+}
 
 # A country has increased the level of a tech, use last_increased_tech trigger to check tech and level.
 # This = Country

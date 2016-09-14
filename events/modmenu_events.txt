@@ -43,3 +43,6 @@ country_event = {
 		name = "modmenu_exit"
 	}
 }
+
+namespace = autobuild
+

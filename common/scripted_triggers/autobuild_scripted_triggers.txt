@@ -25,7 +25,7 @@ has_any_farm = {
 	}
 }
 
-auto_build_tile_not_has_building = {
+autobuild_tile_not_has_building = {
 	or = {
 		has_building = no
 		and = {

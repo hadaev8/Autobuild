@@ -148,7 +148,12 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = { 
-		NOT = { has_modifier = "planet_forge_auto_build" }
+		nor = {
+			has_modifier = "planet_forge_auto_build"
+			has_modifier = "planet_power_plant_auto_build"
+			has_modifier = "planet_labs_auto_build"
+			has_modifier = "planet_farms_auto_build"
+		}
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
@@ -177,7 +182,12 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = { 
-		NOT = { has_modifier = "planet_power_plant_auto_build" }
+		nor = {
+			has_modifier = "planet_forge_auto_build"
+			has_modifier = "planet_power_plant_auto_build"
+			has_modifier = "planet_labs_auto_build"
+			has_modifier = "planet_farms_auto_build"
+		}
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
@@ -206,7 +216,12 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = { 
-		NOT = { has_modifier = "planet_labs_auto_build" }
+		nor = {
+			has_modifier = "planet_forge_auto_build"
+			has_modifier = "planet_power_plant_auto_build"
+			has_modifier = "planet_labs_auto_build"
+			has_modifier = "planet_farms_auto_build"
+		}
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
@@ -235,7 +250,12 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = { 
-		NOT = { has_modifier = "planet_farms_auto_build" }
+		nor = {
+			has_modifier = "planet_forge_auto_build"
+			has_modifier = "planet_power_plant_auto_build"
+			has_modifier = "planet_labs_auto_build"
+			has_modifier = "planet_farms_auto_build"
+		}
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }

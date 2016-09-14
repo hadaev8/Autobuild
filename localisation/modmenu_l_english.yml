@@ -8,6 +8,12 @@
  modmenu_exit:0 "§LExit from the menu§!"
  modmenu_remove:0 "§HRemove§! all of the mod's settings"
  modmenu_remove.tooltip:0 "Remove all of the mod flags and planet modifiers"
+ modmenu_on:0 "§GTurn On§!"
+ modmenu_off:0 "§RTurn Off§!"
+ modmenu_tooltip_on:0 "Pressing the button will $modmenu_on$ this option."
+ modmenu_tooltip_off:0 "Pressing the button will $modmenu_off$ this option."
+ modmenu_return:0 "Return"
+ 
  modmenu_1:0 "§HAuto Build and Improve Buildings ENG/RUS/FRA/GER§!"
  modmenu_1.tooltip:0 "Here you can configure §HAuto Build and Improve Buildings ENG/RUS/FRA§!, if you have installed this mod."
  modmenu_2:0 "§HHarder Invaders§!"
