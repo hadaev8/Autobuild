@@ -129,7 +129,6 @@ tile_has_energy_1_and_more = {
 			type = energy
 			amount > 0
 		}
-		
 	}
 }
 

@@ -224,6 +224,7 @@ fleet_event = {
 				owner = { is_hostile = root.owner }
 				fleet = {
 					has_fleet_flag = autobuild_fleet
+					#fleet_stance = evasive
 				}
 			}
 		}
@@ -2980,6 +2981,37 @@ country_event = {
 							"building_mineral_silo_2" = { add_building_construction = "building_mineral_silo_3" }
 							"building_primitive_factory" = { add_building_construction = "building_mining_network_1" }
 							"building_primitive_farm" = { add_building_construction = "building_hydroponics_farm_1" }
+							## alphamod
+							"building_radio_telescope_array" = { add_building_construction = "building_radio_telescope_array_2" }
+							"building_radio_telescope_array_2" = { add_building_construction = "building_radio_telescope_array_3" }
+							"building_radio_telescope_array_3" = { add_building_construction = "building_radio_telescope_array_4" }
+							"building_rocket_launchsite" = { add_building_construction = "building_shuttle_port" }
+							"building_shuttle_port" = { add_building_construction = "building_advanced_shuttleport" }
+							"building_lightmechbay" = { add_building_construction = "building_mediummechbay" }
+							"building_mediummechbay" = { add_building_construction = "building_heavymechbay" }
+							"building_hydro_plant" = { add_building_construction = "building_hydro_planе_2" }
+							"building_basic_farm_adv" = { add_building_construction = "building_hydroponics_farm_1_adv" }
+							"building_hydroponics_farm_1_adv" = { add_building_construction = "building_hydroponics_farm_2_adv" }
+							"building_hydroponics_farm_2_adv" = { add_building_construction = "building_hydroponics_farm_3_adv" }
+							"building_hydroponics_farm_3_adv" = { add_building_construction = "building_hydroponics_farm_4_adv" }
+							"building_traditional_farm" = { add_building_construction = "building_preservation" }
+							"building_frontier_town" = { add_building_construction = "building_frontier_city" }
+							"building_fuel_sourcer" = { add_building_construction = "building_fuel_sourcer_2" }
+							"building_fuel_sourcer_2" = { add_building_construction = "building_fuel_sourcer_3" }
+							"building_fuel_refinery" = { add_building_construction = "building_fuel_refinery_2" }
+							"building_alpha_fuel_converter" = { add_building_construction = "building_alpha_fuel_converter_2" }
+							"building_alpha_fuel_converter_2" = { add_building_construction = "building_alpha_fuel_converter_3" }
+							"building_alpha_fuel_converter_3" = { add_building_construction = "building_alpha_fuel_converter_4" }
+							"building_traditional_plantation" = { add_building_construction = "building_preservation" }
+							"building_moisture_farm" = { add_building_construction = "building_moisture_farm_2" }
+							"building_moisture_farm_2" = { add_building_construction = "building_moisture_farm_3" }
+							"building_sand_sifter" = { add_building_construction = "building_sand_sifter_2" }
+							"building_greenhousing" = { add_building_construction = "building_vertical_farms" }
+							"building_water_excavator" = { add_building_construction = "building_water_excavator_2" }
+							"building_reservoir" = { add_building_construction = "building_reservoir_2" }
+							"building_reservoir_2" = { add_building_construction = "building_reservoir_3" }
+							"building_ice_rig" = { add_building_construction = "building_ice_rig_2" }
+							"building_water_excavator" = { add_building_construction = "building_water_excavator_2" }
 							
 						}
 					}
@@ -3079,7 +3111,15 @@ country_event = {
 						"building_capital_2" = { add_building_construction = "building_capital_3" }
 						"building_power_hub_1" = { add_building_construction = "building_power_hub_2" }
 						"building_mineral_processing_plant_1" = { add_building_construction = "building_mineral_processing_plant_2" }
-				
+						## alphamod
+						"building_academy" = { add_building_construction = "building_academy_2" }
+						"building_intelligence_directorate" = { add_building_construction = "building_intelligence_directorate_2" }
+						"building_surveillance_center" = { add_building_construction = "building_surveillance_center_2" }
+						"building_security_center" = { add_building_construction = "building_security_center_2" }
+						"building_open_embassy" = { add_building_construction = "building_open_embassy_2" }
+						"building_xeno_diplomacy_corp" = { add_building_construction = "building_peace_corps" }
+						"building_tradestation" = { add_building_construction = "building_trade_company" }
+						
 					}
 				}
 			}
@@ -3130,6 +3170,9 @@ country_event = {
 							has_modifier = "subterranean_civilization"
 							has_planet_modifier = "pm_dangerous_wildlife"
 							has_modifier = "society_animal_life"
+							## alphamod
+							has_planet_modifier = "pm_micro_organisms"
+							has_planet_modifier = "pm_subterranean_lifeforms"
 						}
 					}
 					every_tile = {
@@ -3146,6 +3189,8 @@ country_event = {
 								or = {
 									has_planet_modifier = "pm_strong_magnetic_field"
 									has_planet_modifier = "pm_wild_storms"
+									## alphamod
+									has_planet_modifier = "pm_physicists_paradise"
 								}
 							}
 							every_tile = {
@@ -3160,6 +3205,12 @@ country_event = {
 								if = {
 									limit = {
 										has_planet_modifier = "pm_unstable_tectonics"
+										## alphamod
+										has_planet_modifier = "pm_engineers_paradise"
+										has_planet_modifier = "pm_underground_caverns"
+										has_planet_modifier = "pm_crystalline_formations"
+										has_planet_modifier = "pm_geothermal_activity"
+										has_planet_modifier = "pm_volcanic_ash_clouds"
 									}
 									every_tile = {
 										limit = {
@@ -3466,7 +3517,7 @@ planet_event = {
 			if = {
 				limit = {
 					owner = { has_country_flag = auto_build_7_2 }
-				}				if = {					limit = {						or = {							has_building = "building_capital_1"							has_building = "building_capital_2"							has_building = "building_capital_3"						}					}					every_tile = {						limit = {							has_building = no							exists = pop						pop = { is_being_purged = no }						tile_has_any_res = no						}						add_building_construction = "building_mining_network_1"					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								add_building_construction = "building_basic_mine"							}						}					}				}			}
+				}				if = {					limit = {						or = {							has_building = "building_capital_1"							has_building = "building_capital_2"							has_building = "building_capital_3"						}					}					every_tile = {						limit = {							has_building = no							exists = pop							pop = { is_being_purged = no }							tile_has_any_res = no						}						add_building_construction = "building_mining_network_1"					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								add_building_construction = "building_basic_mine"							}						}					}				}			}
 
 			if = {
 				limit = {
@@ -4415,12 +4466,101 @@ planet_event = {
 
 	immediate = {		if = {			limit = {
 				owner = { has_country_flag = auto_build_1 }				or = {					has_building = "building_capital_1"					has_building = "building_capital_2"					has_building = "building_capital_3"				}			}			every_tile = {				limit = {					exists = pop					pop = { is_being_purged = no }					nor = {						has_building = "building_capital_3"						has_building = "building_power_plant_5"						has_building = "betharian_power_plant_4"						has_building = "building_power_hub_2"						has_building = "building_hydroponics_farm_5"						has_building = "building_mineral_silo_3"						has_building = "building_mining_network_5"						has_building = "building_mineral_processing_plant_2"						has_building = "building_engineering_facility_4"						has_building = "building_physics_lab_4"						has_building = "building_biolab_4"						and = {							or = {								has_building = "building_power_plant_4"								has_building = "building_hydroponics_farm_4"								has_building = "building_mining_network_4"								has_building = "building_engineering_facility_3"								has_building = "building_physics_lab_3"								has_building = "building_biolab_3"							}							planet = {								not = { has_building = "building_capital_3" }							}						}					}				}				switch = {					trigger = has_building
-					"building_basic_power_plant" = { add_building_construction = "building_power_plant_1" }					"building_power_plant_1" = { add_building_construction = "building_power_plant_2" }					"building_power_plant_2" = { add_building_construction = "building_power_plant_3" }					"building_power_plant_3" = { add_building_construction = "building_power_plant_4" }					"building_power_plant_4" = { add_building_construction = "building_power_plant_5" }					"building_basic_farm" = { add_building_construction = "building_hydroponics_farm_1" }					"building_hydroponics_farm_1" = { add_building_construction = "building_hydroponics_farm_2" }					"building_hydroponics_farm_2" = { add_building_construction = "building_hydroponics_farm_3" }					"building_hydroponics_farm_3" = { add_building_construction = "building_hydroponics_farm_4" }					"building_hydroponics_farm_4" = { add_building_construction = "building_hydroponics_farm_5" }					"building_basic_mine" = { add_building_construction = "building_mining_network_1" }					"building_mining_network_1" = { add_building_construction = "building_mining_network_2" }					"building_mining_network_2" = { add_building_construction = "building_mining_network_3" }					"building_mining_network_3" = { add_building_construction = "building_mining_network_4" }					"building_mining_network_4" = { add_building_construction = "building_mining_network_5" }					"building_engineering_facility_1" = { add_building_construction = "building_engineering_facility_2" }					"building_engineering_facility_2" = { add_building_construction = "building_engineering_facility_3" }					"building_engineering_facility_3" = { add_building_construction = "building_engineering_facility_4" }					"building_physics_lab_1" = { add_building_construction = "building_physics_lab_2" }					"building_physics_lab_2" = { add_building_construction = "building_physics_lab_3" }					"building_physics_lab_3" = { add_building_construction = "building_physics_lab_4" }					"building_biolab_1" = { add_building_construction = "building_biolab_2" }					"building_biolab_2" = { add_building_construction = "building_biolab_3" }					"building_biolab_3" = { add_building_construction = "building_biolab_4" }					"betharian_power_plant_1" = { add_building_construction = "betharian_power_plant_2" }					"betharian_power_plant_2" = { add_building_construction = "betharian_power_plant_3" }					"betharian_power_plant_3" = { add_building_construction = "betharian_power_plant_4" }					"building_mineral_silo_1" = { add_building_construction = "building_mineral_silo_2" }					"building_mineral_silo_2" = { add_building_construction = "building_mineral_silo_3" }					"building_primitive_factory" = { add_building_construction = "building_mining_network_1" }					"building_primitive_farm" = { add_building_construction = "building_hydroponics_farm_1" }									}			}			else = {				if = {					limit = {
+					"building_basic_power_plant" = { add_building_construction = "building_power_plant_1" }					"building_power_plant_1" = { add_building_construction = "building_power_plant_2" }					"building_power_plant_2" = { add_building_construction = "building_power_plant_3" }					"building_power_plant_3" = { add_building_construction = "building_power_plant_4" }					"building_power_plant_4" = { add_building_construction = "building_power_plant_5" }					"building_basic_farm" = { add_building_construction = "building_hydroponics_farm_1" }					"building_hydroponics_farm_1" = { add_building_construction = "building_hydroponics_farm_2" }					"building_hydroponics_farm_2" = { add_building_construction = "building_hydroponics_farm_3" }					"building_hydroponics_farm_3" = { add_building_construction = "building_hydroponics_farm_4" }					"building_hydroponics_farm_4" = { add_building_construction = "building_hydroponics_farm_5" }					"building_basic_mine" = { add_building_construction = "building_mining_network_1" }					"building_mining_network_1" = { add_building_construction = "building_mining_network_2" }					"building_mining_network_2" = { add_building_construction = "building_mining_network_3" }					"building_mining_network_3" = { add_building_construction = "building_mining_network_4" }					"building_mining_network_4" = { add_building_construction = "building_mining_network_5" }					"building_engineering_facility_1" = { add_building_construction = "building_engineering_facility_2" }					"building_engineering_facility_2" = { add_building_construction = "building_engineering_facility_3" }					"building_engineering_facility_3" = { add_building_construction = "building_engineering_facility_4" }					"building_physics_lab_1" = { add_building_construction = "building_physics_lab_2" }					"building_physics_lab_2" = { add_building_construction = "building_physics_lab_3" }					"building_physics_lab_3" = { add_building_construction = "building_physics_lab_4" }					"building_biolab_1" = { add_building_construction = "building_biolab_2" }					"building_biolab_2" = { add_building_construction = "building_biolab_3" }					"building_biolab_3" = { add_building_construction = "building_biolab_4" }					"betharian_power_plant_1" = { add_building_construction = "betharian_power_plant_2" }					"betharian_power_plant_2" = { add_building_construction = "betharian_power_plant_3" }					"betharian_power_plant_3" = { add_building_construction = "betharian_power_plant_4" }					"building_mineral_silo_1" = { add_building_construction = "building_mineral_silo_2" }					"building_mineral_silo_2" = { add_building_construction = "building_mineral_silo_3" }					"building_primitive_factory" = { add_building_construction = "building_mining_network_1" }					"building_primitive_farm" = { add_building_construction = "building_hydroponics_farm_1" }
+					## alphamod
+					"building_radio_telescope_array" = { add_building_construction = "building_radio_telescope_array_2" }
+					"building_radio_telescope_array_2" = { add_building_construction = "building_radio_telescope_array_3" }
+					"building_radio_telescope_array_3" = { add_building_construction = "building_radio_telescope_array_4" }
+					"building_rocket_launchsite" = { add_building_construction = "building_shuttle_port" }
+					"building_shuttle_port" = { add_building_construction = "building_advanced_shuttleport" }
+					"building_lightmechbay" = { add_building_construction = "building_mediummechbay" }
+					"building_mediummechbay" = { add_building_construction = "building_heavymechbay" }
+					"building_hydro_plant" = { add_building_construction = "building_hydro_planе_2" }
+					"building_basic_farm_adv" = { add_building_construction = "building_hydroponics_farm_1_adv" }
+					"building_hydroponics_farm_1_adv" = { add_building_construction = "building_hydroponics_farm_2_adv" }
+					"building_hydroponics_farm_2_adv" = { add_building_construction = "building_hydroponics_farm_3_adv" }
+					"building_hydroponics_farm_3_adv" = { add_building_construction = "building_hydroponics_farm_4_adv" }
+					"building_traditional_farm" = { add_building_construction = "building_preservation" }
+					"building_frontier_town" = { add_building_construction = "building_frontier_city" }
+					"building_fuel_sourcer" = { add_building_construction = "building_fuel_sourcer_2" }
+					"building_fuel_sourcer_2" = { add_building_construction = "building_fuel_sourcer_3" }
+					"building_fuel_refinery" = { add_building_construction = "building_fuel_refinery_2" }
+					"building_alpha_fuel_converter" = { add_building_construction = "building_alpha_fuel_converter_2" }
+					"building_alpha_fuel_converter_2" = { add_building_construction = "building_alpha_fuel_converter_3" }
+					"building_alpha_fuel_converter_3" = { add_building_construction = "building_alpha_fuel_converter_4" }
+					"building_traditional_plantation" = { add_building_construction = "building_preservation" }
+					"building_moisture_farm" = { add_building_construction = "building_moisture_farm_2" }
+					"building_moisture_farm_2" = { add_building_construction = "building_moisture_farm_3" }
+					"building_sand_sifter" = { add_building_construction = "building_sand_sifter_2" }
+					"building_greenhousing" = { add_building_construction = "building_vertical_farms" }
+					"building_water_excavator" = { add_building_construction = "building_water_excavator_2" }
+					"building_reservoir" = { add_building_construction = "building_reservoir_2" }
+					"building_reservoir_2" = { add_building_construction = "building_reservoir_3" }
+					"building_ice_rig" = { add_building_construction = "building_ice_rig_2" }
+					"building_water_excavator" = { add_building_construction = "building_water_excavator_2" }									}			}			else = {				if = {					limit = {
 						owner = { has_country_flag = auto_build_1 }						has_building = "building_colony_shelter"					}					every_tile = {						limit = {							exists = pop							pop = { is_being_purged = no }						}						switch = {							trigger = has_building
 							"building_primitive_factory" = { add_building_construction = "building_basic_mine" }							"building_primitive_farm" = { add_building_construction = "building_basic_farm" }						}					}				}			}		}
 		if = {
 			limit = {
-				owner = { has_country_flag = auto_build_5 }				or = {					has_building = "building_capital_1"					has_building = "building_capital_2"					has_building = "building_capital_3"				}				has_building = "building_basic_science_lab_1"			}			if = {				limit = {					or = {						has_planet_modifier = "pm_titanic_life"						has_planet_modifier = "pm_atmospheric_hallucinogen"						has_modifier = "atmospheric_hallucinogen_good"						has_modifier = "subterranean_civilization"						has_planet_modifier = "pm_dangerous_wildlife"						has_modifier = "society_animal_life"					}				}				every_tile = {					limit = {						has_building = "building_basic_science_lab_1"						exists = pop						pop = { is_being_purged = no }					}					add_building_construction = "building_biolab_1"				}				else = {					if = {						limit = {							or = {								has_planet_modifier = "pm_strong_magnetic_field"								has_planet_modifier = "pm_wild_storms"							}						}						every_tile = {							limit = {								has_building = "building_basic_science_lab_1"								exists = pop								pop = { is_being_purged = no }							}							add_building_construction = "building_physics_lab_1"						}						else = {							if = {								limit = {									has_planet_modifier = "pm_unstable_tectonics"								}								every_tile = {									limit = {										has_building = "building_basic_science_lab_1"										exists = pop										pop = { is_being_purged = no }									}								add_building_construction = "building_engineering_facility_1"								}							}						}					}				}			}		}
+				owner = { has_country_flag = auto_build_5 }				or = {					has_building = "building_capital_1"					has_building = "building_capital_2"					has_building = "building_capital_3"				}				has_building = "building_basic_science_lab_1"			}			if = {
+				limit = {
+					or = {
+						has_planet_modifier = "pm_titanic_life"
+						has_planet_modifier = "pm_atmospheric_hallucinogen"
+						has_modifier = "atmospheric_hallucinogen_good"
+						has_modifier = "subterranean_civilization"
+						has_planet_modifier = "pm_dangerous_wildlife"
+						has_modifier = "society_animal_life"
+						## alphamod
+						has_planet_modifier = "pm_micro_organisms"
+						has_planet_modifier = "pm_subterranean_lifeforms"
+					}
+				}
+				every_tile = {
+					limit = {
+						has_building = "building_basic_science_lab_1"
+						exists = pop
+						pop = { is_being_purged = no }
+					}
+					add_building_construction = "building_biolab_1"
+				}
+				else = {
+					if = {
+						limit = {
+							or = {
+								has_planet_modifier = "pm_strong_magnetic_field"
+								has_planet_modifier = "pm_wild_storms"
+								## alphamod
+								has_planet_modifier = "pm_physicists_paradise"
+							}
+						}
+						every_tile = {
+							limit = {
+								has_building = "building_basic_science_lab_1"
+								exists = pop
+								pop = { is_being_purged = no }
+							}
+							add_building_construction = "building_physics_lab_1"
+						}
+						else = {
+							if = {
+								limit = {
+									has_planet_modifier = "pm_unstable_tectonics"
+									## alphamod
+									has_planet_modifier = "pm_engineers_paradise"
+									has_planet_modifier = "pm_underground_caverns"
+									has_planet_modifier = "pm_crystalline_formations"
+									has_planet_modifier = "pm_geothermal_activity"
+									has_planet_modifier = "pm_volcanic_ash_clouds"
+								}
+								every_tile = {
+									limit = {
+										has_building = "building_basic_science_lab_1"
+										exists = pop
+										pop = { is_being_purged = no }
+									}
+								add_building_construction = "building_engineering_facility_1"
+								}							}						}					}				}			}		}
 
 		## to do labs by emp priority ##
 
@@ -4482,7 +4622,15 @@ planet_event = {
 
 	immediate = {
 		if = {			limit = {				or = {					has_building = "building_colony_shelter"					has_building = "building_capital_1"					and = {						has_building = "building_capital_2"						is_capital = yes					}					has_building = "building_power_hub_1"					has_building = "building_mineral_processing_plant_1"				}			}			every_tile = {				limit = {					exists = pop					pop = { is_being_purged = no }				}				switch = {					trigger = has_building
-					"building_colony_shelter" = { add_building_construction = "building_capital_1" }					"building_capital_1" = { add_building_construction = "building_capital_2" }					"building_capital_2" = { add_building_construction = "building_capital_3" }					"building_power_hub_1" = { add_building_construction = "building_power_hub_2" }					"building_mineral_processing_plant_1" = { add_building_construction = "building_mineral_processing_plant_2" }							}			}		}	}
+					"building_colony_shelter" = { add_building_construction = "building_capital_1" }					"building_capital_1" = { add_building_construction = "building_capital_2" }					"building_capital_2" = { add_building_construction = "building_capital_3" }					"building_power_hub_1" = { add_building_construction = "building_power_hub_2" }					"building_mineral_processing_plant_1" = { add_building_construction = "building_mineral_processing_plant_2" }
+					## alphamod
+					"building_academy" = { add_building_construction = "building_academy_2" }
+					"building_intelligence_directorate" = { add_building_construction = "building_intelligence_directorate_2" }
+					"building_surveillance_center" = { add_building_construction = "building_surveillance_center_2" }
+					"building_security_center" = { add_building_construction = "building_security_center_2" }
+					"building_open_embassy" = { add_building_construction = "building_open_embassy_2" }
+					"building_xeno_diplomacy_corp" = { add_building_construction = "building_peace_corps" }
+					"building_tradestation" = { add_building_construction = "building_trade_company" }							}			}		}	}
 }
 
 ## menu
