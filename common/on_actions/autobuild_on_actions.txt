@@ -9,7 +9,7 @@
 # From = System
 on_entering_system_fleet = {
 	events = {
-		autobuild.98
+		autobuild.107
 	}
 }
 
@@ -96,5 +96,13 @@ on_building_replaced = {
 		autobuild.104
 		autobuild.105
 		autobuild.106
+	}
+}
+
+# A pop has been born
+# This = pop
+on_pop_birth = {
+	events = {
+		autobuild.108
 	}
 }

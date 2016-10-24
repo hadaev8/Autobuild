@@ -34,3 +34,19 @@ modmenu_button_effect = {
 		custom_tooltip = modmenu.tooltip
 	}
 }
+
+fleet_autobuild_button_effect = {
+	potential = {
+		always = yes
+	#	is_ship_class = shipclass_constructor
+	}
+	allow = {
+		always = yes
+	#	is_ship_class = shipclass_constructor
+	}
+	
+	effect = {
+	#	fleet_event = { id = autobuild.0}
+	custom_tooltip = modmenu.tooltip
+	}
+}

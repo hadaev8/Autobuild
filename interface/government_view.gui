@@ -25,14 +25,14 @@ guiTypes = {
 	#
 	#			background = {
 	#				name = "main_screen_bg"
-	#				spriteType = "GFX_tile_large_bg"
+	#				spriteType = "GFX_tile_outliner_bg"
 	#			}
 	#	}
 
 		iconType = {
 			name = "hex_bg"
 			spriteType = "GFX_hex_bg"
-			position = { x = -5 y = -10 }
+			position = { x = 40 y = -8 }
 			alwaysTransparent = yes
 		}
 
@@ -56,7 +56,7 @@ guiTypes = {
 		# THE TABS
 		########################
 
-		@tabheight = 605
+		@tabheight = 604
 
 		buttonType = {
 			name = "tab_government"
@@ -103,47 +103,25 @@ guiTypes = {
 		}
 
 		buttonType = {
-			name = "tab_edicts"
-			quadTextureSprite = "GFX_tab_2_inactive"
-			position = { x= 250 y = @tabheight }
-			font = "cg_16b"
-			buttonText = "DECISIONS"
-			buttonFont = "cg_16b"
-			shortcut = "c"
-			clicksound = "tab_click"
-		}
-
-		buttonType = {
-			name = "tab_edicts_active"
-			quadTextureSprite = "GFX_tab_2_active"
-			position = { x= 250 y = @tabheight }
-			font = "cg_16b"
-			buttonText = "DECISIONS"
-			buttonFont = "cg_16b"
-			clicksound = "tab_click"
-			shortcut = "c"
-		}
-
-		buttonType = {
 			name = "tab_demographics"
 			quadTextureSprite = "GFX_tab_2_inactive"
-			position = { x= 386 y = @tabheight }
+			position = { x= 250 y = @tabheight }
 			font = "cg_16b"
 			buttonText = "DEMOGRAPHICS"
 			buttonFont = "cg_16b"
-			shortcut = "v"
+			shortcut = "c"
 			clicksound = "tab_click"
 		}
 
 		buttonType = {
 			name = "tab_demographics_active"
 			quadTextureSprite = "GFX_tab_2_active"
-			position = { x= 386 y = @tabheight }
+			position = { x= 250 y = @tabheight }
 			font = "cg_16b"
 			buttonText = "DEMOGRAPHICS"
 			buttonFont = "cg_16b"
 			clicksound = "tab_click"
-			shortcut = "v"
+			shortcut = "c"
 		}
 
 		###############################
@@ -176,7 +154,20 @@ guiTypes = {
 			size = { width = 550 height = 560 }
 			moveable = no
 			dontRender = ""
-
+			
+			
+			effectbuttonType = {
+				name = "modmenu_button"
+				quadTextureSprite = "GFX_button_150_24"
+				position = { x = -7 y = -10}
+				buttonFont = "malgun_goth_24"
+				buttonText = "modmenu_button"
+				orientation = UPPER_LEFT
+				clicksound = confimation
+				effect = "modmenu_button_effect"
+			}
+			
+			
 			# The Info sub window
 			containerWindowType = {
 				name = "info_window"
@@ -293,8 +284,8 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "election_bg"
-				position = { x = 140 y = 228 }
-				size = { width = 400 height = 60 }
+				position = { x = 133 y = 228 }
+				size = { width = 412 height = 60 }
 
 
 				background = {
@@ -325,7 +316,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "next_election"
-					position = { x = 202 y = 250 }
+					position = { x = 202 y = 251 }
 					textureFile = ""
 					font = "cg_16b"
 					borderSize = {x = 0 y = 0}
@@ -344,6 +335,7 @@ guiTypes = {
 					buttonFont = "cg_16b"
 					text = "EMERGENCY_ELECTION"
 					font = "cg_16b"
+					oversound = menu_over_01
 				}
 			}
 
@@ -351,7 +343,7 @@ guiTypes = {
 			buttonType = {
 				name = "government"
 				quadTextureSprite = "GFX_government"
-				position = { x = 148 y = 235  }
+				position = { x = 141 y = 235  }
 				orientation = "UPPER_LEFT"
 			}
 
@@ -378,7 +370,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "heir_label"
-					position = { x = 60 y = 17 }
+					position = { x = 0 y = 3 }
 					font = "cg_16b"
 					text = "HEIR"
 					maxWidth = 80
@@ -392,27 +384,27 @@ guiTypes = {
 				iconType = {
 					name = "heir_portrait"
 					quadTextureSprite = "GFX_portrait_character"
-					position = { x = -16 y = -7 }
+					position = { x = 176 y = -8 }
 					scale = 0.16
 					alwaysTransparent = yes
 				}
 
 				instantTextBoxType = {
 					name = "heir_name"
-					position = { x = 60 y = 35 }
+					position = { x = 0 y = 19 }
 					font = "cg_16b"
 					text = ""
 					maxWidth = 180
-					maxHeight = 30
+					maxHeight = 60
 					#fixedSize = yes
 					format = left
-					alwaysTransparent = yes
+					#alwaysTransparent = yes
 					#text_color_code = "E"
 				}
 
 				overlappingElementsBoxType = {
 					name = "traits"
-					position = { x = 130 y = 23 }
+					position = { x = 140 y = 5 }
 					size = { x = 200 y = 32 }
 					format = right
 				}
@@ -420,7 +412,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "imperium_window"
-				position = { x = 14 y = 182 }
+				position = { x = 7 y = 182 }
 				size = { width = 130 height = 80 }
 				moveable = no
 
@@ -437,7 +429,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "ethics_label"
-					position = { x = 3 y = 50 }
+					position = { x = 3 y = 49 }
 					font = "cg_16b"
 					text = "ETHICS_LABEL"
 					maxWidth = 150
@@ -469,8 +461,8 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "effects_background"
-				size = { width = 244 height = 230 }
-				position = { x=16 y=320 }
+				size = { width = 270 height = 230 }
+				position = { x=7 y=320 }
 
 				background = {
 					name = "leader_frame"
@@ -480,8 +472,8 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "effects_window"
-				position = { x=20 y=335 }
-				size = { width = 244 height = 200 }
+				position = { x=7 y=335 }
+				size = { width = 286 height = 200 }
 				verticalScrollbar = "right_vertical_slider"
 
 				background = {
@@ -491,7 +483,7 @@ guiTypes = {
 				}
 
 				gridBoxType = {
-					position = { x = 10 y = 0 }
+					position = { x = 12 y = 0 }
 					name = "grid"
 					slotSize = { width = 200 height = 40 }
 					max_slots_horizontal = 1
@@ -512,13 +504,13 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "modifiers_window"
-				position = { x=301 y=320 }
+				position = { x=288 y=320 }
 				size = { width = 240 height = 305 }
 				moveable = no
 
 				containerWindowType = {
 					name = "empire_background2"
-					size = { width = 244 height = 230 }
+					size = { width = 257 height = 230 }
 					position = { x = 0 y = 0 }
 
 					background = {
@@ -530,7 +522,7 @@ guiTypes = {
 				smoothListboxType = {
 					name = "modifiers_list"
 					position = { x = -10 y = 5 }
-					size = { x=235 y=220 }
+					size = { x=248 y=220 }
 					scrollbartype = "standardlistbox_slider"
 					orientation = "UPPER_LEFT"
 				}
@@ -540,7 +532,7 @@ guiTypes = {
 					position = { x = 10 y = 20 }
 					font = "cg_16b"
 					text = "EMPTY_MODS"
-					maxWidth = 220
+					maxWidth = 233
 					maxHeight = 40
 					fixedSize = yes
 					format = center
@@ -564,15 +556,15 @@ guiTypes = {
 			buttonType = {
 				name = "black_box_income"
 				quadTextureSprite = "GFX_tiles_frame_light"
-				position = { x = 20 y = 40 }
-				size = { x = 255 y = 235 }
+				position = { x = 0 y = 40 }
+				size = { x = 275 y = 235 }
 			}
 
 			buttonType = {
 				name = "black_box_expences"
 				quadTextureSprite = "GFX_tiles_frame_light"
 				position = { x = 275 y = 40 }
-				size = { x = 255 y = 235 }
+				size = { x = 275 y = 235 }
 			}
 
 			################
@@ -585,14 +577,14 @@ guiTypes = {
 			containerWindowType = {
 				name = "income_window"
 				position = { x=5 y=0 }
-				size = { width = 265 height = 300 }
+				size = { width = 285 height = 300 }
 				#moveable = 0
 				dontRender = ""
 				#horizontalBorder = ""
 
 				instantTextBoxType = {
 					name = "income_label"
-					position = { x = 30 y = 15 }
+					position = { x = 10 y = 15 }
 					textureFile = ""
 					font = "malgun_goth_24"
 					borderSize = {x = 0 y = 0}
@@ -604,7 +596,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "total_income_label"
-					position = { x = 30 y = @b_summary_y }
+					position = { x = 10 y = @b_summary_y }
 					textureFile = ""
 					font = "cg_16b"
 					borderSize = {x = 0 y = 0}
@@ -618,7 +610,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "total_income_value"
-					position = { x = 145 y = @b_summary_y }
+					position = { x = 150 y = @b_summary_y }
 					textureFile = ""
 					font = "cg_16b"
 					borderSize = {x = 0 y = 0}
@@ -632,8 +624,8 @@ guiTypes = {
 
 			smoothListboxType = {
 				name = "incomes"
-				position = { x = 30 y = 55 }
-				size = { x=470 y=320 }
+				position = { x = 5 y = 55 }
+				size = { x=260 y=320 }
 				scrollbartype = "standardlistbox_slider"
 				orientation = "UPPER_LEFT"
 				alwaysTransparent = yes
@@ -643,8 +635,8 @@ guiTypes = {
 			# EXPENSE COLUMN
 			################
 
-			@expense_nr_x = 130
-			@expense_label_x = 15
+			@expense_nr_x = 145
+			@expense_label_x = 10
 
 			# The Expense sub window
 			containerWindowType = {
@@ -698,7 +690,7 @@ guiTypes = {
 			smoothListboxType = {
 				name = "expenses"
 				position = { x = 285 y = 55 }
-				size = { x=470 y=320 }
+				size = { x=260 y=320 }
 				scrollbartype = "standardlistbox_slider"
 				orientation = "UPPER_LEFT"
 				alwaysTransparent = yes
@@ -707,8 +699,8 @@ guiTypes = {
 			buttonType = {
 				name = "black_box_balance"
 				quadTextureSprite = "GFX_tiles_frame_light"
-				position = { x = 285 y = 270 }
-				size = { x = 245 y = 50 }
+				position = { x = 275 y = 270 }
+				size = { x = 275 y = 50 }
 				alwaysTransparent = yes
 			}
 
@@ -723,7 +715,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "balance_label"
-					position = { x = 15 y = 0 }
+					position = { x = 10 y = 0 }
 					textureFile = ""
 					font = "malgun_goth_24"
 					borderSize = {x = 0 y = 0}
@@ -737,7 +729,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "balance_value"
-					position = { x = 130 y = 0 }
+					position = { x = 148 y = 0 }
 					textureFile = ""
 					font = "malgun_goth_24"
 					borderSize = {x = 0 y = 0}
@@ -766,15 +758,15 @@ guiTypes = {
 			buttonType = {
 				name = "black_box_effects"
 				quadTextureSprite = "GFX_tiles_frame_light"
-				position = { x = 20 y = 360 }
-				size = { x = 510 y = 190 }
+				position = { x = 0 y = 360 }
+				size = { x = 550 y = 190 }
 				alwaysTransparent = yes
 			}
 
 			containerWindowType = {
 				name = "effects_window"
-				position = { x=35 y=385 }
-				size = { width = 470 height = 160 }
+				position = { x=15 y=382 }
+				size = { width = 520 height = 160 }
 				verticalScrollbar = "right_vertical_slider"
 
 				background = {
@@ -786,103 +778,9 @@ guiTypes = {
 				gridBoxType = {
 					position = { x = 0 y = 0 }
 					name = "grid"
-					slotSize = { width = 240 height = 40 }
+					slotSize = { width = 270 height = 40 }
 					max_slots_horizontal = 2
 					format = "UPPER_LEFT"
-				}
-			}
-		}
-		###############################
-		# THE DECISIONS WINDOW
-		###############################
-
-		containerWindowType = {
-			name = "decisions_window"
-			position = { x=0 y=0 }
-			size = { width = 563 height = 598 }
-			#moveable = 0
-			dontRender = ""
-			#horizontalBorder = ""
-
-			instantTextBoxType={
-				name = "policies_label"
-				font = "malgun_goth_24"
-				text = "POLICIES"
-				position = { x = 0 y = 15}
-				maxWidth = 540
-				maxHeight = 20
-				fixedSize = yes
-				format = center
-			}
-			
-			effectbuttonType = {
-				name = "modmenu_button"
-				quadTextureSprite = "GFX_standard_button_142_34_button"
-				position = { x = -7 y = -10}
-				buttonFont = "malgun_goth_24"
-				buttonText = "modmenu_button"
-				orientation = UPPER_LEFT
-				clicksound = confimation
-				effect = "modmenu_button_effect"
-		#		custom_tooltip = modmenu.tooltip
-			}
-
-			containerWindowType = {
-				name = "policy_window"
-				position = { x=0 y=40 }
-				size = { width = 550 height = 265 }
-				moveable = no
-
-				background = {
-					name = "empire_background"
-					spriteType = "GFX_tiles_frame_light"
-				}
-
-				smoothListboxType = {
-					name = "policy_list"
-					position = { x = 10 y = 10 }
-					backGround=""
-					size = { x=517 y=247 }
-					spacing = 1
-					scrollbartype = "standardlistbox_slider"
-					borderSize = { x = 0 y = 0 }
-					orientation = "UPPER_LEFT"
-				}
-			}
-
-
-			instantTextBoxType={
-				name = "edicts_label"
-				font = "malgun_goth_24"
-				text = "EDICTS"
-				position = { x = 0 y = 305}
-				maxWidth = 540
-				maxHeight = 20
-				fixedSize = yes
-				format = center
-			}
-
-			containerWindowType = {
-				name = "edicts_empire"
-				position = { x=0 y=325 }
-				size = { width = 550 height = 230 }
-				dontRender = ""
-
-				background = {
-					name = "empire_background"
-					spriteType = "GFX_tiles_frame_light"
-				}
-
-				smoothListboxType = {
-					name = "edicts_list"
-					position = { x = 10 y = 10 }
-					backGround=""
-					size = { x = 517 y = 210 }
-					spacing = 1
-					scrollbartype = "standardlistbox_slider"
-					borderSize = { x = 0 y = 0 }
-					orientation = "UPPER_LEFT"
-					autohide_scrollbar = yes
 				}
 			}
 		}
@@ -1029,7 +927,7 @@ guiTypes = {
 				name = "pop_effects_label"
 				font = "malgun_goth_24"
 				text = "POP_EFFECTS"
-				position = { x = 0 y = 250}
+				position = { x = 0 y = 260}
 				maxWidth = 550
 				maxHeight = 20
 				fixedSize = yes
@@ -1040,7 +938,7 @@ guiTypes = {
 				name = "pop_effects_desc"
 				font = "cg_16b"
 				text = "POP_EFFECTS_DESC"
-				position = { x = 0 y = 280}
+				position = { x = 10 y = 292}
 				maxWidth = 530
 				maxHeight = 60
 				fixedSize = yes
@@ -1050,7 +948,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "pop_effects_bg_window"
-				position = { x=0 y=330 }
+				position = { x=0 y=340 }
 				size = { width = 550 height = 170 }
 
 				background = {
@@ -1062,7 +960,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "effects_window"
-				position = { x=15 y=343 }
+				position = { x=15 y=353 }
 				size = { width = 544 height = 160 }
 				verticalScrollbar = "right_vertical_slider"
 
@@ -1084,11 +982,12 @@ guiTypes = {
 			buttonType = {
 				name = "create_vassal_button"
 				quadTextureSprite = "GFX_standard_button_200_34_button"
-				position = { x = -7 y = 499  }
+				position = { x = -7 y = 504  }
 				orientation = "UPPER_LEFT"
 				buttonFont = "cg_16b"
 				text = "CREATE_VASSAL"
 				font = "cg_16b"
+				oversound = menu_over_01
 			}
 
 			
@@ -1134,143 +1033,6 @@ guiTypes = {
 			buttonFont = "cg_16b"
 			text = "HANDLE"
 			font = "cg_16b"
-		}
-	}
-
-	###############################
-	# Empire Policy Entry
-	###############################
-
-	containerWindowType = {
-		name = "empire_policy_entry"
-		position = { x=10 y=10 }
-		size = { width = 380 height = 30 }
-		moveable = no
-
-		buttonType = {
-			name = "background"
-			quadTextureSprite = "GFX_tiles_dark_area_cut_8_hover"
-			size = { x = 518 y = 27 }
-		}
-
-		iconType = {
-			name = "can_change"
-			alwaysTransparent = yes
-			position = { x = 6 y = 6 }
-			quadTextureSprite = "GFX_on_off_indicator"
-			frame = 1
-		}
-
-		instantTextBoxType={
-			name = "policy_name"
-			font = "cg_16b"
-			position = { x = 26 y = 5 }
-			fixedSize = yes
-			format = left
-			maxWidth = 260
-			alwaysTransparent = yes
-		}
-		instantTextBoxType={
-			name = "selected_option_name"
-			font = "cg_16b"
-			position = { x = 250 y = 5 }
-			fixedSize = yes
-			maxWidth = 260
-			format = right
-			alwaysTransparent = yes
-
-			text = "hej hej"
-			text_color_code = "H"
-		}
-
-		smoothListboxType = {
-			name = "options"
-			position = { x = 15 y = 30 }
-			size = { x=465 y=50 }
-			alwaysTransparent = yes
-		}
-	}
-	containerWindowType = {
-		name = "policy_option_entry"
-		position = { x=0 y=0 }
-		size = { width = 80 height = 30 }
-		moveable = no
-
-		buttonType = {
-			name = "option_button"
-			quadTextureSprite = "GFX_tiles_dark_area_cut_8_hover"
-			position = { x = 10 y = 0 }
-			size = { x = 450 y = 27 }
-		}
-
-		instantTextBoxType={
-			name = "name"
-			font = "cg_16b"
-			position = { x = 42 y = 6 }
-			fixedSize = yes
-			format = left
-			alwaysTransparent = yes
-			text = "very long name here"
-			text_color_code = "E"
-		}
-
-		iconType = {
-			name = "is_selected"
-			alwaysTransparent = yes
-			position = { x = 14 y = 2 }
-			quadTextureSprite = "GFX_radio_button"
-			frame = 1
-			scale = 0.8
-		}
-	}
-
-	###############################
-	# Empire Edicts Entry
-	###############################
-
-	containerWindowType = {
-		name = "empire_edicts_entry"
-		position = { x=0 y=0 }
-		size = { width = 520 height = 36 }
-		moveable = no
-
-		background = {
-			name = "background"
-			quadTextureSprite = "GFX_tiles_dark_area_cut_8"
-		}
-
-		instantTextBoxType={
-			name = "edicts_name"
-			font = "cg_16b"
-			position = { x = 34 y = 9 }
-			maxWidth = 300
-			format = left
-			alwaysTransparent = yes
-		}
-
-		instantTextBoxType={
-			name = "cost"
-			font = "cg_16b"
-			position = { x = 448 y = 10 }
-			maxWidth = 60
-			fixedSize = yes
-			format = right
-		}
-
-		instantTextBoxType={
-			name = "active"
-			font = "cg_16b"
-			position = { x = 350 y = 10 }
-			maxWidth = 100
-			fixedSize = yes
-			format = left
-			text = "ACTIVE_GREEN"
-		}
-
-		buttonType = {
-			name = "select_button"
-			quadTextureSprite = "GFX_checkbox_20_20_01"
-			position = { x = 2 y = 2  }
 		}
 	}
 
@@ -1485,7 +1247,7 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "government_view_budget_entry"
-		size = { width = 200 height = 20 }
+		size = { width = 220 height = 20 }
 
 		instantTextBoxType = {
 			name = "name"
@@ -1499,7 +1261,7 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "value"
-			position = { x = -10 y = 0 }
+			position = { x = 10 y = 0 }
 			font = "cg_16b"
 			text = "SPECIES"
 			maxWidth = 235
@@ -1616,7 +1378,7 @@ guiTypes = {
 		instantTextBoxType={
 			name = "value"
 			font = "cg_16b"
-			position = { x = -70 y = 3 }
+			position = { x = -40 y = 3 }
 			maxWidth = 50
 			maxHeight = 20
 			fixedSize = yes
