@@ -21,16 +21,18 @@
 	# }
 # }
 
-modmenu_button_effect = {
+fleet_autobuild_on_button_effect = {
 	potential = {
 		always = yes
+		
 	}
 	allow = {
-		always = yes
+	#	always = yes
+	#	is_ship_class = shipclass_constructor
 	}
 	
 	effect = {
-		hidden_effect = { from = { country_event = { id = modmenu.1 } } }
-		custom_tooltip = modmenu.tooltip
+	#	fleet_event = { id = autobuild.0}
+	custom_tooltip = modmenu.tooltip
 	}
 }

@@ -1,7 +1,7 @@
 country_edict = {
 	name = "no_sector"
 	modifier = {
-		country_core_sector_system_cap = 994
+		country_core_sector_system_cap = 900
 		pop_ethic_shift = 0.1
 	}
 	
@@ -12,7 +12,11 @@ country_edict = {
 	}
 	
 	ai_weight = {
-		weight = 0
+		weight = 1
+		modifier = {
+			factor = 0
+			not = { has_global_flag = auto_build_ai_allowed }
+		}
 	}
 }
 
@@ -268,6 +272,7 @@ planet_edict = {
 			remove_modifier = "planet_forge_auto_build"
 			remove_modifier = "planet_labs_auto_build"
 			remove_modifier = "planet_power_plant_auto_build"
+			remove_planet_flag = autobuild_all_farms_builded
 			add_modifier = {
 				modifier = "planet_farms_auto_build"
 				days = -1

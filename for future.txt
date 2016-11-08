@@ -1,0 +1,351 @@
+fleet_event = {
+	id = autobuild.0
+	title = OK
+	desc = OK
+	hide_window = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	
+	trigger = {
+		is_ship_class = shipclass_constructor
+		is_disabled = no
+	#	sector_controlled = yes
+		is_in_combat = no
+	}
+	
+	immediate = {
+		set_fleet_flag = autobuild_fleet
+		queue_actions = {
+			repeat = {
+				find_closest_system = {
+					trigger = {
+						id = "autobuild.0.trigger.1"
+						exists = space_owner
+						space_owner = {
+							is_country = root.owner
+						}
+						nor = {
+							any_ship_in_system = {
+								exists = owner
+								owner = {
+									is_hostile = root.owner
+								}
+							}
+							has_star_flag = autobuild_star_block
+						}
+						any_planet = {
+							or = {
+								not = {
+									exists = owner
+								}
+								and = {
+									exists = owner
+									owner = {
+										is_country_type = primitive
+									}
+								}
+							}
+							has_mining_station = no
+							has_research_station = no
+							has_observation_outpost = no
+							not = { has_planet_flag = autobuild_planet_block }
+							is_surveyed = {
+								who = root.owner
+								status = yes
+							}
+							or = {
+								has_deposit_for = shipclass_mining_station
+								has_deposit_for = shipclass_research_station
+								and = {
+									exists = owner
+									owner = {
+										is_country_type = primitive
+									}
+								}
+							}
+						}
+						root = {
+							nor = {
+								has_fleet_order = upgrade_design_fleet_order
+								has_fleet_order = repair_ship_fleet_order
+								has_fleet_order = return_fleet_order
+								has_fleet_order = evade_hostiles_order
+								has_fleet_order = build_orbital_station_order
+						#		has_fleet_order = orbit_planet_order
+						#		has_fleet_order = move_to_system_point_order
+								has_fleet_order = orbit_planet_order
+								has_fleet_order = build_space_station_order
+								has_fleet_order = follow_order
+								has_fleet_order = merge_fleet_order
+								has_fleet_order = aggressive_stance_fleet_order
+							}
+						}
+					}
+					found_system = {
+						effect = {
+							id = "autobuild.0.effect.0"
+							if = {
+								limit = {
+									not = { has_star_flag = autobuild_planet_block }
+								}
+								set_timed_star_flag = { flag = autobuild_star_block days = 100 }
+							}
+						}
+						move_to = this
+					}
+				}
+				find_closest_planet = {
+					trigger = {
+						id = "autobuild.0.trigger.2"
+						or = {
+							not = {
+								exists = owner
+							}
+							and = {
+								exists = owner
+								owner = {
+									is_country_type = primitive
+								}
+							}
+						}
+						not = { has_planet_flag = autobuild_planet_block }
+						root = {
+							nor = {
+								has_fleet_order = upgrade_design_fleet_order
+								has_fleet_order = repair_ship_fleet_order
+								has_fleet_order = return_fleet_order
+								has_fleet_order = evade_hostiles_order
+								has_fleet_order = build_orbital_station_order
+						#		has_fleet_order = orbit_planet_order
+						#		has_fleet_order = move_to_system_point_order
+								has_fleet_order = orbit_planet_order
+								has_fleet_order = build_space_station_order
+								has_fleet_order = follow_order
+								has_fleet_order = merge_fleet_order
+								has_fleet_order = aggressive_stance_fleet_order
+							}
+						}
+						has_mining_station = no
+						has_research_station = no
+						has_observation_outpost = no
+						is_surveyed = {
+							who = root.owner
+							status = yes
+						}
+						or = {
+							has_deposit_for = shipclass_mining_station
+							has_deposit_for = shipclass_research_station
+							and = {
+								exists = owner
+								owner = {
+									is_country_type = primitive
+								}
+							}
+						}
+					}
+					found_planet = {
+						effect = {
+							id = "autobuild.0.effect.1"
+							solar_system = {
+								set_timed_star_flag = { flag = autobuild_star_block days = 100 }
+							}
+							if = {
+								limit = {
+									not = { has_planet_flag = autobuild_planet_block }
+								}
+								set_timed_planet_flag = { flag = autobuild_planet_block days = 100 }
+								else = {
+									root = {
+										clear_fleet_actions = root
+										fleet_event = { id = autobuild.0}
+									}
+									solar_system = {
+										remove_star_flag = autobuild_star_block
+									}
+								}
+							}
+						}
+						orbit_planet = this
+						effect = {
+							id = "autobuild.0.effect.2"
+							solar_system = {
+								set_timed_star_flag = { flag = autobuild_star_block days = 100 }
+							}
+							set_timed_planet_flag = { flag = autobuild_planet_block days = 100 }
+							if = {
+								limit = {
+									or = {
+										and = {
+											has_mining_station = no
+											has_research_station = no
+										}
+										has_observation_outpost = no
+									}
+								}
+								root = { set_event_locked = yes }
+								else = {
+									root = {
+										clear_fleet_actions = root
+										fleet_event = { id = autobuild.0}
+									}
+									solar_system = {
+										remove_star_flag = autobuild_star_block
+									}
+								}
+							}
+						}
+						wait = {
+							duration = 1
+						}
+						effect = {
+							id = "autobuild.0.effect.3"
+							root = { set_event_locked = no }
+							if = {
+								limit = {
+									or = {
+										and = {
+											has_mining_station = no
+											has_research_station = no
+										}
+										has_observation_outpost = no
+									}
+									root.owner = {
+										minerals > 100
+										or = {
+											not = { has_country_flag = auto_build_cost }
+											and = {
+												has_country_flag = auto_build_cost_5000
+												minerals > 5000
+											}
+											and = {
+												has_country_flag = auto_build_cost_2500
+												minerals > 2500
+											}
+											and = {
+												has_country_flag = auto_build_cost_1000
+												minerals > 1000
+											}
+											and = {
+												has_country_flag = auto_build_cost_500
+												minerals > 500
+											}
+										}
+									}
+								}
+								if = {
+									limit = {
+										exists = owner
+										owner = {
+											is_country_type = primitive
+										}
+									}
+									create_fleet = {
+										effect = {
+											set_owner = root.owner
+											
+											create_ship = {
+												name = random
+												design = observation_station
+												graphical_culture = root.owner
+											}
+											set_location = this
+										}
+									}
+									root.owner = {
+										add_minerals = -50
+									}
+									else = {
+										if ={
+											limit = { has_deposit_for = shipclass_mining_station }
+											create_mining_station = {
+												owner = root.owner
+											}
+											root.owner = {
+												add_minerals = -90
+											}
+											else = {
+												if = {
+													limit = { has_deposit_for = shipclass_research_station }
+													create_research_station = {
+														owner = root.owner
+													}
+													root.owner = {
+														add_minerals = -90
+													}
+												}
+											}
+										}
+									}
+								}
+								else = {
+									root = {
+										clear_fleet_actions = root
+										fleet_event = { id = autobuild.0}
+									}
+									solar_system = {
+										remove_star_flag = autobuild_star_block
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+		## remove sector
+		random_sector = {
+			limit = { is_core_sector = no }
+			leader = { unassign_leader = this }
+			every_planet = {
+				set_planet_flag = autobuild_sector_planet
+			}
+			owner = { remove_sector = prev }
+		}
+		
+		
+		
+		
+		## restor sector
+		event_target:autobuild_country = {
+			random_owned_planet = {
+				limit = {
+					has_planet_flag = autobuild_sector_planet
+				}
+				save_event_target_as = autobuild_sector_planet
+			}
+		}
+		event_target:autobuild_country = {
+			random_owned_planet = {
+				limit = {
+					has_planet_flag = autobuild_sector_planet
+				}
+				save_event_target_as = autobuild_sector_planet1
+			}
+		}
+		create_sector = {
+			capital = event_target:autobuild_sector_planet
+			type = "research"
+			add = event_target:autobuild_sector_planet1
+		#	while = {
+		#		limit = {
+		#			event_target:autobuild_country = {
+		#				any_owned_planet = {
+		#					has_planet_flag = autobuild_sector_planet
+		#				}
+		#			}
+		#		}
+		#		event_target:autobuild_country = {
+		#			random_owned_planet = {
+		#				limit = {
+		#					has_planet_flag = autobuild_sector_planet
+		#				}
+		#				save_event_target_as = autobuild_sector_planet
+		#			}
+		#		}
+		#		add = event_target:autobuild_sector_planet
+		#	}

@@ -234,3 +234,23 @@
  auto_build_fleet_off:0 "$modmenu_off$ $auto_build_fleet$"
  auto_build_cost_off:0 "$modmenu_off$ $auto_build_cost$"
  auto_build_farm_replace_off:0 "$modmenu_off$ $auto_build_farm_replace$"
+ 
+ #2.5
+ auto_build_ai_allowed:0 ""Разрешить ИИ пользоваться автопостройкой""
+ auto_build_ai_allowed.tooltip:0 "У ИИ здания будут строиться так же, как и у игрока."
+ 
+ auto_build_labs_not_count_trait:0 ""Не учитывать трейты""
+ auto_build_labs_not_count_trait.tooltip:0 ""Не учитывать трейты населения (умелые социологи, физики, инженеры) при улучшении лабораторий.""
+ 
+ auto_build_others_options_menu:0 "§BМеню других опций§!"
+ 
+ auto_build_ai_allowed_on:0 "$modmenu_on$ $auto_build_ai_allowed$"
+ auto_build_ai_allowed_on.tooltip:0 "$modmenu_tooltip_on$ $auto_build_ai_allowed.tooltip$"
+ auto_build_ai_allowed_off:0 "$modmenu_off$ $auto_build_ai_allowed$" 
+ auto_build_ai_allowed_off.tooltip:0 "$modmenu_tooltip_off$ $auto_build_ai_allowed.tooltip$"
+ 
+ auto_build_labs_not_count_trait_on:0 "$modmenu_on$ $auto_build_labs_not_count_trait$"
+ auto_build_labs_not_count_trait_on.tooltip:0 "$modmenu_tooltip_on$ $auto_build_labs_not_count_trait.tooltip$"
+ auto_build_labs_not_count_trait_off:0 "$modmenu_off$ $auto_build_labs_not_count_trait$" 
+ auto_build_labs_not_count_trait_off.tooltip:0 "$modmenu_tooltip_off$ $auto_build_labs_not_count_trait.tooltip$"
+ 

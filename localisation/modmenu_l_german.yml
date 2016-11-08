@@ -8,6 +8,12 @@
  modmenu_exit:0 "§LVerlasse das Menü§!"
  modmenu_remove:0 "§HEntferne§! alle Mod-Einstellungen"
  modmenu_remove.tooltip:0 "Entferne alle Mod-Flags und Planetenmodifikatoren."
+ modmenu_on:0 "§GTurn On§!"
+ modmenu_off:0 "§RTurn Off§!"
+ modmenu_tooltip_on:0 "Pressing the button will $modmenu_on$ this option."
+ modmenu_tooltip_off:0 "Pressing the button will $modmenu_off$ this option."
+ modmenu_return:0 "Return"
+ 
  modmenu_1:0 "§HAuto-Bau und Gebäudeverbesserung ENG/RUS/FRA§!"
  modmenu_1.tooltip:0 "Hier  kann §HAuto-Bau und Gebäudeverbesserung ENG/RUS/FRA§!, sofern installiert, konfiguriert werden."
  modmenu_2:0 "§HSchwierigere Invasoren§!"

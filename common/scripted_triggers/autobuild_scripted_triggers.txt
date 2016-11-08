@@ -58,7 +58,7 @@ has_any_mines = {
 		has_building = "building_mining_network_5"
 	}
 }
-			
+
 has_any_power_plant = {
 	or = {
 		has_building = "building_basic_power_plant"
@@ -93,7 +93,7 @@ has_any_science_lab = {
 		has_building = "building_engineering_facility_4"
 	}
 }		
-		
+
 free_from_autobuild = {
 	or = {
 		has_modifier = "free_from_auto_build"
@@ -102,9 +102,22 @@ free_from_autobuild = {
 		has_modifier = "planet_power_plant_auto_build"
 		has_modifier = "planet_farms_auto_build"
 		has_building_construction = yes
+		sector_controlled = yes
 	}
 }
 
+tile_has_strategic_res = {
+	or = {
+		has_resource = {
+			type = sr_alien_pets
+			amount > 0
+		}
+		has_resource = {
+			type = sr_betharian
+			amount > 0
+		}
+	}
+}
 tile_has_energy_more_than_others = {
 	and = {
 		or = {
@@ -125,16 +138,7 @@ tile_has_energy_more_than_others = {
 				}
 			}
 		}
-		nor = {
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
-			}
-			has_resource = {
-				type = sr_betharian
-				amount > 0
-			}
-		}
+		tile_has_strategic_res = no
 		or = {
 			has_resource = {
 				type = energy
@@ -276,16 +280,7 @@ tile_has_minerals_more_than_others = {
 				}
 			}
 		}
-		nor = {
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
-			}
-			has_resource = {
-				type = sr_betharian
-				amount > 0
-			}
-		}
+		tile_has_strategic_res = no
 		or = {
 			has_resource = {
 				type = minerals
@@ -301,9 +296,12 @@ tile_has_minerals_more_than_others = {
 						type = energy
 						amount > 4
 					}
-					has_resource = {
-						type = food
-						amount > 4
+					and = {
+						planet = { not = { has_planet_flag = autobuild_all_farms_builded } }
+						has_resource = {
+							type = food
+							amount > 4
+						}
 					}
 					has_resource = {
 						type = physics_research
@@ -329,9 +327,12 @@ tile_has_minerals_more_than_others = {
 						type = energy
 						amount > 3
 					}
-					has_resource = {
-						type = food
-						amount > 3
+					and = {
+						planet = { not = { has_planet_flag = autobuild_all_farms_builded } }
+						has_resource = {
+							type = food
+							amount > 3
+						}
 					}
 					has_resource = {
 						type = physics_research
@@ -357,9 +358,12 @@ tile_has_minerals_more_than_others = {
 						type = energy
 						amount > 2
 					}
-					has_resource = {
-						type = food
-						amount > 2
+					and = {
+						planet = { not = { has_planet_flag = autobuild_all_farms_builded } }
+						has_resource = {
+							type = food
+							amount > 2
+						}
 					}
 					has_resource = {
 						type = physics_research
@@ -385,9 +389,12 @@ tile_has_minerals_more_than_others = {
 						type = energy
 						amount > 1
 					}
-					has_resource = {
-						type = food
-						amount > 1
+					and = {
+						planet = { not = { has_planet_flag = autobuild_all_farms_builded } }
+						has_resource = {
+							type = food
+							amount > 1
+						}
 					}
 					has_resource = {
 						type = physics_research
@@ -409,6 +416,7 @@ tile_has_minerals_more_than_others = {
 
 tile_has_food_more_than_others = {
 	and = {
+		planet = { not = { has_planet_flag = autobuild_all_farms_builded } }
 		or = {
 			and = {
 				exists = owner
@@ -427,16 +435,7 @@ tile_has_food_more_than_others = {
 				}
 			}
 		}
-		nor = {
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
-			}
-			has_resource = {
-				type = sr_betharian
-				amount > 0
-			}
-		}
+		tile_has_strategic_res = no
 		or = {
 			has_resource = {
 				type = food
@@ -560,16 +559,7 @@ tile_has_food_more_than_others = {
 
 tile_has_any_res = {
 	or = {
-		or = {
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
-			}
-			has_resource = {
-				type = sr_betharian
-				amount > 0
-			}
-		}
+		tile_has_strategic_res = yes
 		and = {
 			or = {
 				and = {
@@ -595,6 +585,7 @@ tile_has_any_res = {
 			}
 		}
 		and = {
+			planet = { not = { has_planet_flag = autobuild_all_farms_builded } }
 			or = {
 				and = {
 					exists = owner
@@ -699,16 +690,7 @@ tile_has_science_more_than_others = {
 				}
 			}
 		}
-		nor = {
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
-			}
-			has_resource = {
-				type = sr_betharian
-				amount > 0
-			}
-		}
+		tile_has_strategic_res = no
 		or = {
 			has_resource = {
 				type = physics_research
@@ -870,14 +852,43 @@ tile_has_any_minerals = {
 			type = minerals
 			amount > 0
 		}
-		nor = {
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
+		tile_has_strategic_res = no
+	}
+}
+
+autobuild_cost = {
+	or = {
+		not = { has_country_flag = auto_build_cost }
+		and = {
+			has_country_flag = auto_build_cost_5000
+			minerals > 5000
+			or = {
+				not = { has_global_flag = gf_alphamod_activated }
+				energy > 5000
 			}
-			has_resource = {
-				type = sr_betharian
-				amount > 0
+		}
+		and = {
+			has_country_flag = auto_build_cost_2500
+			minerals > 2500
+			or = {
+				not = { has_global_flag = gf_alphamod_activated }
+				energy > 2500
+			}
+		}
+		and = {
+			has_country_flag = auto_build_cost_1000
+			minerals > 1000
+			or = {
+				not = { has_global_flag = gf_alphamod_activated }
+				energy > 1000
+			}
+		}
+		and = {
+			has_country_flag = auto_build_cost_500
+			minerals > 500
+			or = {
+				not = { has_global_flag = gf_alphamod_activated }
+				energy > 500
 			}
 		}
 	}
