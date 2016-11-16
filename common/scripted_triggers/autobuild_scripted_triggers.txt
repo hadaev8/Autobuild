@@ -15,7 +15,7 @@
 
 has_any_farm = {
 	or = {
-		has_building = "building_agri_processing_complex"
+		has_building = "building_primitive_farm"
 		has_building = "building_basic_farm"
 		has_building = "building_hydroponics_farm_1"
 		has_building = "building_hydroponics_farm_2"
@@ -25,29 +25,9 @@ has_any_farm = {
 	}
 }
 
-autobuild_tile_not_has_building = {
+has_any_mine = {
 	or = {
-		has_building = no
-		and = {
-			exists = owner
-			owner = {
-				has_country_flag = auto_build_farm_replace
-			}
-			or = {
-				has_building = "building_basic_farm"
-				has_building = "building_hydroponics_farm_1"
-				has_building = "building_hydroponics_farm_2"
-				has_building = "building_hydroponics_farm_3"
-				has_building = "building_hydroponics_farm_4"
-				has_building = "building_hydroponics_farm_5"
-			}
-		}
-	}
-}
-
-has_any_mines = {
-	or = {
-		has_building = "building_slave_processing"
+		has_building = "building_primitive_factory"
 		has_building = "building_mineral_processing_plant_1"
 		has_building = "building_mineral_processing_plant_2"
 		has_building = "building_basic_mine"
@@ -75,7 +55,7 @@ has_any_power_plant = {
 		has_building = "building_power_hub_2"
 	}
 }
-		
+
 has_any_science_lab = {
 	or = {
 		has_building = "building_basic_science_lab_1"
@@ -92,7 +72,196 @@ has_any_science_lab = {
 		has_building = "building_engineering_facility_3"
 		has_building = "building_engineering_facility_4"
 	}
-}		
+}
+
+has_any_mines_not_replace = {
+	or = {
+		has_building = "building_ancient_factory"
+
+		# alphamod
+		has_building = "building_industrial_camp"
+		has_building = "building_warrior_house"
+		has_building = "building_production_hive"
+		has_building = "building_work_collective"
+		has_building = "building_minerals_market"
+		has_building = "building_materials_manufacturing"
+		has_building = "building_frontier_town"
+		has_building = "building_frontier_city"
+		has_building = "building_fuel_refinery"
+		has_building = "building_fuel_refinery_ex"
+		has_building = "building_fuel_refinery_2"
+		has_building = "building_fuel_refinery_2_ex"
+		has_building = "building_desalinator"
+		has_building = "building_sand_sifter"
+		has_building = "building_sand_sifter_2"
+		has_building = "building_ice_rig_2"
+		has_building = "building_exo_mine"
+		has_building = "building_exo_barracks"
+		has_building = "building_water_excavator"
+		has_building = "building_water_excavator_2"
+		has_building = "building_prison_city"
+		has_building = "building_hive"
+		has_building = "building_sprawl"
+		has_building = "building_sprawl_district"
+		has_building = "building_retreat"
+		has_building = "building_great_citadel"
+		has_building = "building_fuel_refinery_0"
+	}
+}
+
+has_any_farm_not_replace = {
+	or = {
+		has_building = "building_clinic"
+		has_building = "building_hospital"
+		has_building = "building_agri_processing_complex"
+		has_building = "building_great_pyramid"
+
+		# alphamod
+		has_building = "building_hive_director"
+		has_building = "building_rejuvenation_hive"
+		has_building = "building_luxury_vacations"
+		has_building = "building_basic_farm_adv"
+		has_building = "building_hydroponics_farm_1_adv"
+		has_building = "building_hydroponics_farm_2_adv"
+		has_building = "building_hydroponics_farm_3_adv"
+		has_building = "building_hydroponics_farm_4_adv"
+		has_building = "building_habitat"
+		has_building = "building_biomass_sourcer"
+		has_building = "building_biomass_filtrator"
+		has_building = "building_biomass_processor"
+		has_building = "building_traditional_farm"
+		has_building = "building_preservation"
+		has_building = "building_biomass_former"
+		has_building = "building_biomass_former_ex"
+		has_building = "building_biomass_reformer"
+		has_building = "building_food_hybridiser"
+		has_building = "building_colony_control_pre"
+		has_building = "building_colony_control"	
+		has_building = "building_frontier_provisioner"
+		has_building = "building_frontier_provisioner_ex"
+		has_building = "building_libraryofadministration"
+		has_building = "building_chamberofexecutives"
+		has_building = "building_hallofwarriors"
+		has_building = "building_governerspalace"
+		has_building = "building_templeofrule"
+		has_building = "building_councilhall"
+		has_building = "building_fishing_yard"
+		has_building = "building_traditional_plantation"
+		has_building = "building_culture"
+		has_building = "building_great_sanctuary"
+		has_building = "building_great_order"
+		has_building = "building_basic_farm_adv"
+		has_building = "building_hydroponics_farm_1_adv"
+		has_building = "building_hydroponics_farm_2_adv"
+		has_building = "building_hydroponics_farm_3_adv"
+		has_building = "building_hydroponics_farm_4_adv"
+		has_building = "building_habitat"
+		has_building = "building_biomass_sourcer"
+		has_building = "building_biomass_filtrator"
+		has_building = "building_biomass_processor"
+		has_building = "building_traditional_farm"
+		has_building = "building_preservation"
+		has_building = "building_biomass_former"
+		has_building = "building_biomass_former_ex"
+		has_building = "building_biomass_reformer"
+		has_building = "building_food_hybridiser"
+		has_building = "building_colony_control_pre"
+		has_building = "building_colony_control"
+	}
+}
+
+has_any_power_plant_not_replace = {
+	or = {
+		has_building = "building_dark_matter_power_plant"
+		has_building = "building_odd_factory"
+
+		# alphamod
+		has_building = "building_powerbank"
+		has_building = "building_powerbank_ex"
+		has_building = "building_hydro_plant"
+		has_building = "building_hydro_plant_2"
+		has_building = "building_steam_plant"
+		has_building = "building_hydro_cell_bank"
+		has_building = "building_geothermal_tap"
+		has_building = "building_energy_network"
+		has_building = "building_war_monastery"
+		has_building = "building_power_hive"
+		has_building = "building_power_plant_collective"
+		has_building = "building_energy_market"
+		has_building = "building_luxuries_manufacturing"
+		has_building = "building_luxuries_manufacturing_ex"
+		has_building = "building_food_retailer"
+		has_building = "building_data_brokerage"
+		has_building = "building_tradestation"
+		has_building = "building_tradestation_ex"
+		has_building = "building_trade_company"
+		has_building = "building_trade_company_ex"
+		has_building = "building_frontier_brewery"
+		has_building = "building_frontier_brewery_ex"
+		has_building = "building_cantina"
+		has_building = "building_fuel_sourcer"
+		has_building = "building_fuel_sourcer_2"
+		has_building = "building_fuel_sourcer_3"
+		has_building = "building_alpha_fuel_converter"
+		has_building = "building_alpha_fuel_converter_2"
+		has_building = "building_alpha_fuel_converter_3"
+		has_building = "building_alpha_fuel_converter_4"
+		has_building = "building_steammaker"
+		has_building = "building_stormtower"
+		has_building = "building_moisture_farm"
+		has_building = "building_moisture_farm_2"
+		has_building = "building_moisture_farm_3"
+		has_building = "building_solar_power_plant"
+		has_building = "building_exo_power_plant"
+		has_building = "building_atmos_gen"
+		has_building = "building_greenhousing"
+		has_building = "building_vertical_farms"
+		has_building = "building_hive"
+		has_building = "building_sprawl"
+		has_building = "building_large_city"
+	}
+}
+
+has_any_science_lab_not_replace = {
+	or = {
+		has_building = "building_mutant_landfill"
+		has_building = "building_vault"
+		has_building = "building_vault_2"
+		has_building = "building_zanaam_obelisk"
+		has_building = "building_toy_factory"
+		has_building = "building_particle_accelerator"
+		has_building = "building_fe_xeno_zoo"
+
+		# alphamod
+		has_building = "building_advanced_shuttleport"
+		has_building = "building_science_foundation"
+		has_building = "building_genetic_data"
+		has_building = "building_smart_labs"
+		has_building = "building_aerofighter_base"
+		has_building = "building_dry_dock"
+		has_building = "building_intellect_hive"
+		has_building = "building_hall_of_assignment"
+		has_building = "building_nuclear_research"
+		has_building = "building_bio_medical"
+		has_building = "building_forestry"
+		has_building = "building_arcology"
+	}
+}
+
+has_any_capital = {
+	or = {
+		has_building = "building_capital_1"
+		has_building = "building_capital_2"
+		has_building = "building_capital_3"
+
+		# alphamod
+		has_building = "building_exo_ops"
+		has_building = "building_commerce_coord"
+		has_building = "building_mining_guild"
+		has_building = "building_central_databank"
+		has_building = "building_farming_guild"
+	}
+}
 
 free_from_autobuild = {
 	or = {
@@ -101,6 +270,14 @@ free_from_autobuild = {
 		has_modifier = "planet_forge_auto_build"
 		has_modifier = "planet_power_plant_auto_build"
 		has_modifier = "planet_farms_auto_build"
+		has_building_construction = yes
+		sector_controlled = yes
+	}
+}
+
+free_from_autoupdate = {
+	or = {
+		has_modifier = "free_from_auto_update"
 		has_building_construction = yes
 		sector_controlled = yes
 	}
@@ -116,8 +293,21 @@ tile_has_strategic_res = {
 			type = sr_betharian
 			amount > 0
 		}
+		has_resource = {
+			type = sr_ice
+			amount > 0
+		}
+		has_resource = {
+			type = sr_natural_fuels
+			amount > 0
+		}
+		has_resource = {
+			type = sr_actinides
+			amount > 0
+		}
 	}
 }
+
 tile_has_energy_more_than_others = {
 	and = {
 		or = {

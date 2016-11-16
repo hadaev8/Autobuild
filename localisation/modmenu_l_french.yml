@@ -13,6 +13,8 @@
  modmenu_tooltip_on:0 "Appuyer sur ce bouton va $modmenu_on$ cette option."
  modmenu_tooltip_off:0 "Appuyer sur ce bouton va $modmenu_off$ cette option."
  modmenu_return:0 "Retour"
+ modmenu_yes:0 "Oui"
+ modmenu_no:0 "Non"
  
  modmenu_1:0 "§HAuto Build and Improve Buildings ENG/RUS/FRA§!"
  modmenu_1.tooltip:0 "Ici tu peux configurer §HAuto Build and Improve Buildings ENG/RUS/FRA§!, si tu as installé et activé ce mod."
