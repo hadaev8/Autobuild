@@ -1,8 +1,7 @@
 namespace = autobuild
-## 0 - cost and farms vars
 ## 1 - auto impruve
 ## 2 - auto update influence cost
-## 3 - auto build new buildings on good tiles 		
+## 3 - auto build new buildings on good tiles 
 ## 4 - auto enslave
 ## 4_1 - xeno slaves
 ## 4_2 - replace power plants and labs if slave
@@ -35,14 +34,14 @@ fleet_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	#fire_only_once = yes
-	
+
 	trigger = {
 		is_ship_class = shipclass_constructor
 		is_disabled = no
 	#	sector_controlled = yes
 		is_in_combat = no
 	}
-	
+
 	immediate = {
 		set_fleet_flag = autobuild_fleet
 		set_name = "Autobuild Ship"
@@ -266,6 +265,7 @@ country_event = {
 	mean_time_to_happen = { months = 6 }
 
 	trigger = {
+		num_owned_planets > 1
 		or = {
 			is_ai = no
 			has_global_flag = auto_build_ai_allowed
@@ -304,7 +304,7 @@ country_event = {
 	immediate = {
 
 		save_event_target_as = autobuild_country
-		
+
 		# auto enslave
 
 		if = {
@@ -444,7 +444,13 @@ country_event = {
 
 		if = {
 			limit = {
-				has_country_flag = auto_build_8
+				or = {
+					has_country_flag = auto_build_8
+					and = {
+						is_ai = yes
+						has_global_flag = auto_build_ai_allowed
+					}
+				}
 				autobuild_cost = yes
 			}
 			every_owned_planet = {
@@ -452,12 +458,10 @@ country_event = {
 					is_ringworld = no
 					or = {
 						free_building_tiles > 0
-						has_building = "building_basic_farm"
-						has_building = "building_hydroponics_farm_1"
-						has_building = "building_hydroponics_farm_2"
-						has_building = "building_hydroponics_farm_3"
-						has_building = "building_hydroponics_farm_4"
-						has_building = "building_hydroponics_farm_5"
+						and = {
+							has_any_farm = yes
+							has_country_flag = auto_build_farm_replace
+						}
 					}
 					nor = {
 						has_modifier = "capital"
@@ -517,6 +521,7 @@ country_event = {
 							limit = {
 								has_blocker = no
 								tile_has_food_more_than_others = yes
+								exists = owner
 								or = {
 									has_building = no
 									and = {
@@ -547,6 +552,7 @@ country_event = {
 							limit = {
 								has_blocker = no
 								tile_has_any_res = no
+								exists = owner
 								or = {
 									has_building = no
 									and = {
@@ -572,6 +578,7 @@ country_event = {
 								limit = {
 									has_blocker = no
 									tile_has_food_more_than_others = yes
+									exists = owner
 									or = {
 										has_building = no
 										and = {
@@ -602,6 +609,7 @@ country_event = {
 								limit = {
 									has_blocker = no
 									tile_has_any_res = no
+									exists = owner
 									or = {
 										has_building = no
 										and = {
@@ -622,7 +630,13 @@ country_event = {
 
 		if = {
 			limit = {
-				has_country_flag = auto_build_9
+				or = {
+					has_country_flag = auto_build_9
+					and = {
+						is_ai = yes
+						has_global_flag = auto_build_ai_allowed
+					}
+				}
 				autobuild_cost = yes
 			}
 			every_owned_planet = {
@@ -726,12 +740,18 @@ country_event = {
 				}
 			}
 		}
-				
+
 		# energy hub
-		
+
 		if = {
 			limit = {
-				has_country_flag = auto_build_11
+				or = {
+					has_country_flag = auto_build_11
+					and = {
+						is_ai = yes
+						has_global_flag = auto_build_ai_allowed
+					}
+				}
 				autobuild_cost = yes
 			}
 			every_owned_planet = {
@@ -844,12 +864,18 @@ country_event = {
 				}
 			}
 		}
-		
+
 		# minerals complex
-		
+
 		if = {
 			limit = {
-				has_country_flag = auto_build_12
+				or = {
+					has_country_flag = auto_build_12
+					and = {
+						is_ai = yes
+						has_global_flag = auto_build_ai_allowed
+					}
+				}
 				autobuild_cost = yes
 			}
 			every_owned_planet = {
@@ -965,7 +991,7 @@ country_event = {
 				}
 			}
 		}
-		
+
 		# auto build in ept tiles
 
 		if = {
@@ -1077,7 +1103,7 @@ country_event = {
 			}
 
 			switch = {
-		
+
 				trigger = has_country_flag
 
 				auto_build_7_1 = {
@@ -1118,7 +1144,7 @@ country_event = {
 						}
 					}
 				}
-				
+
 				auto_build_7_2 = {
 					every_owned_planet = {
 						limit = {
@@ -1220,9 +1246,9 @@ country_event = {
 						}
 					}
 				}
-			
+
 				## to do build by emp prior ##
-								
+
 				auto_build_7_6 = {
 					every_owned_planet = {
 						limit = {
@@ -1321,7 +1347,13 @@ country_event = {
 
 		if = {
 			limit = {
-				has_country_flag = auto_build_3
+				or = {
+					has_country_flag = auto_build_3
+					and = {
+						is_ai = yes
+						has_global_flag = auto_build_ai_allowed
+					}
+				}
 				autobuild_cost = yes
 			}
 			every_owned_planet = {
@@ -1570,7 +1602,7 @@ country_event = {
 				}
 			}
 		}
-				
+
 		# planet edicts:
 
 		if = {
@@ -1586,24 +1618,24 @@ country_event = {
 						has_modifier = "planet_farms_auto_build"
 					}
 				}
+				random_tile = {
+					limit = {
+						not = { has_building = "building_xeno_zoo" }
+						exists = pop
+						pop = {
+							is_being_purged = no
+						}
+						has_resource = {
+							type = sr_alien_pets
+							amount > 0
+						}
+					}
+					add_building_construction = "building_xeno_zoo"
+				}
 				if = {														##	lets build farm
 					limit = {
 						has_any_capital = yes
 						not = { has_modifier = "planet_farms_auto_build" }
-					}
-					random_tile = {
-						limit = {
-							not = { has_building = "building_xeno_zoo" }
-							exists = pop
-							pop = {
-								is_being_purged = no
-							}
-							has_resource = {
-								type = sr_alien_pets
-								amount > 0
-							}
-						}
-						add_building_construction = "building_xeno_zoo"
 					}
 					event_target:autobuild_country = {
 						set_variable = {
@@ -1851,7 +1883,7 @@ country_event = {
 										}
 									}
 								}
-								add_building_construction = "building_slave_processing"						
+								add_building_construction = "building_slave_processing"
 								else = {
 									if = {
 										limit = {
@@ -2093,7 +2125,13 @@ country_event = {
 
 		if = {
 			limit = {
-				has_country_flag = auto_build_1
+				or = {
+					has_country_flag = auto_build_1
+					and = {
+						is_ai = yes
+						has_global_flag = auto_build_ai_allowed
+					}
+				}
 				autobuild_cost = yes
 			}
 			every_owned_planet = {
@@ -2173,7 +2211,7 @@ country_event = {
 							"building_power_hub_1" = { add_building_construction = "building_power_hub_2" }
 							"building_mineral_processing_plant_1" = { add_building_construction = "building_mineral_processing_plant_2" }
 							"building_clinic" = { add_building_construction = "building_hospital" }
-							
+
 							# alphamod
 							"building_radio_telescope_array" = { add_building_construction = "building_radio_telescope_array_2" }
 							"building_radio_telescope_array_2" = { add_building_construction = "building_radio_telescope_array_3" }
@@ -2211,6 +2249,35 @@ country_event = {
 							"building_shanty_market" = { add_building_construction = "building_power_plant_1" }
 							"building_shanty_school" = { add_building_construction = "building_basic_science_lab_1" }
 
+							# more technologies mod
+							"building_combo_mineral_food_1" = { add_building_construction = "building_combo_mineral_food_2" }
+							"building_combo_mineral_food_2" = { add_building_construction = "building_combo_mineral_food_3" }
+							"building_combo_mineral_power_1" = { add_building_construction = "building_combo_mineral_power_2" }
+							"building_combo_mineral_power_2" = { add_building_construction = "building_combo_mineral_power_3" }
+							"building_combo_food_power_1" = { add_building_construction = "building_combo_food_power_2" }
+							"building_combo_food_power_2" = { add_building_construction = "building_combo_food_power_3" }
+							"building_power_relay_1" = { add_building_construction = "building_power_relay_2" }
+							"building_power_relay_2" = { add_building_construction = "building_power_relay_3" }
+							"building_power_relay_3" = { add_building_construction = "building_power_relay_4" }
+							"building_power_relay_4" = { add_building_construction = "building_power_relay_5" }
+							"building_irrigation_system_1" = { add_building_construction = "building_irrigation_system_2" }
+							"building_irrigation_system_2" = { add_building_construction = "building_irrigation_system_3" }
+							"building_irrigation_system_3" = { add_building_construction = "building_irrigation_system_4" }
+							"building_irrigation_system_4" = { add_building_construction = "building_irrigation_system_5" }
+							"building_mining_barracks_1" = { add_building_construction = "building_mining_barracks_2" }
+							"building_mining_barracks_2" = { add_building_construction = "building_mining_barracks_3" }
+							"building_mining_barracks_3" = { add_building_construction = "building_mining_barracks_4" }
+							"building_mining_barracks_4" = { add_building_construction = "building_mining_barracks_5" }
+							"building_science_campus_phys_1" = { add_building_construction = "building_science_campus_phys_2" }
+							"building_science_campus_phys_2" = { add_building_construction = "building_science_campus_phys_3" }
+							"building_science_campus_phys_3" = { add_building_construction = "building_science_campus_phys_4" }
+							"building_science_campus_soc_1" = { add_building_construction = "building_science_campus_soc_2" }
+							"building_science_campus_soc_2" = { add_building_construction = "building_science_campus_soc_3" }
+							"building_science_campus_soc_3" = { add_building_construction = "building_science_campus_soc_4" }
+							"building_science_campus_eng_1" = { add_building_construction = "building_science_campus_eng_2" }
+							"building_science_campus_eng_2" = { add_building_construction = "building_science_campus_eng_3" }
+							"building_science_campus_eng_3" = { add_building_construction = "building_science_campus_eng_4" }
+							"building_gas_catcher_1" = { add_building_construction = "building_gas_catcher_2" }
 						}
 					}
 				}
@@ -2220,7 +2287,13 @@ country_event = {
 		# auto update influence cost
 		if = {
 			limit = {
-				has_country_flag = auto_build_2
+				or = {
+					has_country_flag = auto_build_2
+					and = {
+						is_ai = yes
+						has_global_flag = auto_build_ai_allowed
+					}
+				}
 				or = {
 					not = { has_country_flag = auto_build_cost }
 					and = {
@@ -2266,7 +2339,7 @@ country_event = {
 						"building_colony_shelter" = { add_building_construction = "building_capital_1" }
 						"building_capital_1" = { add_building_construction = "building_capital_2" }
 						"building_capital_2" = { add_building_construction = "building_capital_3" }
-						
+
 						# alphamod
 						"building_academy" = { add_building_construction = "building_academy_2" }
 						"building_intelligence_directorate" = { add_building_construction = "building_intelligence_directorate_2" }
@@ -2275,7 +2348,7 @@ country_event = {
 						"building_open_embassy" = { add_building_construction = "building_open_embassy_2" }
 						"building_xeno_diplomacy_corp" = { add_building_construction = "building_peace_corps" }
 						"building_tradestation" = { add_building_construction = "building_trade_company" }
-						
+
 					}
 				}
 			}
@@ -2285,7 +2358,13 @@ country_event = {
 
 		if = {
 			limit = {
-				has_country_flag = auto_build_5
+				or = {
+					has_country_flag = auto_build_5
+					and = {
+						is_ai = yes
+						has_global_flag = auto_build_ai_allowed
+					}
+				}
 				autobuild_cost = yes
 			}
 			every_owned_planet = {
@@ -2303,7 +2382,7 @@ country_event = {
 							has_modifier = "subterranean_civilization"
 							has_modifier = "dangerous_wildlife"
 							has_modifier = "society_animal_life"
-							
+
 							# alphamod
 							has_modifier = "micro_organisms"
 							has_modifier = "subterranean_lifeforms"
@@ -2323,7 +2402,7 @@ country_event = {
 								or = {
 									has_modifier = "strong_magnetic_field"
 									has_modifier = "wild_storms"
-									
+
 									# alphamod
 									has_modifier = "physicists_paradise"
 								}
@@ -2340,7 +2419,7 @@ country_event = {
 								if = {
 									limit = {
 										has_modifier = "unstable_tectonics"
-										
+
 										# alphamod
 										has_modifier = "engineers_paradise"
 										has_modifier = "underground_caverns"
@@ -2453,12 +2532,18 @@ country_event = {
 				}
 			}
 		}
-		
+
 		# auto clean
-		
+
 		if = {
 			limit = {
-				has_country_flag = auto_build_10
+				or = {
+					has_country_flag = auto_build_10
+					and = {
+						is_ai = yes
+						has_global_flag = auto_build_ai_allowed
+					}
+				}
 				energy > 100
 				minerals > 100
 				or = {
@@ -2492,11 +2577,11 @@ country_event = {
 				every_tile = {
 					limit = {
 						has_blocker = yes
+						exists = owner
 					}
 					if = {
 						limit = {
 							has_blocker = "tb_mountain_range"
-							exists = owner
 							owner = {
 								energy > 100
 								minerals > 100
@@ -2512,7 +2597,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_active_volcano"
-							exists = owner
 							owner = {
 								energy > 100
 								minerals > 100
@@ -2528,7 +2612,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_dangerous_wildlife"
-							exists = owner
 							owner = {
 								energy > 100
 								minerals > 100
@@ -2544,7 +2627,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_dense_jungle"
-							exists = owner
 							owner = {
 								energy > 100
 								minerals > 100
@@ -2560,7 +2642,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_quicksand_basin"
-							exists = owner
 							owner = {
 								energy > 100
 								minerals > 100
@@ -2576,7 +2657,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_noxious_swamp"
-							exists = owner
 							owner = {
 								energy > 100
 								minerals > 100
@@ -2592,7 +2672,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_massive_glacier"
-							exists = owner
 							owner = {
 								energy > 100
 								minerals > 100
@@ -2608,7 +2687,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_toxic_kelp"
-							exists = owner
 							owner = {
 								energy > 100
 								minerals > 100
@@ -2624,7 +2702,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_deep_sinkhole"
-							exists = owner
 							owner = {
 								energy > 100
 								minerals > 100
@@ -2640,7 +2717,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_bomb_crater"
-							exists = owner
 							owner = {
 								energy > 125
 								minerals > 125
@@ -2655,7 +2731,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_bombarded_land"
-							exists = owner
 							owner = {
 								energy > 75
 								minerals > 75
@@ -2670,7 +2745,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_decrepit_dwellings"
-							exists = owner
 							owner = {
 								energy > 40
 								minerals > 40
@@ -2685,7 +2759,6 @@ country_event = {
 					if = {
 						limit = {
 							has_blocker = "tb_failing_infrastructure"
-							exists = owner
 							owner = {
 								energy > 60
 								minerals > 60
@@ -2703,8 +2776,10 @@ country_event = {
 	}
 }
 
+
 ## local autobuild for planets for on_actions
-## local auto enslave
+
+# local auto enslave
 planet_event = {
 	id = autobuild.101
 	title = OK
@@ -2759,7 +2834,7 @@ planet_event = {
 					}
 					or = {
 						has_any_mine = yes
-						has_any_farm = yes									
+						has_any_farm = yes
 						has_building = "building_colony_shelter"
 						has_any_capital = yes
 						has_any_farm_not_replace = yes
@@ -2796,25 +2871,25 @@ planet_event = {
 	}
 }
 
-## local auto build
+# local auto build
 planet_event = {
 	id = autobuild.102
 	title = OK
 	desc = OK
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
 		exists = owner
 		owner = {			is_ai = no			or = {				has_country_flag = auto_build_3				has_country_flag = auto_build_4_2				has_country_flag = auto_build_7_1				has_country_flag = auto_build_7_2				has_country_flag = auto_build_7_3				has_country_flag = auto_build_7_4				has_country_flag = auto_build_7_6				has_country_flag = auto_build_7_7				has_country_flag = auto_build_8				has_country_flag = auto_build_9			}			autobuild_cost = yes		}
 		free_from_autobuild = no
 		free_building_tiles > 0
 	}
-	
+
 	immediate = {
 		owner = { save_event_target_as = autobuild_country }
 
-		## replace power plants and labs if slave ##
+		# replace power plants and labs if slave
 
 		if = {
 			limit = {
@@ -2829,7 +2904,7 @@ planet_event = {
 				every_tile = {					limit = {						exists = pop						pop = {							is_being_purged = no							is_enslaved = yes						}						or = {							has_any_power_plant = yes							has_any_science_lab = yes						}					}					add_building_construction = "building_mining_network_1"				}				else = {					if = {						limit = {							has_building = "building_colony_shelter"						}						every_tile = {							limit = {								exists = pop								pop = {									is_being_purged = no									is_enslaved = yes								}								or = {									has_any_power_plant = yes									has_any_science_lab = yes								}							}							add_building_construction = "building_basic_mine"						}					}
 				}			}		}
 
-		## auto build in ept tiles ##
+		# auto build in ept tiles
 
 		if = {
 			limit = {
@@ -2854,7 +2929,6 @@ planet_event = {
 				limit = {
 					owner = { has_country_flag = auto_build_7_2 }
 				}				if = {					limit = {						has_any_capital = yes					}					every_tile = {						limit = {							has_building = no							exists = pop							pop = { is_being_purged = no }							tile_has_any_res = no						}						add_building_construction = "building_mining_network_1"					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								add_building_construction = "building_basic_mine"							}						}					}				}			}
-
 			if = {
 				limit = {
 					owner = { has_country_flag = auto_build_7_3 }
@@ -2875,7 +2949,7 @@ planet_event = {
 				}
 				if = {					limit = {						has_any_capital = yes					}					every_tile = {						limit = {							has_building = no							exists = pop							pop = { is_being_purged = no }							tile_has_any_res = no						}						random_list = {							80 = { add_building_construction = "building_basic_science_lab_1" }							20 = { add_building_construction = "building_power_plant_1" }						}					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								random_list = {									80 = { add_building_construction = "building_basic_science_lab_1" }									20 = { add_building_construction = "building_basic_power_plant" }								}							}						}					}				}			}
 
-			## to do build by emp prior ##
+			# to do build by emp prior
 
 			if = {
 				limit = {
@@ -2889,7 +2963,7 @@ planet_event = {
 				}
 				if = {					limit = {						has_any_capital = yes					}					every_tile = {						limit = {							has_building = no							exists = pop							pop = { is_being_purged = no }							tile_has_any_res = no						}						random_list = {							50 = { add_building_construction = "building_basic_science_lab_1" }							50 = { add_building_construction = "building_power_plant_1" }						}					}					else = {						if = {							limit = {								has_building = "building_colony_shelter"							}							every_tile = {								limit = {									has_building = no									exists = pop									pop = { is_being_purged = no }									tile_has_any_res = no								}								random_list = {									50 = { add_building_construction = "building_basic_science_lab_1" }									50 = { add_building_construction = "building_basic_power_plant" }								}							}						}					}				}			}		}
 
-		## auto build new buildings on good tiles ##
+		# auto build new buildings on good tiles
 
 		if = {
 			limit = {
@@ -3057,7 +3131,7 @@ planet_event = {
 	}
 }
 
-## local auto build planet edicts
+# local auto build planet edicts
 planet_event = {
 	id = autobuild.103
 	title = OK
@@ -3083,8 +3157,8 @@ planet_event = {
 
 		owner = { save_event_target_as = autobuild_country }
 
-		## planet edicts:
-		if = {														##	lets build farm
+		# planet edicts:
+		if = {														#	lets build farm
 			limit = {
 				or = {
 					has_any_capital = yes
@@ -3231,7 +3305,7 @@ planet_event = {
 		}
 		if = {
 			limit = {
-				has_modifier = "planet_forge_auto_build"			## planet of mines
+				has_modifier = "planet_forge_auto_build"			# planet of mines
 				exists = owner
 				or = {
 					free_building_tiles > 0
@@ -3242,7 +3316,7 @@ planet_event = {
 						not = {	has_building = "building_slave_processing" }
 						count_pops = {
 							limit = { is_enslaved = yes }
-							count > 3								## at least 4 slaves
+							count > 3								# at least 4 slaves
 						}
 					}
 					and = {
@@ -3280,11 +3354,11 @@ planet_event = {
 								not = {	has_building = "building_slave_processing" }
 								count_pops = {
 									limit = { is_enslaved = yes }
-									count > 3								## at least 4 slaves
+									count > 3								# at least 4 slaves
 								}
 							}
 						}
-						add_building_construction = "building_slave_processing"						
+						add_building_construction = "building_slave_processing"
 						else = {
 							if = {
 								limit = {
@@ -3353,7 +3427,7 @@ planet_event = {
 										not = {	has_building = "building_slave_processing" }
 										count_pops = {
 											limit = { is_enslaved = yes }
-											count > 3								## at least 4 slaves
+											count > 3								# at least 4 slaves
 										}
 									}
 								}
@@ -3380,7 +3454,7 @@ planet_event = {
 		}
 		if = {
 			limit = {
-				has_modifier = "planet_power_plant_auto_build"		## planet of power plants
+				has_modifier = "planet_power_plant_auto_build"		# planet of power plants
 				exists = owner
 				or = {
 					free_building_tiles > 0
@@ -3463,7 +3537,7 @@ planet_event = {
 		}
 		if = {
 			limit = {
-				has_modifier = "planet_labs_auto_build"				## planet of labs
+				has_modifier = "planet_labs_auto_build"				# planet of labs
 				or = {
 					free_building_tiles > 0
 					has_any_mine = yes
@@ -3493,7 +3567,7 @@ planet_event = {
 	}
 }
 
-## local auto build planet farm
+# local auto build planet farm
 planet_event = {
 	id = autobuild.104
 	title = OK
@@ -3520,7 +3594,7 @@ planet_event = {
 	immediate = {		if = {			limit = {				has_any_capital = yes			}			every_tile = {				limit = {					or = {						has_building = no						has_any_power_plant = yes						has_any_science_lab = yes						has_any_mine = yes					}					exists = pop					pop = {	is_being_purged = no }				}				add_building_construction = "building_hydroponics_farm_1"			}			else = {				if = {					limit = { has_building = "building_colony_shelter" }					every_tile = {						limit = {							or = {								has_building = no								has_any_power_plant = yes								has_any_science_lab = yes								has_any_mine = yes							}							exists = pop							pop = {	is_being_purged = no }						}						add_building_construction = "building_basic_farm"					}				}			}		}	}
 }
 
-## local auto update
+# local auto update
 planet_event = {
 	id = autobuild.105
 	title = OK
@@ -3553,7 +3627,7 @@ planet_event = {
 					"building_power_hub_1" = { add_building_construction = "building_power_hub_2" }
 					"building_mineral_processing_plant_1" = { add_building_construction = "building_mineral_processing_plant_2" }
 					"building_clinic" = { add_building_construction = "building_hospital" }
-					
+
 					# alphamod
 					"building_radio_telescope_array" = { add_building_construction = "building_radio_telescope_array_2" }
 					"building_radio_telescope_array_2" = { add_building_construction = "building_radio_telescope_array_3" }
@@ -3602,7 +3676,7 @@ planet_event = {
 						has_modifier = "subterranean_civilization"
 						has_modifier = "dangerous_wildlife"
 						has_modifier = "society_animal_life"
-						
+
 						# alphamod
 						has_modifier = "micro_organisms"
 						has_modifier = "subterranean_lifeforms"
@@ -3622,7 +3696,7 @@ planet_event = {
 							or = {
 								has_modifier = "strong_magnetic_field"
 								has_modifier = "wild_storms"
-								
+
 								# alphamod
 								has_modifier = "physicists_paradise"
 							}
@@ -3639,7 +3713,7 @@ planet_event = {
 							if = {
 								limit = {
 									has_modifier = "unstable_tectonics"
-									
+
 									# alphamod
 									has_modifier = "engineers_paradise"
 									has_modifier = "underground_caverns"
@@ -3661,9 +3735,9 @@ planet_event = {
 				}
 			}		}
 
-		## to do labs by emp priority ##
+		# to do labs by emp priority
 
-		## labs by semi random ##
+		# labs by semi random
 
 		if = {
 			limit = {				owner = { has_country_flag = auto_build_6 }				has_any_capital = yes				has_building = "building_basic_science_lab_1"			}			every_tile = {				limit = {					has_building = "building_basic_science_lab_1"					exists = pop					pop = { is_being_purged = no }				}				if = {					limit = {
@@ -3671,7 +3745,7 @@ planet_event = {
 								owner = { not = { has_country_flag = auto_build_labs_not_count_trait } }								pop = { has_trait = trait_natural_physicists }							}							add_building_construction = "building_physics_lab_1"							else = {								if = {									limit = {
 										owner = { not = { has_country_flag = auto_build_labs_not_count_trait } }										pop = { has_trait = trait_natural_engineers }									}									add_building_construction = "building_engineering_facility_1"									else = {										if = {											limit = {												has_resource = {													type = physics_research													amount > 0												}											}											add_building_construction = "building_physics_lab_1"											else = {												if = {													limit = {														has_resource = {															type = society_research															amount > 0														}													}													add_building_construction = "building_biolab_1"													else = {														if = {															limit = {																has_resource = {																	type = engineering_research																	amount > 0																}															}															add_building_construction = "building_engineering_facility_1"															else = {																random_list = {																	33 = { add_building_construction = "building_physics_lab_1" }																	33 = { add_building_construction = "building_biolab_1" }																	33 = { add_building_construction = "building_engineering_facility_1" }																}															}														}													}												}											}										}									}								}							}						}					}				}			}		}	}
 }
-## local auto update influence cost
+# local auto update influence cost
 planet_event = {
 	id = autobuild.106
 	title = OK
@@ -3716,6 +3790,7 @@ planet_event = {
 					"building_tradestation" = { add_building_construction = "building_trade_company" }							}			}		}	}
 }
 
+
 ## menu
 country_event = {
 	id = autobuild.3
@@ -3723,7 +3798,7 @@ country_event = {
 	desc = "autobuild.3.desc"
 	picture = GFX_evt_alien_city
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "auto_build_0"
 		trigger = {
@@ -4011,16 +4086,6 @@ country_event = {
 		custom_tooltip = auto_build_ai_allowed.tooltip
 		hidden_effect = {
 			set_global_flag = auto_build_ai_allowed
-			every_country = {
-				limit = {
-					is_ai = yes
-				}
-				set_country_flag = auto_build_1
-		#		set_country_flag = auto_build_2
-				set_country_flag = auto_build_3
-				set_country_flag = auto_build_5
-				set_country_flag = auto_build_7_6
-			}
 			country_event = { id = autobuild.3 }
 		}
 	}
@@ -4097,7 +4162,7 @@ country_event = {
 	desc = "autobuild.4.desc"
 	picture = GFX_evt_alien_city
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "auto_build_cost_5000"
 		#custom_tooltip = auto_build_5000.tooltip
@@ -4178,14 +4243,14 @@ country_event = {
 	}
 }
 
-#farm menu
+# farm menu
 country_event = {
 	id = autobuild.5
 	title = "autobuild.3.name"
 	desc = "autobuild.5.desc"
 	picture = GFX_evt_alien_city
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "auto_build_farm_0"
 		#custom_tooltip = auto_build_farm_0
@@ -4285,14 +4350,14 @@ country_event = {
 	}
 }
 
-# unic buildings
+# unic buildings menu
 country_event = {
 	id = autobuild.6
 	title = "autobuild.3.name"
 	desc = "autobuild.6.desc"
 	picture = GFX_evt_alien_city
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "auto_build_8_on"
 		trigger = {
@@ -4359,14 +4424,14 @@ country_event = {
 	}
 }
 
-# on ept tiles settings
+# on ept tiles settings menu
 country_event = {
 	id = autobuild.7
 	title = "autobuild.3.name"
 	desc = "autobuild.7.desc"
 	picture = GFX_evt_alien_city
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "auto_build_7_1"
 		trigger = {
@@ -4578,7 +4643,7 @@ country_event = {
 	desc = "autobuild.3.desc"
 	picture = GFX_evt_alien_city
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "auto_build_4_2_on"
 		trigger = {
@@ -4621,7 +4686,7 @@ country_event = {
 	desc = OK
 	hide_window = yes
 	fire_only_once = yes
-	
+
 	trigger = {
 		is_ai = no
 		has_country_flag = auto_build_cost
@@ -4635,7 +4700,7 @@ country_event = {
 			has_country_flag = auto_build_cost_inf_100
 		}
 	}
-	
+
 	immediate = {
 		set_country_flag = auto_build_cost_inf_250
 		set_country_flag = auto_build_cost_1000
@@ -4648,12 +4713,12 @@ country_event = {
 	desc = OK
 	hide_window = yes
 	fire_only_once = yes
-	
+
 	trigger = {
 		is_ai = no
 	#	has_country_flag = auto_build_3
 	}
-	
+
 	immediate = {
 		set_variable = {
 			which = autobuild_farm_global
@@ -4665,13 +4730,14 @@ country_event = {
 
 ## on actions events
 
+# fleet debug
 fleet_event = {
 	id = autobuild.107
 	title = OK
 	desc = OK
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
 		from = {
 			any_ship_in_system = {
@@ -4685,7 +4751,7 @@ fleet_event = {
 			}
 		}
 	}
-	
+
 	immediate = {
 		from = {
 			every_fleet_in_system = {
@@ -4696,22 +4762,24 @@ fleet_event = {
 				set_event_locked = no
 			#	fleet_event = { id = autobuild.0}
 				remove_fleet_flag = autobuild_fleet
+				set_name = random
 			}
 		}
 	}
 }
 
+# on pop birth
 pop_event = {
 	id = autobuild.108
 	title = OK
 	desc = OK
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
 		exists = planet
 	}
-	
+
 	immediate = {
 		planet = {
 			planet_event = { id = autobuild.101 }
@@ -4720,15 +4788,15 @@ pop_event = {
 	}
 }
 
-	
-## remove planetary modifiers and flag
+
+## remove mod's stuff
 country_event = {
 	id = autobuild.99
 	title = OK
 	desc = OK
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	immediate = {
 		every_planet = {
 			if = {
