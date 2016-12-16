@@ -155,7 +155,6 @@ guiTypes = {
 			moveable = no
 			dontRender = ""
 			
-			
 			effectbuttonType = {
 				name = "modmenu_button"
 				quadTextureSprite = "GFX_button_150_24"
@@ -166,8 +165,7 @@ guiTypes = {
 				clicksound = confimation
 				effect = "modmenu_button_effect"
 			}
-			
-			
+
 			# The Info sub window
 			containerWindowType = {
 				name = "info_window"
@@ -558,6 +556,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_tiles_frame_light"
 				position = { x = 0 y = 40 }
 				size = { x = 275 y = 235 }
+				no_clicksound = yes
 			}
 
 			buttonType = {
@@ -565,6 +564,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_tiles_frame_light"
 				position = { x = 275 y = 40 }
 				size = { x = 275 y = 235 }
+				no_clicksound = yes
 			}
 
 			################

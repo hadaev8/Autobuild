@@ -32,7 +32,7 @@ fleet_autobuild_on_button_effect = {
 	}
 	
 	effect = {
-	#	fleet_event = { id = autobuild.0}
-	custom_tooltip = modmenu.tooltip
+		fleet_event = { id = autobuild.0}
+		custom_tooltip = modmenu.tooltip
 	}
 }

@@ -9,7 +9,7 @@
 # From = System
 on_entering_system_fleet = {
 	events = {
-		autobuild.107
+		autobuild.157
 	}
 }
 
@@ -32,6 +32,20 @@ on_building_complete = {
 		autobuild.104
 		autobuild.105
 		autobuild.106
+		autobuild.107
+		autobuild.108
+		autobuild.109
+		autobuild.110
+		autobuild.111
+		autobuild.112
+		autobuild.113
+		autobuild.114
+		autobuild.115
+		autobuild.116
+		autobuild.117
+		autobuild.118
+		autobuild.119
+		autobuild.120
 	}
 }
 
@@ -46,6 +60,20 @@ on_building_queued = {
 		autobuild.104
 		autobuild.105
 		autobuild.106
+		autobuild.107
+		autobuild.108
+		autobuild.109
+		autobuild.110
+		autobuild.111
+		autobuild.112
+		autobuild.113
+		autobuild.114
+		autobuild.115
+		autobuild.116
+		autobuild.117
+		autobuild.118
+		autobuild.119
+		autobuild.120
 	}
 }
 
@@ -68,6 +96,20 @@ on_building_upgraded = {
 		autobuild.104
 		autobuild.105
 		autobuild.106
+		autobuild.107
+		autobuild.108
+		autobuild.109
+		autobuild.110
+		autobuild.111
+		autobuild.112
+		autobuild.113
+		autobuild.114
+		autobuild.115
+		autobuild.116
+		autobuild.117
+		autobuild.118
+		autobuild.119
+		autobuild.120
 	}
 }
 
@@ -82,6 +124,20 @@ on_building_demolished = {
 		autobuild.104
 		autobuild.105
 		autobuild.106
+		autobuild.107
+		autobuild.108
+		autobuild.109
+		autobuild.110
+		autobuild.111
+		autobuild.112
+		autobuild.113
+		autobuild.114
+		autobuild.115
+		autobuild.116
+		autobuild.117
+		autobuild.118
+		autobuild.119
+		autobuild.120
 	}
 }
 
@@ -96,6 +152,39 @@ on_building_replaced = {
 		autobuild.104
 		autobuild.105
 		autobuild.106
+		autobuild.107
+		autobuild.108
+		autobuild.109
+		autobuild.110
+		autobuild.111
+		autobuild.112
+		autobuild.113
+		autobuild.114
+		autobuild.115
+		autobuild.116
+		autobuild.117
+		autobuild.118
+		autobuild.119
+		autobuild.120
+	}
+}
+
+# A pop has finished migrating to another planet
+# Root = pop
+# From = Tile on the new planet
+# FromFrom = Tile on the old planet
+on_pop_migration_end = {
+	events = {
+		autobuild.158
+	}
+}
+
+# A pop has been resettled to another planet
+# Root = pop
+# From = Tile on the old planet
+on_pop_resettled = {
+	events = {
+		autobuild.158
 	}
 }
 
@@ -103,6 +192,6 @@ on_building_replaced = {
 # This = pop
 on_pop_birth = {
 	events = {
-		autobuild.108
+		autobuild.158
 	}
 }

@@ -15,7 +15,7 @@ country_edict = {
 		weight = 1
 		modifier = {
 			factor = 0
-			not = { has_global_flag = auto_build_ai_allowed }
+			not = { has_global_flag = autobuild_ai_allowed }
 		}
 	}
 }
@@ -46,20 +46,20 @@ planet_edict = {
 }
 
 planet_edict = {
-	name = "free_auto_build"
+	name = "free_autobuild"
 	influence_cost = 0
 	length = 0
 	potential = { 
-		NOT = { has_modifier = "free_from_auto_build" }
+		NOT = { has_modifier = "free_from_autobuild" }
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
 
 	effect = {
-	#	custom_tooltip = edict_free_from_auto_build.tooltip
+	#	custom_tooltip = edict_free_from_autobuild.tooltip
 		hidden_effect = {
 			add_modifier = {
-				modifier = "free_from_auto_build"
+				modifier = "free_from_autobuild"
 				days = -1
 			}
 		}
@@ -100,24 +100,24 @@ planet_edict = {
 	potential = {
 		OR = {
 			has_modifier = "free_from_auto_enslave"
-			has_modifier = "free_from_auto_build"
+			has_modifier = "free_from_autobuild"
 			has_modifier = "free_from_auto_update"
-			has_modifier = "planet_labs_auto_build"
-			has_modifier = "planet_forge_auto_build"
-			has_modifier = "planet_power_plant_auto_build"
-			has_modifier = "planet_farms_auto_build"
+			has_modifier = "planet_labs_autobuild"
+			has_modifier = "planet_forge_autobuild"
+			has_modifier = "planet_power_plant_autobuild"
+			has_modifier = "planet_farms_autobuild"
 		}
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	effect = {
 		hidden_effect = {
 			remove_modifier = "free_from_auto_update"
-			remove_modifier = "free_from_auto_build"
+			remove_modifier = "free_from_autobuild"
 			remove_modifier = "free_from_auto_enslave"
-			remove_modifier = "planet_labs_auto_build"
-			remove_modifier = "planet_forge_auto_build"
-			remove_modifier = "planet_power_plant_auto_build"
-			remove_modifier = "planet_farms_auto_build"
+			remove_modifier = "planet_labs_autobuild"
+			remove_modifier = "planet_forge_autobuild"
+			remove_modifier = "planet_power_plant_autobuild"
+			remove_modifier = "planet_farms_autobuild"
 		}
 	}
 	ai_weight = {
@@ -148,15 +148,15 @@ planet_edict = {
 }
 
 planet_edict = {
-	name = "planet_forge_auto_build"
+	name = "planet_forge_autobuild"
 	influence_cost = 0
 	length = 0
 	potential = { 
 		nor = {
-			has_modifier = "planet_forge_auto_build"
-			has_modifier = "planet_power_plant_auto_build"
-			has_modifier = "planet_labs_auto_build"
-			has_modifier = "planet_farms_auto_build"
+			has_modifier = "planet_forge_autobuild"
+			has_modifier = "planet_power_plant_autobuild"
+			has_modifier = "planet_labs_autobuild"
+			has_modifier = "planet_farms_autobuild"
 		}
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
@@ -165,13 +165,13 @@ planet_edict = {
 	effect = {
 		hidden_effect = {
 			remove_modifier = "free_from_auto_update"
-			remove_modifier = "free_from_auto_build"
+			remove_modifier = "free_from_autobuild"
 			remove_modifier = "free_from_auto_enslave"
-			remove_modifier = "planet_labs_auto_build"
-			remove_modifier = "planet_power_plant_auto_build"
-			remove_modifier = "planet_farms_auto_build"
+			remove_modifier = "planet_labs_autobuild"
+			remove_modifier = "planet_power_plant_autobuild"
+			remove_modifier = "planet_farms_autobuild"
 			add_modifier = {
-				modifier = "planet_forge_auto_build"
+				modifier = "planet_forge_autobuild"
 				days = -1
 			}
 		}
@@ -182,15 +182,15 @@ planet_edict = {
 }
 
 planet_edict = {
-	name = "planet_power_plant_auto_build"
+	name = "planet_power_plant_autobuild"
 	influence_cost = 0
 	length = 0
 	potential = { 
 		nor = {
-			has_modifier = "planet_forge_auto_build"
-			has_modifier = "planet_power_plant_auto_build"
-			has_modifier = "planet_labs_auto_build"
-			has_modifier = "planet_farms_auto_build"
+			has_modifier = "planet_forge_autobuild"
+			has_modifier = "planet_power_plant_autobuild"
+			has_modifier = "planet_labs_autobuild"
+			has_modifier = "planet_farms_autobuild"
 		}
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
@@ -199,13 +199,13 @@ planet_edict = {
 	effect = {
 		hidden_effect = {
 			remove_modifier = "free_from_auto_update"
-			remove_modifier = "free_from_auto_build"
+			remove_modifier = "free_from_autobuild"
 			remove_modifier = "free_from_auto_enslave"
-			remove_modifier = "planet_labs_auto_build"
-			remove_modifier = "planet_forge_auto_build"
-			remove_modifier = "planet_farms_auto_build"
+			remove_modifier = "planet_labs_autobuild"
+			remove_modifier = "planet_forge_autobuild"
+			remove_modifier = "planet_farms_autobuild"
 			add_modifier = {
-				modifier = "planet_power_plant_auto_build"
+				modifier = "planet_power_plant_autobuild"
 				days = -1
 			}
 		}
@@ -216,15 +216,15 @@ planet_edict = {
 }
 
 planet_edict = {
-	name = "planet_labs_auto_build"
+	name = "planet_labs_autobuild"
 	influence_cost = 0
 	length = 0
 	potential = { 
 		nor = {
-			has_modifier = "planet_forge_auto_build"
-			has_modifier = "planet_power_plant_auto_build"
-			has_modifier = "planet_labs_auto_build"
-			has_modifier = "planet_farms_auto_build"
+			has_modifier = "planet_forge_autobuild"
+			has_modifier = "planet_power_plant_autobuild"
+			has_modifier = "planet_labs_autobuild"
+			has_modifier = "planet_farms_autobuild"
 		}
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
@@ -233,13 +233,13 @@ planet_edict = {
 	effect = {
 		hidden_effect = {
 			remove_modifier = "free_from_auto_update"
-			remove_modifier = "free_from_auto_build"
+			remove_modifier = "free_from_autobuild"
 			remove_modifier = "free_from_auto_enslave"
-			remove_modifier = "planet_forge_auto_build"
-			remove_modifier = "planet_power_plant_auto_build"
-			remove_modifier = "planet_farms_auto_build"
+			remove_modifier = "planet_forge_autobuild"
+			remove_modifier = "planet_power_plant_autobuild"
+			remove_modifier = "planet_farms_autobuild"
 			add_modifier = {
-				modifier = "planet_labs_auto_build"
+				modifier = "planet_labs_autobuild"
 				days = -1
 			}
 		}
@@ -250,15 +250,15 @@ planet_edict = {
 }
 
 planet_edict = {
-	name = "planet_farms_auto_build"
+	name = "planet_farms_autobuild"
 	influence_cost = 0
 	length = 0
 	potential = { 
 		nor = {
-			has_modifier = "planet_forge_auto_build"
-			has_modifier = "planet_power_plant_auto_build"
-			has_modifier = "planet_labs_auto_build"
-			has_modifier = "planet_farms_auto_build"
+			has_modifier = "planet_forge_autobuild"
+			has_modifier = "planet_power_plant_autobuild"
+			has_modifier = "planet_labs_autobuild"
+			has_modifier = "planet_farms_autobuild"
 		}
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
@@ -267,14 +267,14 @@ planet_edict = {
 	effect = {
 		hidden_effect = {
 			remove_modifier = "free_from_auto_update"
-			remove_modifier = "free_from_auto_build"
+			remove_modifier = "free_from_autobuild"
 			remove_modifier = "free_from_auto_enslave"
-			remove_modifier = "planet_forge_auto_build"
-			remove_modifier = "planet_labs_auto_build"
-			remove_modifier = "planet_power_plant_auto_build"
+			remove_modifier = "planet_forge_autobuild"
+			remove_modifier = "planet_labs_autobuild"
+			remove_modifier = "planet_power_plant_autobuild"
 			remove_planet_flag = autobuild_all_farms_builded
 			add_modifier = {
-				modifier = "planet_farms_auto_build"
+				modifier = "planet_farms_autobuild"
 				days = -1
 			}
 		}

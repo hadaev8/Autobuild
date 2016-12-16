@@ -212,21 +212,21 @@ fleet_event = {
 									root.owner = {
 										minerals > 100
 										or = {
-											not = { has_country_flag = auto_build_cost }
+											not = { has_country_flag = autobuild_cost }
 											and = {
-												has_country_flag = auto_build_cost_5000
+												has_country_flag = autobuild_cost_5000
 												minerals > 5000
 											}
 											and = {
-												has_country_flag = auto_build_cost_2500
+												has_country_flag = autobuild_cost_2500
 												minerals > 2500
 											}
 											and = {
-												has_country_flag = auto_build_cost_1000
+												has_country_flag = autobuild_cost_1000
 												minerals > 1000
 											}
 											and = {
-												has_country_flag = auto_build_cost_500
+												has_country_flag = autobuild_cost_500
 												minerals > 500
 											}
 										}
