@@ -1,0 +1,95 @@
+#	Example:
+#
+#	example_effect = {
+#		add_energy = -100
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_effect = yes
+#	}
+#
+
+#	Example:
+#
+#	example_effect = {
+#		add_energy = -100
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		example_effect = yes
+#	}
+#
+
+# for tile
+autobuild_build_basic_lab = {
+	if = {
+		limit = {
+			not = { has_global_flag = star_trek_new_horizons }
+		}
+		add_building_construction = "building_basic_science_lab_1"
+		else = {
+			if = {
+				limit = {
+					has_resource = {
+						type = physics_research
+						amount > 0
+					}
+				}
+				add_building_construction = "building_physics_lab_0"
+				else = {
+					if = {
+						limit = {
+							has_resource = {
+								type = society_research
+								amount > 0
+							}
+						}
+						add_building_construction = "building_society_lab_0"
+						else = {
+							if = {
+								limit = {
+									has_resource = {
+										type = engineering_research
+										amount > 0
+									}
+								}
+								add_building_construction = "building_engineering_lab_0"
+								else = {
+									random_list = {
+										33 = {
+											modifier = {
+												factor = 2
+												owner = { has_country_flag = autobuild_labs_physics_priority }
+											}
+											add_building_construction = "building_physics_lab_0"
+										}
+										33 = {
+											modifier = {
+												factor = 2
+												owner = { has_country_flag = autobuild_labs_bio_priority }
+											}
+											add_building_construction = "building_society_lab_0"
+										}
+										33 = {
+											modifier = {
+												factor = 2
+												owner = { has_country_flag = autobuild_labs_engineering_priority }
+											}
+											add_building_construction = "building_engineering_lab_0"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

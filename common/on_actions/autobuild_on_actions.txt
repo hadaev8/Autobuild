@@ -35,17 +35,20 @@ on_building_complete = {
 		autobuild.107
 		autobuild.108
 		autobuild.109
-		autobuild.110
-		autobuild.111
-		autobuild.112
-		autobuild.113
-		autobuild.114
-		autobuild.115
-		autobuild.116
-		autobuild.117
-		autobuild.118
-		autobuild.119
-		autobuild.120
+		
+		autobuild.130
+		autobuild.131
+		autobuild.132
+		autobuild.133
+		autobuild.134
+		autobuild.135
+		autobuild.136
+		autobuild.137
+		autobuild.138
+		autobuild.139
+		autobuild.140
+#		autobuild.141
+
 	}
 }
 
@@ -63,17 +66,20 @@ on_building_queued = {
 		autobuild.107
 		autobuild.108
 		autobuild.109
-		autobuild.110
-		autobuild.111
-		autobuild.112
-		autobuild.113
-		autobuild.114
-		autobuild.115
-		autobuild.116
-		autobuild.117
-		autobuild.118
-		autobuild.119
-		autobuild.120
+		
+		autobuild.130
+		autobuild.131
+		autobuild.132
+		autobuild.133
+		autobuild.134
+		autobuild.135
+		autobuild.136
+		autobuild.137
+		autobuild.138
+		autobuild.139
+		autobuild.140
+#		autobuild.141
+
 	}
 }
 
@@ -99,17 +105,20 @@ on_building_upgraded = {
 		autobuild.107
 		autobuild.108
 		autobuild.109
-		autobuild.110
-		autobuild.111
-		autobuild.112
-		autobuild.113
-		autobuild.114
-		autobuild.115
-		autobuild.116
-		autobuild.117
-		autobuild.118
-		autobuild.119
-		autobuild.120
+		
+		autobuild.130
+		autobuild.131
+		autobuild.132
+		autobuild.133
+		autobuild.134
+		autobuild.135
+		autobuild.136
+		autobuild.137
+		autobuild.138
+		autobuild.139
+		autobuild.140
+#		autobuild.141
+
 	}
 }
 
@@ -127,17 +136,20 @@ on_building_demolished = {
 		autobuild.107
 		autobuild.108
 		autobuild.109
-		autobuild.110
-		autobuild.111
-		autobuild.112
-		autobuild.113
-		autobuild.114
-		autobuild.115
-		autobuild.116
-		autobuild.117
-		autobuild.118
-		autobuild.119
-		autobuild.120
+		
+		autobuild.130
+		autobuild.131
+		autobuild.132
+		autobuild.133
+		autobuild.134
+		autobuild.135
+		autobuild.136
+		autobuild.137
+		autobuild.138
+		autobuild.139
+		autobuild.140
+#		autobuild.141
+
 	}
 }
 
@@ -155,17 +167,20 @@ on_building_replaced = {
 		autobuild.107
 		autobuild.108
 		autobuild.109
-		autobuild.110
-		autobuild.111
-		autobuild.112
-		autobuild.113
-		autobuild.114
-		autobuild.115
-		autobuild.116
-		autobuild.117
-		autobuild.118
-		autobuild.119
-		autobuild.120
+		
+		autobuild.130
+		autobuild.131
+		autobuild.132
+		autobuild.133
+		autobuild.134
+		autobuild.135
+		autobuild.136
+		autobuild.137
+		autobuild.138
+		autobuild.139
+		autobuild.140
+#		autobuild.141
+
 	}
 }
 
@@ -193,5 +208,29 @@ on_pop_resettled = {
 on_pop_birth = {
 	events = {
 		autobuild.158
+	}
+}
+
+# A pop has been built
+# This = pop
+#on_buildable_pop_created = {
+#	events = {
+#		autobuild.158
+#	}
+#}
+
+#From = Country scope
+#This = Planet scope
+on_planet_ownerless = {
+	events = {
+		autobuild.156
+	}
+}
+
+#From = Country scope
+#This = Planet scope
+on_planet_transfer = {
+	events = {
+		autobuild.156
 	}
 }

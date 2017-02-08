@@ -36,13 +36,10 @@ country_event = {
 		name = "modmenu_4"
 		custom_tooltip = modmenu_4.tooltip
 		hidden_effect = {
-		#	country_event = { id = population_improved_menu.1 }
+			country_event = { id = human_fallen_empires_menu.1 }
 		}
 	}
 	option = {
 		name = "modmenu_exit"
 	}
 }
-
-namespace = autobuild
-

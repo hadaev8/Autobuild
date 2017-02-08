@@ -1,5 +1,5 @@
 #	Example:
-# 
+#
 #	example_trigger = {
 #		is_country_type = default
 #		free_leader_slots > 0
@@ -71,12 +71,22 @@ has_any_science_lab = {
 		has_building = "building_engineering_facility_2"
 		has_building = "building_engineering_facility_3"
 		has_building = "building_engineering_facility_4"
+		
+		# star trek
+		has_building = "building_physics_lab_0"
+		has_building = "building_society_lab_0"
+		has_building = "building_engineering_lab_0"
 	}
 }
 
 has_any_mine_not_replace = {
 	or = {
 		has_building = "building_ancient_factory"
+
+		# for better targeting
+		has_building = "building_capital_1"
+		has_building = "building_capital_2"
+		has_building = "building_capital_3"
 
 		# alphamod
 		has_building = "building_industrial_camp"
@@ -106,15 +116,15 @@ has_any_mine_not_replace = {
 		has_building = "building_retreat"
 		has_building = "building_great_citadel"
 		has_building = "building_fuel_refinery_0"
-		
-		# new hor dlc
+
+		# dlc
 		has_building = "building_worm_mine"
-		
+
 		# more technologies mod
 		has_building = "building_combo_mineral_food_1"
 		has_building = "building_combo_mineral_food_2"
 		has_building = "building_combo_mineral_food_3"
-		
+
 		# stellaris+
 		has_building = "building_basicfactory"
 		has_building = "building_mine"
@@ -137,7 +147,7 @@ has_any_mine_not_replace = {
 		has_building = "building_desertmine"
 		has_building = "building_desertfacility"
 		has_building = "building_fronzefacility"
-		has_building = "building_iceextractor"		
+		has_building = "building_iceextractor"
 	}
 }
 
@@ -147,8 +157,8 @@ has_any_farm_not_replace = {
 		has_building = "building_hospital"
 		has_building = "building_agri_processing_complex"
 		has_building = "building_great_pyramid"
-		
-		# new hor dlc
+
+		# horizont dlc
 		has_building = "building_worm_farm"
 
 		# alphamod
@@ -202,7 +212,7 @@ has_any_farm_not_replace = {
 		has_building = "building_food_hybridiser"
 		has_building = "building_colony_control_pre"
 		has_building = "building_colony_control"
-		
+
 		# stellaris+
 		has_building = "building_farm"
 		has_building = "building_food_processor"
@@ -214,6 +224,9 @@ has_any_power_plant_not_replace = {
 	or = {
 		has_building = "building_dark_matter_power_plant"
 		has_building = "building_odd_factory"
+
+		# dlc
+		has_building = "building_akx_worm_1"
 
 		# alphamod
 		has_building = "building_powerbank"
@@ -259,14 +272,14 @@ has_any_power_plant_not_replace = {
 		has_building = "building_hive"
 		has_building = "building_sprawl"
 		has_building = "building_large_city"
-		
+
 		# more technologies mod
 		has_building = "building_combo_food_power_1"
 		has_building = "building_combo_food_power_2"
 		has_building = "building_combo_food_power_3"
 		has_building = "building_burning_facility"
 		has_building = "building_hydrofusion_plant"
-		
+
 		# stellaris+
 		has_building = "building_nuclear_power_plant"
 		has_building = "building_imperial_town"
@@ -298,6 +311,10 @@ has_any_science_lab_not_replace = {
 		has_building = "building_particle_accelerator"
 		has_building = "building_fe_xeno_zoo"
 
+		# dlc
+		has_building = "building_akx_worm_2"
+		has_building = "building_akx_worm_3"
+
 		# alphamod
 		has_building = "building_advanced_shuttleport"
 		has_building = "building_science_foundation"
@@ -311,7 +328,7 @@ has_any_science_lab_not_replace = {
 		has_building = "building_bio_medical"
 		has_building = "building_forestry"
 		has_building = "building_arcology"
-		
+
 		# stellaris+
 		has_building = "building_rocketlaunch"
 		has_building = "building_space_surveillance_center"
@@ -332,6 +349,9 @@ has_any_science_lab_not_replace = {
 		has_building = "building_underwaterlab"
 		has_building = "building_desertresearch"
 		has_building = "building_icereseach"
+		
+		# star trek
+		has_building = "building_war_factory"
 	}
 }
 
@@ -347,7 +367,7 @@ has_any_capital = {
 		has_building = "building_mining_guild"
 		has_building = "building_central_databank"
 		has_building = "building_farming_guild"
-		
+
 		# stellaris+
 		has_building = "building_imperial_capital_1"
 		has_building = "building_imperial_capital_2"
