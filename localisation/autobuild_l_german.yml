@@ -374,3 +374,7 @@
  autobuild_others_options_menu:0 "§BMenü§! Weitere Einstellungen"
  autobuild_7_settings:0 "§BMenü:§! Auto-Bau auf leeren Feldern"
  autobuild_planet_unique:0 "§BMenü:§! Einzigartige Gebäude"
+ 
+ # 2.8.1
+ autobuild_fleet:0 "Autobuild: Space Stations"
+ autobuild_fleet.tooltip:0 "\nAll current construction ships will be assigned to autobuild. If you want to use them for their needs, disable this option or build a new construction ship. Ships will be listed as "event blocked", is this normal"

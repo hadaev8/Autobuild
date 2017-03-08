@@ -7,61 +7,61 @@
  autobuild_0:0 "§HTurn On§! all of the mods basic settings"
  autobuild_0.tooltip:0 "\nTurn on all main settings"
  
- autobuild_1:0 ""Auto-Improve Buildings""
+ autobuild_1:0 "Auto-Improve Buildings"
  autobuild_1.tooltip:0 "\nAll buildings automatically improve, except for basic laboratories and those that cost influence."
  
- autobuild_2:0 ""Auto-Improve Buildings That Cost Influence""
+ autobuild_2:0 "Auto-Improve Buildings That Cost Influence"
  autobuild_2.tooltip:0 "\nBuildings that cost influence automatically improve."
  
- autobuild_3:0 "Autobuild: "New Buildings on Good Tiles""
+ autobuild_3:0 "Autobuild: "New Buildings on Good Tiles"
  autobuild_3.tooltip:0 "\nTiles with energy but without slaves will build power plants, tiles with minerals build mines and tiles with scientific resources but without slaves build basic laboratories. Some Farms will be built (default 3)."
  
- autobuild_4:0 ""Automatic Slavery""
+ autobuild_4:0 "Automatic Slavery"
  autobuild_4.tooltip:0 "\nEnslave the population in tiles with mines, farms, planetary capitals, etc. In general, this edict auto-enslaves pops in all the tiles where slaves will profit. Where slaves are not necessary, people will be free."
  
- autobuild_4_1:0 ""Xenos must be slaves!""
+ autobuild_4_1:0 "Xenos must be slaves!"
  autobuild_4_1.tooltip:0 "\nAll your xeno populations (races that are not your starting race) will be slaves."
  
- autobuild_4_2:0 ""Give Mines to the Slaves!""
+ autobuild_4_2:0 "Give Mines to the Slaves!"
  autobuild_4_2.tooltip:0 "\nAutobuild mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?"
  
- autobuild_5:0 ""Auto-Improve Laboratories on Good Planets""
+ autobuild_5:0 "Auto-Improve Laboratories on Good Planets"
  autobuild_5.tooltip:0 "\nImprove all the basic laboratories on planets that have a bonus modifier to a specific field of science (for example, Unstable Tectonics) to a laboratory that generates additional research of that type."
  
- autobuild_6:0 ""Semi-Random Improving Laboratories""
+ autobuild_6:0 "Semi-Random Improving Laboratories"
  autobuild_6.tooltip:0 "\nAll laboratories automatically improve depending on pops trait (useful if you make Research Center with population genetically improved to some kind of science ), the resource type in the tiles (useful if your population has a trait for a certain kind of science). If the resource is not present, the type of laboratory improvement will be selected at random. If you do not have the Auto-Improve Laboratories on Good Planets edict active, the laboratory will improve randomly even on planets with useful science modifiers."
  
- autobuild_7_1:0 ""Energy Priority""
+ autobuild_7_1:0 "Energy Priority"
  autobuild_7_1.tooltip:0 "\nAutobuild power plants on tiles empty of resources."
- autobuild_7_2:0 ""Industrial Priority""
+ autobuild_7_2:0 "Industrial Priority"
  autobuild_7_2.tooltip:0 "\nAutobuild the mines on tiles empty of resources."
- autobuild_7_3:0 ""Research Priority""
+ autobuild_7_3:0 "Research Priority"
  autobuild_7_3.tooltip:0 "\nAutobuild labs on tiles empty of resources."
- autobuild_7_4:0 ""Moderate Research Priority""
+ autobuild_7_4:0 "Moderate Research Priority"
  autobuild_7_4.tooltip:0 "\nAutobuild 1 power plant for every 4 labs on tiles empty of resources."
- autobuild_7_6:0 ""Balanced Priority""
+ autobuild_7_6:0 "Balanced Priority"
  autobuild_7_6.tooltip:0 "\nAutobuild 1 mine for every 1 power plant for 1 lab on tiles empty of resources. In other words, will build at a 1:1:1 ratio."
- autobuild_7_7:0 ""Energy/Research Priority""
+ autobuild_7_7:0 "Energy/Research Priority"
  autobuild_7_7.tooltip:0 "\nAutobuild 1 power plant for every 1 lab on tiles empty of resources."
- autobuild_7_8:0 ""Ignore Minerals""
+ autobuild_7_8:0 "Ignore Minerals"
  autobuild_7_8.tooltip:0 "\nAutobuild new buildings in empty tiles and tiles with minerals will be considered empty."
- autobuild_7_9:0 ""Ignore Food""
+ autobuild_7_9:0 "Ignore Food"
  autobuild_7_9.tooltip:0 "\nAutobuild new buildings in empty tiles and tiles with food will be considered empty."
- autobuild_7_10:0 ""Ignore Energy""
+ autobuild_7_10:0 "Ignore Energy"
  autobuild_7_10.tooltip:0 "\nAutobuild new buildings in empty tiles and tiles with energy will be considered empty."
- autobuild_7_11:0 ""Ignore Science""
+ autobuild_7_11:0 "Ignore Science"
  autobuild_7_11.tooltip:0 "\nAutobuild new buildings in empty tiles and tiles with any type of science will be considered empty."
  
- autobuild_8:0 "Autobuild: "Clinics""
+ autobuild_8:0 "Autobuild: "Clinics"
  autobuild_8.tooltip:0 "\nAutobuild Clinics on every planet with 4 or more pops (for whom the planet is not 100% habitable), first on tiles with 2 food and no minerals, then on tiles with 1 food and no minerals, then on tiles with only 1 food and no more than 1 mineral, and then on any tile free of another building."
  
- autobuild_9:0 "Autobuild: "Mineral Silo""
+ autobuild_9:0 "Autobuild: "Mineral Silo"
  autobuild_9.tooltip:0 "\nAutobuild one Mineral Silo on every planet that has a tile without resources."
  
- autobuild_cost:0 ""Keep Resources in Reserve""
+ autobuild_cost:0 "Keep Resources in Reserve"
  autobuild_cost.tooltip:0 "\nAutomatic improvements and buildings occur only if you have enough resources (default 1000 minerals and 250 influence, if required)."
  
- autobuild_cost_menu:0 "§HConfigure§! "Keep Resources in Reserve""
+ autobuild_cost_menu:0 "§HConfigure§! "Keep Resources in Reserve"
  autobuild_cost_menu.tooltip:0 "\nHere you can configure resource reserve."
  
  autobuild_farm_menu:0 "§HConfigure§! number of farms"
@@ -125,7 +125,7 @@
  planet_farms_autobuild_desc:0 "This planet will be rebuilt into a Farm center. Farms will be built on all tiles. Any mines, power plants or laboratories will be replaced."
  
  # v2.3
- autobuild_10:0 ""Auto-clean Blockers""
+ autobuild_10:0 "Auto-clean Blockers"
  autobuild_10.tooltip:0 "\nAuto-clean blockers. §RWarning§!, this is a semi-cheat option since blockers will disappear instantly."
  
  autobuild.6.desc:0 "Here you can configure auto-build unique buildings"
@@ -204,11 +204,11 @@
  autobuild_farm_replace_off:0 "$modmenu_off$ $autobuild_farm_replace$"
  
  # 2.5
- autobuild_ai_allowed:0 ""Allow Auto-build for AI""
+ autobuild_ai_allowed:0 "Allow Auto-build for AI"
  autobuild_ai_allowed.tooltip:0 "\nAI's buildings will be constructed in the same way as the player's."
  
- autobuild_labs_not_count_trait:0 ""Don't count trait""
- autobuild_labs_not_count_trait.tooltip:0 "\nDon't take into account a pop's traits (natural sociologists etc) when laboratories improve.""
+ autobuild_labs_not_count_trait:0 "Don't count trait"
+ autobuild_labs_not_count_trait.tooltip:0 "\nDon't take into account a pop's traits (natural sociologists etc) when laboratories improve."
  
  autobuild_ai_allowed_on:0 "$modmenu_on$ $autobuild_ai_allowed$"
  autobuild_ai_allowed_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ai_allowed.tooltip$"
@@ -254,10 +254,10 @@
  planet_farms_autobuild:0 "Farm Center"
  planet_farms_autobuild_desc:0 "This planet will be rebuilt into a Farm center. This will construct buildings that makes sense for this specialization and farms will be built in the remaining tiles. Any regular mines, power plants or laboratories will be replaced."
  
- autobuild_11:0 "Autobuild: "Power Hub""
+ autobuild_11:0 "Autobuild: "Power Hub"
  autobuild_11.tooltip:0 "\nAuto-build Power Hub on every planet."
  
- autobuild_12:0 "Autobuild: "Mineral Processing Plant""
+ autobuild_12:0 "Autobuild: "Mineral Processing Plant"
  autobuild_12.tooltip:0 "\nAuto-build Mineral Processing Plant on every planet."
  
  autobuild_13:0 "Auto-build: Robots"
@@ -276,7 +276,7 @@
  autobuild_14_off:0 "$modmenu_off$ $autobuild_14$"
  autobuild_14_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_14.tooltip$"
  
- autobuild_15:0 "Autobuild: "Loop Institute""
+ autobuild_15:0 "Autobuild: "Loop Institute"
  autobuild_15.tooltip:0 "\nAuto-build Loop Institute on every planet."
  
  autobuild_15_on:0 "$modmenu_on$ $autobuild_15$"
@@ -348,3 +348,7 @@
  autobuild_others_options_menu:0 "§BMenu§! of other options"
  autobuild_7_settings:0 "§BMenu:§! Autobuild on empty tiles"
  autobuild_planet_unique:0 "§BMenu:§! Unique buildings"
+ 
+ # 2.8.1
+ autobuild_fleet:0 "Autobuild: Space Stations"
+ autobuild_fleet.tooltip:0 "\nAll current construction ships will be assigned to autobuild. If you want to use them for their needs, disable this option or build a new construction ship. Ships will be listed as "event blocked", is this normal"
