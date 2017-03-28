@@ -1,98 +1,82 @@
 ﻿l_german:
- modmenu_button:0 "Mod Menü"
- modmenu.tooltip:0 "§HÖffne§! das Mod Menü"
- modmenu.1.name:0 "Mod Menü"
- modmenu.1.desc:0 "Hier können Mods konfiguriert werden."
- edict_modmenu:0 "Mod Menü"
- edict_modmenu_desc:0 "Hier können Mods konfiguriert werden."
- modmenu_exit:0 "§LVerlasse das Menü§!"
- modmenu_remove:0 "§HEntferne§! alle Mod-Einstellungen"
- modmenu_remove.tooltip:0 "Entferne alle Mod-Einstellungen und Planetenmodifikatoren."
- modmenu_on:0 "§GAktivieren§!"
- modmenu_off:0 "§RDeaktivieren§!"
- modmenu_tooltip_on:0 "Das Drücken des Schalters wird die Option $modmenu_on$."
- modmenu_tooltip_off:0 "Das Drücken des Schalters wird die Option $modmenu_off$."
- modmenu_return:0 "Bestätigen"
- modmenu_yes:0 "Ja"
- modmenu_no:0 "Nein"
- 
- modmenu_1:0 "§HAuto-Bau und Gebäudeverbesserung ENG/RUS/FRA/DEU§!"
- modmenu_1.tooltip:0 "Hier kann §HAuto-Bau und Gebäudeverbesserung ENG/RUS/FRA/DEU§!, sofern installiert, konfiguriert werden."
+ #Korrektur und Übersetzung
+ modmenu_1:0 "§HAuto-Bau und Gebäudeverbesserung!"
+ modmenu_1.tooltip:0 "Hier  kann §HAuto-Bau und Gebäudeverbesserung§!, sofern installiert, konfiguriert werden."
  modmenu_2:0 "§HSchwierigere Invasoren§!"
  modmenu_2.tooltip:0 "Hier kann §HSchwierigere Invasoren§!, sofern installiert, konfiguriert werden."
  modmenu_3:0 "§HVerbesserte Bevölkerung§!"
  modmenu_3.tooltip:0 "Hier kann §HVerbesserte Bevölkerung§!, sofern installiert, konfiguriert werden."
- modmenu_4:0 "§HGefallene menschliche Imperien (Erscheint bald)§!"
- modmenu_4.tooltip:0 "Erscheint bald"
- 
- autobuild.3.name:0 "Auto-Bau Menü"
+ modmenu_4:0 "§HHuman Fallen Empires (in Vorbereitung)§!"
+ modmenu_4.tooltip:0 "in Vorbereitung"
+
+ autobuild.3.name:0 "Autobau Menü"
  autobuild.3.desc:0 "Hier kann das automatische Bauen konfiguriert werden."
- autobuild.4.desc:0 "Hier kann die Ressourcenreserve eingestellt werden."
- autobuild.5.desc:0 "Hier kann das Autobauen von Farmen eingestellt werden."
- 
+ autobuild.4.desc:0 "Hier kann die Menge der Ressourcen konfiguriert werden"
+ autobuild.5.desc:0 "Hier kann das automatische Bauen von Farmen konfiguriert werden."
+
  autobuild_0:0 "§HAktiviere§! alle Grundeinstellungen der Mod."
- autobuild_0.tooltip:0 "Aktiviert alle Haupteinstellungen."
- 
- autobuild_1:0 ""Auto-Verbesserung von Gebäuden""
- autobuild_1.tooltip:0 "Verbessert alle Gebäude automatisch. Ausgenommen Einfache Forschungslabore und Gebäude die Einfluss kosten."
- 
- autobuild_2:0 ""Auto-Verbesserung für Gebäude die Einfluss kosten""
- autobuild_2.tooltip:0 "Gebäude die Einfluss kosten werden automatisch verbessert."
- 
- autobuild_3:0 ""Auto-Bau von neuen Gebäuden auf guten Feldern.""
- autobuild_3.tooltip:0 "Auf Feldern mit Energie aber ohne Sklaven werden Kraftwerke gebaut. Auf Feldern mit Mineralien werden Minen gebaut. Auf Feldern mit Forschungsressourcen aber ohne Sklaven werden einfache Forschungslabore gebaut. Auf Feldern mit Nahrung werden Farmen gebaut (bis max. 3 Stück)."
- 
+ autobuild_0.tooltip:0 "\nAktiviere alle Haupteinstellungen."
+
+ autobuild_1:0 ""Autom. Verbesserung von Gebäuden""
+ autobuild_1.tooltip:0 "\nVerbessert alle Gebäude automatisch. Ausgenommen einfache Forschungslabore und Gebäude die Einfluss kosten."
+
+ autobuild_2:0 ""Autom. Verbesserung für Gebäude die Einfluss kosten.""
+ autobuild_2.tooltip:0 "\nGebäude die Einfluss kosten werden automatisch verbessert."
+
+ autobuild_3:0 "Autobau: "Neue Gebäude auf guten Feldern""
+ autobuild_3.tooltip:0 "\nAuf Feldern mit Energie aber ohne Sklaven werden Kraftwerke gebaut. Auf Feldern mit Mineralien werden Minen gebaut. Auf Feldern und Forschungsressourcen aber ohne Sklaven werden einfache Forschungslabore gebaut. Auf Feldern mit Nahrung werden Farmen gebaut (bis max. 3 Stück)."
+
  autobuild_4:0 ""Automatische Sklaverei""
- autobuild_4.tooltip:0 "Versklavt die Bevölkerung auf Feldern mit Minen, Farmen und der planetaren Hauptstadt usw.. Allgemein wird dieses Edikt alle Einwohner versklaven sofern das Feld davon profitiert. Wo Sklaven unrentabel sind werden die Einwohner frei sein."
- 
+ autobuild_4.tooltip:0 "\nVersklave die Bevölkerung auf Feldern mit Minen, Farmen und der planetaren Hauptstadt usw. . Allgemein wird dieses Edikt alle Einwohner versklaven sofern das Feld davon profitiert. Wo Sklaven unrentabel sind werden die Einwohner frei sein."
+
  autobuild_4_1:0 ""Xenos müssen Sklaven sein!""
- autobuild_4_1.tooltip:0 "Alle Xeno-Einwohner (Völker die nicht das eigne Startvolk/-rasse sind) werden versklavt."
- 
+ autobuild_4_1.tooltip:0 "\nAlle Xeno-Einwohner (Völker die nicht das eigne Startvolk/-rasse sind) werden versklavt."
+
  autobuild_4_2:0 ""Gebt die Minen den Sklaven!""
- autobuild_4_2.tooltip:0 "Baut auf jedem Feld mit versklavter Bevölkerung eine Mine. Egal ob sich dort bereits ein Kraftwerk oder ein Forschungslabor befindet. Wer braucht schon schlaue Sklaven?!"
- 
- autobuild_5:0 ""Auto. Verb. von Forschungslaboren auf guten Planeten.""
- autobuild_5.tooltip:0 "Verbessere alle einfachen Laboratorien auf Planeten die einen Bonusmodifikator für einen bestimme Wissenschaft haben (z.B. Instabile Tektonik) so, dass sie weitere Punkte dieser Wissenschaft generiert."
- 
+ autobuild_4_2.tooltip:0 "\nBaut auf jedem Feld mit versklavter Bevölkerung eine Mine. Egal ob sich dort bereits ein Kraftwerk oder ein Forschungslabor befindet. Wer braucht schon schlaue Sklaven."
+
+ autobuild_5:0 ""Autom. Verb. von Laboren auf guten Planeten.""
+ autobuild_5.tooltip:0 "\nVerbessert alle einfachen Laboratorien auf Planeten die einen Bonusmodifikator für einen bestimme Forschung haben (z.B. Instabile Tektonik) so, dass sie weitere Punkte dieser Forschung generieren."
+
  autobuild_6:0 ""Halb-Zufällige Verbesserung von Forschungslaboren.""
- autobuild_6.tooltip:0 "Alle Labore werden automatisch zuerst entsprechend der Merkmale eines Volkes verbessert (nützlich wenn man Forschungslabore baut die das Merkmal des Volkes begünstigen). Als zweites wird gemäß der Wissenschaft auf dem jeweiligen Feld verbessert (nützlich wenn das Volk ein Mermale für bestimme Wissenschaften hat). Wenn keine Wissenschaftsressource auf dem Feld vorhanden ist wird der Labortyp zufällig ausgewählt. Wenn das Edikt -Automatische Verbesserung von Forschungslaboren auf guten Planeten- nicht aktiv ist werden jegliche Labore zufällig verbessert. Auch auf Planten mit eigentlich sinnvolleren Wissenschaftsmodifikatoren."
- 
- autobuild_7_1:0 ""Enerige-Priorität""
- autobuild_7_1.tooltip:0 "Automatischer Bau von Kraftwerken auf Feldern ohne Ressourcen."
+ autobuild_6.tooltip:0 "\nAlle Labore werden automatisch zuerst entsprechend der Merkmale eines Volkes verbessert (nützlich wenn man Forschungslabore baut die das Merkmal des Volkes begünstigen). Als zweites wird gemäß der Forschung auf dem jeweiligen Feld verbessert (nützlich wenn das Volk ein Mermale für bestimme Forschungen hat). Wenn keine Forschungsressource auf dem Feld vorhanden ist wird der Labortyp zufällig ausgewählt. Wenn das Edikt "Automatische Verbesserung von Forschungslaboren auf guten Planeten" nicht aktiv ist werden jegliche Labore zufällig verbessert. Auch auf Planten mit eigentlich sinnvolleren Forschungsmodifikatoren."
+
+ autobuild_7_1:0 ""Energie-Priorität""
+ autobuild_7_1.tooltip:0 "\nAutomatischer Bau von Kraftwerken auf Feldern ohne Ressourcen."
  autobuild_7_2:0 ""Industrie-Priorität""
- autobuild_7_2.tooltip:0 "Automatischer Bau von Minen auf Feldern ohne Ressourcen"
- autobuild_7_3:0 ""Wissenschafts-Priorität.""
- autobuild_7_3.tooltip:0 "Automatischer Bau von Forschungslaboren auf Feldern ohne Ressourcen"
+ autobuild_7_2.tooltip:0 "\nAutomatischer Bau von Minen auf Feldern ohne Ressourcen."
+ autobuild_7_3:0 ""Forschungs-Priorität.""
+ autobuild_7_3.tooltip:0 "\nAutomatischer Bau von Forschungslaboren auf Feldern ohne Ressourcen."
  autobuild_7_4:0 ""Moderate Wissenschafts-Priorität""
- autobuild_7_4.tooltip:0 "Baut automatisch für 1 Kraftwerk je 4 Forschungslabore auf Feldern ohne Ressourcen."
+ autobuild_7_4.tooltip:0 "\nBaut automatisch für 1 Kraftwerk je 4 Forschungslabore auf Feldern ohne Ressourcen."
  autobuild_7_6:0 ""Ausgeglichene-Priorität""
- autobuild_7_6.tooltip:0 "Baut automatisch Minen, Kraftwerke und Forschungslabore im Verhältnis 1:1:1 auf Feldern ohne Ressourcen."
- autobuild_7_7:0 ""Energie/Wissenschafts-Priorität""
- autobuild_7_7.tooltip:0 "Baut automatisch Kraftwerke und Forschungslabore im Verhältnis 1:1 auf Feldern ohne Ressourcen."
+ autobuild_7_6.tooltip:0 "\nBaut automatisch Minen, Kraftwerke und Forschungslabore im Verhältnis 1:1:1 auf Feldern ohne Ressourcen."
+ autobuild_7_7:0 ""Energie/Forschungs-Priorität""
+ autobuild_7_7.tooltip:0 "\nBaut automatisch Kraftwerke und Forschungslabore im Verhältnis 1:1 auf Feldern ohne Ressourcen."
  autobuild_7_8:0 ""Ignoriere Mineralien""
- autobuild_7_8.tooltip:0 "Neue Gebäude werden automatisch auf leeren Feldern gebaut. Felder mit Mineralien werden durch diese Option ebenfalls als leer angenommen."
+ autobuild_7_8.tooltip:0 "\nNeue Gebäude werden automatisch auf leeren Feldern gebaut. Felder mit Mineralien werden durch diese Option ebenfalls als leer angenommen."
  autobuild_7_9:0 ""Ignoriere Nahrung""
- autobuild_7_9.tooltip:0 "Neue Gebäude werden automatisch auf leeren Feldern gebaut. Felder mit Nahrung werden durch diese Option ebenfalls als leer angenommen."
+ autobuild_7_9.tooltip:0 "\nNeue Gebäude werden automatisch auf leeren Feldern gebaut. Felder mit Nahrung werden durch diese Option ebenfalls als leer angenommen."
  autobuild_7_10:0 ""Ignoriere Energie""
- autobuild_7_10.tooltip:0 "Neue Gebäude werden automatisch auf leeren Feldern gebaut. Felder mit Energie werden durch diese Option ebenfalls als leer angenommen."
- autobuild_7_11:0 ""Ignoriere Wissenschaft""
- autobuild_7_11.tooltip:0 "Neue Gebäude werden automatisch auf leeren Feldern gebaut. Felder mit Wissenschaft werden durch diese Option ebenfalls als leer angenommen."
- 
- autobuild_8:0 ""Automatischer Bau von Kliniken""
- autobuild_8.tooltip:0 "Automatischer Bau von Kliniken auf Planeten mit 4 oder mehr Einwohnern, auf denen die Bewohnbarkeit nicht 100% ist. Zuerst auf Feldern mit 2 Nahrung und ohne Mineralien. Dann auf auf Feldern mit 1 Nahrung und ohne Mineralien. Dann auf Feldern mit 1 Nahrung und nicht mehr als 1 Mineralien. Dann auf Feldern ohne Ressourcen und ohne Gebäude."
- 
- autobuild_9:0 ""Automatischer Bau von Mineralsilos""
- autobuild_9.tooltip:0 "Automatischer Bau von Minderalsiols auf allen Planeten mit Feldern ohne Ressourcen."
- 
+ autobuild_7_10.tooltip:0 "\nNeue Gebäude werden automatisch auf leeren Feldern gebaut. Felder mit Energie werden durch diese Option ebenfalls als leer angenommen."
+ autobuild_7_11:0 ""Ignoriere Forschung""
+ autobuild_7_11.tooltip:0 "\nNeue Gebäude werden automatisch auf leeren Feldern gebaut. Felder mit Wissenschaft werden durch diese Option ebenfalls als leer angenommen."
+
+ autobuild_8:0 "Autobau: "Kliniken""
+ autobuild_8.tooltip:0 "\nAutomatischer Bau von Kliniken auf Planeten mit 4 oder mehr Einwohnern, auf denen die Bewohnbarkeit nicht 100% ist. Zuerst auf Feldern mit 2 Nahrung und ohne Mineralien. Dann auf auf Feldern mit 1 Nahrung und ohne Mineralien. Dann auf Feldern mit 1 Nahrung und nicht mehr als 1 Mineral. Dann auf Feldern ohne Ressourcen und ohne Gebäude."
+
+ autobuild_9:0 "Autobau: "Mineraliensilos""
+ autobuild_9.tooltip:0 "\nAutomatischer Bau von Mineraliensilos auf allen Planeten mit Feldern ohne Ressourcen."
+
  autobuild_cost:0 ""Halte Ressourcen in Reserve""
- autobuild_cost.tooltip:0 "Automatische Verbesserung wird nur durchgeführt wenn genug Ressourcen vorhanden sind. Standard: 1000 Mineralien und, sofern benötigt, 250 Einfluss."
- 
+ autobuild_cost.tooltip:0 "\nAutomatische Verbesserung wird nur durchgeführt wenn genug Ressourcen vorhanden sind. Standard: 1000 Mineralien und, sofern benötigt, 250 Einfluss."
+
  autobuild_cost_menu:0 "§HKonfiguriere§! "die Menge der Reserveressourcen""
- autobuild_cost_menu.tooltip:0 "Hier kann die Menge der vorzuhaltenden Reserve eingestellt werden."
- 
+ autobuild_cost_menu.tooltip:0 "\nHier kann die in Menge der vorzuhaltenden Ressourcen eingestellt werden."
+
  autobuild_farm_menu:0 "§HKonfiguriere§! "die Anzahl der Farmen""
- autobuild_farm_menu.tooltip:0 "Hier kann die Anzahl der Farmen eingestellt werden. Funktioniert jetzt für spezialisierte Planeten und für "Auto-Bau von neuen Gebäuden auf guten Feldern."
- 
+ autobuild_farm_menu.tooltip:0 "\nHier kann die Anzahl der Farmen eingestellt werden. Funktioniert jetzt für spezialisierte Planeten und für "Automatischer Bau von neuen Gebäuden auf guten Feldern"."
+
  autobuild_cost_5000:0 "§HBehalte§! 5000 Mineralien"
  autobuild_cost_2500:0 "§HBehalte§! 2500 Mineralien"
  autobuild_cost_1000:0 "§HBehalte§! 1000 Mineralien"
@@ -100,63 +84,63 @@
  autobuild_cost_inf_500:0 "§HBehalte§! 500 Einfluss"
  autobuild_cost_inf_250:0 "§HBehalte§! 250 Einfluss"
  autobuild_cost_inf_100:0 "§HBehalte§! 100 Einfluss"
- 
+
  autobuild_farm_0:0 "§HBaue keine§! Farmen"
  autobuild_farm_1:0 "§HBaue§! 1 Farm"
  autobuild_farm_2:0 "§HBaue§! 2 Farmen"
  autobuild_farm_3:0 "§HBaue§! 3 Farmen"
  autobuild_farm_4:0 "§HBaue§! 4 Farmen"
  autobuild_farm_5:0 "§HBaue§! 5 Farmen"
- 
+
  # edicts
  edict_no_sector:0 "Es besteht kein Bedarf für Sektorkosten"
  edict_no_sector_desc:0 "Dieses Edikt entfernt alle Sektorkosten und setzt sie auf 0."
- 
+
  # planet edicts
  edict_clear_autobuild_planetary_edicts:0 "Alle Automatisierung entf."
  edict_clear_autobuild_planetary_edicts_desc:0 "Auf diesem Planeten werden alle automatischen Baubefehle entfernt."
- 
- edict_hide_planetary_edicts:0 "Verberge/zeige Auto-Bau Edikte"
+
+ edict_hide_planetary_edicts:0 "Verbergen/Anzeigen Auto-Bau Edikte"
  edict_hide_planetary_edicts_desc:0 "Dieses Edikt wird alle planetaren Auto-Bau Edikte ein- oder ausblenden."
- 
- edict_free_auto_update:0 "Ignoriere Auto-Verbesserungen"
+
+ edict_free_auto_update:0 "Ignoriere automatische Verbesserungen"
  edict_free_auto_update_desc:0 "Auf diesem Planeten werden Gebäude nicht automatisch verbessert."
- 
- edict_free_autobuild:0 "Ignoriere Auto-Bauen"
+
+ edict_free_autobuild:0 "Ignoriere automatisches Bauen"
  edict_free_autobuild_desc:0 "Auf diesem Planeten wird nicht automatisch gebaut."
- 
- edict_free_auto_enslave:0 "Ignoriere Auto-Sklaverei"
+
+ edict_free_auto_enslave:0 "Ignoriere automatische Sklaverei"
  edict_free_auto_enslave_desc:0 "Auf diesem Planeten werden Einwohner nicht automatisch versklavt."
- 
+
  # modifiers
- free_auto_update:0 "Ignoriere Auto-Verbesserungen"
- free_auto_update_desc:0 "Auf diesem Planeten werden Gebäude nicht automatisch verbessert."
- 
- free_autobuild:0 "Ignoriere Auto-Bauen"
- free_autobuild_desc:0 "Auf diesem Planeten wird nicht automatisch gebaut."
- 
- free_auto_enslave:0 "Ignoriere Auto-Sklaverei"
- free_auto_enslave_desc:0 "Auf diesem Planeten werden Einwohner nicht automatisch versklavt."
- 
- planet_forge_autobuild:0 "Definiere Industriezenterum"
- planet_forge_autobuild_desc:0 "Dieser Planet wird zum Industriezenterum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Eine Sklavenabwicklungseinrichtung wird gebaut wenn es auf dem Planeten 4 oder mehr Sklaven gibt. Auf den verbliebenen Feldern werden Minen und eine Mineral-Veredelungsanlage gebaut. Kraftwerke und Forschungslabore werden dabei ersetzt."
- 
- planet_power_plant_autobuild:0 "Definiere Energiezentrum"
- planet_power_plant_autobuild_desc:0 "Dieser Planet wird zum Energiezenterum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Auf den verbliebenen Feldern werden Kraftwerke und ein Energiehub gebaut. Minen und Forschungslabore werden dabei ersetzt."
- 
- planet_labs_autobuild:0 "Definiere Forschungszentrum"
- planet_labs_autobuild_desc:0 "Dieser Planet wird zum Forschungszentrum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Auf den verbliebenen Feldern werden Forschungslabore gebaut. Minen und Kraftwerke werden dabei ersetzt."
- 
- planet_farms_autobuild:0 "Definiere Farmzentrum"
- planet_farms_autobuild_desc:0 "Dieser Planet wird zu einem Farmzentrum umgebaut. Es werden auf allen Feldern Farmen gebaut. Wenn sich Minen, Kraftwerke oder Forschungslabore dort befinden werden diese ersetzt."
- 
- #v2.3
- autobuild_10:0 ""Auto-Bereinigung Blocker""
- autobuild_10.tooltip:0 "Wenn dieser Schalter aktiviert wird, gilt die Einstellung \nAuto-Bereinigung Blocker. §RWarnung§!, dies ist eine halbe Mogeloption, Blocker werden sofort entfernt."
- 
- autobuild.6.desc:0 "Hier kann Auto-Bauen von einzigartigen Gebäuden eingestellt werden."
- autobuild.7.desc:0 "Hier kann Auto-Bauen auf leeren Feldern eingestellt werden"
- 
+ free_from_auto_update:0 "Ignoriere automatische Verbesserungen"
+ free_from_auto_update_desc:0 "Auf diesem Planeten werden Gebäude nicht automatisch verbessert."
+
+ free_from_autobuild:0 "Ignoriere Autobauen"
+ free_from_autobuild_desc:0 "Auf diesem Planeten wird nicht automatisch gebaut."
+
+ free_from_auto_enslave:0 "Ignoriere automatische Sklaverei"
+ free_from_auto_enslave_desc:0 "Auf diesem Planeten werden Einwohner nicht automatisch versklavt."
+
+ planet_forge_autobuild:0 "Industriezentrum"
+ planet_forge_autobuild_desc:0 "Dieser Planet wird zum Industriezenterum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Eine Sklavenabwicklungseinrichtung wird gebaut wenn es auf dem Planeten 4 oder mehr Sklaven gibt. Auf den verbliebenen Feldern werden Minen und eine Mineralienverfeinerungsanlage gebaut. Kraftwerke und Forschungslabore werden dabei ersetzt."
+
+ planet_power_plant_autobuild:0 "Energiezentrum"
+ planet_power_plant_autobuild_desc:0 "Dieser Planet wird zum Energiezenterum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Auf den verbliebenen Feldern werden Kraftwerken und ein Energiehub gebaut. Minen und Forschungslabore werden dabei ersetzt."
+
+ planet_labs_autobuild:0 "Forschungszentrum"
+ planet_labs_autobuild_desc:0 "Dieser Planet wird zum Forschungszentrum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Auf den verbliebenen Feldern werden Forschungslabore gebaut. Minen und Kraftwerke werden dabei ersetzt"
+
+ planet_farms_autobuild:0 "Agrarzentrum"
+ planet_farms_autobuild_desc:0 "Dieser Planet wird zu einem Agrarzentrum umgebaut. Es werden auf allen Feldern Farmen gebaut. Wenn sich Minen, Kraftwerke oder Forschungslabore dort befinden werden diese ersetzt."
+
+ # v2.3
+ autobuild_10:0 ""Auto-Blocker-Entfernung""
+ autobuild_10.tooltip:0 "Automatische Blocker-Entfernung. §RWarnung§! Dies ist eine halbe Betrugsoption, die Feldblocker werden dadurch sofort verschwinden."
+
+ autobuild.6.desc:0 "Hier kann das automatische Bauen einzigartiger Gebäude konfiguriert werden."
+ autobuild.7.desc:0 "Hier kann das automatische Bauen freier Felder konfiguriert werden."
+
  autobuild_1_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_1.tooltip$"
  autobuild_2_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_2.tooltip$"
  autobuild_3_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_3.tooltip$"
@@ -174,7 +158,7 @@
  autobuild_fleet_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_fleet.tooltip$"
  autobuild_cost_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_cost.tooltip$"
  autobuild_farm_replace_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_farm_replace.tooltip$"
- 
+
  autobuild_1_on:0 "$modmenu_on$ $autobuild_1$"
  autobuild_2_on:0 "$modmenu_on$ $autobuild_2$"
  autobuild_3_on:0 "$modmenu_on$ $autobuild_3$"
@@ -192,7 +176,7 @@
  autobuild_fleet_on:0 "$modmenu_on$ $autobuild_fleet$"
  autobuild_cost_on:0 "$modmenu_on$ $autobuild_cost$"
  autobuild_farm_replace_on:0 "$modmenu_on$ $autobuild_farm_replace$"
- 
+
  autobuild_1_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_1.tooltip$"
  autobuild_2_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_2.tooltip$"
  autobuild_3_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_3.tooltip$"
@@ -210,7 +194,7 @@
  autobuild_fleet_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_fleet.tooltip$"
  autobuild_cost_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_cost.tooltip$"
  uto_build_cost_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_cost.tooltip$"
- 
+
  autobuild_1_off:0 "$modmenu_off$ $autobuild_1$"
  autobuild_2_off:0 "$modmenu_off$ $autobuild_2$"
  autobuild_3_off:0 "$modmenu_off$ $autobuild_3$"
@@ -228,153 +212,153 @@
  autobuild_fleet_off:0 "$modmenu_off$ $autobuild_fleet$"
  autobuild_cost_off:0 "$modmenu_off$ $autobuild_cost$"
  autobuild_farm_replace_off:0 "$modmenu_off$ $autobuild_farm_replace$"
- 
+
  # 2.5
- autobuild_ai_allowed:0 ""Erlaube Auto-Bauen für die KI""
- autobuild_ai_allowed.tooltip:0 "\nDie Gebäude der KI werden genauso errichtet, wie für den Spieler."
- 
- autobuild_labs_not_count_trait:0 ""Eigenschaften nicht berücksichtigen""
- autobuild_labs_not_count_trait.tooltip:0 "\nForschungslabore werden verbessert, ohne die Spezies-Eigenschaften zu berücksichtigen.""
- 
+ autobuild_ai_allowed:0 ""Autobauen für KI zulassen""
+ autobuild_ai_allowed.tooltip:0 "\nDie KI-Gebäude werden in der gleichen Weise, wie die des Spielers, gebaut."
+
+ autobuild_labs_not_count_trait:0 "Rassen-Eigenschaften nicht berücksichtigen"
+ autobuild_labs_not_count_trait.tooltip:0 "\nRassen-Eigenschaften (wie "Begabte Soziologen" usw.) werden bei der Verbesserung der Forschungslabore nicht berücksichtigt."
+
  autobuild_ai_allowed_on:0 "$modmenu_on$ $autobuild_ai_allowed$"
  autobuild_ai_allowed_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ai_allowed.tooltip$"
  autobuild_ai_allowed_off:0 "$modmenu_off$ $autobuild_ai_allowed$"
  autobuild_ai_allowed_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ai_allowed.tooltip$"
- 
+
  autobuild_labs_not_count_trait_on:0 "$modmenu_on$ $autobuild_labs_not_count_trait$"
  autobuild_labs_not_count_trait_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_not_count_trait.tooltip$"
  autobuild_labs_not_count_trait_off:0 "$modmenu_off$ $autobuild_labs_not_count_trait$"
  autobuild_labs_not_count_trait_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_not_count_trait.tooltip$"
- 
+
  # 2.6
- edict_planet_forge_autobuild:0 "Definiere Industriezentrum"
- edict_planet_forge_autobuild_desc:0 "Dieser Planet wird zum Industriezenterum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Eine Sklavenabwicklungseinrichtung wird gebaut wenn es auf dem Planeten 4 oder mehr Sklaven gibt. Auf den verbliebenen Feldern werden Minen und eine Mineralienverfeinerungsanlage gebaut. Kraftwerke und Forschungslabore werden dabei ersetzt."
- 
- edict_planet_power_plant_autobuild:0 "Definiere Energiezentrum"
- edict_planet_power_plant_autobuild_desc:0 "Dieser Planet wird zum Energiezenterum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Auf den verbliebenen Feldern werden Kraftwerke und ein Energiehub gebaut. Minen und Forschungslabore werden dabei ersetzt."
- 
- edict_planet_labs_autobuild:0 "Definiere Forschungszentrum"
- edict_planet_labs_autobuild_desc:0 "Dieser Planet wird zum Forschungszentrum umgebaut. Es wird eine Farm gebaut falls keine vorhanden ist, existierende Farmen bleiben bestehen. Auf den verbliebenen Feldern werden Forschungslabore gebaut. Minen und Kraftwerke werden dabei ersetzt."
- 
- edict_planet_farms_autobuild:0 "Definiere Farmzentrum"
- edict_planet_farms_autobuild_desc:0 "Dieser Planet wird zu einem Farmzentrum umgebaut. Es werden auf allen Feldern Farmen gebaut. Wenn sich Minen, Kraftwerke oder Forschungslabore dort befinden werden diese ersetzt."
- 
- autobuild_planet_unique.tooltip:0 "\nEinstellung für einzigartige Gebäude (Klinik, Energie-Hub usw.)"
- 
- autobuild_7:0 "Auto-Bau auf leeren Feldern"
- autobuild_7.tooltip:0 "\nAuto-Bau auf leeren Feldern."
- 
- autobuild_farm_replace:0 "Ersetze Farmen"
- autobuild_farm_replace.tooltip:0 "\nErlaube Farmen durch Kliniken zu ersetzen."
- 
+ edict_planet_forge_autobuild:0 "Ausbau zu Industriezentrum"
+ edict_planet_forge_autobuild_desc:0 "Dieser Planet wird zum Industriezentrum umgebaut. Es werden standardmäßig 3 Farmen gebaut. Eine Sklavenabwicklungseinrichtung wird gebaut wenn es auf dem Planeten 4 oder mehr Sklaven gibt. Auf den verbliebenen Feldern werden Minen und eine Mineralienveredlungsanlage gebaut. Kraftwerke und Forschungslabore werden dabei ersetzt."
+
+ edict_planet_power_plant_autobuild:0 "Ausbau zu Energiezentrum"
+ edict_planet_power_plant_autobuild_desc:0 "Dieser Planet wird zum Energiezentrum umgebaut. Es werden standardmäßig 3 Farmen gebaut. Auf den verbliebenen Feldern werden Kraftwerken und ein Energiehub gebaut. Minen und Forschungslabore werden dabei ersetzt."
+
+ edict_planet_labs_autobuild:0 "Ausbau zu Forschungszentrum"
+ edict_planet_labs_autobuild_desc:0 "Dieser Planet wird zum Forschungszentrum umgebaut. Es werden standardmäßig 3 Farmen gebaut. Auf den verbliebenen Feldern werden Forschungslabore gebaut. Minen und Kraftwerke werden dabei ersetzt"
+
+ edict_planet_farms_autobuild:0 "Ausbau zu Agrarzentrum"
+ edict_planet_farms_autobuild_desc:0 "Dieser Planet wird zu einem Agrarzentrum umgebaut. Es werden auf allen Feldern Farmen gebaut. Wenn sich Minen, Kraftwerke oder Forschungslabore dort befinden werden diese ersetzt."
+
+ autobuild_planet_unique.tooltip:0 "\nEinstellung für seltene Gebäude (Klinik, Energie-Hub, etc.)"
+
+ autobuild_7:0 "Autobau auf freien Feldern"
+ autobuild_7.tooltip:0 "\nAutobau auf freien Feldern"
+
+ autobuild_farm_replace:0 "Farmen ersetzen"
+ autobuild_farm_replace.tooltip:0 "\nErlaube Farmen durch Kliniken zu ersetzen"
+
  # 2.7
  planet_forge_autobuild:0 "Industriezentrum"
- planet_forge_autobuild_desc:0 "Dieser Planet wird zum Industriezenterum umgebaut. Es werden Gebäude errichtet, die für dies Spezialisierung sinnvoll sind. Auf den verbliebenen Feldern werden Minen und eine Mineralveredelungsanlage gebaut. Kraftwerke und Forschungslabore werden dabei ersetzt."
- 
+ planet_forge_autobuild_desc:0 "Dieser Planet wird zu einem Industriezentrum umgebaut. Es werden Gebäude gebaut die für diese Spezialisierung sinnvoll sind, auf den restlichen Feldern werden Minen gebaut. Vorhandene normale Kraftwerke oder Labors werden ersetzt."
+
  planet_power_plant_autobuild:0 "Energiezentrum"
- planet_power_plant_autobuild_desc:0 "Dieser Planet wird zum Energiezenterum umgebaut. Es werden Gebäude errichtet, die für dies Spezialisierung sinnvoll sind. Auf den verbliebenen Feldern werden Kraftwerke gebaut. Minen und Forschungslabore werden dabei ersetzt."
- 
+ planet_power_plant_autobuild_desc:0 "Dieser Planet wird zu einem Energiezentrum umgebaut. Es werden Gebäude gebaut die für diese Spezialisierung sinnvoll sind, auf den restlichen Feldern werden Kraftwerke gebaut. Vorhandene normale Minen oder Labors werden ersetzt."
+
  planet_labs_autobuild:0 "Forschungszentrum"
- planet_labs_autobuild_desc:0 "Dieser Planet wird zum Forschungszentrum umgebaut. Es werden Gebäude errichtet, die für dies Spezialisierung sinnvoll sind. Auf den verbliebenen Feldern werden Forschungslabore gebaut. Minen und Kraftwerke werden dabei ersetzt."
- 
- planet_farms_autobuild:0 "Farmzentrum"
- planet_farms_autobuild_desc:0 "Dieser Planet wird zu einem Farmzentrum umgebaut. Es werden Gebäude errichtet, die für dies Spezialisierung sinnvoll sind. Auf den verbliebenen Feldern werden Farmen gebaut. Wenn sich Minen, Kraftwerke oder Forschungslabore dort befinden werden diese ersetzt."
- 
- autobuild_11:0 "Auto-Bau: "Energie-Hub""
- autobuild_11.tooltip:0 "\nAuto-Bau Energie-Hub auf jedem Planeten."
- 
- autobuild_12:0 "Auto-Bau: "Mineralveredelungsanlage""
- autobuild_12.tooltip:0 "\nAuto-Bau Mineralveredelungsanlage auf jedem Planeten."
- 
- autobuild_13:0 "Auto-Bau: Roboter"
- autobuild_13.tooltip:0 "\nWird Roboter dort errichten, wo es sinnvoll ist."
- 
+ planet_labs_autobuild_desc:0 "Dieser Planet wird zu einem Forschungszentrum umgebaut. Es werden Gebäude gebaut die für diese Spezialisierung sinnvoll sind, auf den restlichen Feldern werden Labors gebaut. Vorhandene normale Minen oder Kraftwerke werden ersetzt."
+
+ planet_farms_autobuild:0 "Agrarzentrum"
+ planet_farms_autobuild_desc:0 "Dieser Planet wird zu einem Agrarzentrum umgebaut. Es werden Gebäude gebaut die für diese Spezialisierung sinnvoll sind, auf den restlichen Feldern werden Farmen gebaut. Vorhandene normale Minen, Kraftwerke oder Labors werden ersetzt."
+
+ autobuild_11:0 "Autobau: "Energie-Hub""
+ autobuild_11.tooltip:0 "\nAutomatischer Bau von Energie-Hubs auf jedem Planeten."
+
+ autobuild_12:0 "Autobau: "Mineral-Veredlungsanlage""
+ autobuild_12.tooltip:0 "\nAutomatischer Bau von Mineral-Veredlungsanlage auf jedem Planeten."
+
+ autobuild_13:0 "Autobau: "Roboter"
+ autobuild_13.tooltip:0 "\nAutomatischer Bau von Robotern, übberall dort wo es Sinn macht."
+
  autobuild_13_on:0 "$modmenu_on$ $autobuild_13$"
  autobuild_13_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_13.tooltip$"
  autobuild_13_off:0 "$modmenu_off$ $autobuild_13$"
  autobuild_13_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_13.tooltip$"
- 
- autobuild_14:0 "Auto-Bau: Alphamod"
- autobuild_14.tooltip:0 "\nWird einige Alphamod Gebäude errichten."
- 
+
+ autobuild_14:0 "Autobau: "Alphamod"
+ autobuild_14.tooltip:0 "\nEs werden einige Alphamod Gebäude gebaut."
+
  autobuild_14_on:0 "$modmenu_on$ $autobuild_14$"
  autobuild_14_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_14.tooltip$"
  autobuild_14_off:0 "$modmenu_off$ $autobuild_14$"
  autobuild_14_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_14.tooltip$"
- 
- autobuild_15:0 "Autobuild: "Kreislaufinstitut""
- autobuild_15.tooltip:0 "\nAuto-Bau Kreislaufinstitut auf jedem Planeten."
- 
+
+ autobuild_15:0 "Autobau: "Loop Institute""
+ autobuild_15.tooltip:0 "\nAutomatischer Bau von Loop Institute auf jedem Planeten."
+
  autobuild_15_on:0 "$modmenu_on$ $autobuild_15$"
  autobuild_15_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_15.tooltip$"
  autobuild_15_off:0 "$modmenu_off$ $autobuild_15$"
  autobuild_15_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_15.tooltip$"
- 
+
  autobuild_ship_ignore_1_and_less_mineral:0 "Ignoriere 1 Mineral"
- autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "\nAuto-Bau Schiffe werden keine Bergbaustation errichten, wo es nur 1 Mineral gibt."
- 
+ autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "\nAutomatisches Konstruktionsschiff wird keine Bergbaustation bauen, wenn nur 1 Mineral vorhanden ist."
+
  autobuild_ship_ignore_1_and_less_mineral_on:0 "$modmenu_on$ $autobuild_ship_ignore_1_and_less_mineral$"
  autobuild_ship_ignore_1_and_less_mineral_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ship_ignore_1_and_less_mineral.tooltip$"
  autobuild_ship_ignore_1_and_less_mineral_off:0 "$modmenu_off$ $autobuild_ship_ignore_1_and_less_mineral$"
  autobuild_ship_ignore_1_and_less_mineral_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ship_ignore_1_and_less_mineral.tooltip$"
- 
+
  autobuild_ship_ignore_2_and_less_mineral:0 "Ignoriere 2 Mineralien oder weniger"
- autobuild_ship_ignore_2_and_less_mineral.tooltip:0 "\nAuto-Bau Schiffe werden keine Bergbaustation errichten, wo es nur 2 Mineralien oder weniger gibt."
- 
+ autobuild_ship_ignore_2_and_less_mineral.tooltip:0 "\nAutomatisches Konstruktionsschiff wird keine Bergbaustation bauen, wenn nur 2 oder weniger Mineralien vorhanden sind."
+
  autobuild_ship_ignore_2_and_less_mineral_on:0 "$modmenu_on$ $autobuild_ship_ignore_2_and_less_mineral$"
  autobuild_ship_ignore_2_and_less_mineral_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ship_ignore_2_and_less_mineral.tooltip$"
  autobuild_ship_ignore_2_and_less_mineral_off:0 "$modmenu_off$ $autobuild_ship_ignore_2_and_less_mineral$"
  autobuild_ship_ignore_2_and_less_mineral_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ship_ignore_2_and_less_mineral.tooltip$"
- 
+
  # v2.8
- autobuild_5:0 "Auto-Verbesserung Forschungslabore"
- autobuild_5.tooltip:0 "\nAlle Einfachen Forschungslabore werden verbessert, entsprechend der Einstellungen."
- 
+ autobuild_5:0 "Autom. Verbesserung der Labore"
+ autobuild_5.tooltip:0 "\nAlle einfachen Labore werden in Abhängigkeit von den Einstellungen verbessert."
+
  autobuild_labs_not_count_planet:0 "Planetenmodifikationen nicht berücksichtigen"
- autobuild_labs_not_count_planet.tooltip:0 "\nDie Verbesserung der Forschungslabore erfolgt ohne Rücksicht auf Planetenmodifikatoren."
- 
+ autobuild_labs_not_count_planet.tooltip:0 "\nDie Verbesserung der Labore erfolgt ohne Rücksicht auf die Modifikatoren der Planeten.  "
+
  autobuild_labs_not_count_planet_on:0 "$modmenu_on$ $autobuild_labs_not_count_planet$"
  autobuild_labs_not_count_planet_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_not_count_planet.tooltip$"
  autobuild_labs_not_count_planet_off:0 "$modmenu_off$ $autobuild_labs_not_count_planet$"
  autobuild_labs_not_count_planet_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_not_count_planet.tooltip$"
- 
- autobuild_labs_disable_random:0 "Entferne zufällige Verbesserung von Forschungslaboren"
- autobuild_labs_disable_random.tooltip:0 "\nWenn das Forschungslabor nicht unter eine Bedingung fällt, wird es nicht zufällig verbessert."
- 
+
+ autobuild_labs_disable_random:0 "Entferne zufällige Verbesserung der Labore"
+ autobuild_labs_disable_random.tooltip:0 "\nWenn die Labore nicht unter eine Bedingung fallen, werden sie nicht zufällig verbessert."
+
  autobuild_labs_disable_random_on:0 "$modmenu_on$ $autobuild_labs_disable_random$"
  autobuild_labs_disable_random_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_disable_random.tooltip$"
  autobuild_labs_disable_random_off:0 "$modmenu_off$ $autobuild_labs_disable_random$"
  autobuild_labs_disable_random_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_disable_random.tooltip$"
- 
- autobuild_labs_physics_priority:0 "Physikpriorität"
- autobuild_labs_physics_priority.tooltip:0 "\nEinfache Forschungslabore werden doppelt so oft in Richtung Physik verbessert."
- 
+
+ autobuild_labs_physics_priority:0 "Physik Priorität"
+ autobuild_labs_physics_priority.tooltip:0 "\nEinfache Labore werden doppelt so oft zu Pysiklabore verbessert."
+
  autobuild_labs_physics_priority_on:0 "$modmenu_on$ $autobuild_labs_physics_priority$"
  autobuild_labs_physics_priority_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_physics_priority.tooltip$"
  autobuild_labs_physics_priority_off:0 "$modmenu_off$ $autobuild_labs_physics_priority$"
  autobuild_labs_physics_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_physics_priority.tooltip$"
- 
- autobuild_labs_bio_priority:0 "Biologiepriorität"
- autobuild_labs_bio_priority.tooltip:0 "\nEinfache Forschungslabore werden doppelt so oft in Richtung Biologie verbessert."
- 
+
+ autobuild_labs_bio_priority:0 "Biologie Priorität"
+ autobuild_labs_bio_priority.tooltip:0 "\nEinfache Labore werden doppelt so oft zu Bilogielabore verbessert."
+
  autobuild_labs_bio_priority_on:0 "$modmenu_on$ $autobuild_labs_bio_priority$"
  autobuild_labs_bio_priority_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_bio_priority.tooltip$"
  autobuild_labs_bio_priority_off:0 "$modmenu_off$ $autobuild_labs_bio_priority$"
  autobuild_labs_bio_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_bio_priority.tooltip$"
- 
- autobuild_labs_engineering_priority:0 "Ingenieurpriorität"
- autobuild_labs_engineering_priority.tooltip:0 "\nEinfache Forschungslabore werden doppelt so oft in Richtung Ingenieurwesen verbessert."
- 
+
+ autobuild_labs_engineering_priority:0 "Ingenieur Priorität"
+ autobuild_labs_engineering_priority.tooltip:0 "\nEinfache Labore werden doppelt so oft zu Ingenieurlabore verbessert."
+
  autobuild_labs_engineering_priority_on:0 "$modmenu_on$ $autobuild_labs_engineering_priority$"
  autobuild_labs_engineering_priority_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_engineering_priority.tooltip$"
  autobuild_labs_engineering_priority_off:0 "$modmenu_off$ $autobuild_labs_engineering_priority$"
  autobuild_labs_engineering_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_engineering_priority.tooltip$"
- 
- autobuild_labs_menu:0 "§BMenü:§! Forschungslabore verbessern"
- autobuild_others_options_menu:0 "§BMenü§! Weitere Einstellungen"
- autobuild_7_settings:0 "§BMenü:§! Auto-Bau auf leeren Feldern"
+
+ autobuild_labs_menu:0 "§BMenü:§! Labore verbessern"
+ autobuild_others_options_menu:0 "§BMenü:§! Weitere Optionen"
+ autobuild_7_settings:0 "§BMenü:§! Autobau auf leeren Feldern"
  autobuild_planet_unique:0 "§BMenü:§! Einzigartige Gebäude"
- 
- # 2.8.1
- autobuild_fleet:0 "Autobuild: Space Stations"
- autobuild_fleet.tooltip:0 "\nAll current construction ships will be assigned to autobuild. If you want to use them for their needs, disable this option or build a new construction ship. Ships will be listed as "event blocked", is this normal"
+
+ #v2.8.1
+ autobuild_fleet:0 ""Autobau von Raumstationen""
+ autobuild_fleet.tooltip:0 "\nAlle aktuellen Konstruktionsschiffe werden dem Auto-Bau zugeordnet. Wenn Sie diese selbst nutzen wollen, deaktivieren Sie diese Option oder bauen Sie ein neues Konstruktionsschiff. Die Schiffe werden als "Blockierte Ereignisse" aufgeführt, das ist normal."

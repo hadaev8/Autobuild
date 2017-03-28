@@ -50,7 +50,7 @@ autobuild_build_basic_lab = {
 								amount > 0
 							}
 						}
-						add_building_construction = "building_society_lab_0"
+						add_building_construction = "building_bio_lab_0"
 						else = {
 							if = {
 								limit = {
@@ -59,32 +59,7 @@ autobuild_build_basic_lab = {
 										amount > 0
 									}
 								}
-								add_building_construction = "building_engineering_lab_0"
-								else = {
-									random_list = {
-										33 = {
-											modifier = {
-												factor = 2
-												owner = { has_country_flag = autobuild_labs_physics_priority }
-											}
-											add_building_construction = "building_physics_lab_0"
-										}
-										33 = {
-											modifier = {
-												factor = 2
-												owner = { has_country_flag = autobuild_labs_bio_priority }
-											}
-											add_building_construction = "building_society_lab_0"
-										}
-										33 = {
-											modifier = {
-												factor = 2
-												owner = { has_country_flag = autobuild_labs_engineering_priority }
-											}
-											add_building_construction = "building_engineering_lab_0"
-										}
-									}
-								}
+								add_building_construction = "building_engineering_facility_0"
 							}
 						}
 					}

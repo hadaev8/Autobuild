@@ -130,6 +130,9 @@ fleet_event = {
 						}
 						move_to = this
 					}
+					failed = {
+						wait = 100
+					}
 				}
 				find_closest_planet = {
 					trigger = {
@@ -243,7 +246,9 @@ fleet_event = {
 									root.owner = {
 										minerals > 90
 										or = {
-											not = { has_country_flag = autobuild_cost }
+											not = {
+												has_country_flag = autobuild_cost
+											}
 											and = {
 												has_country_flag = autobuild_cost_5000
 												minerals > 5000
@@ -2359,37 +2364,7 @@ planet_event = {
 				}
 				tile_has_science_more_than_others = yes
 			}
-			if = {
-				limit = {
-					not = { has_global_flag = star_trek_new_horizons }
-				}
-				add_building_construction = "building_basic_science_lab_1"
-				else = {
-					if = {
-						limit = {
-							has_resource = {
-								type = physics_research
-								amount > 0
-							}
-						}
-						add_building_construction = "building_physics_lab_0"
-						else = {
-							if = {
-								limit = {
-									has_resource = {
-										type = society_research
-										amount > 0
-									}
-								}
-								add_building_construction = "building_society_lab_0"
-								else = {
-									add_building_construction = "building_engineering_lab_0"
-								}
-							}
-						}
-					}
-				}
-			}
+			autobuild_build_basic_lab = yes
 		}
 		if = {
 			limit = {
@@ -3185,7 +3160,7 @@ planet_event = {
 					"building_shanty_farm" = { add_building_construction = "building_hydroponics_farm_1" }
 					"building_shanty_mine" = { add_building_construction = "building_mining_network_1" }
 					"building_shanty_market" = { add_building_construction = "building_power_plant_1" }
-					"building_shanty_school" = { autobuild_build_basic_lab = yes }
+					"building_shanty_school" = { add_building_construction = "building_basic_science_lab_1" }
 					"building_military_academy" = { add_building_construction = "building_military_base" }
 					"building_military_academy" = { add_building_construction = "building_militia_hq" }
 
