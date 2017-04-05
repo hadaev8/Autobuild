@@ -71,7 +71,7 @@ has_any_science_lab = {
 		has_building = "building_engineering_facility_2"
 		has_building = "building_engineering_facility_3"
 		has_building = "building_engineering_facility_4"
-		
+
 		# star trek
 		has_building = "building_physics_lab_0"
 		has_building = "building_society_lab_0"
@@ -157,6 +157,7 @@ has_any_farm_not_replace = {
 		has_building = "building_hospital"
 		has_building = "building_agri_processing_complex"
 		has_building = "building_great_pyramid"
+		has_building = "building_paradise_dome"
 
 		# horizont dlc
 		has_building = "building_worm_farm"
@@ -349,7 +350,7 @@ has_any_science_lab_not_replace = {
 		has_building = "building_underwaterlab"
 		has_building = "building_desertresearch"
 		has_building = "building_icereseach"
-		
+
 		# star trek
 		has_building = "building_war_factory"
 	}

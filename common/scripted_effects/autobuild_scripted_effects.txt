@@ -68,3 +68,29 @@ autobuild_build_basic_lab = {
 		}
 	}
 }
+
+# for planet
+autobuild_effect_set_planet_local_build = {
+	planet_event = { id = autobuild.101 }
+	planet_event = { id = autobuild.102 }
+	planet_event = { id = autobuild.103 }
+	planet_event = { id = autobuild.104 }
+	planet_event = { id = autobuild.105 }
+	planet_event = { id = autobuild.106 }
+	planet_event = { id = autobuild.107 }
+	planet_event = { id = autobuild.108 }
+	planet_event = { id = autobuild.109 }
+	planet_event = { id = autobuild.110 }
+
+	planet_event = { id = autobuild.130 }
+	planet_event = { id = autobuild.131 }
+	planet_event = { id = autobuild.132 }
+	planet_event = { id = autobuild.133 }
+	planet_event = { id = autobuild.134 }
+	planet_event = { id = autobuild.135 }
+	planet_event = { id = autobuild.136 }
+	planet_event = { id = autobuild.137 }
+	planet_event = { id = autobuild.138 }
+	planet_event = { id = autobuild.139 }
+	planet_event = { id = autobuild.140 }
+}
