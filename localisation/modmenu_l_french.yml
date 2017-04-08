@@ -1,5 +1,5 @@
 ﻿l_french:
- modmenu_button:0 "Menu des mods" 
+ modmenu_button:0 "Menu des mods"
  modmenu.tooltip:0 "§HOuvrir§! le menu des mods d'Had."
  modmenu.1.name:0 "Menu des mods"
  modmenu.1.desc:0 "Ici tu peux configurer les mods."
@@ -15,12 +15,11 @@
  modmenu_return:0 "Retour"
  modmenu_yes:0 "Oui"
  modmenu_no:0 "Non"
- 
- modmenu_1:0 "§HAuto Build and Improve Buildings ENG/RUS/FRA§!"
+ modmenu_1:0 "§HAuto Build and Improve Buildings§!"
  modmenu_1.tooltip:0 "Ici tu peux configurer §HAuto Build and Improve Buildings ENG/RUS/FRA§!, si tu as installé et activé ce mod."
  modmenu_2:0 "§HHarder Invaders§!"
  modmenu_2.tooltip:0 "Ici tu peux configurer §HHarder Invaders§!, si tu as installé et activé ce mod."
  modmenu_3:0 "§HImproved Population§!"
  modmenu_3.tooltip:0 "Ici tu peux configurer §HImproved Population§!, si tu as installé et activé ce mod."
- modmenu_4:0 "§HEmpire Déchu Humain (Bientôt)§!"
- modmenu_4.tooltip:0 "Bientôt"
+ modmenu_4:0 "§HEmpire Déchu Humain§!"
+ modmenu_4.tooltip:0 "Here you can configure §HHuman Fallen Empires§!, if you have installed this mod."

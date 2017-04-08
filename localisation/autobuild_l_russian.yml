@@ -5,61 +5,61 @@
  autobuild.5.desc:0 "Здесь вы можете настроить автопостройку ферм"
 
  autobuild_0:0 "§HВключить§! все основные настройки мода"
- autobuild_0.tooltip:0 "\nВключает все настройки"
+ autobuild_0.tooltip:0 "Включает все настройки"
 
  autobuild_1:0 "Автоулучшения зданий"
- autobuild_1.tooltip:0 "\nВсе постройки (кроме базовых лабораторий и тех, которые стоят влияния) будут автоматически улучшаться."
+ autobuild_1.tooltip:0 "Все постройки (кроме базовых лабораторий и тех, которые стоят влияния) будут автоматически улучшаться."
 
  autobuild_2:0 "Автоулучшения зданий за влияние"
- autobuild_2.tooltip:0 "\nБудут улучшаться здания, улучшение которых стоит трат влияния."
+ autobuild_2.tooltip:0 "Будут улучшаться здания, улучшение которых стоит трат влияния."
 
  autobuild_3:0 "Автопостройка новых зданий на хороших клетках"
- autobuild_3.tooltip:0 "\nВ клетках с энергией и населением не в рабстве будут строиться электростанции, в клетках с минералами будут строиться шахты, в клетках с любым научным ресурсом и населением не в рабстве будут строиться базовые лаборатории, будут строиться фермы (3 по умолчанию)."
+ autobuild_3.tooltip:0 "В клетках с энергией и населением не в рабстве будут строиться электростанции, в клетках с минералами будут строиться шахты, в клетках с любым научным ресурсом и населением не в рабстве будут строиться базовые лаборатории, будут строиться фермы (3 по умолчанию)."
 
  autobuild_4:0 "Авто рабство"
- autobuild_4.tooltip:0 "\nНаселение станет рабами в клетках с шахтами, фермами, планетарными столицами и тд. В общем в любых клетках, где рабы дадут прибыль. Там, где рабы не необходимы, население станет свободным."
+ autobuild_4.tooltip:0 "Население станет рабами в клетках с шахтами, фермами, планетарными столицами и тд. В общем в любых клетках, где рабы дадут прибыль. Там, где рабы не необходимы, население станет свободным."
 
  autobuild_4_1:0 "Чужаки должны быть рабами!"
- autobuild_4_1.tooltip:0 "\nВсе население, не принадлежащее к основному виду, будет рабами"
+ autobuild_4_1.tooltip:0 "Все население, не принадлежащее к основному виду, будет рабами"
 
  autobuild_4_2:0 "Дайте рабам их шахты!"
- autobuild_4_2.tooltip:0 "\nВ клетках с электростанциями и лабораториями и с населением в рабстве будут построены шахты, нам же не нужны умные рабы?"
+ autobuild_4_2.tooltip:0 "В клетках с электростанциями и лабораториями и с населением в рабстве будут построены шахты, нам же не нужны умные рабы?"
 
  autobuild_6:0 "Полуслучайное улучшение лабораторий"
- autobuild_6.tooltip:0 "\nВсе лаборатории будут улучшаться в зависимости от трейтов населения (полезно, если вы сделали специализированную на науке планету и с помощью генной инженерии добавили трейт специализация какого-типа науки) и типа ресурса в клетке (полезно, если ваше население имеет трейт на определенный вид науки), если же ресурса нет, то вид лаборатории будет выбран случайно (если не активена опция номер 5, то лаборатории будут улучшаться случайно даже на планетах с полезными для науки модификаторами)"
+ autobuild_6.tooltip:0 "Все лаборатории будут улучшаться в зависимости от трейтов населения (полезно, если вы сделали специализированную на науке планету и с помощью генной инженерии добавили трейт специализация какого-типа науки) и типа ресурса в клетке (полезно, если ваше население имеет трейт на определенный вид науки), если же ресурса нет, то вид лаборатории будет выбран случайно (если не активена опция номер 5, то лаборатории будут улучшаться случайно даже на планетах с полезными для науки модификаторами)"
 
  autobuild_7_1:0 "Энергетический приоритет"
- autobuild_7_1.tooltip:0 "\nВ пустых клетках будут строиться только электростанции."
+ autobuild_7_1.tooltip:0 "В пустых клетках будут строиться только электростанции."
  autobuild_7_2:0 "Промышленный приоритет"
- autobuild_7_2.tooltip:0 "\nВ пустых клетках будут строиться только шахты."
+ autobuild_7_2.tooltip:0 "В пустых клетках будут строиться только шахты."
  autobuild_7_3:0 "Научный приоритет"
- autobuild_7_3.tooltip:0 "\nВ пустых клетках будут строиться только лаборатории."
+ autobuild_7_3.tooltip:0 "В пустых клетках будут строиться только лаборатории."
  autobuild_7_4:0 "Умеренно научный"
- autobuild_7_4.tooltip:0 "\nВ пустых клетках будут строиться 1 электростанция на 4 лаборатории."
+ autobuild_7_4.tooltip:0 "В пустых клетках будут строиться 1 электростанция на 4 лаборатории."
  autobuild_7_6:0 "Сбалансированный приоритет"
- autobuild_7_6.tooltip:0 "\nВ пустых клетках будут строиться 1 шахта к 1 электростанции к 1 лаборатории."
+ autobuild_7_6.tooltip:0 "В пустых клетках будут строиться 1 шахта к 1 электростанции к 1 лаборатории."
  autobuild_7_7:0 "Энерго-научный приоритет"
- autobuild_7_7.tooltip:0 "\nВ пустых клетках будут строиться 1 электростанция к 1 лаборатории."
+ autobuild_7_7.tooltip:0 "В пустых клетках будут строиться 1 электростанция к 1 лаборатории."
  autobuild_7_8:0 "Игнорировать минералы"
- autobuild_7_8.tooltip:0 "\nАвтопостройка новых зданий в пустых клетках будет игнорировать наличие минералов в клетке."
+ autobuild_7_8.tooltip:0 "Автопостройка новых зданий в пустых клетках будет игнорировать наличие минералов в клетке."
  autobuild_7_9:0 "Игнорировать еду"
- autobuild_7_9.tooltip:0 "\nАвтопостройка новых зданий в пустых клетках будет игнорировать наличие еды в клетке."
+ autobuild_7_9.tooltip:0 "Автопостройка новых зданий в пустых клетках будет игнорировать наличие еды в клетке."
  autobuild_7_10:0 "Игнорировать энергию"
- autobuild_7_10.tooltip:0 "\nАвтопостройка новых зданий в пустых клетках будет игнорировать наличие энергии в клетке."
+ autobuild_7_10.tooltip:0 "Автопостройка новых зданий в пустых клетках будет игнорировать наличие энергии в клетке."
  autobuild_7_11:0 "Игнорировать науку"
- autobuild_7_11.tooltip:0 "\nАвтопостройка новых зданий в пустых клетках будет игнорировать наличие научных бонусов в клетке."
+ autobuild_7_11.tooltip:0 "Автопостройка новых зданий в пустых клетках будет игнорировать наличие научных бонусов в клетке."
 
  autobuild_8:0 "Автопостройка: "Клиника"
- autobuild_8.tooltip:0 "\nНа каждой планете, где есть 4 или больше населения, для которых планета не на 100% пригодна, будет выбрана клетка с пищей и без минералов, если это возможно, в конечном итоге будет выбрана любая свободная клетка (наличие населения не обязательно) и построена клиника."
+ autobuild_8.tooltip:0 "На каждой планете, где есть 4 или больше населения, для которых планета не на 100% пригодна, будет выбрана клетка с пищей и без минералов, если это возможно, в конечном итоге будет выбрана любая свободная клетка (наличие населения не обязательно) и построена клиника."
 
  autobuild_cost:0 "Оставить запас ресурсов"
- autobuild_cost.tooltip:0 "\nВсе постройки и улучшения будут происходить, если у вас есть достаточно ресурсов (по умолчанию: 1000 минералов или 250 влияния, если оно требуется)."
+ autobuild_cost.tooltip:0 "Все постройки и улучшения будут происходить, если у вас есть достаточно ресурсов (по умолчанию: 1000 минералов или 250 влияния, если оно требуется)."
 
  autobuild_cost_menu:0 "§HНастроить§! "Оставить запас ресурсов"
- autobuild_cost_menu.tooltip:0 "\nЗдесь вы можете настроить запас ресурсов."
+ autobuild_cost_menu.tooltip:0 "Здесь вы можете настроить запас ресурсов."
 
  autobuild_farm_menu:0 "§HНастроить§! колличество ферм"
- autobuild_farm_menu.tooltip:0 "\nЗдесь вы можете настроить колличество ферм (пока работает для специализированных планет и автопостройки на хороших клетках)."
+ autobuild_farm_menu.tooltip:0 "Здесь вы можете настроить колличество ферм (пока работает для специализированных планет и автопостройки на хороших клетках)."
 
  autobuild_cost_5000:0 "§HОставлять§! 5000 минералов"
  autobuild_cost_2500:0 "§HОставлять§! 2500 минералов"
@@ -120,18 +120,18 @@
 
  # 2.3
  autobuild_fleet:0 "Автопостройка: Космостанции"
- autobuild_fleet.tooltip:0 "\nВсе текущие строительные корабли будут назначены на автопостройку. Если вы хотите использовать их для своих нужд, отключите эту опцию или постройте новый строительный корабль. Корабли будут значиться "событие заблокировано", это нормально."
+ autobuild_fleet.tooltip:0 "Все текущие строительные корабли будут назначены на автопостройку. Если вы хотите использовать их для своих нужд, отключите эту опцию или постройте новый строительный корабль. Корабли будут значиться "событие заблокировано", это нормально."
 
  autobuild_10:0 "Авторасчистка"
- autobuild_10.tooltip:0 "\nАвтоматическая расчистка плиток. §RВнимание§!, это отчасти читерная опция, тк блокираторы будут исчезать мгновенно."
+ autobuild_10.tooltip:0 "Автоматическая расчистка плиток. §RВнимание§!, это отчасти читерная опция, тк блокираторы будут исчезать мгновенно."
 
- autobuild_planet_unique.tooltip:0 "\nНастройка постройки редки зданий (клиника, энергоузел и тд)"
+ autobuild_planet_unique.tooltip:0 "Настройка постройки редки зданий (клиника, энергоузел и тд)"
 
  autobuild_7:0 "Автопостройка на пустых плитках"
- autobuild_7.tooltip:0 "\nАвтопостройка на пустых плитках"
+ autobuild_7.tooltip:0 "Автопостройка на пустых плитках"
 
  autobuild_farm_replace:0 "Замена фермы"
- autobuild_farm_replace.tooltip:0 "\nРазрешить клинике заменить ферму"
+ autobuild_farm_replace.tooltip:0 "Разрешить клинике заменить ферму"
 
  autobuild.6.desc:0 "Здесь вы можете настроить автопостройку уникальных зданий"
  autobuild.7.desc:0 "Здесь вы можете настроить автопостройку на пустых плитках"
@@ -210,10 +210,10 @@
 
  #2.5
  autobuild_ai_allowed:0 "Разрешить ИИ пользоваться автопостройкой"
- autobuild_ai_allowed.tooltip:0 "\nУ ИИ здания будут строиться так же, как и у игрока."
+ autobuild_ai_allowed.tooltip:0 "У ИИ здания будут строиться так же, как и у игрока."
 
  autobuild_labs_not_count_trait:0 "Не учитывать трейты"
- autobuild_labs_not_count_trait.tooltip:0 "\n"Не учитывать трейты населения (умелые социологи, физики, инженеры) при улучшении лабораторий."
+ autobuild_labs_not_count_trait.tooltip:0 ""Не учитывать трейты населения (умелые социологи, физики, инженеры) при улучшении лабораторий."
 
  autobuild_ai_allowed_on:0 "$modmenu_on$ $autobuild_ai_allowed$"
  autobuild_ai_allowed_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ai_allowed.tooltip$"
@@ -227,7 +227,7 @@
 
  # 2.6
  autobuild_9:0 "Автопостройка: "Бункер для минералов"
- autobuild_9.tooltip:0 "\nБудет строиться бункер для минералов везде, где это имеет смысл."
+ autobuild_9.tooltip:0 "Будет строиться бункер для минералов везде, где это имеет смысл."
 
  # 2.7
  planet_forge_autobuild:0 "Индустриальный центр"
@@ -243,13 +243,13 @@
  planet_farms_autobuild_desc:0 "Эта планета будет перестроена в фермерский центр. Будут построены фермы на всех плитках. Обычные шахты, электростанции и лаборатории будут перестроены."
 
  autobuild_11:0 "Автопостройка: "Энергоузел"
- autobuild_11.tooltip:0 "\nЭнергоузел будет построен на каждой планете."
+ autobuild_11.tooltip:0 "Энергоузел будет построен на каждой планете."
 
  autobuild_12:0 "Автопостройка: "Фабрика полезных ископаемых"
- autobuild_12.tooltip:0 "\nФабрика по переработке ископаемых будет построена на каждой планете."
+ autobuild_12.tooltip:0 "Фабрика по переработке ископаемых будет построена на каждой планете."
 
  autobuild_13:0 "Автопостройка: Роботы"
- autobuild_13.tooltip:0 "\nБудут строиться роботы там, где это имеет смысл."
+ autobuild_13.tooltip:0 "Будут строиться роботы там, где это имеет смысл."
 
  autobuild_13_on:0 "$modmenu_on$ $autobuild_13$"
  autobuild_13_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_13.tooltip$"
@@ -257,15 +257,15 @@
  autobuild_13_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_13.tooltip$"
 
  autobuild_14:0 "Автопостройка: Альфамод"
- autobuild_14.tooltip:0 "\nБудут построены некоторые здания из альфамода."
+ autobuild_14.tooltip:0 "Будут построены некоторые здания из альфамода."
 
  autobuild_14_on:0 "$modmenu_on$ $autobuild_14$"
  autobuild_14_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_14.tooltip$"
  autobuild_14_off:0 "$modmenu_off$ $autobuild_14$"
  autobuild_14_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_14.tooltip$"
 
- autobuild_15:0 "Автопостройка: "Институт Кольца"
- autobuild_15.tooltip:0 "\nИнститут Кольца будет построен на каждой планете."
+ autobuild_15:0 "Автопостройка: "Институт Кольца""
+ autobuild_15.tooltip:0 "Институт Кольца будет построен на каждой планете."
 
  autobuild_15_on:0 "$modmenu_on$ $autobuild_15$"
  autobuild_15_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_15.tooltip$"
@@ -273,7 +273,7 @@
  autobuild_15_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_15.tooltip$"
 
  autobuild_ship_ignore_1_and_less_mineral:0 "Игнорировать 1 минерал"
- autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "\nКорабли автопостройки не будут строить добывающие станции там, где только 1 минерал."
+ autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "Корабли автопостройки не будут строить добывающие станции там, где только 1 минерал."
 
  autobuild_ship_ignore_1_and_less_mineral_on:0 "$modmenu_on$ $autobuild_ship_ignore_1_and_less_mineral$"
  autobuild_ship_ignore_1_and_less_mineral_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ship_ignore_1_and_less_mineral.tooltip$"
@@ -281,7 +281,7 @@
  autobuild_ship_ignore_1_and_less_mineral_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ship_ignore_1_and_less_mineral.tooltip$"
 
  autobuild_ship_ignore_2_and_less_mineral:0 "Игнорировать 2 минерала или меньше"
- autobuild_ship_ignore_2_and_less_mineral.tooltip:0 "\nКорабли автопостройки не будут строить добывающие станции там, где только 2 минерала или меньше."
+ autobuild_ship_ignore_2_and_less_mineral.tooltip:0 "Корабли автопостройки не будут строить добывающие станции там, где только 2 минерала или меньше."
 
  autobuild_ship_ignore_2_and_less_mineral_on:0 "$modmenu_on$ $autobuild_ship_ignore_2_and_less_mineral$"
  autobuild_ship_ignore_2_and_less_mineral_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ship_ignore_2_and_less_mineral.tooltip$"
@@ -290,10 +290,10 @@
 
  # v2.8
  autobuild_5:0 "Автоулучшение лабораторий"
- autobuild_5.tooltip:0 "\nВсе базовые лаборатории будут улучшаться в зависимости от настроек."
- 
+ autobuild_5.tooltip:0 "Все базовые лаборатории будут улучшаться в зависимости от настроек."
+
  autobuild_labs_not_count_planet:0 "Не учитывать модификаторы планет"
- autobuild_labs_not_count_planet.tooltip:0 "\nУлучшение лабораторий будет происходить без учета модификаторов планет."
+ autobuild_labs_not_count_planet.tooltip:0 "Улучшение лабораторий будет происходить без учета модификаторов планет."
 
  autobuild_labs_not_count_planet_on:0 "$modmenu_on$ $autobuild_labs_not_count_planet$"
  autobuild_labs_not_count_planet_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_not_count_planet.tooltip$"
@@ -301,7 +301,7 @@
  autobuild_labs_not_count_planet_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_not_count_planet.tooltip$"
 
  autobuild_labs_disable_random:0 "Убрать случайное улучшение лабораторий"
- autobuild_labs_disable_random.tooltip:0 "\nЕсли лаборатория не подпадает ни под одно условие, она не будет улучшаться в случайный тип."
+ autobuild_labs_disable_random.tooltip:0 "Если лаборатория не подпадает ни под одно условие, она не будет улучшаться в случайный тип."
 
  autobuild_labs_disable_random_on:0 "$modmenu_on$ $autobuild_labs_disable_random$"
  autobuild_labs_disable_random_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_disable_random.tooltip$"
@@ -309,7 +309,7 @@
  autobuild_labs_disable_random_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_disable_random.tooltip$"
 
  autobuild_labs_physics_priority:0 "Физический приоритет"
- autobuild_labs_physics_priority.tooltip:0 "\nБазовая лаборатория будет улучшаться в физическую в два раза чаще."
+ autobuild_labs_physics_priority.tooltip:0 "Базовая лаборатория будет улучшаться в физическую в два раза чаще."
 
  autobuild_labs_physics_priority_on:0 "$modmenu_on$ $autobuild_labs_physics_priority$"
  autobuild_labs_physics_priority_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_physics_priority.tooltip$"
@@ -317,7 +317,7 @@
  autobuild_labs_physics_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_physics_priority.tooltip$"
 
  autobuild_labs_bio_priority:0 "Биологический приоритет"
- autobuild_labs_bio_priority.tooltip:0 "\nБазовая лаборатория будет улучшаться в биологическую в два раза чаще."
+ autobuild_labs_bio_priority.tooltip:0 "Базовая лаборатория будет улучшаться в биологическую в два раза чаще."
 
  autobuild_labs_bio_priority_on:0 "$modmenu_on$ $autobuild_labs_bio_priority$"
  autobuild_labs_bio_priority_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_bio_priority.tooltip$"
@@ -325,14 +325,43 @@
  autobuild_labs_bio_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_bio_priority.tooltip$"
 
  autobuild_labs_engineering_priority:0 "Инженерный приоритет"
- autobuild_labs_engineering_priority.tooltip:0 "\nБазовая лаборатория будет улучшаться в инженерную в два раза чаще."
+ autobuild_labs_engineering_priority.tooltip:0 "Базовая лаборатория будет улучшаться в инженерную в два раза чаще."
 
  autobuild_labs_engineering_priority_on:0 "$modmenu_on$ $autobuild_labs_engineering_priority$"
  autobuild_labs_engineering_priority_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_engineering_priority.tooltip$"
  autobuild_labs_engineering_priority_off:0 "$modmenu_off$ $autobuild_labs_engineering_priority$"
  autobuild_labs_engineering_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_engineering_priority.tooltip$"
- 
+
  autobuild_labs_menu:0 "§BМеню:§! Улучшение лабораторий"
  autobuild_others_options_menu:0 "§BМеню§! других опций"
  autobuild_7_settings:0 "§BМеню:§! Автопостройка на пустых плитках"
  autobuild_planet_unique:0 "§BМеню:§! Уникальные здания"
+
+ # 2.9
+ autobuild_visitor_center:0 "Туристический центр"
+ autobuild_visitor_center.tooltip:0 "Туристический центр будет построен на каждой планете."
+ autobuild_visitor_center_on:0 "$modmenu_on$ $autobuild_visitor_center$"
+ autobuild_visitor_center_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_visitor_center.tooltip$"
+ autobuild_visitor_center_off:0 "$modmenu_off$ $autobuild_visitor_center$"
+ autobuild_visitor_center_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_visitor_center.tooltip$"
+ 
+ autobuild_slave_processing:0 "Блок подготовки рабов"
+ autobuild_slave_processing.tooltip:0 "Блок подготовки рабов будет построен на каждой планете, где есть рабы."
+ autobuild_slave_processing_on:0 "$modmenu_on$ $autobuild_slave_processing$"
+ autobuild_slave_processing_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_slave_processing.tooltip$"
+ autobuild_slave_processing_off:0 "$modmenu_off$ $autobuild_slave_processing$"
+ autobuild_slave_processing_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_slave_processing.tooltip$"
+ 
+ autobuild_temple:0 "Храм"
+ autobuild_temple.tooltip:0 "Храм будет построен на каждой планете."
+ autobuild_temple_on:0 "$modmenu_on$ $autobuild_temple$"
+ autobuild_temple_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_temple.tooltip$"
+ autobuild_temple_off:0 "$modmenu_off$ $autobuild_temple$"
+ autobuild_temple_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_temple.tooltip$"
+ 
+ autobuild_autochthon_monument:0 "Памятник первопроходцам"
+ autobuild_autochthon_monument.tooltip:0 "Памятник первопроходцам будет построен на каждой планете."
+ autobuild_autochthon_monument_on:0 "$modmenu_on$ $autobuild_autochthon_monument$"
+ autobuild_autochthon_monument_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_autochthon_monument.tooltip$"
+ autobuild_autochthon_monument_off:0 "$modmenu_off$ $autobuild_autochthon_monument$"
+ autobuild_autochthon_monument_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_autochthon_monument.tooltip$"

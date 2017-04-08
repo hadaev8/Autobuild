@@ -1,64 +1,38 @@
 ﻿l_french:
- modmenu_button:0 "Menu des mods"
- modmenu.tooltip:0 "\n§HOuvrir§! le menu des mods d'Had."
- modmenu.1.name:0 "Menu des mods"
- modmenu.1.desc:0 "Ici tu peux configurer les mods."
- edict_modmenu:0 "Menu des mods"
- edict_modmenu_desc:0 "Ici tu peux configurer les mods."
- modmenu_exit:0 "§LQuitter le menu§!"
- modmenu_remove:0 "§HDésactiver§! toutes les mesures"
- modmenu_remove.tooltip:0 "\nDésactive toutes les mesures d'empire et planètaires d'aménagement automatique."
- modmenu_on:0 "§GActiver§!"
- modmenu_off:0 "§RDésactiver§!"
- modmenu_tooltip_on:0 "Appuyer sur ce bouton va $modmenu_on$ cette option."
- modmenu_tooltip_off:0 "Appuyer sur ce bouton va $modmenu_off$ cette option."
- modmenu_return:0 "Retour"
- modmenu_yes:0 "Oui"
- modmenu_no:0 "Non"
- 
- modmenu_1:0 "§HAuto Build and Improve Buildings ENG/RUS/FRA§!"
- modmenu_1.tooltip:0 "Ici tu peux configurer §HAuto Build and Improve Buildings ENG/RUS/FRA§!, si tu as installé et activé ce mod."
- modmenu_2:0 "§HHarder Invaders§!"
- modmenu_2.tooltip:0 "Ici tu peux configurer §HHarder Invaders§!, si tu as installé et activé ce mod."
- modmenu_3:0 "§HImproved Population§!"
- modmenu_3.tooltip:0 "Ici tu peux configurer §HImproved Population§!, si tu as installé et activé ce mod."
- modmenu_4:0 "§HEmpire Déchu Humain (Bientôt)§!"
- modmenu_4.tooltip:0 "Bientôt"
- 
  autobuild.3.name:0 "Menu des mesures auto"
  autobuild.3.desc:0 "Ici, tu peux configurer les mesures automatiques à appliquer pour l'aménagement des cases de ton empire."
  autobuild.4.desc:0 "Ici, tu peux configurer les réserves de ressources."
  autobuild.5.desc:0 "Ici, tu peux configurer la construction automatique des fermes."
- 
+
  autobuild_0:0 "§HActiver§! toutes les mesures"
  autobuild_0.tooltip:0 "\nActive toutes les mesures."
- 
+
  autobuild_1:0 ""Amélioration automatique""
  autobuild_1.tooltip:0 "\nTous les bâtiments seront améliorés automatiquement, exceptés les laboratoires scientifiques basiques et ceux coûtant de l'influence."
- 
+
  autobuild_2:0 ""Amélioration auto coûtant de l'influence""
  autobuild_2.tooltip:0 "\nLes bâtiments qui ont un coût en influence seront améliorés automatiquement."
- 
+
  autobuild_3:0 ""Construction auto de nouveaux bâtiments""
  autobuild_3.tooltip:0 "\nUne case avec crédits énergétiques et sans esclave construira une centrale électrique, une case avec minéraux construira un réseau minier, une case avec ressource de recherche et sans esclave construira un laboratoire scientique basique. Il sera construire des fermes (par défaut 3)."
- 
+
  autobuild_4:0 ""Esclavage automatique""
  autobuild_4.tooltip:0 "\nUne population sur une case avec réseau minier, ferme, capitale planètaire, etc… sera automatiquement asservie. De manière générale, toutes les cases où les esclaves sont profitables. Les populations asservies qui n'apportent pas de bonus de rendement seront libérées."
- 
+
  autobuild_4_1:0 ""Un bon Xéno est un Xéno asservi !""
  autobuild_4_1.tooltip:0 "\nToutes les populations étrangères seront asservies."
- 
+
  autobuild_4_2:0 ""Les esclaves, à la mine !""
  autobuild_4_2.tooltip:0 "\nSi vous avez activé la mesure Esclavage automatique, cette mesure-ci ne sera pas prise en compte. Un réseau minier sera construit sur les cases où un esclave gère une centrale électrique ou un laboratoire. Un esclave intelligent ? Un esclave qui gère nos richesses ? Quelle idée absurde !"
- 
+
  autobuild_5:0 ""Amélioration des labos selon bonus planétaire""
  autobuild_5.tooltip:0 "\nTous les laboratoires scientifiques basiques sur une planète avec bonus pour un domaine scientifique spécifique (par exemple : puissant champ magnétique) s'amélioreront selon le bonus, afin de maximiser les rendements."
- 
+
  autobuild_6:0 ""Amélioration semi-aléatoire des laboratoires""
  autobuild_6.tooltip:0 "\nUn laboratoire sera amélioré selon les traits de la population (intéressant si votre population a un avantage de production pur tel type de sience), le type de ressource de la case (petit gain de productivité si votre population a un trait pour un certain domaine scientique). S'il n'y a pas de ressource, le type de laboratoire sera choisi aléatoirement (si le décret Amélioration des labos selon bonus planétaire n'est pas actif, le laboratoire sera amélioré aléatoirement même s'il existe un bonus planétaire)."
- 
+
  autobuild_7_1:0 ""Priorité aux finances""
- autobuild_7_1.tooltip:0 "\nIl sera construit des centrales électriques sur les cases dénuées de ressources." 
+ autobuild_7_1.tooltip:0 "\nIl sera construit des centrales électriques sur les cases dénuées de ressources."
  autobuild_7_2:0 ""Priorité à l'industrie""
  autobuild_7_2.tooltip:0 "\nIl sera construit des réseaux miniers sur les cases dénuées de ressources."
  autobuild_7_3:0 ""Priorité à la recherche""
@@ -77,22 +51,22 @@
  autobuild_7_10.tooltip:0 "\nLes cases avec crédits énergétiques seront considérées comme vides."
  autobuild_7_11:0 ""Ressources scientifiques ignorées""
  autobuild_7_11.tooltip:0 "\nLes cases avec ressources scientifiques seront considérées comme vides."
- 
+
  autobuild_8:0 ""Construction auto de cliniques""
  autobuild_8.tooltip:0 "\nUne clinique sera construite sur chaque planète où 4+ populations ont une adaptabilité inférieure à 100%, en priorité sur une case à 2 nourritures et sans minéraux, ou sur une case à 1 nourriture et sans minéral, ou sur une case à 1 nourriture avec 1 minéral, ou sur une case dénuée de ressources."
- 
+
  autobuild_9:0 ""Construction auto de silos de minéraux""
  autobuild_9.tooltip:0 "\nConstruction automatique d'un silo de minéraux sur chaque planète avec une case dénuée de ressource."
- 
+
  autobuild_cost:0 ""Garder une réserve""
  autobuild_cost.tooltip:0 "\nLes constructions et améliorations auront lieu si vous avez suffisamment de ressources (par défaut 1 000 minéraux et 250 influence si requis)."
- 
+
  autobuild_cost_menu:0 "§HConfigurer§! "Garder une réserve""
  autobuild_cost_menu.tooltip:0 "\nPour définir la quantité de ressources gardées en réserve."
- 
+
  autobuild_farm_menu:0 "§HConfigurer§! le nombre de fermes"
  autobuild_farm_menu.tooltip:0 "\nPour définir le nombre de fermes (incompatible avec la mesure Construction auto sur cases vides)."
- 
+
  autobuild_cost_5000:0 "§HGarder§! 5000 minéraux"
  autobuild_cost_2500:0 "§HGarder§! 2500 minéraux"
  autobuild_cost_1000:0 "§HGarder§! 1000 minéraux"
@@ -100,94 +74,94 @@
  autobuild_cost_inf_500:0 "§HGarder§! 500 influence"
  autobuild_cost_inf_250:0 "§HGarder§! 250 influence"
  autobuild_cost_inf_100:0 "§HGarder§! 100 influence"
- 
+
  autobuild_farm_0:0 "§HNe pas construire§! de fermes"
  autobuild_farm_1:0 "§HConstruire§! 1 ferme"
  autobuild_farm_2:0 "§HConstruire§! 2 fermes"
  autobuild_farm_3:0 "§HConstruire§! 3 fermes"
  autobuild_farm_4:0 "§HConstruire§! 4 fermes"
  autobuild_farm_5:0 "§HConstruire§! 5 fermes"
- 
+
  # edicts
  edict_no_sector:0 "Plus besoin de secteur"
  edict_no_sector_desc:0 "Tant que le décret est actif, vous n'avez pas besoin de secteur."
- 
+
  # planet edicts
  edict_clear_autobuild_planetary_edicts:0 "Aucune amélioration auto"
  edict_clear_autobuild_planetary_edicts_desc:0 "Tous les décrets globaux construisant, améliorant ou asservissant automatiquement seront ignorés."
- 
+
  edict_hide_planetary_edicts:0 "Affichage des décrets auto"
  edict_hide_planetary_edicts_desc:0 "Ce décret montrera ou cachera tous les décrets Automatique."
- 
+
  edict_free_auto_update:0 "Améliorations auto ignorées"
  edict_free_auto_update_desc:0 "Les bâtiments ne seront pas améliorés automatiquement."
- 
+
  edict_free_autobuild:0 "Constructions auto ignorées"
  edict_free_autobuild_desc:0 "Les bâtiments ne seront pas construits automatiquement."
- 
+
  edict_free_auto_enslave:0 "Asservissement auto ignoré"
  edict_free_auto_enslave_desc:0 "Le statut des populations, qu'elles soient libres ou asservies, ne sera pas impacté par les décrets globaux."
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
  # modifiers
  free_from_auto_update:0 "Améliorations auto ignorées"
  free_from_auto_update_desc:0 "Les bâtiments ne sont pas améliorés automatiquement."
- 
+
  free_from_autobuild:0 "Constructions auto ignorées"
  free_from_autobuild_desc:0 "Sur cette planète, les bâtiments ne sont pas construits automatiquement."
- 
+
  free_from_auto_enslave:0 "Asservissement auto ignoré"
  free_from_auto_enslave_desc:0 "Sur cette planète, les populations ne sont pas sujettes aux décrets globaux définissant la condition des populations."
- 
+
  planet_forge_autobuild:0 "Centre industriel"
  planet_forge_autobuild_desc:0 "Cette planète est reconstruite en tant que centre industriel. Des fermes seront construites (valeur à définir, par défaut 3). Un complexe de formation d'esclaves sera construit si la planète compte 4+ esclaves, et une centrale de traitement des minéraux et des réseaux miniers seront construits sur les cases restantes. S'il existe des centrales électriques ou laboratoires, ceux-ci seront remplacés."
- 
+
  planet_power_plant_autobuild:0 "Centre énergétique"
  planet_power_plant_autobuild_desc:0 "Cette planète est reconstruite en tant que centre énergétique. Des fermes seront construites (valeur à définir, par défaut 3). Une centrale d'alimentation et des centrales électriques seront construites sur les cases restantes. S'il existe des réseaux miniers ou laboratoires, ceux-ci seront remplacés."
- 
+
  planet_labs_autobuild:0 "Centre scientifique"
  planet_labs_autobuild_desc:0 "Cette planète est reconstruite en tant que centre scientifique. Des fermes seront construites (valeur à définir, par défaut 3). Des laboratoires seront construits sur les cases restantes. S'il existe des réseaux miniers ou centrales électriques, ceux-ci seront remplacés."
- 
+
  planet_farms_autobuild:0 "Centre agricole"
  planet_farms_autobuild_desc:0 "Cette planète sera reconstruite en tant que central agricole. Des fermes seront construites sur toutes les cases. S'il existe des réseaux miniers, centrales électriques ou laboratoires, ceux-ci seront remplacés."
- 
+
  #v2.3
  autobuild_fleet:0 ""Construction auto des stations""
  autobuild_fleet.tooltip:0 "\nTous les vaisseaux de construction, actuels, sont assignés à la construction automatique de stations spatiales. Si vous voulez les utiliser à une autre fin, désactivez cette fonctionnalité ou construisez un nouveau vaisseau de construction."
- 
+
  autobuild_10:0 ""Suppression des bloqueurs""
  autobuild_10.tooltip:0 "\nSupprime les bloqueurs. §RAttention§!, il s'agit d'une triche, les bloqueurs seront supprimés instantanément."
- 
+
  autobuild_11:0 ""Construction auto de centre d'alimentation""
  autobuild_11.tooltip:0 "\nConstruit automatiquement un centre d'alimentation sur les planètes avec au moins 10 centrales électriques."
- 
+
  autobuild_12:0 ""Construction auto de centrale de traitement des minéraux""
  autobuild_12.tooltip:0 "\nConstruit automatiquement une centrale de traitement des minéraux sur les planètes avec au moins 10 réseaux miniers."
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  autobuild_1_on.tooltip:0 "\n$modmenu_tooltip_on$ $autobuild_1.tooltip$"
  autobuild_2_on.tooltip:0 "\n$modmenu_tooltip_on$ $autobuild_2.tooltip$"
  autobuild_3_on.tooltip:0 "\n$modmenu_tooltip_on$ $autobuild_3.tooltip$"
@@ -205,7 +179,7 @@
  autobuild_fleet_on.tooltip:0 "\n$modmenu_tooltip_on$ $autobuild_fleet.tooltip$"
  autobuild_cost_on.tooltip:0 "\n$modmenu_tooltip_on$ $autobuild_cost.tooltip$"
  autobuild_farm_replace_on.tooltip:0 "\n$modmenu_tooltip_on$ $autobuild_farm_replace.tooltip$"
- 
+
  autobuild_1_on:0 "$modmenu_on$ $autobuild_1$"
  autobuild_2_on:0 "$modmenu_on$ $autobuild_2$"
  autobuild_3_on:0 "$modmenu_on$ $autobuild_3$"
@@ -223,7 +197,7 @@
  autobuild_fleet_on:0 "$modmenu_on$ $autobuild_fleet$"
  autobuild_cost_on:0 "$modmenu_on$ $autobuild_cost$"
  autobuild_farm_replace_on:0 "$modmenu_on$ $autobuild_farm_replace$"
- 
+
  autobuild_1_off.tooltip:0 "\n$modmenu_tooltip_off$ $autobuild_1.tooltip$"
  autobuild_2_off.tooltip:0 "\n$modmenu_tooltip_off$ $autobuild_2.tooltip$"
  autobuild_3_off.tooltip:0 "\n$modmenu_tooltip_off$ $autobuild_3.tooltip$"
@@ -241,7 +215,7 @@
  autobuild_fleet_off.tooltip:0 "\n$modmenu_tooltip_off$ $autobuild_fleet.tooltip$"
  autobuild_cost_off.tooltip:0 "\n$modmenu_tooltip_off$ $autobuild_cost.tooltip$"
  uto_build_cost_off.tooltip:0 "\n$modmenu_tooltip_off$ $autobuild_cost.tooltip$"
- 
+
  autobuild_1_off:0 "$modmenu_off$ $autobuild_1$"
  autobuild_2_off:0 "$modmenu_off$ $autobuild_2$"
  autobuild_3_off:0 "$modmenu_off$ $autobuild_3$"
@@ -259,115 +233,115 @@
  autobuild_fleet_off:0 "$modmenu_off$ $autobuild_fleet$"
  autobuild_cost_off:0 "$modmenu_off$ $autobuild_cost$"
  autobuild_farm_replace_off:0 "$modmenu_off$ $autobuild_farm_replace$"
- 
+
  # 2.5
  autobuild_ai_allowed:0 "Les IAs utilisent aussi Auto Build"
  autobuild_ai_allowed.tooltip:0 "\nLes bâtiments des IAs vont être construits de la même manière que ceux du joueur."
- 
+
  autobuild_labs_not_count_trait:0 "Traits non pris en compte"
  autobuild_labs_not_count_trait.tooltip:0 "\nNe prends pas en compte les traits des population pour les améliorations de laboratoires."
- 
+
  autobuild_others_options_menu:0 "§BMenu d'options annexes§!"
- 
+
  autobuild_ai_allowed_on:0 "$modmenu_on$ $autobuild_ai_allowed$"
  autobuild_ai_allowed_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ai_allowed.tooltip$"
  autobuild_ai_allowed_off:0 "$modmenu_off$ $autobuild_ai_allowed$"
  autobuild_ai_allowed_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ai_allowed.tooltip$"
- 
+
  autobuild_labs_not_count_trait_on:0 "$modmenu_on$ $autobuild_labs_not_count_trait$"
  autobuild_labs_not_count_trait_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_not_count_trait.tooltip$"
  autobuild_labs_not_count_trait_off:0 "$modmenu_off$ $autobuild_labs_not_count_trait$"
  autobuild_labs_not_count_trait_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_not_count_trait.tooltip$"
- 
+
  # 2.6
  edict_planet_forge_autobuild:0 "En faire un centre industriel"
  edict_planet_forge_autobuild_desc:0 "Cette planète sera reconstruite en tant que centre industriel. Des fermes seront construites (valeur à définir, par défaut 3). Un complexe de formation d'esclaves sera construit si la planète compte 4+ esclaves, et une centrale de traitement des minéraux et des réseaux miniers seront construits sur les cases restantes. S'il existe des centrales électriques ou laboratoires, ceux-ci seront remplacés."
- 
+
  edict_planet_power_plant_autobuild:0 "En faire un centre énergétique"
  edict_planet_power_plant_autobuild_desc:0 "Cette planète sera reconstruite en tant que centre énergétique. Des fermes seront construites (valeur à définir, par défaut 3). Une centrale d'alimentation et des centrales électriques seront construites sur les cases restantes. S'il existe des réseaux miniers ou laboratoires, ceux-ci seront remplacés."
- 
+
  edict_planet_labs_autobuild:0 "En faire un centre scientifique"
  edict_planet_labs_autobuild_desc:0 "Cette planète sera reconstruite en tant que centre scientifique. Des fermes seront construites (valeur à définir, par défaut 3). Des laboratoires seront construits sur les cases restantes. S'il existe des réseaux miniers ou centrales électriques, ceux-ci seront remplacés."
- 
+
  "edict_planet_farms_autobuild:0 ""En faire un centre agricole""
  "
  edict_planet_farms_autobuild_desc:0 "Cette planète sera reconstruite en tant que central agricole. Des fermes seront construites sur toutes les cases. S'il existe des réseaux miniers, centrales électriques ou laboratoires, ceux-ci seront remplacés."
- 
+
  autobuild_planet_unique:0 "Menu des bâtiments uniques"
  autobuild_planet_unique.tooltip:0 "\nParamétrage de la construction des bâtiments uniques (clinique, centre d'alimentation etc…)."
- 
+
  autobuild_7:0 "Menu construction auto sur les cases vides"
  autobuild_7_settings:0 "Paramétrage des constructions automatiques sur les cases vides."
  autobuild_7.tooltip:0 "\nConstruction automatique sur les cases vides."
- 
+
  autobuild_farm_replace:0 "Remplacement des fermes"
  autobuild_farm_replace.tooltip:0 "\nAutorise le remplacement des fermes par des cliniques."
- 
- 
- 
- 
+
+
+
+
  # 2.7
  planet_forge_autobuild:0 "Industrial Center"
  planet_forge_autobuild_desc:0 "This planet will be rebuilt into an industrial center. Will be constructed buildings that makes sense for this specialization, mines will be built in the remaining tiles. If there are any regular power plants or laboratories, they will be replaced."
- 
+
  planet_power_plant_autobuild:0 "Energy Center"
  planet_power_plant_autobuild_desc:0 "This planet will be rebuilt into an energy center. Will be constructed buildings that makes sense for this specialization, power plants will be built in the remaining tiles. If there are any regular mines or laboratories, they will be replaced."
- 
+
  planet_labs_autobuild:0 "Research Center"
  planet_labs_autobuild_desc:0 "This planet will be rebuilt into a Research center. Will be constructed buildings that makes sense for this specialization, labortories will be built in the remaining tiles. If there are any regular mines or powerplants, they will be replaced."
- 
+
  planet_farms_autobuild:0 "Farm Center"
  planet_farms_autobuild_desc:0 "This planet will be rebuilt into a Farm center. Will be constructed buildings that makes sense for this specialization, farm will be built in the remaining tiles. If there are regular mines, power plants or laboratories, they will be replaced."
- 
+
  autobuild_11:0 "Autobuild: "Power Hub""
  autobuild_11.tooltip:0 "\nAutobuild Power Hub on every planet."
- 
+
  autobuild_12:0 "Autobuild: "Mineral Processing Plant""
  autobuild_12.tooltip:0 "\nAutobuild Mineral Processing Plant on every planet."
- 
+
  autobuild_13:0 "Autobuild: Robots"
  autobuild_13.tooltip:0 "\nWill build robots out there, where it makes sense."
- 
+
  autobuild_13_on:0 "$modmenu_on$ $autobuild_13$"
  autobuild_13_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_13.tooltip$"
  autobuild_13_off:0 "$modmenu_off$ $autobuild_13$"
  autobuild_13_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_13.tooltip$"
- 
+
  autobuild_14:0 "Autobuild: Alphamod"
  autobuild_14.tooltip:0 "\nWill build some alphamod buildings."
- 
+
  autobuild_14_on:0 "$modmenu_on$ $autobuild_14$"
  autobuild_14_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_14.tooltip$"
  autobuild_14_off:0 "$modmenu_off$ $autobuild_14$"
  autobuild_14_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_14.tooltip$"
- 
+
  autobuild_15:0 "Autobuild: "Loop Institute""
  autobuild_15.tooltip:0 "\nAutobuild Loop Institute  on every planet."
- 
+
  autobuild_15_on:0 "$modmenu_on$ $autobuild_15$"
  autobuild_15_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_15.tooltip$"
  autobuild_15_off:0 "$modmenu_off$ $autobuild_15$"
  autobuild_15_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_15.tooltip$"
- 
+
  autobuild_ship_ignore_1_and_less_mineral:0 "Ignore 1 mineral"
  autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "\nAutobuild Ships will not build a mining station, where only 1 mineral."
- 
+
  autobuild_ship_ignore_1_and_less_mineral_on:0 "$modmenu_on$ $autobuild_ship_ignore_1_and_less_mineral$"
  autobuild_ship_ignore_1_and_less_mineral_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ship_ignore_1_and_less_mineral.tooltip$"
  autobuild_ship_ignore_1_and_less_mineral_off:0 "$modmenu_off$ $autobuild_ship_ignore_1_and_less_mineral$"
  autobuild_ship_ignore_1_and_less_mineral_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ship_ignore_1_and_less_mineral.tooltip$"
- 
+
  autobuild_ship_ignore_2_and_less_mineral:0 "Ignore 2 minerals or less"
  autobuild_ship_ignore_2_and_less_mineral.tooltip:0 "\nAutobuild Ships will not build a mining station, where 2 minerals or less."
- 
+
  autobuild_ship_ignore_2_and_less_mineral_on:0 "$modmenu_on$ $autobuild_ship_ignore_2_and_less_mineral$"
  autobuild_ship_ignore_2_and_less_mineral_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ship_ignore_2_and_less_mineral.tooltip$"
  autobuild_ship_ignore_2_and_less_mineral_off:0 "$modmenu_off$ $autobuild_ship_ignore_2_and_less_mineral$"
- 
+
  # v2.8
  autobuild_5:0 "Auto-Improve Laboratories"
  autobuild_5.tooltip:0 "\nAll basic labs will be improved depending on the settings."
- 
+
  autobuild_labs_not_count_planet:0 "Not count the modifiers of the planets"
  autobuild_labs_not_count_planet.tooltip:0 "\nImprovement of the laboratories will occur without regard to modifiers of the planets."
 
@@ -408,13 +382,39 @@
  autobuild_labs_engineering_priority_off:0 "$modmenu_off$ $autobuild_labs_engineering_priority$"
  autobuild_labs_engineering_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_engineering_priority.tooltip$"
  autobuild_ship_ignore_2_and_less_mineral_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ship_ignore_2_and_less_mineral.tooltip$"
- 
+
  #v2.8.1
  autobuild_labs_menu:0 "§BMenu:§! Improve labs"
  autobuild_others_options_menu:0 "§BMenu§! of other options"
  autobuild_7_settings:0 "§BMenu:§! Autobuild on empty tiles"
  autobuild_planet_unique:0 "§BMenu:§! Unique buildings"
- 
+
  # 2.8.1
  autobuild_fleet:0 "Autobuild: Space Stations"
  autobuild_fleet.tooltip:0 "\nAll current construction ships will be assigned to autobuild. If you want to use them for their needs, disable this option or build a new construction ship. Ships will be listed as "event blocked", is this normal"
+
+ # 2.9
+ autobuild_visitor_center:0 "Visitor Center"
+ autobuild_visitor_center.tooltip:0 "Visitor Center will be built on each planet."
+ autobuild_visitor_center_on:0 "$modmenu_on$ $autobuild_visitor_center$"
+ autobuild_visitor_center_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_visitor_center.tooltip$"
+ autobuild_visitor_center_off:0 "$modmenu_off$ $autobuild_visitor_center$"
+ autobuild_visitor_center_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_visitor_center.tooltip$"
+ autobuild_slave_processing:0 "Slave Processing Facility"
+ autobuild_slave_processing.tooltip:0 "Slave Processing Facility will be built on each planet, with slaves."
+ autobuild_slave_processing_on:0 "$modmenu_on$ $autobuild_slave_processing$"
+ autobuild_slave_processing_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_slave_processing.tooltip$"
+ autobuild_slave_processing_off:0 "$modmenu_off$ $autobuild_slave_processing$"
+ autobuild_slave_processing_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_slave_processing.tooltip$"
+ autobuild_temple:0 "Temple"
+ autobuild_temple.tooltip:0 "Temple will be built on each planet."
+ autobuild_temple_on:0 "$modmenu_on$ $autobuild_temple$"
+ autobuild_temple_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_temple.tooltip$"
+ autobuild_temple_off:0 "$modmenu_off$ $autobuild_temple$"
+ autobuild_temple_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_temple.tooltip$"
+ autobuild_autochthon_monument:0 "Autochthon Monument"
+ autobuild_autochthon_monument.tooltip:0 "Autochthon Monument will be built on each planet."
+ autobuild_autochthon_monument_on:0 "$modmenu_on$ $autobuild_autochthon_monument$"
+ autobuild_autochthon_monument_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_autochthon_monument.tooltip$"
+ autobuild_autochthon_monument_off:0 "$modmenu_off$ $autobuild_autochthon_monument$"
+ autobuild_autochthon_monument_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_autochthon_monument.tooltip$"

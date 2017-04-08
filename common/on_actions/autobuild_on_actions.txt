@@ -26,29 +26,7 @@ on_tech_increased = {
 # From = Tile
 on_building_complete = {
 	events = {
-		autobuild.101
-		autobuild.102
-		autobuild.103
-		autobuild.104
-		autobuild.105
-		autobuild.106
-		autobuild.107
-		autobuild.108
-		autobuild.109
-		
-		autobuild.130
-		autobuild.131
-		autobuild.132
-		autobuild.133
-		autobuild.134
-		autobuild.135
-		autobuild.136
-		autobuild.137
-		autobuild.138
-		autobuild.139
-		autobuild.140
-#		autobuild.141
-
+		autobuild.159
 	}
 }
 
@@ -57,29 +35,7 @@ on_building_complete = {
 # From = Tile
 on_building_queued = {
 	events = {
-		autobuild.101
-		autobuild.102
-		autobuild.103
-		autobuild.104
-		autobuild.105
-		autobuild.106
-		autobuild.107
-		autobuild.108
-		autobuild.109
-		
-		autobuild.130
-		autobuild.131
-		autobuild.132
-		autobuild.133
-		autobuild.134
-		autobuild.135
-		autobuild.136
-		autobuild.137
-		autobuild.138
-		autobuild.139
-		autobuild.140
-#		autobuild.141
-
+		autobuild.159
 	}
 }
 
@@ -88,7 +44,7 @@ on_building_queued = {
 # From = Tile
 #on_building_unqueued = {
 #	events = {
-#	}	
+#	}
 #}
 
 # A building construction has been completed, which is an upgrade of previous building.
@@ -96,29 +52,7 @@ on_building_queued = {
 # From = Tile
 on_building_upgraded = {
 	events = {
-		autobuild.101
-		autobuild.102
-		autobuild.103
-		autobuild.104
-		autobuild.105
-		autobuild.106
-		autobuild.107
-		autobuild.108
-		autobuild.109
-		
-		autobuild.130
-		autobuild.131
-		autobuild.132
-		autobuild.133
-		autobuild.134
-		autobuild.135
-		autobuild.136
-		autobuild.137
-		autobuild.138
-		autobuild.139
-		autobuild.140
-#		autobuild.141
-
+		autobuild.159
 	}
 }
 
@@ -127,29 +61,7 @@ on_building_upgraded = {
 # From = Tile
 on_building_demolished = {
 	events = {
-		autobuild.101
-		autobuild.102
-		autobuild.103
-		autobuild.104
-		autobuild.105
-		autobuild.106
-		autobuild.107
-		autobuild.108
-		autobuild.109
-		
-		autobuild.130
-		autobuild.131
-		autobuild.132
-		autobuild.133
-		autobuild.134
-		autobuild.135
-		autobuild.136
-		autobuild.137
-		autobuild.138
-		autobuild.139
-		autobuild.140
-#		autobuild.141
-
+		autobuild.159
 	}
 }
 
@@ -158,29 +70,7 @@ on_building_demolished = {
 # From = Tile
 on_building_replaced = {
 	events = {
-		autobuild.101
-		autobuild.102
-		autobuild.103
-		autobuild.104
-		autobuild.105
-		autobuild.106
-		autobuild.107
-		autobuild.108
-		autobuild.109
-		
-		autobuild.130
-		autobuild.131
-		autobuild.132
-		autobuild.133
-		autobuild.134
-		autobuild.135
-		autobuild.136
-		autobuild.137
-		autobuild.138
-		autobuild.139
-		autobuild.140
-#		autobuild.141
-
+		autobuild.159
 	}
 }
 

@@ -3,40 +3,33 @@ namespace = modmenu
 ## menu
 country_event = {
 	id = modmenu.1
-	title = "modmenu.1.name"
-	desc = "modmenu.1.desc"
+	title = modmenu.1.name
+	desc = modmenu.1.desc
 	picture = GFX_evt_alien_city
 	is_triggered_only = yes
 
 	option = {
-		name = "modmenu_1"
+		name = modmenu_1
 		custom_tooltip = modmenu_1.tooltip
 		hidden_effect = {
 			country_event = { id = autobuild.3 }
 		}
 	}
 	option = {
-		name = "modmenu_2"
+		name = modmenu_2
 		custom_tooltip = modmenu_2.tooltip
 		hidden_effect = {
 			country_event = { id = harder_invaders_menu.1 }
 		}
 	}
 	option = {
-		name = "modmenu_3"
-		custom_tooltip = modmenu_3.tooltip
-		hidden_effect = {
-			country_event = { id = population_improved_menu.1 }
-		}
-	}
-	option = {
-		name = "modmenu_4"
+		name = modmenu_4
 		custom_tooltip = modmenu_4.tooltip
 		hidden_effect = {
 			country_event = { id = human_fallen_empires_menu.1 }
 		}
 	}
 	option = {
-		name = "modmenu_exit"
+		name = modmenu_exit
 	}
 }
