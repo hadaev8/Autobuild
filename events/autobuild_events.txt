@@ -243,6 +243,7 @@ fleet_event = {
 							id = autobuild.0.effect.4
 							root = {
 								set_event_locked = no
+								set_name = "Autobuild Ship"
 							}
 							if = {
 								limit = {
@@ -364,8 +365,6 @@ country_event = {
 	}
 
 	immediate = {
-
-	#	save_event_target_as = autobuild_country
 
 		# start local events
 		every_owned_planet = {
@@ -668,6 +667,27 @@ planet_event = {
 		if = {
 			limit = {
 				owner = {
+					has_country_flag = synthetic_age
+				}
+			}
+			random_tile = {
+				limit = {
+					not = { exists = pop }
+				}
+				build_pop = {
+					name = buildable_robot_pop_4
+					grown = no
+				}
+				owner = {
+					add_energy = -150
+					add_minerals = -50
+				}
+				break = yes
+			}
+		}
+		if = {
+			limit = {
+				owner = {
 					has_technology = tech_synthetic_workers
 				}
 			}
@@ -675,7 +695,7 @@ planet_event = {
 				limit = {
 					has_global_flag = gf_alphamod_activated
 				}
-				every_tile = {
+				random_tile = {
 					limit = {
 						not = { exists = pop }
 						or = {
@@ -697,7 +717,7 @@ planet_event = {
 					}
 				}
 			}
-			every_tile = {
+			random_tile = {
 				limit = {
 					not = { exists = pop }
 				#	has_building = yes
@@ -1284,8 +1304,15 @@ planet_event = {
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
 		exists = owner
 		owner = {
-			autobuild_trigger_cost = yes
+			or = {
+				has_country_flag = autobuild_3
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
 			has_technology = tech_alien_life_studies
+			autobuild_trigger_cost = yes
 		}
 		has_resource = {
 			type = sr_alien_pets
@@ -1615,6 +1642,116 @@ planet_event = {
 				autobuild_trigger_tile_has_any_res = no
 			}
 			add_building_construction = building_autochthon_monument
+		}
+	}
+}
+
+# local paradise dome
+planet_event = {
+	id = autobuild.114
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_paradise_dome
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_tradition = tr_harmony_utopian_dream
+		}
+		autobuild_trigger_has_any_capital = yes
+		not = {
+			has_building = building_paradise_dome
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_farm = yes
+					and = {
+						or = {
+							autobuild_trigger_has_any_mine = yes
+							autobuild_trigger_has_any_science_lab = yes
+							autobuild_trigger_has_any_power_plant = yes
+						}
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				exists = pop
+				pop = {
+					is_being_purged = no
+				}
+				or = {
+					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_food_more_than_others = yes
+				}
+			}
+			add_building_construction = building_paradise_dome
+		}
+	}
+}
+
+# local hypercomms forum
+planet_event = {
+	id = autobuild.115
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_hypercomms_forum
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_technology = tech_hypercomms_forum
+		}
+		autobuild_trigger_has_any_capital = yes
+		nor = {
+			is_planet_class = pc_habitat
+			has_building = building_hypercomms_forum
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					and = {
+						or = {
+							autobuild_trigger_has_any_farm = yes
+							autobuild_trigger_has_any_mine = yes
+							autobuild_trigger_has_any_science_lab = yes
+							autobuild_trigger_has_any_power_plant = yes
+						}
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				exists = pop
+				pop = {
+					is_being_purged = no
+				}
+				autobuild_trigger_tile_has_any_res = no
+			}
+			add_building_construction = building_hypercomms_forum
 		}
 	}
 }
@@ -2301,17 +2438,6 @@ planet_event = {
 							exists = pop
 							pop = {
 								is_being_purged = no
-							}
-							autobuild_trigger_tile_has_food_more_than_others = yes
-						}
-						add_building_construction = building_basic_farm
-					}
-					every_tile = {
-						limit = {
-							has_building = no
-							exists = pop
-							pop = {
-								is_being_purged = no
 								is_non_sentient_robot = no
 							}
 							autobuild_trigger_tile_has_energy_more_than_others = yes
@@ -2326,6 +2452,17 @@ planet_event = {
 							autobuild_trigger_tile_has_minerals_more_than_others = yes
 						}
 						add_building_construction = building_basic_mine
+					}
+					every_tile = {
+						limit = {
+							has_building = no
+							exists = pop
+							pop = {
+								is_being_purged = no
+							}
+							autobuild_trigger_tile_has_food_more_than_others = yes
+						}
+						add_building_construction = building_basic_farm
 					}
 				}
 			}
@@ -2350,6 +2487,7 @@ planet_event = {
 			free_building_tiles > 0
 			autobuild_trigger_has_any_power_plant = yes
 			autobuild_trigger_has_any_science_lab = yes
+			autobuild_trigger_has_any_farm = yes
 			and = {
 				has_global_flag = gf_alphamod_activated
 				not = {
@@ -2383,6 +2521,7 @@ planet_event = {
 							has_building = no
 							autobuild_trigger_has_any_power_plant = yes
 							autobuild_trigger_has_any_science_lab = yes
+							autobuild_trigger_has_any_farm = yes
 							and = {
 								autobuild_trigger_has_any_mine = yes
 								root = {
@@ -2433,6 +2572,7 @@ planet_event = {
 						has_building = no
 						autobuild_trigger_has_any_power_plant = yes
 						autobuild_trigger_has_any_science_lab = yes
+						autobuild_trigger_has_any_farm = yes
 					}
 					exists = pop
 					pop = {
@@ -2452,6 +2592,7 @@ planet_event = {
 								has_building = no
 								autobuild_trigger_has_any_power_plant = yes
 								autobuild_trigger_has_any_science_lab = yes
+								autobuild_trigger_has_any_farm = yes
 							}
 							exists = pop
 							pop = {
@@ -2550,6 +2691,7 @@ planet_event = {
 			free_building_tiles > 0
 			autobuild_trigger_has_any_mine = yes
 			autobuild_trigger_has_any_science_lab = yes
+			autobuild_trigger_has_any_farm = yes
 			has_building = building_slave_processing
 			and = {
 				has_global_flag = gf_alphamod_activated
@@ -2583,6 +2725,7 @@ planet_event = {
 							autobuild_trigger_has_any_mine = yes
 							autobuild_trigger_has_any_science_lab = yes
 							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_farm = yes
 							has_building = building_slave_processing
 						}
 						nor = {
@@ -2596,7 +2739,7 @@ planet_event = {
 							amount > 0
 						}
 					}
-					add_building_construction = betharian_power_plant_1
+					add_building_construction = betharian_power_plant
 				}
 			}
 			if = {
@@ -2638,6 +2781,7 @@ planet_event = {
 						has_building = no
 						autobuild_trigger_has_any_mine = yes
 						autobuild_trigger_has_any_science_lab = yes
+						autobuild_trigger_has_any_farm = yes
 						has_building = building_slave_processing
 					}
 					exists = pop
@@ -2659,6 +2803,7 @@ planet_event = {
 								has_building = no
 								autobuild_trigger_has_any_mine = yes
 								autobuild_trigger_has_any_science_lab = yes
+								autobuild_trigger_has_any_farm = yes
 								has_building = building_slave_processing
 							}
 							exists = pop
@@ -2693,6 +2838,7 @@ planet_event = {
 			autobuild_trigger_has_any_mine = yes
 			autobuild_trigger_has_any_power_plant = yes
 			has_building = building_slave_processing
+			autobuild_trigger_has_any_farm = yes
 			and = {
 				has_global_flag = gf_alphamod_activated
 				not = {
@@ -2776,6 +2922,7 @@ planet_event = {
 					has_building = no
 					autobuild_trigger_has_any_mine = yes
 					autobuild_trigger_has_any_power_plant = yes
+					autobuild_trigger_has_any_farm = yes
 					has_building = building_slave_processing
 				}
 			}
@@ -3745,6 +3892,30 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_temple }
 	}
 	option = {
+		name = autobuild_hypercomms_forum_on
+		trigger = { not = { has_country_flag = autobuild_hypercomms_forum } }
+		custom_tooltip = autobuild_hypercomms_forum_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_hypercomms_forum }
+	}
+	option = {
+		name = autobuild_hypercomms_forum_off
+		trigger = {	has_country_flag = autobuild_hypercomms_forum }
+		custom_tooltip = autobuild_hypercomms_forum_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_hypercomms_forum }
+	}
+	option = {
+		name = autobuild_paradise_dome_on
+		trigger = { not = { has_country_flag = autobuild_paradise_dome } }
+		custom_tooltip = autobuild_paradise_dome_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_paradise_dome }
+	}
+	option = {
+		name = autobuild_paradise_dome_off
+		trigger = {	has_country_flag = autobuild_paradise_dome }
+		custom_tooltip = autobuild_paradise_dome_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_paradise_dome }
+	}
+	option = {
 		name = autobuild_autochthon_monument_on
 		trigger = { not = { has_country_flag = autobuild_autochthon_monument } }
 		custom_tooltip = autobuild_autochthon_monument_on.tooltip
@@ -4288,6 +4459,7 @@ fleet_event = {
 				set_event_locked = no
 				remove_fleet_flag = autobuild_fleet
 				fleet_event = { id = autobuild.0 days = 100 }
+				set_name = "Autobuild Ship"
 			}
 		}
 	}
