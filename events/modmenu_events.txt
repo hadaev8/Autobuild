@@ -23,6 +23,13 @@ country_event = {
 		}
 	}
 	option = {
+		name = modmenu_3
+		custom_tooltip = modmenu_3.tooltip
+		hidden_effect = {
+			country_event = { id = board_that_ship_menu.1 }
+		}
+	}
+	option = {
 		name = modmenu_4
 		custom_tooltip = modmenu_4.tooltip
 		hidden_effect = {

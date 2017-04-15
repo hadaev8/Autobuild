@@ -321,51 +321,24 @@ fleet_event = {
 country_event = {
 	id = autobuild.1
 	hide_window = yes
-
-	mean_time_to_happen = { months = 6 }
+	is_triggered_only = yes
 
 	trigger = {
 		num_owned_planets > 0
 		or = {
-			and = {
-				is_ai = yes
-				has_global_flag = autobuild_ai_allowed
-			}
-			has_country_flag = autobuild_1
-			has_country_flag = autobuild_2
-			has_country_flag = autobuild_3
-			has_country_flag = autobuild_4
-			has_country_flag = autobuild_4_1
-			has_country_flag = autobuild_4_2
-			has_country_flag = autobuild_5
-			has_country_flag = autobuild_6
-			has_country_flag = autobuild_7_1
-			has_country_flag = autobuild_7_2
-			has_country_flag = autobuild_7_3
-			has_country_flag = autobuild_7_4
-		##	has_country_flag = autobuild_7_5
-			has_country_flag = autobuild_7_6
-			has_country_flag = autobuild_7_7
-			has_country_flag = autobuild_8
-			has_country_flag = autobuild_9
-			has_country_flag = autobuild_10
-			has_country_flag = autobuild_11
-			has_country_flag = autobuild_12
-			has_country_flag = autobuild_13
-			has_country_flag = autobuild_14
-			any_owned_planet = {
-				or = {
-					has_modifier = planet_forge_autobuild
-					has_modifier = planet_power_plant_autobuild
-					has_modifier = planet_labs_autobuild
-					has_modifier = planet_farms_autobuild
-				}
-			}
+			is_ai = no
+			has_global_flag = autobuild_ai_allowed
+		}
+		not = {
+			has_country_flag = autobuild_empire_block
 		}
 	}
 
 	immediate = {
-
+		# set_timed_country_flag = {
+		# 	flag = autobuild_empire_block
+		# 	days = 90
+		# }
 		# start local events
 		every_owned_planet = {
 			autobuild_effect_set_planet_local_build = yes
@@ -381,29 +354,36 @@ country_event = {
 						has_global_flag = autobuild_ai_allowed
 					}
 				}
-				energy > 100
-				minerals > 100
 				or = {
-					not = { has_country_flag = autobuild_cost }
+					has_ascension_perk = ap_mastery_of_nature
 					and = {
-						has_country_flag = autobuild_cost_5000
-						minerals > 5000
-						energy > 5000
-					}
-					and = {
-						has_country_flag = autobuild_cost_2500
-						minerals > 2500
-						energy > 2500
-					}
-					and = {
-						has_country_flag = autobuild_cost_1000
-						minerals > 1000
-						energy > 1000
-					}
-					and = {
-						has_country_flag = autobuild_cost_500
-						minerals > 500
-						energy > 500
+						energy > 100
+						minerals > 100
+						or = {
+							not = {
+								has_country_flag = autobuild_cost
+							}
+							and = {
+								has_country_flag = autobuild_cost_5000
+								minerals > 5000
+								energy > 5000
+							}
+							and = {
+								has_country_flag = autobuild_cost_2500
+								minerals > 2500
+								energy > 2500
+							}
+							and = {
+								has_country_flag = autobuild_cost_1000
+								minerals > 1000
+								energy > 1000
+							}
+							and = {
+								has_country_flag = autobuild_cost_500
+								minerals > 500
+								energy > 500
+							}
+						}
 					}
 				}
 			}
@@ -419,190 +399,554 @@ country_event = {
 						limit = {
 							has_blocker = tb_mountain_range
 							owner = {
-								energy > 100
-								minerals > 100
+								or = {
+									and = {
+										energy > 100
+										minerals > 100
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 								has_technology = tech_tb_mountain_range
 							}
 						}
 						owner = {
-							add_energy = -100
-							add_minerals = -100
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
 						}
 						remove_blocker = yes
 					}
-					if = {
+if = {
 						limit = {
 							has_blocker = tb_active_volcano
 							owner = {
-								energy > 100
-								minerals > 100
-								has_technology = tech_tb_volcano
+								or = {
+									and = {
+										energy > 100
+										minerals > 100
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+								has_technology = tech_tb_active_volcano
 							}
 						}
 						owner = {
-							add_energy = -100
-							add_minerals = -100
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
 						}
 						remove_blocker = yes
 					}
-					if = {
+if = {
 						limit = {
 							has_blocker = tb_dangerous_wildlife
 							owner = {
-								energy > 100
-								minerals > 100
+								or = {
+									and = {
+										energy > 100
+										minerals > 100
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 								has_technology = tech_tb_dangerous_wildlife
 							}
 						}
 						owner = {
-							add_energy = -100
-							add_minerals = -100
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
 						}
 						remove_blocker = yes
 					}
-					if = {
+if = {
 						limit = {
 							has_blocker = tb_dense_jungle
 							owner = {
-								energy > 100
-								minerals > 100
+								or = {
+									and = {
+										energy > 100
+										minerals > 100
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 								has_technology = tech_tb_dense_jungle
 							}
 						}
 						owner = {
-							add_energy = -100
-							add_minerals = -100
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
 						}
 						remove_blocker = yes
 					}
-					if = {
+if = {
 						limit = {
 							has_blocker = tb_quicksand_basin
 							owner = {
-								energy > 100
-								minerals > 100
+								or = {
+									and = {
+										energy > 100
+										minerals > 100
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 								has_technology = tech_tb_quicksand_basin
 							}
 						}
 						owner = {
-							add_energy = -100
-							add_minerals = -100
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
 						}
 						remove_blocker = yes
 					}
-					if = {
+if = {
 						limit = {
 							has_blocker = tb_noxious_swamp
 							owner = {
-								energy > 100
-								minerals > 100
+								or = {
+									and = {
+										energy > 100
+										minerals > 100
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 								has_technology = tech_tb_noxious_swamp
 							}
 						}
 						owner = {
-							add_energy = -100
-							add_minerals = -100
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
 						}
 						remove_blocker = yes
 					}
-					if = {
+if = {
 						limit = {
 							has_blocker = tb_massive_glacier
 							owner = {
-								energy > 100
-								minerals > 100
+								or = {
+									and = {
+										energy > 100
+										minerals > 100
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 								has_technology = tech_tb_massive_glacier
 							}
 						}
 						owner = {
-							add_energy = -100
-							add_minerals = -100
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
 						}
 						remove_blocker = yes
 					}
-					if = {
+if = {
 						limit = {
 							has_blocker = tb_toxic_kelp
 							owner = {
-								energy > 100
-								minerals > 100
+								or = {
+									and = {
+										energy > 100
+										minerals > 100
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 								has_technology = tech_tb_toxic_kelp
 							}
 						}
 						owner = {
-							add_energy = -100
-							add_minerals = -100
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
 						}
 						remove_blocker = yes
 					}
-					if = {
+if = {
 						limit = {
 							has_blocker = tb_deep_sinkhole
 							owner = {
-								energy > 100
-								minerals > 100
+								or = {
+									and = {
+										energy > 100
+										minerals > 100
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 								has_technology = tech_tb_deep_sinkhole
 							}
 						}
 						owner = {
-							add_energy = -100
-							add_minerals = -100
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
 						}
 						remove_blocker = yes
 					}
-					if = {
+if = {
+						limit = {
+							has_blocker = tb_radioactive_wasteland
+							owner = {
+								or = {
+									and = {
+										energy > 200
+										minerals > 200
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -200
+								add_minerals = -200
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
+						limit = {
+							has_blocker = tb_city_ruins
+							owner = {
+								or = {
+									and = {
+										energy > 200
+										minerals > 200
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -200
+								add_minerals = -200
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
+						limit = {
+							has_blocker = tb_infestation
+							owner = {
+								or = {
+									and = {
+										energy > 50
+										minerals > 50
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -50
+								add_minerals = -50
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
+						limit = {
+							has_blocker = tb_quarantine_zone
+							owner = {
+								or = {
+									and = {
+										energy > 50
+										minerals > 50
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -50
+								add_minerals = -50
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
+						limit = {
+							has_blocker = tb_slums
+							owner = {
+								or = {
+									and = {
+										energy > 50
+										minerals > 50
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -100
+								add_minerals = -100
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
+						limit = {
+							has_blocker = tb_crater
+							owner = {
+								or = {
+									and = {
+										energy > 50
+										minerals > 50
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -50
+								add_minerals = -50
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
+						limit = {
+							has_blocker = tb_sinkhole_subterraneans
+							owner = {
+								or = {
+									and = {
+										energy > 125
+										minerals > 125
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -125
+								add_minerals = -125
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
 						limit = {
 							has_blocker = tb_bomb_crater
 							owner = {
-								energy > 125
-								minerals > 125
+								or = {
+									and = {
+										energy > 125
+										minerals > 125
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 							}
 						}
 						owner = {
-							add_energy = -125
-							add_minerals = -125
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_bombarded_land
-							owner = {
-								energy > 75
-								minerals > 75
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -125
+								add_minerals = -125
 							}
 						}
-						owner = {
-							add_energy = -75
-							add_minerals = -75
-						}
 						remove_blocker = yes
 					}
-					if = {
-						limit = {
-							has_blocker = tb_decrepit_dwellings
-							owner = {
-								energy > 40
-								minerals > 40
-							}
-						}
-						owner = {
-							add_energy = -40
-							add_minerals = -40
-						}
-						remove_blocker = yes
-					}
-					if = {
+if = {
 						limit = {
 							has_blocker = tb_failing_infrastructure
 							owner = {
-								energy > 60
-								minerals > 60
+								or = {
+									and = {
+										energy > 60
+										minerals > 60
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
 							}
 						}
 						owner = {
-							add_energy = -60
-							add_minerals = -60
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -60
+								add_minerals = -60
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
+						limit = {
+							has_blocker = tb_decrepit_dwellings
+							owner = {
+								or = {
+									and = {
+										energy > 40
+										minerals > 40
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -40
+								add_minerals = -40
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
+						limit = {
+							has_blocker = tb_bombarded_land
+							owner = {
+								or = {
+									and = {
+										energy > 75
+										minerals > 75
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -75
+								add_minerals = -75
+							}
+						}
+						remove_blocker = yes
+					}
+if = {
+						limit = {
+							has_blocker = tb_ancient_ruins
+							owner = {
+								or = {
+									and = {
+										energy > 150
+										minerals > 150
+									}
+									has_ascension_perk = ap_mastery_of_nature
+								}
+							}
+						}
+						owner = {
+							if = {
+								limit = {
+									not = {
+										has_ascension_perk = ap_mastery_of_nature
+									}
+								}
+								add_energy = -150
+								add_minerals = -150
+							}
 						}
 						remove_blocker = yes
 					}
@@ -916,7 +1260,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_8
+				has_country_flag = autobuild_building_clinic
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -989,7 +1333,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_9
+				has_country_flag = autobuild_building_mineral_silo_1
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1104,7 +1448,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_11
+				has_country_flag = autobuild_building_power_hub_1
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1163,7 +1507,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_12
+				has_country_flag = autobuild_building_mineral_processing_plant_1
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1362,7 +1706,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_15
+				has_country_flag = autobuild_building_akx_worm_2
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1431,7 +1775,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_visitor_center
+				has_country_flag = autobuild_building_visitor_center
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1489,7 +1833,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_slave_processing
+				has_country_flag = autobuild_building_slave_processing
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1548,7 +1892,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_temple
+				has_country_flag = autobuild_building_temple
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1604,7 +1948,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_autochthon_monument
+				has_country_flag = autobuild_building_autochthon_monumen
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1657,7 +2001,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_paradise_dome
+				has_country_flag = autobuild_building_paradise_dome
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1713,7 +2057,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_hypercomms_forum
+				has_country_flag = autobuild_building_hypercomms_forum
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1755,7 +2099,6 @@ planet_event = {
 		}
 	}
 }
-
 
 
 # 130 - 141
@@ -3796,140 +4139,140 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = autobuild_8_on
-		trigger = { not = { has_country_flag = autobuild_8	} }
-		custom_tooltip = autobuild_8_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_8 }
+		name = autobuild_building_clinic_on
+		trigger = { not = { has_country_flag = autobuild_building_clinic } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_clinic }
 	}
 	option = {
-		name = autobuild_8_off
-		trigger = {	has_country_flag = autobuild_8 }
-		custom_tooltip = autobuild_8_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_8 }
+		name = autobuild_building_clinic_off
+		trigger = {	has_country_flag = autobuild_building_clinic }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_clinic }
 	}
 	option = {
-		name = autobuild_9_on
-		trigger = {	not = { has_country_flag = autobuild_9	} }
-		custom_tooltip = autobuild_9_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_9 }
+		name = autobuild_building_mineral_silo_1_on
+		trigger = {	not = { has_country_flag = autobuild_building_mineral_silo_1 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_mineral_silo_1 }
 	}
 	option = {
-		name = autobuild_9_off
-		trigger = {	has_country_flag = autobuild_9 }
-		custom_tooltip = autobuild_9_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_9 }
+		name = autobuild_building_mineral_silo_1_off
+		trigger = {	has_country_flag = autobuild_building_mineral_silo_1 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_mineral_silo_1 }
 	}
 	option = {
-		name = autobuild_11_on
-		trigger = { not = { has_country_flag = autobuild_11 } }
-		custom_tooltip = autobuild_11_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_11 }
+		name = autobuild_building_power_hub_1_on
+		trigger = { not = { has_country_flag = autobuild_building_power_hub_1 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_power_hub_1 }
 	}
 	option = {
-		name = autobuild_11_off
-		trigger = {	has_country_flag = autobuild_11 }
-		custom_tooltip = autobuild_11_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_11 }
+		name = autobuild_building_power_hub_1_off
+		trigger = {	has_country_flag = autobuild_building_power_hub_1 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_power_hub_1 }
 	}
 	option = {
-		name = autobuild_12_on
-		trigger = { not = { has_country_flag = autobuild_12 } }
-		custom_tooltip = autobuild_12_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_12 }
+		name = autobuild_building_mineral_processing_plant_1_on
+		trigger = { not = { has_country_flag = autobuild_building_mineral_processing_plant_1 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_mineral_processing_plant_1 }
 	}
 	option = {
-		name = autobuild_12_off
-		trigger = {	has_country_flag = autobuild_12 }
-		custom_tooltip = autobuild_12_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_12 }
+		name = autobuild_building_mineral_processing_plant_1_off
+		trigger = {	has_country_flag = autobuild_building_mineral_processing_plant_1 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_mineral_processing_plant_1 }
 	}
 	option = {
-		name = autobuild_15_on
-		trigger = { not = { has_country_flag = autobuild_15 } }
-		custom_tooltip = autobuild_15_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_15 }
+		name = autobuild_building_akx_worm_2_on
+		trigger = { not = { has_country_flag = autobuild_building_akx_worm_2 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_akx_worm_2 }
 	}
 	option = {
-		name = autobuild_15_off
-		trigger = {	has_country_flag = autobuild_15 }
-		custom_tooltip = autobuild_15_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_15 }
+		name = autobuild_building_akx_worm_2_off
+		trigger = {	has_country_flag = autobuild_building_akx_worm_2 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_akx_worm_2 }
 	}
 	option = {
-		name = autobuild_visitor_center_on
-		trigger = { not = { has_country_flag = autobuild_16 } }
-		custom_tooltip = autobuild_visitor_center_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_visitor_center }
+		name = autobuild_building_visitor_center_on
+		trigger = { not = { has_country_flag = autobuild_building_visitor_center } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_visitor_center }
 	}
 	option = {
-		name = autobuild_visitor_center_off
-		trigger = {	has_country_flag = autobuild_16 }
-		custom_tooltip = autobuild_visitor_center_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_visitor_center }
+		name = autobuild_building_visitor_center_off
+		trigger = {	has_country_flag = autobuild_building_visitor_center }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_visitor_center }
 	}
 	option = {
-		name = autobuild_slave_processing_on
-		trigger = { not = { has_country_flag = autobuild_slave_processing } }
-		custom_tooltip = autobuild_slave_processing_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_slave_processing }
+		name = autobuild_building_slave_processing_on
+		trigger = { not = { has_country_flag = autobuild_building_slave_processing } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_slave_processing }
 	}
 	option = {
-		name = autobuild_slave_processing_off
-		trigger = {	has_country_flag = autobuild_slave_processing }
-		custom_tooltip = autobuild_slave_processing_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_slave_processing }
+		name = autobuild_building_slave_processing_off
+		trigger = {	has_country_flag = autobuild_building_slave_processing }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_slave_processing }
 	}
 	option = {
-		name = autobuild_temple_on
-		trigger = { not = { has_country_flag = autobuild_temple } }
-		custom_tooltip = autobuild_temple_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_temple }
+		name = autobuild_building_temple_on
+		trigger = { not = { has_country_flag = autobuild_building_temple } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_temple }
 	}
 	option = {
-		name = autobuild_temple_off
-		trigger = {	has_country_flag = autobuild_temple }
-		custom_tooltip = autobuild_temple_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_temple }
+		name = autobuild_building_temple_off
+		trigger = {	has_country_flag = autobuild_building_temple }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_temple }
 	}
 	option = {
-		name = autobuild_hypercomms_forum_on
-		trigger = { not = { has_country_flag = autobuild_hypercomms_forum } }
-		custom_tooltip = autobuild_hypercomms_forum_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_hypercomms_forum }
+		name = autobuild_building_hypercomms_forum_on
+		trigger = { not = { has_country_flag = autobuild_building_hypercomms_forum } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_hypercomms_forum }
 	}
 	option = {
-		name = autobuild_hypercomms_forum_off
-		trigger = {	has_country_flag = autobuild_hypercomms_forum }
-		custom_tooltip = autobuild_hypercomms_forum_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_hypercomms_forum }
+		name = autobuild_building_hypercomms_forum_off
+		trigger = {	has_country_flag = autobuild_building_hypercomms_forum }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_hypercomms_forum }
 	}
 	option = {
-		name = autobuild_paradise_dome_on
-		trigger = { not = { has_country_flag = autobuild_paradise_dome } }
-		custom_tooltip = autobuild_paradise_dome_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_paradise_dome }
+		name = autobuild_building_paradise_dome_on
+		trigger = { not = { has_country_flag = autobuild_building_paradise_dome } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_paradise_dome }
 	}
 	option = {
-		name = autobuild_paradise_dome_off
-		trigger = {	has_country_flag = autobuild_paradise_dome }
-		custom_tooltip = autobuild_paradise_dome_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_paradise_dome }
+		name = autobuild_building_paradise_dome_off
+		trigger = {	has_country_flag = autobuild_building_paradise_dome }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_paradise_dome }
 	}
 	option = {
-		name = autobuild_autochthon_monument_on
-		trigger = { not = { has_country_flag = autobuild_autochthon_monument } }
-		custom_tooltip = autobuild_autochthon_monument_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_autochthon_monument }
+		name = autobuild_building_autochthon_monument_on
+		trigger = { not = { has_country_flag = autobuild_building_autochthon_monument } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_autochthon_monument }
 	}
 	option = {
-		name = autobuild_autochthon_monument_off
-		trigger = {	has_country_flag = autobuild_autochthon_monument }
-		custom_tooltip = autobuild_autochthon_monument_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_autochthon_monument }
+		name = autobuild_building_autochthon_monument_off
+		trigger = {	has_country_flag = autobuild_building_autochthon_monument }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_autochthon_monument }
 	}
 	option = {
 		name = modmenu_return
-		hidden_effect = { country_event = { id = autobuild.3 }}
+		hidden_effect = { country_event = { id = autobuild.3 } }
 	}
 	option = {
 		name = modmenu_exit
@@ -4398,6 +4741,19 @@ country_event = {
 
 # on actions events
 
+#
+event = {
+	id = autobuild.155
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			country_event = { id = autobuild.1 }
+		}
+	}
+}
+
 # planet clean
 planet_event = {
 	id = autobuild.156
@@ -4543,10 +4899,10 @@ country_event = {
 		remove_country_flag = autobuild_7_9
 		remove_country_flag = autobuild_7_10
 		remove_country_flag = autobuild_7_11
-		remove_country_flag = autobuild_8
-		remove_country_flag = autobuild_9
+		remove_country_flag = autobuild_building_clinic
+		remove_country_flag = autobuild_building_mineral_silo_1
 		remove_country_flag = autobuild_10
-		remove_country_flag = autobuild_11
+		remove_country_flag = autobuild_building_power_hub_1
 		remove_country_flag = autobuild_cost_5000
 		remove_country_flag = autobuild_cost_2500
 		remove_country_flag = autobuild_cost_1000

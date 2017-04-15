@@ -555,10 +555,6 @@ autobuild_trigger_tile_has_energy_more_than_others = {
 					amount > 4
 				}
 				has_resource = {
-					type = food
-					amount > 4
-				}
-				has_resource = {
 					type = physics_research
 					amount > 4
 				}
@@ -580,10 +576,6 @@ autobuild_trigger_tile_has_energy_more_than_others = {
 			nor = {
 				has_resource = {
 					type = minerals
-					amount > 3
-				}
-				has_resource = {
-					type = food
 					amount > 3
 				}
 				has_resource = {
@@ -611,10 +603,6 @@ autobuild_trigger_tile_has_energy_more_than_others = {
 					amount > 2
 				}
 				has_resource = {
-					type = food
-					amount > 2
-				}
-				has_resource = {
 					type = physics_research
 					amount > 2
 				}
@@ -636,10 +624,6 @@ autobuild_trigger_tile_has_energy_more_than_others = {
 			nor = {
 				has_resource = {
 					type = minerals
-					amount > 1
-				}
-				has_resource = {
-					type = food
 					amount > 1
 				}
 				has_resource = {
@@ -687,10 +671,6 @@ autobuild_trigger_tile_has_minerals_more_than_others = {
 					amount > 4
 				}
 				has_resource = {
-					type = food
-					amount > 4
-				}
-				has_resource = {
 					type = physics_research
 					amount > 4
 				}
@@ -712,10 +692,6 @@ autobuild_trigger_tile_has_minerals_more_than_others = {
 			nor = {
 				has_resource = {
 					type = energy
-					amount > 3
-				}
-				has_resource = {
-					type = food
 					amount > 3
 				}
 				has_resource = {
@@ -743,10 +719,6 @@ autobuild_trigger_tile_has_minerals_more_than_others = {
 					amount > 2
 				}
 				has_resource = {
-					type = food
-					amount > 2
-				}
-				has_resource = {
 					type = physics_research
 					amount > 2
 				}
@@ -768,10 +740,6 @@ autobuild_trigger_tile_has_minerals_more_than_others = {
 			nor = {
 				has_resource = {
 					type = energy
-					amount > 1
-				}
-				has_resource = {
-					type = food
 					amount > 1
 				}
 				has_resource = {
@@ -998,10 +966,6 @@ autobuild_trigger_tile_has_science_more_than_others = {
 					type = minerals
 					amount > 4
 				}
-				has_resource = {
-					type = food
-					amount > 4
-				}
 			}
 		}
 		and = {
@@ -1028,10 +992,6 @@ autobuild_trigger_tile_has_science_more_than_others = {
 					type = minerals
 					amount > 3
 				}
-				has_resource = {
-					type = food
-					amount > 3
-				}
 			}
 		}
 		and = {
@@ -1056,10 +1016,6 @@ autobuild_trigger_tile_has_science_more_than_others = {
 				}
 				has_resource = {
 					type = minerals
-					amount > 2
-				}
-				has_resource = {
-					type = food
 					amount > 2
 				}
 			}
@@ -1086,10 +1042,6 @@ autobuild_trigger_tile_has_science_more_than_others = {
 				}
 				has_resource = {
 					type = minerals
-					amount > 1
-				}
-				has_resource = {
-					type = food
 					amount > 1
 				}
 			}

@@ -1,8 +1,9 @@
 # No scope, like on_game_start
-#on_yearly_pulse = {
-#	events = {
-#	}
-#}
+on_monthly_pulse = {
+	events = {
+		autobuild.155
+	}
+}
 
 # A fleet has entered a system
 # Scope = Fleet
