@@ -17,6 +17,7 @@
  modmenu_yes:0 "Да."
  modmenu_no:0 "Нет."
  modmenu_configure:0 "Здесь вы можете настроить"
+ modmenu_menu:0 "§BМеню:§!"
 
  modmenu_1:0 "§HАвтопостройка§!"
  modmenu_1.tooltip:0 "$modmenu_configure$ $modmenu_1$, если у вас установлен этот мод."

@@ -26,6 +26,14 @@
 #	}
 #
 
+autobuild_effect_clear_cost_flags = {
+	remove_country_flag = autobuild_cost_20000
+	remove_country_flag = autobuild_cost_5000
+	remove_country_flag = autobuild_cost_2500
+	remove_country_flag = autobuild_cost_1000
+	remove_country_flag = autobuild_cost_500
+}
+
 # for tile
 autobuild_build_basic_lab = {
 	if = {
@@ -88,8 +96,9 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.113 }
 	planet_event = { id = autobuild.114 }
 	planet_event = { id = autobuild.115 }
+	planet_event = { id = autobuild.116 }
 
-	planet_event = { id = autobuild.130 }
+#	planet_event = { id = autobuild.130 }
 #	planet_event = { id = autobuild.131 }
 	planet_event = { id = autobuild.132 }
 	planet_event = { id = autobuild.133 }
@@ -100,66 +109,70 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.138 }
 	planet_event = { id = autobuild.139 }
 	planet_event = { id = autobuild.140 }
+	planet_event = { id = autobuild.142 }
+	planet_event = { id = autobuild.143 }
+	planet_event = { id = autobuild.144 }
+	planet_event = { id = autobuild.145 }
 }
 
 # for tile
-autobuild_effect_alphamod_autoupdate = {
-	switch = {
-		trigger = has_building
+# autobuild_effect_alphamod_autoupdate = {
+# 	switch = {
+# 		trigger = has_building
 
-		building_radio_telescope_array = { add_building_construction = building_radio_telescope_array_2 }
-		building_radio_telescope_array_2 = { add_building_construction = building_radio_telescope_array_3 }
-		building_radio_telescope_array_3 = { add_building_construction = building_radio_telescope_array_4 }
-		building_rocket_launchsite = { add_building_construction = building_shuttle_port }
-		building_shuttle_port = { add_building_construction = building_advanced_shuttleport }
-		building_lightmechbay = { add_building_construction = building_mediummechbay }
-		building_mediummechbay = { add_building_construction = building_heavymechbay }
-		building_hydro_plant = { add_building_construction = building_hydro_plant_2 }
-		building_basic_farm_adv = { add_building_construction = building_hydroponics_farm_1_adv }
-		building_hydroponics_farm_1_adv = { add_building_construction = building_hydroponics_farm_2_adv }
-		building_hydroponics_farm_2_adv = { add_building_construction = building_hydroponics_farm_3_adv }
-		building_hydroponics_farm_3_adv = { add_building_construction = building_hydroponics_farm_4_adv }
-		building_traditional_farm = { add_building_construction = building_preservation }
-		building_colony_control_pre = { add_building_construction = building_colony_control }
-		building_frontier_town = { add_building_construction = building_frontier_city }
-		building_fuel_sourcer = { add_building_construction = building_fuel_sourcer_2 }
-		building_fuel_sourcer_2 = { add_building_construction = building_fuel_sourcer_3 }
-		building_fuel_refinery_0 = { add_building_construction = building_fuel_refinery }
-		building_fuel_refinery = { add_building_construction = building_fuel_refinery_2 }
-		building_alpha_fuel_converter = { add_building_construction = building_alpha_fuel_converter_2 }
-		building_alpha_fuel_converter_2 = { add_building_construction = building_alpha_fuel_converter_3 }
-		building_alpha_fuel_converter_3 = { add_building_construction = building_alpha_fuel_converter_4 }
-		building_alpha_fuel_converter_x = { add_building_construction = building_alpha_fuel_converter_xx }
-		building_traditional_plantation = { add_building_construction = building_preservation }
-		building_moisture_farm = { add_building_construction = building_moisture_farm_2 }
-		building_moisture_farm_2 = { add_building_construction = building_moisture_farm_3 }
-		building_sand_sifter = { add_building_construction = building_sand_sifter_2 }
-		building_greenhousing = { add_building_construction = building_vertical_farms }
-		building_water_excavator = { add_building_construction = building_water_excavator_2 }
-		building_reservoir = { add_building_construction = building_reservoir_2 }
-		building_reservoir_2 = { add_building_construction = building_reservoir_3 }
-		building_ice_rig = { add_building_construction = building_ice_rig_2 }
-		building_shanty_farm = { add_building_construction = building_hydroponics_farm_1 }
-		building_shanty_mine = { add_building_construction = building_mining_network_1 }
-		building_shanty_market = { add_building_construction = building_power_plant_1 }
-		building_shanty_school = { add_building_construction = building_basic_science_lab_1 }
-		building_military_academy = { add_building_construction = building_military_base }
-		building_military_academy = { add_building_construction = building_militia_hq }
+# 		building_radio_telescope_array = { add_building_construction = building_radio_telescope_array_2 }
+# 		building_radio_telescope_array_2 = { add_building_construction = building_radio_telescope_array_3 }
+# 		building_radio_telescope_array_3 = { add_building_construction = building_radio_telescope_array_4 }
+# 		building_rocket_launchsite = { add_building_construction = building_shuttle_port }
+# 		building_shuttle_port = { add_building_construction = building_advanced_shuttleport }
+# 		building_lightmechbay = { add_building_construction = building_mediummechbay }
+# 		building_mediummechbay = { add_building_construction = building_heavymechbay }
+# 		building_hydro_plant = { add_building_construction = building_hydro_plant_2 }
+# 		building_basic_farm_adv = { add_building_construction = building_hydroponics_farm_1_adv }
+# 		building_hydroponics_farm_1_adv = { add_building_construction = building_hydroponics_farm_2_adv }
+# 		building_hydroponics_farm_2_adv = { add_building_construction = building_hydroponics_farm_3_adv }
+# 		building_hydroponics_farm_3_adv = { add_building_construction = building_hydroponics_farm_4_adv }
+# 		building_traditional_farm = { add_building_construction = building_preservation }
+# 		building_colony_control_pre = { add_building_construction = building_colony_control }
+# 		building_frontier_town = { add_building_construction = building_frontier_city }
+# 		building_fuel_sourcer = { add_building_construction = building_fuel_sourcer_2 }
+# 		building_fuel_sourcer_2 = { add_building_construction = building_fuel_sourcer_3 }
+# 		building_fuel_refinery_0 = { add_building_construction = building_fuel_refinery }
+# 		building_fuel_refinery = { add_building_construction = building_fuel_refinery_2 }
+# 		building_alpha_fuel_converter = { add_building_construction = building_alpha_fuel_converter_2 }
+# 		building_alpha_fuel_converter_2 = { add_building_construction = building_alpha_fuel_converter_3 }
+# 		building_alpha_fuel_converter_3 = { add_building_construction = building_alpha_fuel_converter_4 }
+# 		building_alpha_fuel_converter_x = { add_building_construction = building_alpha_fuel_converter_xx }
+# 		building_traditional_plantation = { add_building_construction = building_preservation }
+# 		building_moisture_farm = { add_building_construction = building_moisture_farm_2 }
+# 		building_moisture_farm_2 = { add_building_construction = building_moisture_farm_3 }
+# 		building_sand_sifter = { add_building_construction = building_sand_sifter_2 }
+# 		building_greenhousing = { add_building_construction = building_vertical_farms }
+# 		building_water_excavator = { add_building_construction = building_water_excavator_2 }
+# 		building_reservoir = { add_building_construction = building_reservoir_2 }
+# 		building_reservoir_2 = { add_building_construction = building_reservoir_3 }
+# 		building_ice_rig = { add_building_construction = building_ice_rig_2 }
+# 		building_shanty_farm = { add_building_construction = building_hydroponics_farm_1 }
+# 		building_shanty_mine = { add_building_construction = building_mining_network_1 }
+# 		building_shanty_market = { add_building_construction = building_power_plant_1 }
+# 		building_shanty_school = { add_building_construction = building_basic_science_lab_1 }
+# 		building_military_academy = { add_building_construction = building_military_base }
+# 		building_military_academy = { add_building_construction = building_militia_hq }
 
-	}
-}
+# 	}
+# }
 
-autobuild_effect_alphamod_autoupdate_influence = {
-	switch = {
-		trigger = has_building
+# autobuild_effect_alphamod_autoupdate_influence = {
+# 	switch = {
+# 		trigger = has_building
 
-		# alphamod
-		building_academy = { add_building_construction = building_academy_2 }
-		building_intelligence_directorate = { add_building_construction = building_intelligence_directorate_2 }
-		building_surveillance_center = { add_building_construction = building_surveillance_center_2 }
-		building_security_center = { add_building_construction = building_security_center_2 }
-		building_open_embassy = { add_building_construction = building_open_embassy_2 }
-		building_xeno_diplomacy_corp = { add_building_construction = building_peace_corps }
-		building_tradestation = { add_building_construction = building_trade_company }
-	}
-}
+# 		# alphamod
+# 		building_academy = { add_building_construction = building_academy_2 }
+# 		building_intelligence_directorate = { add_building_construction = building_intelligence_directorate_2 }
+# 		building_surveillance_center = { add_building_construction = building_surveillance_center_2 }
+# 		building_security_center = { add_building_construction = building_security_center_2 }
+# 		building_open_embassy = { add_building_construction = building_open_embassy_2 }
+# 		building_xeno_diplomacy_corp = { add_building_construction = building_peace_corps }
+# 		building_tradestation = { add_building_construction = building_trade_company }
+# 	}
+# }

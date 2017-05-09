@@ -163,7 +163,6 @@ guiTypes = {
 				buttonFont = "malgun_goth_24"
 				buttonText = "modmenu_button"
 				orientation = UPPER_LEFT
-				clicksound = confimation
 				effect = "modmenu_button_effect"
 			}
 
@@ -479,7 +478,7 @@ guiTypes = {
 						position = { x = 0 y = 36 }
 						font = "cg_16b"
 						text = ""
-						maxWidth = 180
+						maxWidth = 220
 						maxHeight = 60
 						#fixedSize = yes
 						format = left

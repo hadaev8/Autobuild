@@ -22,6 +22,7 @@ autobuild_trigger_has_any_farm = {
 		has_building = building_hydroponics_farm_3
 		has_building = building_hydroponics_farm_4
 		has_building = building_hydroponics_farm_5
+		has_building = building_hab_agri_bay
 	}
 }
 
@@ -36,6 +37,7 @@ autobuild_trigger_has_any_mine = {
 		has_building = building_mining_network_3
 		has_building = building_mining_network_4
 		has_building = building_mining_network_5
+		has_building = building_hab_astro_mining_facility
 	}
 }
 
@@ -47,12 +49,9 @@ autobuild_trigger_has_any_power_plant = {
 		has_building = building_power_plant_3
 		has_building = building_power_plant_4
 		has_building = building_power_plant_5
-		has_building = betharian_power_plant_1
-		has_building = betharian_power_plant_2
-		has_building = betharian_power_plant_3
-		has_building = betharian_power_plant_4
 		has_building = building_power_hub_1
 		has_building = building_power_hub_2
+		has_building = building_hab_solar_power_processor
 	}
 }
 
@@ -71,6 +70,7 @@ autobuild_trigger_has_any_science_lab = {
 		has_building = building_engineering_facility_2
 		has_building = building_engineering_facility_3
 		has_building = building_engineering_facility_4
+		has_building = building_hab_laboratory_module
 
 		# star trek
 		has_building = building_physics_lab_0
@@ -84,33 +84,33 @@ autobuild_trigger_has_any_mine_not_replace = {
 		has_building = building_ancient_factory
 
 		# alphamod
-		has_building = building_industrial_camp
-		has_building = building_warrior_house
-		has_building = building_production_hive
-		has_building = building_work_collective
-		has_building = building_minerals_market
-		has_building = building_materials_manufacturing
-		has_building = building_frontier_town
-		has_building = building_frontier_city
-		has_building = building_fuel_refinery
-		has_building = building_fuel_refinery_ex
-		has_building = building_fuel_refinery_2
-		has_building = building_fuel_refinery_2_ex
-		has_building = building_desalinator
-		has_building = building_sand_sifter
-		has_building = building_sand_sifter_2
-		has_building = building_ice_rig_2
-		has_building = building_exo_mine
-		has_building = building_exo_barracks
-		has_building = building_water_excavator
-		has_building = building_water_excavator_2
-		has_building = building_prison_city
-		has_building = building_hive
-		has_building = building_sprawl
-		has_building = building_sprawl_district
-		has_building = building_retreat
-		has_building = building_great_citadel
-		has_building = building_fuel_refinery_0
+		# has_building = building_industrial_camp
+		# has_building = building_warrior_house
+		# has_building = building_production_hive
+		# has_building = building_work_collective
+		# has_building = building_minerals_market
+		# has_building = building_materials_manufacturing
+		# has_building = building_frontier_town
+		# has_building = building_frontier_city
+		# has_building = building_fuel_refinery
+		# has_building = building_fuel_refinery_ex
+		# has_building = building_fuel_refinery_2
+		# has_building = building_fuel_refinery_2_ex
+		# has_building = building_desalinator
+		# has_building = building_sand_sifter
+		# has_building = building_sand_sifter_2
+		# has_building = building_ice_rig_2
+		# has_building = building_exo_mine
+		# has_building = building_exo_barracks
+		# has_building = building_water_excavator
+		# has_building = building_water_excavator_2
+		# has_building = building_prison_city
+		# has_building = building_hive
+		# has_building = building_sprawl
+		# has_building = building_sprawl_district
+		# has_building = building_retreat
+		# has_building = building_great_citadel
+		# has_building = building_fuel_refinery_0
 
 		# dlc
 		has_building = building_worm_mine
@@ -158,56 +158,56 @@ autobuild_trigger_has_any_farm_not_replace = {
 		has_building = building_worm_farm
 
 		# alphamod
-		has_building = building_hive_director
-		has_building = building_rejuvenation_hive
-		has_building = building_luxury_vacations
-		has_building = building_basic_farm_adv
-		has_building = building_hydroponics_farm_1_adv
-		has_building = building_hydroponics_farm_2_adv
-		has_building = building_hydroponics_farm_3_adv
-		has_building = building_hydroponics_farm_4_adv
-		has_building = building_habitat
-		has_building = building_biomass_sourcer
-		has_building = building_biomass_filtrator
-		has_building = building_biomass_processor
-		has_building = building_traditional_farm
-		has_building = building_preservation
-		has_building = building_biomass_former
-		has_building = building_biomass_former_ex
-		has_building = building_biomass_reformer
-		has_building = building_food_hybridiser
-		has_building = building_colony_control_pre
-		has_building = building_colony_control
-		has_building = building_frontier_provisioner
-		has_building = building_frontier_provisioner_ex
-		has_building = building_libraryofadministration
-		has_building = building_chamberofexecutives
-		has_building = building_hallofwarriors
-		has_building = building_governerspalace
-		has_building = building_templeofrule
-		has_building = building_councilhall
-		has_building = building_fishing_yard
-		has_building = building_traditional_plantation
-		has_building = building_culture
-		has_building = building_great_sanctuary
-		has_building = building_great_order
-		has_building = building_basic_farm_adv
-		has_building = building_hydroponics_farm_1_adv
-		has_building = building_hydroponics_farm_2_adv
-		has_building = building_hydroponics_farm_3_adv
-		has_building = building_hydroponics_farm_4_adv
-		has_building = building_habitat
-		has_building = building_biomass_sourcer
-		has_building = building_biomass_filtrator
-		has_building = building_biomass_processor
-		has_building = building_traditional_farm
-		has_building = building_preservation
-		has_building = building_biomass_former
-		has_building = building_biomass_former_ex
-		has_building = building_biomass_reformer
-		has_building = building_food_hybridiser
-		has_building = building_colony_control_pre
-		has_building = building_colony_control
+		# has_building = building_hive_director
+		# has_building = building_rejuvenation_hive
+		# has_building = building_luxury_vacations
+		# has_building = building_basic_farm_adv
+		# has_building = building_hydroponics_farm_1_adv
+		# has_building = building_hydroponics_farm_2_adv
+		# has_building = building_hydroponics_farm_3_adv
+		# has_building = building_hydroponics_farm_4_adv
+		# has_building = building_habitat
+		# has_building = building_biomass_sourcer
+		# has_building = building_biomass_filtrator
+		# has_building = building_biomass_processor
+		# has_building = building_traditional_farm
+		# has_building = building_preservation
+		# has_building = building_biomass_former
+		# has_building = building_biomass_former_ex
+		# has_building = building_biomass_reformer
+		# has_building = building_food_hybridiser
+		# has_building = building_colony_control_pre
+		# has_building = building_colony_control
+		# has_building = building_frontier_provisioner
+		# has_building = building_frontier_provisioner_ex
+		# has_building = building_libraryofadministration
+		# has_building = building_chamberofexecutives
+		# has_building = building_hallofwarriors
+		# has_building = building_governerspalace
+		# has_building = building_templeofrule
+		# has_building = building_councilhall
+		# has_building = building_fishing_yard
+		# has_building = building_traditional_plantation
+		# has_building = building_culture
+		# has_building = building_great_sanctuary
+		# has_building = building_great_order
+		# has_building = building_basic_farm_adv
+		# has_building = building_hydroponics_farm_1_adv
+		# has_building = building_hydroponics_farm_2_adv
+		# has_building = building_hydroponics_farm_3_adv
+		# has_building = building_hydroponics_farm_4_adv
+		# has_building = building_habitat
+		# has_building = building_biomass_sourcer
+		# has_building = building_biomass_filtrator
+		# has_building = building_biomass_processor
+		# has_building = building_traditional_farm
+		# has_building = building_preservation
+		# has_building = building_biomass_former
+		# has_building = building_biomass_former_ex
+		# has_building = building_biomass_reformer
+		# has_building = building_food_hybridiser
+		# has_building = building_colony_control_pre
+		# has_building = building_colony_control
 
 		# stellaris+
 		# has_building = building_farm
@@ -218,6 +218,7 @@ autobuild_trigger_has_any_farm_not_replace = {
 
 autobuild_trigger_has_any_power_plant_not_replace = {
 	or = {
+		has_building = betharian_power_plant
 		has_building = building_dark_matter_power_plant
 		has_building = building_odd_factory
 
@@ -225,49 +226,49 @@ autobuild_trigger_has_any_power_plant_not_replace = {
 		has_building = building_akx_worm_1
 
 		# alphamod
-		has_building = building_powerbank
-		has_building = building_powerbank_ex
-		has_building = building_hydro_plant
-		has_building = building_hydro_plant_2
-		has_building = building_steam_plant
-		has_building = building_hydro_cell_bank
-		has_building = building_geothermal_tap
-		has_building = building_energy_network
-		has_building = building_war_monastery
-		has_building = building_power_hive
-		has_building = building_power_plant_collective
-		has_building = building_energy_market
-		has_building = building_luxuries_manufacturing
-		has_building = building_luxuries_manufacturing_ex
-		has_building = building_food_retailer
-		has_building = building_data_brokerage
-		has_building = building_tradestation
-		has_building = building_tradestation_ex
-		has_building = building_trade_company
-		has_building = building_trade_company_ex
-		has_building = building_frontier_brewery
-		has_building = building_frontier_brewery_ex
-		has_building = building_cantina
-		has_building = building_fuel_sourcer
-		has_building = building_fuel_sourcer_2
-		has_building = building_fuel_sourcer_3
-		has_building = building_alpha_fuel_converter
-		has_building = building_alpha_fuel_converter_2
-		has_building = building_alpha_fuel_converter_3
-		has_building = building_alpha_fuel_converter_4
-		has_building = building_steammaker
-		has_building = building_stormtower
-		has_building = building_moisture_farm
-		has_building = building_moisture_farm_2
-		has_building = building_moisture_farm_3
-		has_building = building_solar_power_plant
-		has_building = building_exo_power_plant
-		has_building = building_atmos_gen
-		has_building = building_greenhousing
-		has_building = building_vertical_farms
-		has_building = building_hive
-		has_building = building_sprawl
-		has_building = building_large_city
+		# has_building = building_powerbank
+		# has_building = building_powerbank_ex
+		# has_building = building_hydro_plant
+		# has_building = building_hydro_plant_2
+		# has_building = building_steam_plant
+		# has_building = building_hydro_cell_bank
+		# has_building = building_geothermal_tap
+		# has_building = building_energy_network
+		# has_building = building_war_monastery
+		# has_building = building_power_hive
+		# has_building = building_power_plant_collective
+		# has_building = building_energy_market
+		# has_building = building_luxuries_manufacturing
+		# has_building = building_luxuries_manufacturing_ex
+		# has_building = building_food_retailer
+		# has_building = building_data_brokerage
+		# has_building = building_tradestation
+		# has_building = building_tradestation_ex
+		# has_building = building_trade_company
+		# has_building = building_trade_company_ex
+		# has_building = building_frontier_brewery
+		# has_building = building_frontier_brewery_ex
+		# has_building = building_cantina
+		# has_building = building_fuel_sourcer
+		# has_building = building_fuel_sourcer_2
+		# has_building = building_fuel_sourcer_3
+		# has_building = building_alpha_fuel_converter
+		# has_building = building_alpha_fuel_converter_2
+		# has_building = building_alpha_fuel_converter_3
+		# has_building = building_alpha_fuel_converter_4
+		# has_building = building_steammaker
+		# has_building = building_stormtower
+		# has_building = building_moisture_farm
+		# has_building = building_moisture_farm_2
+		# has_building = building_moisture_farm_3
+		# has_building = building_solar_power_plant
+		# has_building = building_exo_power_plant
+		# has_building = building_atmos_gen
+		# has_building = building_greenhousing
+		# has_building = building_vertical_farms
+		# has_building = building_hive
+		# has_building = building_sprawl
+		# has_building = building_large_city
 
 		# # more technologies mod
 		# has_building = building_combo_food_power_1
@@ -359,11 +360,11 @@ autobuild_trigger_has_any_capital = {
 		has_building = building_hab_capital
 
 		# alphamod
-		has_building = building_exo_ops
-		has_building = building_commerce_coord
-		has_building = building_mining_guild
-		has_building = building_central_databank
-		has_building = building_farming_guild
+		# has_building = building_exo_ops
+		# has_building = building_commerce_coord
+		# has_building = building_mining_guild
+		# has_building = building_central_databank
+		# has_building = building_farming_guild
 
 		# stellaris+
 		# has_building = building_imperial_capital_1
@@ -384,12 +385,40 @@ autobuild_trigger_free_from_autobuild = {
 	or = {
 		is_planet_class = pc_habitat
 		has_modifier = free_from_autobuild
-		has_modifier = planet_labs_autobuild
-		has_modifier = planet_forge_autobuild
-		has_modifier = planet_power_plant_autobuild
-		has_modifier = planet_farms_autobuild
+		autobuild_trigger_planet_power_plant = yes
+		autobuild_trigger_planet_forge = yes
+		autobuild_trigger_planet_farms = yes
+		autobuild_trigger_planet_labs = yes
 		has_building_construction = yes
 		sector_controlled = yes
+	}
+}
+
+autobuild_trigger_planet_power_plant = {
+	or = {
+		has_modifier = planet_power_plant_autobuild
+		has_modifier = human_fallen_empires_migration_yellow_ring
+	}
+}
+
+autobuild_trigger_planet_forge = {
+	or = {
+		has_modifier = planet_forge_autobuild
+		has_modifier = human_fallen_empires_migration_red_ring
+	}
+}
+
+autobuild_trigger_planet_farms = {
+	or = {
+		has_modifier = planet_farms_autobuild
+		has_modifier = human_fallen_empires_migration_green_ring
+	}
+}
+
+autobuild_trigger_planet_labs = {
+	or = {
+		has_modifier = planet_labs_autobuild
+		has_modifier = human_fallen_empires_migration_blue_ring
 	}
 }
 
@@ -403,6 +432,7 @@ autobuild_trigger_free_from_autobuild_not_spec_planets = {
 
 autobuild_trigger_free_from_autoupdate = {
 	or = {
+		is_planet_class = pc_habitat
 		has_modifier = free_from_auto_update
 		has_building_construction = yes
 		sector_controlled = yes
@@ -419,29 +449,30 @@ autobuild_trigger_tile_has_strategic_res = {
 			type = sr_betharian
 			amount > 0
 		}
-		autobuild_trigger_tile_has_strategic_res_alphamod = yes
+		#autobuild_trigger_tile_has_strategic_res_alphamod = yes
 	}
 }
 
 autobuild_trigger_tile_has_strategic_res_alphamod = {
-	or = {
-		has_resource = {
-			type = sr_ice
-			amount > 0
-		}
-		has_resource = {
-			type = sr_natural_fuels
-			amount > 0
-		}
-		has_resource = {
-			type = sr_actinides
-			amount > 0
-		}
-		has_resource = {
-			type = sr_h2o
-			amount > 0
-		}
-	}
+	always = no
+	# or = {
+	# 	has_resource = {
+	# 		type = sr_ice
+	# 		amount > 0
+	# 	}
+	# 	has_resource = {
+	# 		type = sr_natural_fuels
+	# 		amount > 0
+	# 	}
+	# 	has_resource = {
+	# 		type = sr_actinides
+	# 		amount > 0
+	# 	}
+	# 	has_resource = {
+	# 		type = sr_h2o
+	# 		amount > 0
+	# 	}
+	# }
 }
 
 autobuild_trigger_tile_has_any_res = {
@@ -455,7 +486,7 @@ autobuild_trigger_tile_has_any_res = {
 					}
 				}
 				planet = {
-					has_modifier = planet_forge_autobuild
+					autobuild_trigger_planet_forge = yes
 				}
 			}
 			has_resource = {
@@ -471,7 +502,7 @@ autobuild_trigger_tile_has_any_res = {
 					}
 				}
 				planet = {
-					has_modifier = planet_farms_autobuild
+					autobuild_trigger_planet_farms = yes
 				}
 			}
 			has_resource = {
@@ -487,7 +518,7 @@ autobuild_trigger_tile_has_any_res = {
 					}
 				}
 				planet = {
-					has_modifier = planet_power_plant_autobuild
+					autobuild_trigger_planet_power_plant = yes
 				}
 			}
 			has_resource = {
@@ -504,7 +535,7 @@ autobuild_trigger_tile_has_any_res = {
 				}
 
 				planet = {
-					has_modifier = planet_labs_autobuild
+					autobuild_trigger_planet_power_plant = yes
 				}
 			}
 			or = {
@@ -533,10 +564,8 @@ autobuild_trigger_tile_has_energy_more_than_others = {
 				has_country_flag = autobuild_7_10
 			}
 		}
-
 		planet = {
-			has_modifier = planet_power_plant_autobuild
-
+			autobuild_trigger_planet_power_plant = yes
 		}
 	}
 	or = {
@@ -652,7 +681,7 @@ autobuild_trigger_tile_has_minerals_more_than_others = {
 			}
 		}
 		planet = {
-			has_modifier = planet_forge_autobuild
+			autobuild_trigger_planet_forge = yes
 		}
 	}
 	or = {
@@ -768,7 +797,7 @@ autobuild_trigger_tile_has_food_more_than_others = {
 			}
 		}
 		planet = {
-			has_modifier = planet_farms_autobuild
+			autobuild_trigger_planet_farms = yes
 		}
 	}
 	has_resource = {
@@ -926,7 +955,7 @@ autobuild_trigger_tile_has_science_more_than_others = {
 			}
 		}
 		planet = {
-			has_modifier = planet_labs_autobuild
+			autobuild_trigger_planet_power_plant = yes
 		}
 	}
 	or = {
@@ -1058,8 +1087,7 @@ autobuild_trigger_tile_has_any_minerals = {
 			}
 		}
 		planet = {
-			has_modifier = planet_forge_autobuild
-
+			autobuild_trigger_planet_forge = yes
 		}
 	}
 	has_resource = {
@@ -1073,6 +1101,16 @@ autobuild_trigger_cost = {
 	or = {
 		not = {
 			has_country_flag = autobuild_cost
+		}
+		and = {
+			has_country_flag = autobuild_cost_20000
+			minerals > 20000
+			or = {
+				not = {
+					has_global_flag = gf_alphamod_activated
+				}
+				energy > 20000
+			}
 		}
 		and = {
 			has_country_flag = autobuild_cost_5000
