@@ -10,27 +10,28 @@
 	# allow = {
 		# always = yes
 	# }
-	
+
 	# effect = {
 		# add_monthly_resource_mult = {
 			# resource = minerals
 			# value = 5
 			# min = 5
 			# max = 500
-		# }		
+		# }
 	# }
 # }
 
 fleet_autobuild_on_button_effect = {
 	potential = {
 		always = yes
-		
+
 	}
 	allow = {
+		log = "[This.GetName]"
 	#	always = yes
 	#	is_ship_class = shipclass_constructor
 	}
-	
+
 	effect = {
 		fleet_event = { id = autobuild.0}
 		custom_tooltip = modmenu.tooltip

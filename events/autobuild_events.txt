@@ -125,6 +125,7 @@ fleet_event = {
 						}
 						move_to = this
 					}
+					log = "1"
 					failed = {
 						effect = {
 							id = autobuild.0.effect.1
@@ -194,14 +195,14 @@ fleet_event = {
 										has_planet_flag = autobuild_planet_block
 									}
 								}
-								set_timed_planet_flag = {flag = autobuild_planet_block days = 120 }
+								set_timed_planet_flag = { flag = autobuild_planet_block days = 100 }
 								else = {
+									solar_system = {
+										remove_star_flag = autobuild_star_block
+									}
 									root = {
 										clear_fleet_actions = root
 										fleet_event = { id = autobuild.0}
-									}
-									solar_system = {
-										remove_star_flag = autobuild_star_block
 									}
 								}
 							}
@@ -209,6 +210,7 @@ fleet_event = {
 								set_name = "Move to planet"
 							}
 						}
+						log = "2"
 						orbit_planet = this
 						effect = {
 							id = autobuild.0.effect.3
@@ -230,7 +232,7 @@ fleet_event = {
 										remove_star_flag = autobuild_star_block
 									}
 									root = {
-										clear_fleet_actions = root
+										clear_fleet_actions = this
 										fleet_event = { id = autobuild.0}
 									}
 								}
@@ -245,8 +247,7 @@ fleet_event = {
 							}
 							if = {
 								limit = {
-									has_mining_station = no
-									has_research_station = no
+									has_orbital_station = no
 									root.owner = {
 										minerals > 90
 										or = {
@@ -301,8 +302,8 @@ fleet_event = {
 										remove_star_flag = autobuild_star_block
 									}
 									root = {
-										set_name = "Havent minerals"
-										clear_fleet_actions = root
+										set_name = "Haven't minerals"
+										clear_fleet_actions = this
 										fleet_event = { id = autobuild.0 days = 100 }
 									}
 								}
@@ -973,6 +974,7 @@ planet_event = {
 	trigger = {
 		free_pop_tiles > 0
 		is_under_colonization = no
+		is_occupied_flag = no
 		exists = owner
 		owner = {
 			is_ai = no
@@ -4368,7 +4370,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = autobuild_7_8
+		name = autobuild_7_8_on
 		trigger = {
 			or = {
 				has_country_flag = autobuild_7_1
@@ -4378,6 +4380,9 @@ country_event = {
 				##	has_country_flag = autobuild_7_5
 				has_country_flag = autobuild_7_6
 				has_country_flag = autobuild_7_7
+			}
+			not = {
+				has_country_flag = autobuild_7_8
 			}
 		}
 		custom_tooltip = autobuild_7_8.tooltip
@@ -4389,7 +4394,7 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_7_8 }
 	}
 	option = {
-		name = autobuild_7_9
+		name = autobuild_7_9_on
 		trigger = {
 			or = {
 				has_country_flag = autobuild_7_1
@@ -4399,6 +4404,9 @@ country_event = {
 				##	has_country_flag = autobuild_7_5
 				has_country_flag = autobuild_7_6
 				has_country_flag = autobuild_7_7
+			}
+			not = {
+				has_country_flag = autobuild_7_9
 			}
 		}
 		custom_tooltip = autobuild_7_9.tooltip
@@ -4410,7 +4418,7 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_7_9 }
 	}
 	option = {
-		name = autobuild_7_10
+		name = autobuild_7_10_on
 		trigger = {
 			or = {
 				has_country_flag = autobuild_7_1
@@ -4420,6 +4428,9 @@ country_event = {
 				##	has_country_flag = autobuild_7_5
 				has_country_flag = autobuild_7_6
 				has_country_flag = autobuild_7_7
+			}
+			not = {
+				has_country_flag = autobuild_7_10
 			}
 		}
 		custom_tooltip = autobuild_7_10.tooltip
@@ -4431,7 +4442,7 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_7_10 }
 	}
 	option = {
-		name = autobuild_7_11
+		name = autobuild_7_11_on
 		trigger = {
 			or = {
 				has_country_flag = autobuild_7_1
@@ -4441,6 +4452,9 @@ country_event = {
 				##	has_country_flag = autobuild_7_5
 				has_country_flag = autobuild_7_6
 				has_country_flag = autobuild_7_7
+			}
+			not = {
+				has_country_flag = autobuild_7_11
 			}
 		}
 		custom_tooltip = autobuild_7_11.tooltip
@@ -4875,6 +4889,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		always = no
 		is_ship_size = constructor
 		exists = fleet
 		fleet = {
@@ -4883,6 +4898,7 @@ ship_event = {
 	}
 
 	immediate = {
+		log = "Stop autobuild ship"
 		fleet = {
 			clear_fleet_actions = this
 			set_event_locked = no

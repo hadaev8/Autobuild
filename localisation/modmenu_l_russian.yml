@@ -3,7 +3,7 @@
  modmenu.tooltip:0 "§HОткрыть§! меню модов."
  modmenu.1.name:0 "Меню настройки модов"
  modmenu.1.desc:0 "Здесь вы можете настроить моды."
- edict_modmenu:0 "$modmenu.1.desc$"
+ edict_modmenu:0 "$modmenu_button$"
  edict_modmenu_desc:0 "$modmenu.1.desc$"
  modmenu_exit:0 "§LВыйти.§!"
  modmenu_return:0 "§LВернуться.§!"

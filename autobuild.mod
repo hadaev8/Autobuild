@@ -1,4 +1,4 @@
-name="Auto Build and Improve Buildings ENG/RUS/FRA/GER"
+name="AutoBuild ENG/RUS/FRA/GER"
 path="mod/autobuild"
 tags={
 	"Balance"
@@ -9,4 +9,4 @@ tags={
 }
 picture="build.jpg"
 remote_file_id="691008512"
-supported_version="1.5.*"
+supported_version="1.6.*"

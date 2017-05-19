@@ -33,12 +33,12 @@ guiTypes = {
 			orientation = "UPPER_LEFT"
 			spacing = 1
 		}
-		
+
 		###### Very Top part of fleet view, with orders for entire fleet ####
 
 		containerWindowType = {
 			name = "header"
-			size = { width = 475 height = 50 }		
+			size = { width = 475 height = 50 }
 			position = { x = 0 y = -4 }
 
 			iconType = {
@@ -67,6 +67,7 @@ guiTypes = {
 				position = { x = -41 y = 3  }
 				shortcut = "ESCAPE"
 				clicksound = "back_click"
+				actionShortcut = "cancel"
 			}
 		}
 	}
@@ -138,32 +139,32 @@ guiTypes = {
 		}
 	}
 
-	
+
 	# New Fleet View Summary Entry
 
 	containerWindowType = {
 		name = "fleet_view_summary_entry"
-		size = { width = 100 height = 42 }
-
-		iconType = {
-			name = "icon"
-			position = { x = 20 y = 1 }
-			spriteType = "GFX_ship_sizes_top"
-			frame = 1
-		}
+		size = { width = 94 height = 42 }
 
 		iconType = {
 			name = "health"
-			position = { x = 0 y = -1 }
-			spriteType = "GFX_fleet_view_health"
+			position = { x = 0 y = 1 }
+			spriteType = "GFX_fleet_view_health_2"
 			alwaysTransparent = yes
 		}
 
 		iconType = {
 			name = "shields"
-			position = { x = 10 y = -1 }
-			spriteType = "GFX_fleet_view_shields"
+			position = { x = 7 y = 1 }
+			spriteType = "GFX_fleet_view_shields_2"
 			alwaysTransparent = yes
+		}
+		
+		iconType = {
+			name = "icon"
+			position = { x = 14 y = 1 }
+			spriteType = "GFX_ship_sizes_top"
+			frame = 1
 		}
 
 		instantTextBoxType={
@@ -225,7 +226,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_fleet_view_main_transport_bg"
 				position = { x = 0 y = 0 }
 			}
-			
+
 			iconType = {
 				name = "header_line"
 				spriteType = "GFX_line"
@@ -257,7 +258,7 @@ guiTypes = {
 				format = left
 				alwaysTransparent = yes
 			}
-			
+
 			instantTextBoxType={
 				name = "unknown_faction_name"
 				font = "cg_16b"
@@ -326,9 +327,22 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
+				name = "civ_name"
+				font = "cg_16b"
+				position = { x = 5 y = 5 }
+				maxWidth = 430
+				maxHeight = 40
+				fixedSize = yes
+				format = left
+				text = "Human Civilization (Steam Age)"
+				text_color_code = "H"
+				alwaysTransparent = yes
+			}			
+			
+			instantTextBoxType = {
 				name = "name"
 				font = "malgun_goth_24"
-				position = { x = 5 y = 5 }
+				position = { x = 5 y = 20 }
 				maxWidth = 430
 				maxHeight = 40
 				fixedSize = yes
@@ -340,7 +354,7 @@ guiTypes = {
 			instantTextBoxType = {
 				name = "mods"
 				font = "cg_16b"
-				position = { x = 5 y = 45 }
+				position = { x = 5 y = 50 }
 				maxWidth = 430
 				maxHeight = 40
 				fixedSize = yes
@@ -352,13 +366,13 @@ guiTypes = {
 			iconType = {
 				name = "progress_bar"
 				spriteType = "GFX_progressbar_green"
-				position = { x = 5 y = 80 }
+				position = { x = 5 y = 70 }
 			}
 
 			instantTextBoxType = {
 				name = "cost_and_gains"
 				font = "cg_16b"
-				position = { x = 10 y = 35 }
+				position = { x = 10 y = 50 }
 				maxWidth = 430
 				maxHeight = 40
 				fixedSize = yes
@@ -379,7 +393,7 @@ guiTypes = {
 				spriteType = "GFX_tiles_dark_area_cut_8"
 				position = { x = 0 y = 0 }
 			}
-		
+
 			instantTextBoxType={
 				name = "no_leader_desc"
 				position = { x = 80 y = 15 }
@@ -459,7 +473,7 @@ guiTypes = {
 				format = left
 			}
 		}
-		
+
 		containerWindowType = {
 			name = "colonizer_pop"
 			size = { width = @leader_area_w height = @fleet_info_area_h }
@@ -524,14 +538,14 @@ guiTypes = {
 			name = "leader_frame_box"
 			size = { width = 82 height = 95 }
 			position = { x = 10 y = 74 }
-		
+
 			background = {
 				name = "frame_box"
 				spriteType = "GFX_clean_frame_area"
 				alwaysTransparent = yes
 			}
 		}
-		
+
 
 		containerWindowType = {
 			name = "orders_small"
@@ -581,17 +595,17 @@ guiTypes = {
 				effect = "fleet_autobuild_on_button_effect"
 			}
 		}
-		
+
 		containerWindowType = {
 			name = "precommunications"
-			
+
 			iconType = {
 				name = "image"
 				spriteType = "GFX_precom_fleet_xenophobe"
 				position = { x = 6 y = 55 }
 				alwaysTransparent = yes
 			}
-			
+
 			buttonType = {
 				name = "contact"
 				font = "cg_16b"
@@ -619,7 +633,7 @@ guiTypes = {
 				orientation = LOWER_LEFT
 				position = { x = 332 y = -200 }
 			}
-		
+
 			buttonType = {
 				name = "focus_on"
 				orientation = LOWER_LEFT
@@ -629,34 +643,34 @@ guiTypes = {
 				#frame = 1
 				shortCut = "q"
 			}
-			
+
 			instantTextBoxType={
 				name = "orders"
 				orientation = LOWER_LEFT
 				position = { x = 10 y = -37 }
 				font = "cg_16b"
 				text = "ORDERS"
-				maxWidth = 280
+				maxWidth = 320
 				maxHeight = 40
 				fixedSize = yes
 				format = left
-			}		
-			
+			}
+
 			instantTextBoxType={
 				name = "activity"
 				orientation = LOWER_LEFT
 				position = { x = 10 y = -20 }
 				font = "cg_16b"
 				text = "ACTIVITY"
-				maxWidth = 260
+				maxWidth = 320
 				maxHeight = 20
 				fixedSize = yes
 				format = left
-			}	
-			
+			}
+
 			instantTextBoxType = {
 				name = "size_limit"
-				position = { x = 265 y = -121 }
+				position = { x = 275 y = -121 }
 				font = "cg_16b"
 				text = "10/10"
 				maxWidth = 60
@@ -664,10 +678,10 @@ guiTypes = {
 				fixedSize = yes
 				format = left
 			}
-			
+
 			instantTextBoxType = {
 				name = "fleet_power"
-				position = { x = 310 y = -121 }
+				position = { x = 320 y = -121 }
 				font = "cg_16b"
 				text = "10/10"
 				maxWidth = 70
@@ -675,25 +689,23 @@ guiTypes = {
 				fixedSize = yes
 				format = left
 			}
-			
+
 			instantTextBoxType = {
 				name = "hull_points"
-				position = { x = 200 y = -121 }
+				position = { x = 185 y = -121 }
 				font = "cg_16b"
 				text = "10/10"
-				maxWidth = 60
+				maxWidth = 80
 				maxHeight = 15
 				fixedSize = yes
 				format = right
 			}
-
-			overlappingElementsBoxType = {
+			
+			gridBoxType = {
 				name = "actions"
-				position = { x = 315 y = 2}
-				size = { x = 159 y = 38 }
-				format = right
-				orientation = "UPPER_LEFT"
-				spacing = -4
+				position = { x = 464 y = 2}
+				slotSize = { width = 34 height = 34 }
+				format = "UPPER_RIGHT"
 			}
 		}
 
@@ -770,7 +782,7 @@ guiTypes = {
 			spriteType = "GFX_fleet_order_button_ground_support_full"
 			alwaysTransparent = yes
 		}
-		
+
 		buttonType = {
 			name = "button"
 			spriteType = "GFX_fleet_order_button_ground_support_full"
@@ -791,10 +803,41 @@ guiTypes = {
 		}
 	}
 
-	# Fleet Transfer View Entry
+	# Fleet Transfer View Entry - Group
 
 	containerWindowType = {
-		name = "fleet_transfer_view_entry_all"
+		name = "fleet_transfer_view_entry_group"
+		size = { width = 380 height = 46 }
+
+		background = {
+			name = "fleet_transfer_view_entry_background"
+			quadTextureSprite = "GFX_tiles_dark_area_cut_8"
+			position = { x = 15 y = 0 }
+		}
+
+		iconType = {
+			name = "icon"
+			position = { x = 20 y = 8 }
+			spriteType = "GFX_ship_sizes"
+			frame = 1
+		}
+
+		instantTextBoxType = {
+			name = "label"
+			position = { x = 50 y = 16 }
+			font = "cg_16b"
+			text = ""
+			maxWidth = 310
+			maxHeight = 46
+			fixedSize = yes
+			format = center
+		}
+	}
+
+	# Fleet Transfer View Entry - Group (Damaged)
+
+	containerWindowType = {
+		name = "fleet_transfer_view_entry_group_damaged"
 		size = { width = 380 height = 46 }
 
 		background = {
@@ -804,12 +847,12 @@ guiTypes = {
 		}
 
 		instantTextBoxType = {
-			name = "all"
-			position = { x = 0 y = 16 }
+			name = "label"
+			position = { x = 20 y = 16 }
 			font = "cg_16b"
-			text = "FLEET_TRANSFER_ALL"
-			maxWidth = 400
-			maxHeight = 15
+			text = ""
+			maxWidth = 370
+			maxHeight = 46
 			fixedSize = yes
 			format = center
 		}
