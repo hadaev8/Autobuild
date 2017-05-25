@@ -1205,28 +1205,16 @@ planet_event = {
 			autobuild_trigger_cost = yes
 			has_technology = tech_frontier_health
 		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_farm = yes
-		}
+		free_building_tiles > 0
 	}
 
 	immediate = {
 		random_tile = {
 			limit = {
-				or = {
-					has_building = no
-					and = {
-						autobuild_trigger_has_any_farm = yes
-						root = {
-							free_building_tiles = 0
-						}
-					}
-				}
+				has_building = no
 				exists = pop
-				# pop = { is_being_purged = no }
 				or = {
-					autobuild_trigger_tile_has_food_more_than_others = yes
+					autobuild_trigger_tile_has_science_more_than_others = yes
 					autobuild_trigger_tile_has_any_res = no
 				}
 			}
@@ -3083,22 +3071,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_free_from_autoupdate = no
-		exists = owner
-		owner = {
-			or = {
-				has_country_flag = autobuild_1
-				and = {
-					is_ai = yes
-					has_global_flag = autobuild_ai_allowed
-				}
-			}
-			autobuild_trigger_cost = yes
-		}
-		or = {
-			autobuild_trigger_has_any_capital = yes
-			has_building = building_colony_shelter
-		}
+		autobuild_trigger_local_autoupdate = yes
 	}
 
 	immediate = {
