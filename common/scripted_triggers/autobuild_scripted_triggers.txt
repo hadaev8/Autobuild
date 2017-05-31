@@ -148,6 +148,13 @@ autobuild_trigger_has_any_science_lab_not_replace = {
 	}
 }
 
+autobuild_trigger_has_any_capital_or_shelter = {
+	or = {
+		autobuild_trigger_has_any_capital = yes
+		has_building = building_colony_shelter
+	}
+}
+
 autobuild_trigger_has_any_capital = {
 	or = {
 		has_building = building_capital_1
@@ -161,37 +168,37 @@ autobuild_trigger_free_from_autobuild = {
 	or = {
 		is_planet_class = pc_habitat
 		has_modifier = free_from_autobuild
-		autobuild_trigger_planet_power_plant = yes
-		autobuild_trigger_planet_forge = yes
-		autobuild_trigger_planet_farms = yes
-		autobuild_trigger_planet_labs = yes
+		autobuild_trigger_planet_energy = yes
+		autobuild_trigger_planet_minerals = yes
+		autobuild_trigger_planet_food = yes
+		autobuild_trigger_planet_science = yes
 		has_building_construction = yes
 		sector_controlled = yes
 	}
 }
 
-autobuild_trigger_planet_power_plant = {
+autobuild_trigger_planet_energy = {
 	or = {
 		has_modifier = planet_power_plant_autobuild
 		has_modifier = human_fallen_empires_migration_yellow_ring
 	}
 }
 
-autobuild_trigger_planet_forge = {
+autobuild_trigger_planet_minerals = {
 	or = {
 		has_modifier = planet_forge_autobuild
 		has_modifier = human_fallen_empires_migration_red_ring
 	}
 }
 
-autobuild_trigger_planet_farms = {
+autobuild_trigger_planet_food = {
 	or = {
 		has_modifier = planet_farms_autobuild
 		has_modifier = human_fallen_empires_migration_green_ring
 	}
 }
 
-autobuild_trigger_planet_labs = {
+autobuild_trigger_planet_science = {
 	or = {
 		has_modifier = planet_labs_autobuild
 		has_modifier = human_fallen_empires_migration_blue_ring
@@ -251,14 +258,6 @@ autobuild_trigger_tile_has_strategic_res_alphamod = {
 	# }
 }
 
-
-stellaris+evolved_trigger_autobuild_allow_mine = {
-	has_resource = {
-		type = some_sr_name_example
-		amount > 0
-	}
-}
-
 autobuild_trigger_tile_has_any_res = {
 	or = {
 		autobuild_trigger_tile_has_strategic_res = yes
@@ -270,7 +269,7 @@ autobuild_trigger_tile_has_any_res = {
 					}
 				}
 				planet = {
-					autobuild_trigger_planet_forge = yes
+					autobuild_trigger_planet_minerals = yes
 				}
 			}
 			has_resource = {
@@ -286,7 +285,7 @@ autobuild_trigger_tile_has_any_res = {
 					}
 				}
 				planet = {
-					autobuild_trigger_planet_farms = yes
+					autobuild_trigger_planet_food = yes
 				}
 			}
 			has_resource = {
@@ -302,7 +301,7 @@ autobuild_trigger_tile_has_any_res = {
 					}
 				}
 				planet = {
-					autobuild_trigger_planet_power_plant = yes
+					autobuild_trigger_planet_energy = yes
 				}
 			}
 			has_resource = {
@@ -319,7 +318,7 @@ autobuild_trigger_tile_has_any_res = {
 				}
 
 				planet = {
-					autobuild_trigger_planet_labs = yes
+					autobuild_trigger_planet_science = yes
 				}
 			}
 			or = {
@@ -349,7 +348,7 @@ autobuild_trigger_tile_has_energy_more_than_others = {
 			}
 		}
 		planet = {
-			autobuild_trigger_planet_power_plant = yes
+			autobuild_trigger_planet_energy = yes
 		}
 	}
 	or = {
@@ -465,7 +464,7 @@ autobuild_trigger_tile_has_minerals_more_than_others = {
 			}
 		}
 		planet = {
-			autobuild_trigger_planet_forge = yes
+			autobuild_trigger_planet_minerals = yes
 		}
 	}
 	or = {
@@ -581,7 +580,7 @@ autobuild_trigger_tile_has_food_more_than_others = {
 			}
 		}
 		planet = {
-			autobuild_trigger_planet_farms = yes
+			autobuild_trigger_planet_food = yes
 		}
 	}
 	has_resource = {
@@ -739,7 +738,7 @@ autobuild_trigger_tile_has_science_more_than_others = {
 			}
 		}
 		planet = {
-			autobuild_trigger_planet_power_plant = yes
+			autobuild_trigger_planet_energy = yes
 		}
 	}
 	or = {
@@ -871,7 +870,7 @@ autobuild_trigger_tile_has_any_minerals = {
 			}
 		}
 		planet = {
-			autobuild_trigger_planet_forge = yes
+			autobuild_trigger_planet_minerals = yes
 		}
 	}
 	has_resource = {

@@ -14,7 +14,7 @@
  modmenu_off:0 "§RTurn Off§!"
  modmenu_tooltip_on:0 "Pressing the button will $modmenu_on$ this option."
  modmenu_tooltip_off:0 "Pressing the button will $modmenu_off$ this option."
- modmenu_return:0 "Return."
+ modmenu_return:0 "§LReturn.§!"
  modmenu_yes:0 "Yes."
  modmenu_no:0 "No."
  modmenu_configure:0 "Here you can configure"

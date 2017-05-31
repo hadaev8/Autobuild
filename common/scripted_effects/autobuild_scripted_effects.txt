@@ -97,6 +97,8 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.114 }
 	planet_event = { id = autobuild.115 }
 	planet_event = { id = autobuild.116 }
+	planet_event = { id = autobuild.117 }
+
 
 #	planet_event = { id = autobuild.130 }
 #	planet_event = { id = autobuild.131 }
@@ -107,7 +109,7 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.136 }
 	planet_event = { id = autobuild.137 }
 	planet_event = { id = autobuild.138 }
-	planet_event = { id = autobuild.139 }
+	#planet_event = { id = autobuild.139 }
 	planet_event = { id = autobuild.140 }
 	planet_event = { id = autobuild.142 }
 	planet_event = { id = autobuild.143 }

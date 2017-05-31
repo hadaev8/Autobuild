@@ -143,10 +143,10 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = {
-		autobuild_trigger_planet_power_plant = no
-		autobuild_trigger_planet_forge = no
-		autobuild_trigger_planet_farms = no
-		autobuild_trigger_planet_labs = no
+		autobuild_trigger_planet_energy = no
+		autobuild_trigger_planet_minerals = no
+		autobuild_trigger_planet_food = no
+		autobuild_trigger_planet_science = no
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
@@ -174,10 +174,10 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = {
-		autobuild_trigger_planet_power_plant = no
-		autobuild_trigger_planet_forge = no
-		autobuild_trigger_planet_farms = no
-		autobuild_trigger_planet_labs = no
+		autobuild_trigger_planet_energy = no
+		autobuild_trigger_planet_minerals = no
+		autobuild_trigger_planet_food = no
+		autobuild_trigger_planet_science = no
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
@@ -205,10 +205,10 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = {
-		autobuild_trigger_planet_power_plant = no
-		autobuild_trigger_planet_forge = no
-		autobuild_trigger_planet_farms = no
-		autobuild_trigger_planet_labs = no
+		autobuild_trigger_planet_energy = no
+		autobuild_trigger_planet_minerals = no
+		autobuild_trigger_planet_food = no
+		autobuild_trigger_planet_science = no
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
@@ -236,7 +236,7 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = {
-		autobuild_trigger_planet_labs = yes
+		autobuild_trigger_planet_science = yes
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
@@ -259,7 +259,7 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = {
-		autobuild_trigger_planet_labs = yes
+		autobuild_trigger_planet_science = yes
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
@@ -282,7 +282,7 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = {
-		autobuild_trigger_planet_labs = yes
+		autobuild_trigger_planet_science = yes
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }
@@ -305,10 +305,10 @@ planet_edict = {
 	influence_cost = 0
 	length = 0
 	potential = {
-		autobuild_trigger_planet_power_plant = no
-		autobuild_trigger_planet_forge = no
-		autobuild_trigger_planet_farms = no
-		autobuild_trigger_planet_labs = no
+		autobuild_trigger_planet_energy = no
+		autobuild_trigger_planet_minerals = no
+		autobuild_trigger_planet_food = no
+		autobuild_trigger_planet_science = no
 		NOT = { has_global_flag  = hide_autobuild_planetary_edicts }
 	}
 	allow = { }

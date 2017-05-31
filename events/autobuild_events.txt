@@ -114,7 +114,6 @@ fleet_event = {
 						}
 						move_to = this
 					}
-					log = "1"
 					failed = {
 						effect = {
 							id = autobuild.0.effect.1
@@ -199,7 +198,6 @@ fleet_event = {
 								set_name = "Move to planet"
 							}
 						}
-						log = "2"
 						orbit_planet = this
 						effect = {
 							id = autobuild.0.effect.3
@@ -271,6 +269,25 @@ fleet_event = {
 									}
 									root.owner = {
 										add_minerals = -90
+										if = {
+											limit = {
+												has_event_chain = mandate_miner_chain
+											}
+											add_event_chain_counter = {
+												event_chain = mandate_miner_chain
+												counter = mining_stations_built
+												amount = 1
+											}
+											if = {
+												limit = {
+													has_completed_event_chain_counter = {
+														event_chain = mandate_miner_chain
+														counter = mining_stations_built
+													}
+												}
+												country_event = { id = mandate.111 }
+											}
+										}
 									}
 									else = {
 										if = {
@@ -282,6 +299,25 @@ fleet_event = {
 											}
 											root.owner = {
 												add_minerals = -90
+												if = {
+													limit = {
+														has_event_chain = mandate_orbresearch_chain
+													}
+													add_event_chain_counter = {
+														event_chain = mandate_orbresearch_chain
+														counter = orbresearch_built
+														amount = 1
+													}
+													if = {
+														limit = {
+															has_completed_event_chain_counter = {
+																event_chain = mandate_orbresearch_chain
+																counter = orbresearch_built
+															}
+														}
+														country_event = { id = mandate.121 }
+													}
+												}
 											}
 										}
 									}
@@ -1323,9 +1359,9 @@ planet_event = {
 			has_building = building_power_hub_2
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_forge = no
-		autobuild_trigger_planet_farms = no
-		autobuild_trigger_planet_labs = no
+		autobuild_trigger_planet_minerals = no
+		autobuild_trigger_planet_food = no
+		autobuild_trigger_planet_science = no
 		exists = owner
 		owner = {
 			or = {
@@ -1383,9 +1419,9 @@ planet_event = {
 			has_building = building_mineral_processing_plant_2
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_power_plant = no
-		autobuild_trigger_planet_farms = no
-		autobuild_trigger_planet_labs = no
+		autobuild_trigger_planet_energy = no
+		autobuild_trigger_planet_food = no
+		autobuild_trigger_planet_science = no
 		exists = owner
 		owner = {
 			or = {
@@ -1456,10 +1492,15 @@ planet_event = {
 			has_technology = tech_alien_life_studies
 			autobuild_trigger_cost = yes
 		}
-		# has_resource = {
-		# 	type = sr_alien_pets
-		# 	amount > 0
-		# }
+		any_tile = {
+			has_resource = {
+		 		type = sr_alien_pets
+		 		amount > 0
+			}
+			not = {
+				has_building = building_xeno_zoo
+			}
+		}
 		autobuild_trigger_has_any_capital = yes
 	}
 
@@ -1922,6 +1963,67 @@ planet_event = {
 	}
 }
 
+# local autobuild betharian
+planet_event = {
+	id = autobuild.117
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		nor = {
+			is_planet_class = pc_habitat
+			has_building = building_xeno_zoo
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_3
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_technology = tech_mine_betharian
+			autobuild_trigger_cost = yes
+		}
+		any_tile = {
+			has_resource = {
+		 		type = sr_alien_pets
+		 		amount > 0
+			}
+			not = {
+				has_building = building_xeno_zoo
+			}
+		}
+		autobuild_trigger_has_any_capital = yes
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				has_blocker = no
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_mine = yes
+					autobuild_trigger_has_any_science_lab = yes
+					autobuild_trigger_has_any_power_plant = yes
+					autobuild_trigger_has_any_farm = yes
+					has_building = building_slave_processing
+				}
+				not = {
+					has_building = betharian_power_plant
+				}
+				has_resource = {
+					type = sr_betharian
+					amount > 0
+				}
+			}
+			add_building_construction = betharian_power_plant
+		}
+	}
+}
+
 
 
 # local autobuild on ept tiles
@@ -1951,18 +2053,20 @@ planet_event = {
 					is_non_sentient_robot = yes
 				}
 			}
-			if = {
+			every_tile = {
 				limit = {
-					has_building = building_colony_shelter
+					has_building = no
+					exists = pop
+					pop = {
+						is_non_sentient_robot = yes
+					}
+					autobuild_trigger_tile_has_any_res = no
 				}
-				every_tile = {
+				if = {
 					limit = {
-						has_building = no
-						exists = pop
-						pop = {
-							is_non_sentient_robot = yes
+						root = {
+							has_building = building_colony_shelter
 						}
-						autobuild_trigger_tile_has_any_res = no
 					}
 					add_building_construction = building_basic_mine
 					else = {
@@ -2109,15 +2213,13 @@ planet_event = {
 			}
 			autobuild_trigger_cost = yes
 		}
+		#autobuild_trigger_has_any_capital_or_shelter = yes
 	}
 
 	immediate = {
 		if = {
 			limit = {
-				not = {
-					has_building = building_colony_shelter
-				}
-				autobuild_trigger_has_any_capital = no
+				autobuild_trigger_has_any_capital_or_shelter = no
 			}
 			random_tile = {
 				limit = {
@@ -2144,18 +2246,6 @@ planet_event = {
 		if = {
 			limit = {
 				autobuild_trigger_has_any_capital = yes
-			}
-			random_tile = {
-				limit = {
-					has_building = no
-					exists = pop
-					# pop = { is_being_purged = no }
-					has_resource = {
-						type = sr_betharian
-						amount > 0
-					}
-				}
-				add_building_construction = betharian_power_plant
 			}
 			every_tile = {
 				limit = {
@@ -2199,38 +2289,33 @@ planet_event = {
 				add_building_construction = building_hydroponics_farm_1
 			}
 			else = {
-				if = {
+				every_tile = {
 					limit = {
-						has_building = building_colony_shelter
+						has_building = no
+						exists = pop
+						pop = {	is_non_sentient_robot = no }
+						# pop = { is_being_purged = no }
+						autobuild_trigger_tile_has_energy_more_than_others = yes
 					}
-					every_tile = {
-						limit = {
-							has_building = no
-							exists = pop
-							pop = {	is_non_sentient_robot = no }
-							# pop = { is_being_purged = no }
-							autobuild_trigger_tile_has_energy_more_than_others = yes
-						}
-						add_building_construction = building_basic_power_plant
+					add_building_construction = building_basic_power_plant
+				}
+				every_tile = {
+					limit = {
+						has_building = no
+						exists = pop
+						# pop = { is_being_purged = no }
+						autobuild_trigger_tile_has_minerals_more_than_others = yes
 					}
-					every_tile = {
-						limit = {
-							has_building = no
-							exists = pop
-							# pop = { is_being_purged = no }
-							autobuild_trigger_tile_has_minerals_more_than_others = yes
-						}
-						add_building_construction = building_basic_mine
+					add_building_construction = building_basic_mine
+				}
+				every_tile = {
+					limit = {
+						has_building = no
+						exists = pop
+						# pop = { is_being_purged = no }
+						autobuild_trigger_tile_has_food_more_than_others = yes
 					}
-					every_tile = {
-						limit = {
-							has_building = no
-							exists = pop
-							# pop = { is_being_purged = no }
-							autobuild_trigger_tile_has_food_more_than_others = yes
-						}
-						add_building_construction = building_basic_farm
-					}
+					add_building_construction = building_basic_farm
 				}
 			}
 		}
@@ -2245,7 +2330,7 @@ planet_event = {
 
 	trigger = {
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_forge = yes
+		autobuild_trigger_planet_minerals = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -2256,34 +2341,10 @@ planet_event = {
 			autobuild_trigger_has_any_science_lab = yes
 			autobuild_trigger_has_any_farm = yes
 		}
+		autobuild_trigger_has_any_capital_or_shelter = yes
 	}
 
 	immediate = {
-		if = {
-			limit = {
-				not = {
-					has_building = human_fallen_empires_building_thoth_module_mineral
-				}
-				owner = {
-					check_variable = {
-						which = human_fallen_empires_building_thoth_module_mineral
-						value > 0
-					}
-				}
-			}
-			random_tile = {
-				limit = {
-					or = {
-						has_building = no
-						autobuild_trigger_has_any_power_plant = yes
-						autobuild_trigger_has_any_science_lab = yes
-						autobuild_trigger_has_any_farm = yes
-					}
-					exists = pop
-				}
-			}
-			add_building_construction = human_fallen_empires_building_thoth_module_mineral
-		}
 		if = {
 			limit = {
 				autobuild_trigger_has_any_capital = yes
@@ -2302,23 +2363,18 @@ planet_event = {
 				add_building_construction = building_mining_network_1
 			}
 			else = {
-				if = {
+				every_tile = {
 					limit = {
-						has_building = building_colony_shelter
-					}
-					every_tile = {
-						limit = {
-							or = {
-								has_building = no
-								autobuild_trigger_has_any_power_plant = yes
-								autobuild_trigger_has_any_science_lab = yes
-								autobuild_trigger_has_any_farm = yes
-							}
-							exists = pop
-							# pop = { is_being_purged = no }
+						or = {
+							has_building = no
+							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_science_lab = yes
+							autobuild_trigger_has_any_farm = yes
 						}
-						add_building_construction = building_basic_mine
+						exists = pop
+						# pop = { is_being_purged = no }
 					}
+					add_building_construction = building_basic_mine
 				}
 			}
 		}
@@ -2333,7 +2389,7 @@ planet_event = {
 
 	trigger = {
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_farms = yes
+		autobuild_trigger_planet_food = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -2344,34 +2400,10 @@ planet_event = {
 			autobuild_trigger_has_any_science_lab = yes
 			autobuild_trigger_has_any_mine = yes
 		}
+		autobuild_trigger_has_any_capital_or_shelter = yes
 	}
 
 	immediate = {
-		if = {
-			limit = {
-				not = {
-					has_building = human_fallen_empires_building_thoth_module_food
-				}
-				owner = {
-					check_variable = {
-						which = human_fallen_empires_building_thoth_module_food
-						value > 0
-					}
-				}
-			}
-			random_tile = {
-				limit = {
-					or = {
-						has_building = no
-						autobuild_trigger_has_any_power_plant = yes
-						autobuild_trigger_has_any_science_lab = yes
-						autobuild_trigger_has_any_mine = yes
-					}
-					exists = pop
-				}
-			}
-			add_building_construction = human_fallen_empires_building_thoth_module_food
-		}
 		if = {
 			limit = {
 				autobuild_trigger_has_any_capital = yes
@@ -2390,23 +2422,18 @@ planet_event = {
 				add_building_construction = building_hydroponics_farm_1
 			}
 			else = {
-				if = {
+				every_tile = {
 					limit = {
-						has_building = building_colony_shelter
-					}
-					every_tile = {
-						limit = {
-							or = {
-								has_building = no
-								autobuild_trigger_has_any_power_plant = yes
-								autobuild_trigger_has_any_science_lab = yes
-								autobuild_trigger_has_any_mine = yes
-							}
-							exists = pop
-							# pop = { is_being_purged = no }
+						or = {
+							has_building = no
+							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_science_lab = yes
+							autobuild_trigger_has_any_mine = yes
 						}
-						add_building_construction = building_basic_farm
+						exists = pop
+						# pop = { is_being_purged = no }
 					}
+					add_building_construction = building_basic_farm
 				}
 			}
 		}
@@ -2421,7 +2448,7 @@ planet_event = {
 
 	trigger = {
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_power_plant = yes
+		autobuild_trigger_planet_energy = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -2433,34 +2460,10 @@ planet_event = {
 			autobuild_trigger_has_any_farm = yes
 			has_building = building_slave_processing
 		}
+		autobuild_trigger_has_any_capital_or_shelter = yes
 	}
 
 	immediate = {
-		if = {
-			limit = {
-				not = {
-					has_building = human_fallen_empires_building_thoth_module_energy
-				}
-				owner = {
-					check_variable = {
-						which = human_fallen_empires_building_thoth_module_energy
-						value > 0
-					}
-				}
-			}
-			random_tile = {
-				limit = {
-					or = {
-						has_building = no
-						autobuild_trigger_has_any_mine = yes
-						autobuild_trigger_has_any_science_lab = yes
-						autobuild_trigger_has_any_farm = yes
-					}
-					exists = pop
-				}
-			}
-			add_building_construction = human_fallen_empires_building_thoth_module_energy
-		}
 		if = {
 			limit = {
 				autobuild_trigger_has_any_capital = yes
@@ -2474,61 +2477,8 @@ planet_event = {
 						}
 					}
 				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						or = {
-							has_building = no
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_science_lab = yes
-							autobuild_trigger_has_any_power_plant = yes
-							autobuild_trigger_has_any_farm = yes
-							has_building = building_slave_processing
-						}
-						not = {
-							has_building = betharian_power_plant
-						}
-						has_resource = {
-							type = sr_betharian
-							amount > 0
-						}
-					}
-					add_building_construction = betharian_power_plant
-				}
+
 			}
-			# if = {
-			# 	limit = {
-			# 		has_global_flag = gf_alphamod_activated
-			# 	}
-			# 	if = {
-			# 		limit = {
-			# 			owner = {
-			# 				has_country_strategic_resource = {
-			# 					type = sr_micro_cores
-			# 					amount > 3
-			# 				}
-			# 				has_country_strategic_resource = {
-			# 					type = sr_tradegoods
-			# 					amount > 3
-			# 				}
-			# 				has_country_strategic_resource = {
-			# 					type = sr_replicator_gems
-			# 					amount > 3
-			# 				}
-			# 			}
-			# 		}
-			# 		random_tile = {
-			# 			limit = {
-			# 				has_building = building_capital_2
-			# 				exists = pop
-			# 				pop = {
-			# 					is_being_purged = no
-			# 				}
-			# 			}
-			# 			add_building_construction = building_commerce_coord
-			# 		}
-			# 	}
-			# }
 			every_tile = {
 				limit = {
 					or = {
@@ -2545,25 +2495,20 @@ planet_event = {
 				add_building_construction = building_power_plant_1
 			}
 			else = {
-				if = {
+				every_tile = {
 					limit = {
-						has_building = building_colony_shelter
-					}
-					every_tile = {
-						limit = {
-							or = {
-								has_building = no
-								autobuild_trigger_has_any_mine = yes
-								autobuild_trigger_has_any_science_lab = yes
-								autobuild_trigger_has_any_farm = yes
-								has_building = building_slave_processing
-							}
-							exists = pop
-							pop = {	is_non_sentient_robot = no }
-							# pop = { is_being_purged = no }
+						or = {
+							has_building = no
+							autobuild_trigger_has_any_mine = yes
+							autobuild_trigger_has_any_science_lab = yes
+							autobuild_trigger_has_any_farm = yes
+							has_building = building_slave_processing
 						}
-						add_building_construction = building_basic_power_plant
+						exists = pop
+						pop = {	is_non_sentient_robot = no }
+						# pop = { is_being_purged = no }
 					}
+					add_building_construction = building_basic_power_plant
 				}
 			}
 		}
@@ -2578,7 +2523,7 @@ planet_event = {
 
 	trigger = {
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_labs = yes
+		autobuild_trigger_planet_science = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -2590,38 +2535,10 @@ planet_event = {
 			has_building = building_slave_processing
 			autobuild_trigger_has_any_farm = yes
 		}
-		or = {
-			autobuild_trigger_has_any_capital = yes
-			has_building = building_colony_shelter
-		}
+		autobuild_trigger_has_any_capital_or_shelter = yes
 	}
 
 	immediate = {
-		if = {
-			limit = {
-				not = {
-					has_building = human_fallen_empires_building_thoth_module_science
-				}
-				owner = {
-					check_variable = {
-						which = human_fallen_empires_building_thoth_module_science
-						value > 0
-					}
-				}
-			}
-			random_tile = {
-				limit = {
-					or = {
-						has_building = no
-						autobuild_trigger_has_any_power_plant = yes
-						autobuild_trigger_has_any_mine = yes
-						autobuild_trigger_has_any_farm = yes
-					}
-					exists = pop
-				}
-			}
-			add_building_construction = human_fallen_empires_building_thoth_module_science
-		}
 		every_tile = {
 			limit = {
 				exists = pop
@@ -2704,77 +2621,6 @@ planet_event = {
 	}
 }
 
-# local autoupdate influence cost
-planet_event = {
-	id = autobuild.139
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		always = no
-		autobuild_trigger_free_from_autoupdate = no
-		exists = owner
-		owner = {
-			or = {
-				has_country_flag = autobuild_2
-				and = {
-					is_ai = yes
-					has_global_flag = autobuild_ai_allowed
-					influence > 150
-				}
-			}
-			or = {
-				not = { has_country_flag = autobuild_cost }
-				and = {
-					autobuild_trigger_cost = yes
-					or = {
-						and = {
-							has_country_flag = autobuild_cost_inf_500
-							influence > 500
-						}
-						and = {
-							has_country_flag = autobuild_cost_inf_250
-							influence > 250
-						}
-						and = {
-							has_country_flag = autobuild_cost_inf_100
-							influence > 100
-						}
-					}
-				}
-			}
-		}
-	}
-
-	immediate = {
-		every_tile = {
-			limit = {
-				exists = pop
-				# pop = { is_being_purged = no }
-			}
-			# switch = {
-			# 	trigger = has_building
-
-
-
-			# 	# stellaris+
-			# 	building_imperial_capital_1 = { add_building_construction = building_imperial_capital_2 }
-			# 	building_imperial_capital_2 = { add_building_construction = building_imperial_capital_3 }
-			# 	building_industrial_capital_1 = { add_building_construction = building_industrial_capital_2 }
-			# 	building_fortress_capital_1 = { add_building_construction = building_fortress_capital_2 }
-			# 	building_tech_capital_1 = { add_building_construction = building_tech_capital_2 }
-			# 	building_hiveworld_capital_1 = { add_building_construction = building_hiveworld_capital_2 }
-
-			# }
-			# if = {
-			# 	limit = {
-			# 		has_global_flag = gf_alphamod_activated
-			# 	}
-			# 	autobuild_effect_alphamod_autoupdate_influence = yes
-			# }
-		}
-	}
-}
 
 # local autoupdate labs
 planet_event = {
@@ -3069,7 +2915,7 @@ planet_event = {
 	trigger = {
 		is_planet_class = pc_habitat
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_power_plant = yes
+		autobuild_trigger_planet_energy = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -3109,7 +2955,7 @@ planet_event = {
 	trigger = {
 		is_planet_class = pc_habitat
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_forge = yes
+		autobuild_trigger_planet_minerals = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -3148,7 +2994,7 @@ planet_event = {
 	trigger = {
 		is_planet_class = pc_habitat
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_farms = yes
+		autobuild_trigger_planet_food = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -3187,7 +3033,7 @@ planet_event = {
 	trigger = {
 		is_planet_class = pc_habitat
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-		autobuild_trigger_planet_labs = yes
+		autobuild_trigger_planet_science = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -3904,7 +3750,7 @@ country_event = {
 		custom_tooltip = autobuild_remove_farms_not_planet_farm.tooltip
 		trigger = {
 			any_owned_planet = {
-				autobuild_trigger_planet_farms = yes
+				autobuild_trigger_planet_food = yes
 				autobuild_trigger_has_any_farm = yes
 			}
 		}
@@ -3912,7 +3758,7 @@ country_event = {
 			set_country_flag = autobuild_ignore_food
 			every_owned_planet = {
 				limit = {
-					autobuild_trigger_planet_farms = no
+					autobuild_trigger_planet_food = no
 					autobuild_trigger_has_any_farm = yes
 				}
 				every_tile = {
@@ -3939,12 +3785,12 @@ country_event = {
 				limit = {
 					or = {
 						autobuild_trigger_has_any_farm = yes
-						autobuild_trigger_planet_farms = yes
+						autobuild_trigger_planet_food = yes
 					}
 				}
 				if = {
 					limit = {
-						autobuild_trigger_planet_farms = yes
+						autobuild_trigger_planet_food = yes
 					}
 					remove_modifier = planet_farms_autobuild
 					remove_modifier = human_fallen_empires_migration_green_ring
