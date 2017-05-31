@@ -114,8 +114,18 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.144 }
 	planet_event = { id = autobuild.145 }
 	human_fallen_empires_effect_autobuild = yes
+	stellaris+evolved_effect_autobuild = yes
+	alphamod_effect_autobuild = yes
 }
 
 human_fallen_empires_effect_autobuild = {
+
+}
+
+stellaris+evolved_effect_autobuild = {
+
+}
+
+alphamod_effect_autobuild = {
 
 }

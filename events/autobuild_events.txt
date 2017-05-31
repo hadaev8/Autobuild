@@ -4,17 +4,6 @@
 ## 3 - auto build new buildings on good tiles
 ## 4_2 - replace power plants and labs if slave
 ## 7 - auto build in ept tiles
-## 7_1 only power
-## 7_2 only mines
-## 7_3 only labs
-## 7_4 scientific priority (power for labs) 1 power for 4 labs
-## 7_5 to do resource priority (power and mines by emp priority)
-## 7_6 1 (mine) : 1 (power) : 1 (lab)
-## 7_7 0 : 1 : 1
-## 7_8 ignore mins
-## 7_9 ignore food
-## 7_10 ignore energy
-## 7_11 ignore science
 ## 13 - robots
 ## 14 - alphamod
 ## spec planets
@@ -1934,290 +1923,6 @@ planet_event = {
 }
 
 
-# 130 - 141
-
-# local autobuild alphamod
-# planet_event = {
-# 	id = autobuild.130
-# 	hide_window = yes
-# 	is_triggered_only = yes
-
-# 	trigger = {
-# 		has_global_flag = gf_alphamod_activated
-# 		exists = owner
-# 		owner = {
-# 			has_country_flag = autobuild_14
-# 			autobuild_trigger_cost = yes
-# 		}
-# 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
-# 		autobuild_trigger_has_any_capital = yes
-# 		or = {
-# 			any_tile = {
-# 				or = {
-# 					has_resource = {
-# 						type = sr_h2o
-# 						amount > 0
-# 					}
-# 					has_resource = {
-# 						type = sr_natural_fuels
-# 						amount > 0
-# 					}
-# 					has_resource = {
-# 						type = sr_biomass
-# 						amount > 0
-# 					}
-# 					has_resource = {
-# 						type = sr_actinides
-# 						amount > 0
-# 					}
-# 					has_resource = {
-# 						type = sr_betharian
-# 						amount > 0
-# 					}
-# 				}
-# 				has_building = no
-# 			}
-# 			not = {
-# 				has_building = building_colony_control_pre
-# 			}
-# 			has_building = building_colony_control
-# 			owner = {
-# 				has_country_strategic_resource = {
-# 					type = sr_betharian
-# 					amount > 5
-# 				}
-# 			}
-# 		}
-# 	}
-
-# 	immediate = {
-# 		random_tile = {
-# 			limit = {
-# 				has_building = no
-# 				exists = pop
-# 				pop = {
-# 					is_being_purged = no
-# 				}
-# 				num_adjacent_tiles > 2
-# 				any_neighboring_tile = {
-# 					or = {
-# 						has_building = building_colony_shelter
-# 						has_building = building_capital_1
-# 						has_building = building_capital_2
-# 						has_building = building_exo_ops
-# 						has_building = building_commerce_coord
-# 						has_building = building_mining_guild
-# 						has_building = building_central_databank
-# 						has_building = building_farming_guild
-# 					}
-# 				}
-# 				or = {
-# 					autobuild_trigger_tile_has_food_more_than_others = yes
-# 					autobuild_trigger_tile_has_minerals_more_than_others = yes
-# 					autobuild_trigger_tile_has_any_res = no
-# 				}
-# 			}
-# 			add_building_construction = building_colony_control_pre
-# 		}
-# 		if = {
-# 			limit = {
-# 				owner = {
-# 					has_country_strategic_resource = {
-# 						type = sr_betharian
-# 						amount > 5
-# 					}
-# 				}
-# 			}
-# 			random_tile = {
-# 				limit = {
-# 					num_adjacent_tiles > 3
-# 					or = {
-# 						has_building = no
-# 						autobuild_trigger_has_any_power_plant = yes
-# 					}
-# 					not = {
-# 						any_neighboring_tile = {
-# 							nor = {
-# 								autobuild_trigger_has_any_power_plant = yes
-# 								autobuild_trigger_has_any_power_plant_not_replace = yes
-# 							}
-# 						}
-# 					}
-# 					nor = {
-# 						has_building = betharian_power_plant_1
-# 						has_building = betharian_power_plant_2
-# 						has_building = betharian_power_plant_3
-# 						has_building = betharian_power_plant_4
-# 					}
-# 					exists = pop
-# 				}
-# 				add_building_construction = betharian_power_plant_1
-# 			}
-# 		}
-# 		random_tile = {
-# 			limit = {
-# 				has_building = building_colony_control
-# 				exists = pop
-# 				pop = {
-# 					is_being_purged = no
-# 				}
-# 			}
-# 			random_list = {
-# 				1 = {
-# 					modifier = {
-# 						factor = 0
-# 						not = {
-# 							owner = {
-# 								has_technology = tech_colonial_administrations_alpha
-# 							}
-# 						}
-# 					}
-
-# 					add_building_construction = building_libraryofadministration
-# 				}
-# 				1 = {
-# 					modifier = {
-# 						factor = 0
-# 						not = {
-# 							owner = {
-# 								has_technology = tech_colonial_corporations_alpha
-# 							}
-# 						}
-# 					}
-# 					add_building_construction = building_chamberofexecutives
-# 				}
-# 				1 = {
-# 					modifier = {
-# 						factor = 0
-# 						not = {
-# 							owner = {
-# 								has_technology = tech_colonial_warlords_alpha
-# 							}
-# 						}
-# 					}
-# 					add_building_construction = building_hallofwarriors
-# 				}
-# 				1 = {
-# 					modifier = {
-# 						factor = 0
-# 						not = {
-# 							owner = {
-# 								has_technology = tech_colonial_dictatorship_alpha
-# 							}
-# 						}
-# 					}
-# 					add_building_construction = building_governerspalace
-# 				}
-# 				1 = {
-# 					modifier = {
-# 						factor = 0
-# 						not = {
-# 							owner = {
-# 								has_technology = tech_colonial_spiritualleaders_alpha
-# 							}
-# 						}
-# 					}
-# 					add_building_construction = building_templeofrule
-# 				}
-# 				1 = {
-# 					modifier = {
-# 						factor = 0
-# 						not = {
-# 							owner = {
-# 								has_technology = tech_colonial_councils_alpha
-# 							}
-# 						}
-# 					}
-# 					add_building_construction = building_councilhall
-# 				}
-# 			}
-# 		}
-# 		every_tile = {
-# 			limit = {
-# 				has_building = no
-# 				exists = pop
-# 				pop = {
-# 					is_being_purged = no
-# 				}
-# 				or = {
-# 					has_resource = {
-# 						type = sr_h2o
-# 						amount > 0
-# 					}
-# 					has_resource = {
-# 						type = sr_natural_fuels
-# 						amount > 0
-# 					}
-# 					has_resource = {
-# 						type = sr_biomass
-# 						amount > 0
-# 					}
-# 					has_resource = {
-# 						type = sr_actinides
-# 						amount > 0
-# 					}
-# 					has_resource = {
-# 						type = sr_betharian
-# 						amount > 0
-# 					}
-# 				}
-# 			}
-# 			if = {
-# 				limit = {
-# 					has_resource = {
-# 						type = sr_h2o
-# 						amount > 0
-# 					}
-# 				}
-# 				add_building_construction = building_hydro_plant
-# 				else = {
-# 					if = {
-# 						limit = {
-# 							has_resource = {
-# 								type = sr_natural_fuels
-# 								amount > 0
-# 							}
-# 						}
-# 						add_building_construction = building_fuel_sourcer
-# 						else = {
-# 							if = {
-# 								limit = {
-# 									has_resource = {
-# 										type = sr_biomass
-# 										amount > 0
-# 									}
-# 								}
-# 								add_building_construction = building_biomass_furnace
-# 								else = {
-# 									if = {
-# 										limit = {
-# 											has_resource = {
-# 												type = sr_actinides
-# 												amount > 0
-# 											}
-# 										}
-# 										add_building_construction = building_nuclear_research
-# 										else = {
-# 											if = {
-# 												limit = {
-# 													has_resource = {
-# 														type = sr_betharian
-# 														amount > 0
-# 													}
-# 												}
-# 												add_building_construction = building_betharian_mine
-# 											}
-# 										}
-# 									}
-# 								}
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-# }
 
 # local autobuild on ept tiles
 planet_event = {
@@ -2228,17 +1933,13 @@ planet_event = {
 	trigger = {
 		autobuild_trigger_free_from_autobuild = no
 		free_building_tiles > 0
+		or = {
+			autobuild_trigger_has_any_capital = yes
+			has_building = building_colony_shelter
+		}
 		exists = owner
 		owner = {
-			or = {
-				has_country_flag = autobuild_7_1
-				has_country_flag = autobuild_7_2
-				has_country_flag = autobuild_7_3
-				has_country_flag = autobuild_7_4
-				#			has_country_flag = autobuild_7_5
-				has_country_flag = autobuild_7_6
-				has_country_flag = autobuild_7_7
-			}
+			has_country_flag = autobuild_7
 			autobuild_trigger_cost = yes
 		}
 	}
@@ -2252,7 +1953,7 @@ planet_event = {
 			}
 			if = {
 				limit = {
-					autobuild_trigger_has_any_capital = yes
+					has_building = building_colony_shelter
 				}
 				every_tile = {
 					limit = {
@@ -2263,250 +1964,125 @@ planet_event = {
 						}
 						autobuild_trigger_tile_has_any_res = no
 					}
-					add_building_construction = building_mining_network_1
-				}
-				else = {
-					if = {
-						limit = {
-							has_building = building_colony_shelter
-						}
-						every_tile = {
-							limit = {
-								has_building = no
-								exists = pop
-								pop = {
-									is_non_sentient_robot = yes
-								}
-								autobuild_trigger_tile_has_any_res = no
-							}
-							add_building_construction = building_basic_mine
-						}
+					add_building_construction = building_basic_mine
+					else = {
+						add_building_construction = building_mining_network_1
 					}
 				}
 			}
 		}
-		if = {
+		every_tile = {
 			limit = {
-				owner = {
-					has_country_flag = autobuild_7_1
-				}
+				has_building = no
+				exists = pop
+				# pop = { is_being_purged = no }
+				autobuild_trigger_tile_has_any_res = no
 			}
-			if = {
-				limit = {
-					autobuild_trigger_has_any_capital = yes
-				}
-				every_tile = {
-					limit = {
-						has_building = no
-						exists = pop
-						# pop = { is_being_purged = no }
-						autobuild_trigger_tile_has_any_res = no
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 0
+						owner = {
+							has_country_flag = autobuild_mine_ratio.0
+						}
 					}
-					add_building_construction = building_power_plant_1
-				}
-				else = {
+					modifier = {
+						factor = 2
+						owner = {
+							has_country_flag = autobuild_mine_ratio.2
+						}
+					}
+					modifier = {
+						factor = 3
+						owner = {
+							has_country_flag = autobuild_mine_ratio.3
+						}
+					}
+					modifier = {
+						factor = 4
+						owner = {
+							has_country_flag = autobuild_mine_ratio.4
+						}
+					}
 					if = {
 						limit = {
-							has_building = building_colony_shelter
-						}
-						every_tile = {
-							limit = {
-								has_building = no
-								exists = pop
-								# pop = { is_being_purged = no }
-								autobuild_trigger_tile_has_any_res = no
+							root = {
+								has_building = building_colony_shelter
 							}
-							add_building_construction = building_basic_power_plant
+						}
+						add_building_construction = building_basic_mine
+						else = {
+							add_building_construction = building_mining_network_1
 						}
 					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				owner = {
-					has_country_flag = autobuild_7_2
-				}
-			}
-			if = {
-				limit = {
-					autobuild_trigger_has_any_capital = yes
-				}
-				every_tile = {
-					limit = {
-						has_building = no
-						exists = pop
-						# pop = { is_being_purged = no }
-						autobuild_trigger_tile_has_any_res = no
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 0
+						owner = {
+							has_country_flag = autobuild_power_plant_ratio.0
+						}
 					}
-					add_building_construction = building_mining_network_1
-				}
-				else = {
+					modifier = {
+						factor = 2
+						owner = {
+							has_country_flag = autobuild_power_plant_ratio.2
+						}
+					}
+					modifier = {
+						factor = 3
+						owner = {
+							has_country_flag = autobuild_power_plant_ratio.3
+						}
+					}
+					modifier = {
+						factor = 4
+						owner = {
+							has_country_flag = autobuild_power_plant_ratio.4
+						}
+					}
 					if = {
 						limit = {
-							has_building = building_colony_shelter
-						}
-						every_tile = {
-							limit = {
-								has_building = no
-								exists = pop
-								# pop = { is_being_purged = no }
-								autobuild_trigger_tile_has_any_res = no
-							}
-							add_building_construction = building_basic_mine
-						}
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					has_country_flag = autobuild_7_3
-				}
-			}
-			every_tile = {
-				limit = {
-					has_building = no
-					exists = pop
-					# pop = { is_being_purged = no }
-					autobuild_trigger_tile_has_any_res = no
-				}
-				autobuild_build_basic_lab = yes
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					has_country_flag = autobuild_7_4
-				}
-			}
-			if = {
-				limit = {
-					autobuild_trigger_has_any_capital = yes
-				}
-				every_tile = {
-					limit = {
-						has_building = no
-						exists = pop
-						# pop = { is_being_purged = no }
-						autobuild_trigger_tile_has_any_res = no
-					}
-					random_list = {
-						80 = { autobuild_build_basic_lab = yes }
-						20 = { add_building_construction = building_power_plant_1 }
-					}
-				}
-				else = {
-					if = {
-						limit = {
-							has_building = building_colony_shelter
-						}
-						every_tile = {
-							limit = {
-								has_building = no
-								exists = pop
-								# pop = { is_being_purged = no }
-								autobuild_trigger_tile_has_any_res = no
-							}
-							random_list = {
-								80 = { autobuild_build_basic_lab = yes }
-								20 = { add_building_construction = building_basic_power_plant }
+							root = {
+								has_building = building_colony_shelter
 							}
 						}
-					}
-				}
-			}
-		}
-
-		# to do build by emp prior
-
-		if = {
-			limit = {
-				owner = {
-					has_country_flag = autobuild_7_6
-				}
-			}
-			if = {
-				limit = {
-					autobuild_trigger_has_any_capital = yes
-				}
-				every_tile = {
-					limit = {
-						has_building = no
-						exists = pop
-						# pop = { is_being_purged = no }
-						autobuild_trigger_tile_has_any_res = no
-					}
-					random_list = {
-						33 = { autobuild_build_basic_lab = yes }
-						33 = { add_building_construction = building_power_plant_1 }
-						33 = { add_building_construction = building_mining_network_1 }
-					}
-				}
-				else = {
-					if = {
-						limit = {
-							has_building = building_colony_shelter
-						}
-						every_tile = {
-							limit = {
-								has_building = no
-								exists = pop
-								# pop = { is_being_purged = no }
-								autobuild_trigger_tile_has_any_res = no
-							}
-							random_list = {
-								33 = { autobuild_build_basic_lab = yes }
-								33 = { add_building_construction = building_basic_power_plant }
-								33 = { add_building_construction = building_basic_mine }
-							}
+						add_building_construction = building_basic_power_plant
+						else = {
+							add_building_construction = building_power_plant_1
 						}
 					}
 				}
 			}
-		}
-
-		if = {
-			limit = {
-				owner = {
-					has_country_flag = autobuild_7_7
-				}
-			}
-			if = {
-				limit = {
-					autobuild_trigger_has_any_capital = yes
-				}
-				every_tile = {
-					limit = {
-						has_building = no
-						exists = pop
-						# pop = { is_being_purged = no }
-						autobuild_trigger_tile_has_any_res = no
-					}
-					random_list = {
-						50 = { autobuild_build_basic_lab = yes }
-						50 = { add_building_construction = building_power_plant_1 }
-					}
-				}
-				else = {
-					if = {
-						limit = {
-							has_building = building_colony_shelter
-						}
-						every_tile = {
-							limit = {
-								has_building = no
-								exists = pop
-								# pop = { is_being_purged = no }
-								autobuild_trigger_tile_has_any_res = no
-							}
-							random_list = {
-								50 = { autobuild_build_basic_lab = yes }
-								50 = { add_building_construction = building_basic_power_plant }
-							}
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 0
+						owner = {
+							has_country_flag = autobuild_lab_ratio.0
 						}
 					}
+					modifier = {
+						factor = 2
+						owner = {
+							has_country_flag = autobuild_lab_ratio.2
+						}
+					}
+					modifier = {
+						factor = 3
+						owner = {
+							has_country_flag = autobuild_lab_ratio.3
+						}
+					}
+					modifier = {
+						factor = 4
+						owner = {
+							has_country_flag = autobuild_lab_ratio.4
+						}
+					}
+					add_building_construction = building_basic_science_lab_1
 				}
 			}
 		}
@@ -3123,52 +2699,7 @@ planet_event = {
 				building_temple = { add_building_construction = building_holotemple }
 				building_holotemple = { add_building_construction = building_citadel_of_faith }
 
-
-				# more technologies mod
-				# building_combo_mineral_food_1 = { add_building_construction = building_combo_mineral_food_2 }
-				# building_combo_mineral_food_2 = { add_building_construction = building_combo_mineral_food_3 }
-				# building_combo_mineral_power_1 = { add_building_construction = building_combo_mineral_power_2 }
-				# building_combo_mineral_power_2 = { add_building_construction = building_combo_mineral_power_3 }
-				# building_combo_food_power_1 = { add_building_construction = building_combo_food_power_2 }
-				# building_combo_food_power_2 = { add_building_construction = building_combo_food_power_3 }
-				# building_power_relay_1 = { add_building_construction = building_power_relay_2 }
-				# building_power_relay_2 = { add_building_construction = building_power_relay_3 }
-				# building_power_relay_3 = { add_building_construction = building_power_relay_4 }
-				# building_power_relay_4 = { add_building_construction = building_power_relay_5 }
-				# building_irrigation_system_1 = { add_building_construction = building_irrigation_system_2 }
-				# building_irrigation_system_2 = { add_building_construction = building_irrigation_system_3 }
-				# building_irrigation_system_3 = { add_building_construction = building_irrigation_system_4 }
-				# building_irrigation_system_4 = { add_building_construction = building_irrigation_system_5 }
-				# building_mining_barracks_1 = { add_building_construction = building_mining_barracks_2 }
-				# building_mining_barracks_2 = { add_building_construction = building_mining_barracks_3 }
-				# building_mining_barracks_3 = { add_building_construction = building_mining_barracks_4 }
-				# building_mining_barracks_4 = { add_building_construction = building_mining_barracks_5 }
-				# building_science_campus_phys_1 = { add_building_construction = building_science_campus_phys_2 }
-				# building_science_campus_phys_2 = { add_building_construction = building_science_campus_phys_3 }
-				# building_science_campus_phys_3 = { add_building_construction = building_science_campus_phys_4 }
-				# building_science_campus_soc_1 = { add_building_construction = building_science_campus_soc_2 }
-				# building_science_campus_soc_2 = { add_building_construction = building_science_campus_soc_3 }
-				# building_science_campus_soc_3 = { add_building_construction = building_science_campus_soc_4 }
-				# building_science_campus_eng_1 = { add_building_construction = building_science_campus_eng_2 }
-				# building_science_campus_eng_2 = { add_building_construction = building_science_campus_eng_3 }
-				# building_science_campus_eng_3 = { add_building_construction = building_science_campus_eng_4 }
-				# building_gas_catcher_1 = { add_building_construction = building_gas_catcher_2 }
-
-				# stellaris+
-				# building_farm = { add_building_construction = building_hydroponics_farm_1 }
-				# building_nuclear_power_plant = { add_building_construction = building_power_plant_1 }
-				# building_mine = { add_building_construction = building_mining_network_1 }
-				# building_longrangesensor = { add_building_construction = building_longrangesensor_2 }
-				# building_atmoscompensator = { add_building_construction = building_atmoscompensator_2 }
-				# building_orerefinery = { add_building_construction = building_orerefinery_2 }
-
 			}
-			# if = {
-			# 	limit = {
-			# 		has_global_flag = gf_alphamod_activated
-			# 	}
-			# 	autobuild_effect_alphamod_autoupdate = yes
-			# }
 		}
 	}
 }
@@ -3180,6 +2711,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		always = no
 		autobuild_trigger_free_from_autoupdate = no
 		exists = owner
 		owner = {
@@ -3484,7 +3016,7 @@ planet_event = {
 															}
 														}
 														random_list = {
-															33 = {
+															10 = {
 																modifier = {
 																	factor = 2
 																	owner = {
@@ -3493,7 +3025,7 @@ planet_event = {
 																}
 																add_building_construction = building_physics_lab_1
 															}
-															33 = {
+															10 = {
 																modifier = {
 																	factor = 2
 																	owner = {
@@ -3502,7 +3034,7 @@ planet_event = {
 																}
 																add_building_construction = building_biolab_1
 															}
-															33 = {
+															10 = {
 																modifier = {
 																	factor = 2
 																	owner = { has_country_flag = autobuild_labs_engineering_priority }
@@ -3681,7 +3213,6 @@ planet_event = {
 					autobuild_trigger_has_any_farm = yes
 				}
 			}
-			#autobuild_build_basic_lab = yes
 			add_building_construction = building_hab_laboratory_module
 		}
 	}
@@ -3699,23 +3230,17 @@ country_event = {
 	option = {
 		name = autobuild_0
 		trigger = {
-			not = {
-				and = {
-					has_country_flag = autobuild_1
-					has_country_flag = autobuild_2
-					has_country_flag = autobuild_3
-					has_country_flag = autobuild_5
-					has_country_flag = autobuild_6
-				}
+			nand = {
+				has_country_flag = autobuild_1
+				has_country_flag = autobuild_3
+				has_country_flag = autobuild_5
 			}
 		}
 		custom_tooltip = autobuild_0.tooltip
 		hidden_effect = {
 			set_country_flag = autobuild_1
-			set_country_flag = autobuild_2
 			set_country_flag = autobuild_3
 			set_country_flag = autobuild_5
-			set_country_flag = autobuild_6
 			country_event = { id = autobuild.3 }
 		}
 	}
@@ -3776,20 +3301,6 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_1 }
 	}
 	option = {
-		name = autobuild_2_on
-		trigger = {
-			always = no
-			not = { has_country_flag = autobuild_2 } }
-		custom_tooltip = autobuild_2_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = autobuild_2 }
-	}
-	option = {
-		name = autobuild_2_off
-		trigger = {	has_country_flag = autobuild_2 }
-		custom_tooltip = autobuild_2_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_2 }
-	}
-	option = {
 		name = autobuild_3_on
 		trigger = {	not = { has_country_flag = autobuild_3 } }
 		custom_tooltip = autobuild_3_on.tooltip
@@ -3802,51 +3313,26 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_3 }
 	}
 	option = {
+		name = autobuild_5_on
+		trigger = {	not = { has_country_flag = autobuild_5 } }
+		custom_tooltip = autobuild_5_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = autobuild_5 }
+	}
+	option = {
 		name = autobuild_labs_menu
 		trigger = {	has_country_flag = autobuild_5 }
 		hidden_effect = { country_event = { id = autobuild.12 } }
 	}
 	option = {
 		name = autobuild_7_on
-		trigger = {
-			nor = {
-				has_country_flag = autobuild_7_1
-				has_country_flag = autobuild_7_2
-				has_country_flag = autobuild_7_3
-				has_country_flag = autobuild_7_4
-				##	has_country_flag = autobuild_7_5
-				has_country_flag = autobuild_7_6
-				has_country_flag = autobuild_7_7
-			}
-		}
+		trigger = { not = { has_country_flag = autobuild_7 } }
 		custom_tooltip = autobuild_7_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.7 } }
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_7 }
 	}
 	option = {
 		name = autobuild_7_settings
-		trigger = {
-			or = {
-				has_country_flag = autobuild_7_1
-				has_country_flag = autobuild_7_2
-				has_country_flag = autobuild_7_3
-				has_country_flag = autobuild_7_4
-				##	has_country_flag = autobuild_7_5
-				has_country_flag = autobuild_7_6
-				has_country_flag = autobuild_7_7
-				has_country_flag = autobuild_7_8
-				has_country_flag = autobuild_7_9
-				has_country_flag = autobuild_7_10
-				has_country_flag = autobuild_7_11
-			}
-		}
-		#	custom_tooltip = autobuild_7_on.tooltip
+		trigger = { has_country_flag = autobuild_7 }
 		hidden_effect = { country_event = { id = autobuild.7 } }
-	}
-	option = {
-		name = autobuild_5_on
-		trigger = {	not = { has_country_flag = autobuild_5 } }
-		custom_tooltip = autobuild_5_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = autobuild_5 }
 	}
 	option = {
 		name = autobuild_13_on
@@ -3881,10 +3367,7 @@ country_event = {
 		name = autobuild_cost_on
 		trigger = {	not = { has_country_flag = autobuild_cost } }
 		custom_tooltip = autobuild_cost_on.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_cost
-		}
+		hidden_effect = { set_country_flag = autobuild_cost country_event = { id = autobuild.3 } }
 	}
 	option = {
 		name = autobuild_cost_menu
@@ -3934,7 +3417,6 @@ country_event = {
 	}
 	option = {
 		name = autobuild_cost_20000
-		#custom_tooltip = autobuild_5000.tooltip
 		hidden_effect = {
 			country_event = { id = autobuild.3 }
 			autobuild_effect_clear_cost_flags = yes
@@ -3943,7 +3425,6 @@ country_event = {
 	}
 	option = {
 		name = autobuild_cost_5000
-		#custom_tooltip = autobuild_5000.tooltip
 		hidden_effect = {
 			country_event = { id = autobuild.3 }
 			autobuild_effect_clear_cost_flags = yes
@@ -3952,7 +3433,6 @@ country_event = {
 	}
 	option = {
 		name = autobuild_cost_2500
-		#custom_tooltip = autobuild_2500.tooltip
 		hidden_effect = {
 			country_event = { id = autobuild.3 }
 			autobuild_effect_clear_cost_flags = yes
@@ -3961,7 +3441,6 @@ country_event = {
 	}
 	option = {
 		name = autobuild_cost_1000
-		#custom_tooltip = autobuild_1000.tooltip
 		hidden_effect = {
 			country_event = { id = autobuild.3 }
 			autobuild_effect_clear_cost_flags = yes
@@ -3970,50 +3449,10 @@ country_event = {
 	}
 	option = {
 		name = autobuild_cost_500
-		#custom_tooltip = autobuild_500.tooltip
 		hidden_effect = {
 			country_event = { id = autobuild.3 }
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_500
-		}
-	}
-	option = {
-		name = autobuild_cost_inf_500
-		trigger = {
-			always = no
-		}
-		#custom_tooltip = autobuild_cost_inf_500.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_cost_inf_500
-			remove_country_flag = autobuild_cost_inf_250
-			remove_country_flag = autobuild_cost_inf_100
-		}
-	}
-	option = {
-		name = autobuild_cost_inf_250
-		trigger = {
-			always = no
-		}
-		#custom_tooltip = autobuild_cost_inf_250.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_cost_inf_250
-			remove_country_flag = autobuild_cost_inf_500
-			remove_country_flag = autobuild_cost_inf_100
-		}
-	}
-	option = {
-		name = autobuild_cost_inf_100
-		trigger = {
-			always = no
-		}
-		#custom_tooltip = autobuild_cost_inf_100.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_cost_inf_100
-			remove_country_flag = autobuild_cost_inf_500
-			remove_country_flag = autobuild_cost_inf_250
 		}
 	}
 	option = {
@@ -4198,245 +3637,152 @@ country_event = {
 
 	option = {
 		name = autobuild_7_off
-		trigger = {
-			or = {
-				has_country_flag = autobuild_7_1
-				has_country_flag = autobuild_7_2
-				has_country_flag = autobuild_7_3
-				has_country_flag = autobuild_7_4
-				##	has_country_flag = autobuild_7_5
-				has_country_flag = autobuild_7_6
-				has_country_flag = autobuild_7_7
-				has_country_flag = autobuild_7_8
-				has_country_flag = autobuild_7_9
-				has_country_flag = autobuild_7_10
-				has_country_flag = autobuild_7_11
-			}
-		}
-		hidden_effect = {
-			remove_country_flag = autobuild_7_1
-			remove_country_flag = autobuild_7_2
-			remove_country_flag = autobuild_7_3
-			remove_country_flag = autobuild_7_4
-			##	remove_country_flag = autobuild_7_5
-			remove_country_flag = autobuild_7_6
-			remove_country_flag = autobuild_7_7
-			remove_country_flag = autobuild_7_8
-			remove_country_flag = autobuild_7_9
-			remove_country_flag = autobuild_7_10
-			remove_country_flag = autobuild_7_11
-			country_event = { id = autobuild.3 }
-		}
+		trigger = { has_country_flag = autobuild_7 }
+		hidden_effect = { remove_country_flag = autobuild_7 country_event = { id = autobuild.3 } }
 	}
 	option = {
-		name = autobuild_7_1
-		trigger = {
-			not = {
-				has_country_flag = autobuild_7_1
-			}
-		}
-		custom_tooltip = autobuild_7_1.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_7_1
-			remove_country_flag = autobuild_7_7
-			remove_country_flag = autobuild_7_2
-			remove_country_flag = autobuild_7_3
-			remove_country_flag = autobuild_7_4
-			##	remove_country_flag = autobuild_7_5
-			remove_country_flag = autobuild_7_6
-		}
+		name = autobuild_mine_ratio.0_on
+		trigger = { not = { has_country_flag = autobuild_mine_ratio.0 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_mine_ratio.0 }
 	}
 	option = {
-		name = autobuild_7_2
-		trigger = {
-			not = {
-				has_country_flag = autobuild_7_2
-			}
-		}
-		custom_tooltip = autobuild_7_2.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_7_2
-			remove_country_flag = autobuild_7_1
-			remove_country_flag = autobuild_7_7
-			remove_country_flag = autobuild_7_3
-			remove_country_flag = autobuild_7_4
-			##	remove_country_flag = autobuild_7_5
-			remove_country_flag = autobuild_7_6
-		}
+		name = autobuild_mine_ratio.0_off
+		trigger = {	has_country_flag = autobuild_mine_ratio.0 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_mine_ratio.0 }
 	}
 	option = {
-		name = autobuild_7_3
-		trigger = {
-			not = {
-				has_country_flag = autobuild_7_3
-			}
-		}
-		custom_tooltip = autobuild_7_3.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_7_3
-			remove_country_flag = autobuild_7_1
-			remove_country_flag = autobuild_7_2
-			remove_country_flag = autobuild_7_7
-			remove_country_flag = autobuild_7_4
-			##	remove_country_flag = autobuild_7_5
-			remove_country_flag = autobuild_7_6
-		}
+		name = autobuild_mine_ratio.2_on
+		trigger = { not = { has_country_flag = autobuild_mine_ratio.2 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_mine_ratio.2 }
 	}
 	option = {
-		name = autobuild_7_4
-		trigger = {
-			not = {
-				has_country_flag = autobuild_7_4
-			}
-		}
-		custom_tooltip = autobuild_7_4.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_7_4
-			remove_country_flag = autobuild_7_1
-			remove_country_flag = autobuild_7_2
-			remove_country_flag = autobuild_7_3
-			remove_country_flag = autobuild_7_7
-			##	remove_country_flag = autobuild_7_5
-			remove_country_flag = autobuild_7_6
-		}
+		name = autobuild_mine_ratio.2_off
+		trigger = {	has_country_flag = autobuild_mine_ratio.2 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_mine_ratio.2 }
 	}
 	option = {
-		name = autobuild_7_6
-		trigger = {
-			not = {
-				has_country_flag = autobuild_7_6
-			}
-		}
-		custom_tooltip = autobuild_7_6.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_7_6
-			remove_country_flag = autobuild_7_1
-			remove_country_flag = autobuild_7_2
-			remove_country_flag = autobuild_7_3
-			remove_country_flag = autobuild_7_4
-			##	remove_country_flag = autobuild_7_5
-			remove_country_flag = autobuild_7_7
-		}
+		name = autobuild_mine_ratio.3_on
+		trigger = { not = { has_country_flag = autobuild_mine_ratio.3 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_mine_ratio.3 }
 	}
 	option = {
-		name = autobuild_7_7
-		trigger = {
-			not = {
-				has_country_flag = autobuild_7_7
-			}
-		}
-		custom_tooltip = autobuild_7_7.tooltip
-		hidden_effect = {
-			country_event = { id = autobuild.3 }
-			set_country_flag = autobuild_7_7
-			remove_country_flag = autobuild_7_1
-			remove_country_flag = autobuild_7_2
-			remove_country_flag = autobuild_7_3
-			remove_country_flag = autobuild_7_4
-			##	remove_country_flag = autobuild_7_5
-			remove_country_flag = autobuild_7_6
-		}
+		name = autobuild_mine_ratio.3_off
+		trigger = {	has_country_flag = autobuild_mine_ratio.3 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_mine_ratio.3 }
 	}
 	option = {
-		name = autobuild_7_8_on
-		trigger = {
-			or = {
-				has_country_flag = autobuild_7_1
-				has_country_flag = autobuild_7_2
-				has_country_flag = autobuild_7_3
-				has_country_flag = autobuild_7_4
-				##	has_country_flag = autobuild_7_5
-				has_country_flag = autobuild_7_6
-				has_country_flag = autobuild_7_7
-			}
-			not = {
-				has_country_flag = autobuild_7_8
-			}
-		}
-		custom_tooltip = autobuild_7_8.tooltip
-		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = autobuild_7_8 }
+		name = autobuild_mine_ratio.4_on
+		trigger = { not = { has_country_flag = autobuild_mine_ratio.4 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_mine_ratio.4 }
 	}
 	option = {
-		name = autobuild_7_8_off
-		trigger = {	has_country_flag = autobuild_7_8 }
-		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_7_8 }
+		name = autobuild_mine_ratio.4_off
+		trigger = {	has_country_flag = autobuild_mine_ratio.4 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_mine_ratio.4 }
 	}
 	option = {
-		name = autobuild_7_9_on
-		trigger = {
-			or = {
-				has_country_flag = autobuild_7_1
-				has_country_flag = autobuild_7_2
-				has_country_flag = autobuild_7_3
-				has_country_flag = autobuild_7_4
-				##	has_country_flag = autobuild_7_5
-				has_country_flag = autobuild_7_6
-				has_country_flag = autobuild_7_7
-			}
-			not = {
-				has_country_flag = autobuild_7_9
-			}
-		}
-		custom_tooltip = autobuild_7_9.tooltip
-		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = autobuild_7_9 }
+		name = autobuild_power_plant_ratio.0_on
+		trigger = { not = { has_country_flag = autobuild_power_plant_ratio.0 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_power_plant_ratio.0 }
 	}
 	option = {
-		name = autobuild_7_9_off
-		trigger = {	has_country_flag = autobuild_7_9 }
-		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_7_9 }
+		name = autobuild_power_plant_ratio.0_off
+		trigger = {	has_country_flag = autobuild_power_plant_ratio.0 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_power_plant_ratio.0 }
 	}
 	option = {
-		name = autobuild_7_10_on
-		trigger = {
-			or = {
-				has_country_flag = autobuild_7_1
-				has_country_flag = autobuild_7_2
-				has_country_flag = autobuild_7_3
-				has_country_flag = autobuild_7_4
-				##	has_country_flag = autobuild_7_5
-				has_country_flag = autobuild_7_6
-				has_country_flag = autobuild_7_7
-			}
-			not = {
-				has_country_flag = autobuild_7_10
-			}
-		}
-		custom_tooltip = autobuild_7_10.tooltip
-		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = autobuild_7_10 }
+		name = autobuild_power_plant_ratio.2_on
+		trigger = { not = { has_country_flag = autobuild_power_plant_ratio.2 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_power_plant_ratio.2 }
 	}
 	option = {
-		name = autobuild_7_10_off
-		trigger = {	has_country_flag = autobuild_7_10 }
-		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_7_10 }
+		name = autobuild_power_plant_ratio.2_off
+		trigger = {	has_country_flag = autobuild_power_plant_ratio.2 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_power_plant_ratio.2 }
 	}
 	option = {
-		name = autobuild_7_11_on
-		trigger = {
-			or = {
-				has_country_flag = autobuild_7_1
-				has_country_flag = autobuild_7_2
-				has_country_flag = autobuild_7_3
-				has_country_flag = autobuild_7_4
-				##	has_country_flag = autobuild_7_5
-				has_country_flag = autobuild_7_6
-				has_country_flag = autobuild_7_7
-			}
-			not = {
-				has_country_flag = autobuild_7_11
-			}
-		}
-		custom_tooltip = autobuild_7_11.tooltip
-		hidden_effect = { country_event = { id = autobuild.3 } set_country_flag = autobuild_7_11 }
+		name = autobuild_power_plant_ratio.3_on
+		trigger = { not = { has_country_flag = autobuild_power_plant_ratio.3 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_power_plant_ratio.3 }
 	}
 	option = {
-		name = autobuild_7_11_off
-		trigger = {	has_country_flag = autobuild_7_11 }
-		hidden_effect = { country_event = { id = autobuild.3 } remove_country_flag = autobuild_7_11 }
+		name = autobuild_power_plant_ratio.3_off
+		trigger = {	has_country_flag = autobuild_power_plant_ratio.3 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_power_plant_ratio.3 }
+	}
+	option = {
+		name = autobuild_power_plant_ratio.4_on
+		trigger = { not = { has_country_flag = autobuild_power_plant_ratio.4 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_power_plant_ratio.4 }
+	}
+	option = {
+		name = autobuild_power_plant_ratio.4_off
+		trigger = {	has_country_flag = autobuild_power_plant_ratio.4 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_power_plant_ratio.4 }
+	}
+	option = {
+		name = autobuild_lab_ratio.0_on
+		trigger = { not = { has_country_flag = autobuild_lab_ratio.0 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_lab_ratio.0 }
+	}
+	option = {
+		name = autobuild_lab_ratio.0_off
+		trigger = {	has_country_flag = autobuild_lab_ratio.0 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_lab_ratio.0 }
+	}
+	option = {
+		name = autobuild_lab_ratio.2_on
+		trigger = { not = { has_country_flag = autobuild_lab_ratio.2 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_lab_ratio.2 }
+	}
+	option = {
+		name = autobuild_lab_ratio.2_off
+		trigger = {	has_country_flag = autobuild_lab_ratio.2 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_lab_ratio.2 }
+	}
+	option = {
+		name = autobuild_lab_ratio.3_on
+		trigger = { not = { has_country_flag = autobuild_lab_ratio.3 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_lab_ratio.3 }
+	}
+	option = {
+		name = autobuild_lab_ratio.3_off
+		trigger = {	has_country_flag = autobuild_lab_ratio.3 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_lab_ratio.3 }
+	}
+	option = {
+		name = autobuild_lab_ratio.4_on
+		trigger = { not = { has_country_flag = autobuild_lab_ratio.4 } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } set_country_flag = autobuild_lab_ratio.4 }
+	}
+	option = {
+		name = autobuild_lab_ratio.4_off
+		trigger = {	has_country_flag = autobuild_lab_ratio.4 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.7 } remove_country_flag = autobuild_lab_ratio.4 }
 	}
 	option = {
 		name = modmenu_return
@@ -4506,16 +3852,64 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_ship_ignore_2_and_less_mineral }
 	}
 	option = {
+		name = autobuild_ignore_minerals_on
+		trigger = { not = { has_country_flag = autobuild_ignore_minerals } }
+		custom_tooltip = autobuild_ignore_minerals_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_ignore_minerals }
+	}
+	option = {
+		name = autobuild_ignore_minerals_off
+		trigger = {	has_country_flag = autobuild_ignore_minerals }
+		custom_tooltip = autobuild_ignore_minerals_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_ignore_minerals }
+	}
+	option = {
+		name = autobuild_ignore_food_on
+		trigger = { not = { has_country_flag = autobuild_ignore_food } }
+		custom_tooltip = autobuild_ignore_food_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_ignore_food }
+	}
+	option = {
+		name = autobuild_ignore_food_off
+		trigger = {	has_country_flag = autobuild_ignore_food }
+		custom_tooltip = autobuild_ignore_food_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_ignore_food }
+	}
+	option = {
+		name = autobuild_ignore_energy_on
+		trigger = { not = { has_country_flag = autobuild_ignore_energy } }
+		custom_tooltip = autobuild_ignore_energy_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_ignore_energy }
+	}
+	option = {
+		name = autobuild_ignore_energy_off
+		trigger = {	has_country_flag = autobuild_ignore_energy }
+		custom_tooltip = autobuild_ignore_energy_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_ignore_energy }
+	}
+	option = {
+		name = autobuild_ignore_science_on
+		trigger = { not = { has_country_flag = autobuild_ignore_science } }
+		custom_tooltip = autobuild_ignore_science_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_ignore_science }
+	}
+	option = {
+		name = autobuild_ignore_science_off
+		trigger = {	has_country_flag = autobuild_ignore_science }
+		custom_tooltip = autobuild_ignore_science_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_ignore_science }
+	}
+	option = {
 		name = autobuild_remove_farms_not_planet_farm
 		custom_tooltip = autobuild_remove_farms_not_planet_farm.tooltip
 		trigger = {
 			any_owned_planet = {
-				autobuild_trigger_planet_farms = no
+				autobuild_trigger_planet_farms = yes
 				autobuild_trigger_has_any_farm = yes
 			}
 		}
 		hidden_effect = {
-			set_country_flag = autobuild_7_9
+			set_country_flag = autobuild_ignore_food
 			every_owned_planet = {
 				limit = {
 					autobuild_trigger_planet_farms = no
@@ -4540,7 +3934,7 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			set_country_flag = autobuild_7_9
+			set_country_flag = autobuild_ignore_food
 			every_owned_planet = {
 				limit = {
 					or = {
@@ -4598,23 +3992,6 @@ country_event = {
 			country_event = { id = autobuild.8 }
 		}
 	}
-	# option = {
-	# 	name = autobuild_14_on
-	# 	trigger = {
-	# 		has_global_flag = gf_alphamod_activated
-	# 		not = {
-	# 			has_country_flag = autobuild_14
-	# 		}
-	# 	}
-	# 	custom_tooltip = autobuild_14_on.tooltip
-	# 	hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_14 }
-	# }
-	# option = {
-	# 	name = autobuild_14_off
-	# 	trigger = {	has_country_flag = autobuild_14 }
-	# 	custom_tooltip = autobuild_14_off.tooltip
-	# 	hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_14 }
-	# }
 	option = {
 		name = modmenu_return
 		hidden_effect = { country_event = { id = autobuild.3 } }
@@ -4632,7 +4009,6 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_ai = no
 		has_country_flag = autobuild_cost
 		nor = {
 			has_country_flag = autobuild_cost_5000
@@ -4921,11 +4297,22 @@ country_event = {
 		remove_country_flag = autobuild_3
 		remove_country_flag = autobuild_4_2
 		remove_country_flag = autobuild_5
-		remove_country_flag = autobuild_6
-		remove_country_flag = autobuild_7_8
-		remove_country_flag = autobuild_7_9
-		remove_country_flag = autobuild_7_10
-		remove_country_flag = autobuild_7_11
+		remove_country_flag = autobuild_mine_ratio.0
+		remove_country_flag = autobuild_mine_ratio.2
+		remove_country_flag = autobuild_mine_ratio.3
+		remove_country_flag = autobuild_mine_ratio.4
+		remove_country_flag = autobuild_power_plant_ratio.0
+		remove_country_flag = autobuild_power_plant_ratio.2
+		remove_country_flag = autobuild_power_plant_ratio.3
+		remove_country_flag = autobuild_power_plant_ratio.4
+		remove_country_flag = autobuild_lab_ratio.0
+		remove_country_flag = autobuild_lab_ratio.2
+		remove_country_flag = autobuild_lab_ratio.3
+		remove_country_flag = autobuild_lab_ratio.4
+		remove_country_flag = autobuild_ignore_minerals
+		remove_country_flag = autobuild_ignore_food
+		remove_country_flag = autobuild_ignore_energy
+		remove_country_flag = autobuild_ignore_science
 		remove_country_flag = autobuild_10
 		remove_country_flag = autobuild_cost_5000
 		remove_country_flag = autobuild_cost_2500
