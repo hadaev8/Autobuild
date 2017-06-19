@@ -2120,8 +2120,6 @@ planet_event = {
 						}
 					}
 				}
-			}
-			random_list = {
 				10 = {
 					modifier = {
 						factor = 0
@@ -2159,8 +2157,6 @@ planet_event = {
 						}
 					}
 				}
-			}
-			random_list = {
 				10 = {
 					modifier = {
 						factor = 0

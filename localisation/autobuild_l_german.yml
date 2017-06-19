@@ -75,23 +75,23 @@
  autobuild_ship_ignore_2_and_less_mineral:0 "Ignoriere Himmelkörper mit 2 Mineralien oder weniger."
  autobuild_ship_ignore_2_and_less_mineral.tooltip:0 "$autobuild_fleet$ baut keine Bergbaustation and Himmelskörper die 2 Mineralien oder weniger geben."
  
- autobuild_remove_farms_not_planet_farm:0 "Remove all farm exept farm planet."
- autobuild_remove_farms_not_planet_farm.tooltip:0 "Remove all regular farms exept farm planets, enable ignore food on tiles."
+ autobuild_remove_farms_not_planet_farm:0 "Entferne alle Hydrokulturfarmen außer in Agrarzentren."
+ autobuild_remove_farms_not_planet_farm.tooltip:0 "Zerstört einmalig alle Hydrokulturfarmen außer in Agrarzentren und ignoriere ab jetzt natürliche Nahrungsboni auf Feldern."
  
- autobuild_remove_farms:0 "Remove all farm."
- autobuild_remove_farms.tooltip:0 "Remove all regular farms, disable farm planets, enable ignore food on tiles."
+ autobuild_remove_farms:0 "Entferne alle Hydrokulturfarmen."
+ autobuild_remove_farms.tooltip:0 "Zerstört einmalig alle Hydrokulturfarmen, deaktiviert alle Agrarzentren und ignoriere ab jetzt natürliche Nahrungsboni auf Feldern."
  
- autobuild_remove_clinics:0 "Remove all clinics."
- autobuild_remove_clinics.tooltip:0 "Remove all clinics, disable option, if enabled."
+ autobuild_remove_clinics:0 "Entferne alle Grenzkliniken."
+ autobuild_remove_clinics.tooltip:0 "Zerstört automatisch alle Grenzkliniken. Kann durch erneutes klicken deaktiviert werden."
  
- autobuild_ignore_minerals:0 "Ignore minerals on tiles."
- autobuild_ignore_minerals.tooltip:0 "Minerals on the tiles will be ignored."
- autobuild_ignore_energy:0 "Ignore energy on tiles."
- autobuild_ignore_energy.tooltip:0 "Energy on the tiles will be ignored."
- autobuild_ignore_science:0 "Ignore science on tiles."
- autobuild_ignore_science.tooltip:0 "Science on the tiles will be ignored."
- autobuild_ignore_food:0 "Ignore food on tiles."
- autobuild_ignore_food.tooltip:0 "Food on the tiles will be ignored."
+ autobuild_ignore_minerals:0 "Ignoriere Mineralien."
+ autobuild_ignore_minerals.tooltip:0 "Natürliche Mineralienboni von Feldern werden ignoriert.."
+ autobuild_ignore_energy:0 "Ignoriere Energie."
+ autobuild_ignore_energy.tooltip:0 "Natürliche Energieboni von Feldern werden ignoriert."
+ autobuild_ignore_science:0 "Ignoriere Forschung."
+ autobuild_ignore_science.tooltip:0 "Natürliche Forschungsboni von Feldern werden ignoriert."
+ autobuild_ignore_food:0 "Ignoriere Nahrung."
+ autobuild_ignore_food.tooltip:0 "Natürliche Nahrungsboni von Feldern werden ignoriert."
  
  # labs
  autobuild_5:0 "Autom. Verbesserung von Laboren."
@@ -122,9 +122,9 @@
  autobuild_7.tooltip:0 "Alle Felder ohne natürliche Resourcen werden automatisch bebaut, abhängig von den Einstellungen."
  
  autobuild_7_settings:0 "§BMenu:§! $autobuild_7$"
- autobuild_mine_ratio:0 "Ratio of mines x"
- autobuild_power_plant_ratio:0 "Ratio of power plants x"
- autobuild_lab_ratio:0 "Ratio of labs x"
+ autobuild_mine_ratio:0 "Verhältnis an Bergbaunetzwerken x"
+ autobuild_power_plant_ratio:0 "Verhältnis an Kraftwerken x"
+ autobuild_lab_ratio:0 "Verhältnis an Forschungslaboren x"
  
  # unique buildings
  autobuild_planet_unique:0 "§BMenu:§! einzigartige Gebäude"
@@ -135,7 +135,7 @@
  autobuild_cost:0 "Halte Ressourcen in Reserve."
  autobuild_cost.tooltip:0 "Automatisierung wird nur aktiviert wenn genug Ressourcen vorhanden sind.\nStandard: 1000 Mineralien und, sofern benötigt, 250 Einfluss."
  
- autobuild_cost_menu:0 "§BMenu:§! $autobuild_cost$"
+ autobuild_cost_menu:0 "$modmenu_menu$ $autobuild_cost$"
  autobuild_cost_menu.tooltip:0 "$autobuild.4.desc$"
  
  autobuild_keep:0 "§HKeep§!"
@@ -160,14 +160,14 @@
  planet_farms_autobuild:0 "Agrarzentrum"
  planet_farms_autobuild_desc:0 "Dieser Planet wird zum $planet_farms_autobuild$ umgebaut. Alle Karftwerke, Bergbaunetzwerke und Forschungslabore werden ersetzt."
  
- autobuild_planet_labs_physics:0 "Physical priority"
- autobuild_planet_labs_physics_desc:0 "On this planet all laboratories will be improved to physical."
+ autobuild_planet_labs_physics:0 "Physik Focus"
+ autobuild_planet_labs_physics_desc:0 "Auf diesem Planeten werden alle Forschungslabore zu Physiklaboren ausgebaut."
  
- autobuild_planet_labs_bio:0 "Biological priority"
- autobuild_planet_labs_bio_desc:0 "On this planet all laboratories will be improved to biological."
+ autobuild_planet_labs_bio:0 "Sozial Focus"
+ autobuild_planet_labs_bio_desc:0 "Auf diesem Planeten werden alle Forschungslabore zu Biolaboren ausgebaut."
  
- autobuild_planet_labs_engineering:0 "Engineering priority"
- autobuild_planet_labs_engineering_desc:0 "On this planet all laboratories will improve to engineering."
+ autobuild_planet_labs_engineering:0 "Ingenieur Focus"
+ autobuild_planet_labs_engineering_desc:0 "Auf diesem Planeten werden alle Forschungslabore zu Ingenieurlaboren ausgebaut."
  
  # edicts
  edict_no_sector:0 "Deaktiviere Sektorkosten"

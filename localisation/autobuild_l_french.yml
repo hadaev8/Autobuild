@@ -135,7 +135,7 @@
  autobuild_cost:0 "Garder une réserve"
  autobuild_cost.tooltip:0 "Les constructions et améliorations auront lieu si vous avez suffisamment de ressources (par défaut 1 000 minéraux et 250 influence si requis)."
  
- autobuild_cost_menu:0 "§BMenu:§! $autobuild_cost$"
+ autobuild_cost_menu:0 "$modmenu_menu$ $autobuild_cost$"
  autobuild_cost_menu.tooltip:0 "$autobuild.4.desc$"
  
  autobuild_keep:0 "§HGarder§!"

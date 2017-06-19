@@ -55,7 +55,7 @@
  autobuild_13.tooltip:0 "Will build robots where it makes sense."
  
  autobuild_10:0 "Auto-clean Blockers."
- autobuild_10.tooltip:0 "Auto-clean blockers. §RWarning§!, this is a semi-cheat option couz blockers will disappear instantly."
+ autobuild_10.tooltip:0 "Auto-clean blockers. §RWarning§!, this is a semi-cheat option as blockers will disappear instantly."
  
  autobuild_14:0 "Auto-build: Alphamod."
  autobuild_14.tooltip:0 "Will build some alphamod buildings."
@@ -75,10 +75,10 @@
  autobuild_ship_ignore_2_and_less_mineral:0 "Ignore 2 minerals or less."
  autobuild_ship_ignore_2_and_less_mineral.tooltip:0 "Autobuild Ships will not build a mining station where there are 2 minerals or less."
  
- autobuild_remove_farms_not_planet_farm:0 "Remove all farm exept farm planet."
- autobuild_remove_farms_not_planet_farm.tooltip:0 "Remove all regular farms exept farm planets, enable ignore food on tiles."
+ autobuild_remove_farms_not_planet_farm:0 "Remove all farms except on farm planets."
+ autobuild_remove_farms_not_planet_farm.tooltip:0 "Remove all regular farms except on farm planets. Enable ignore food on tiles."
  
- autobuild_remove_farms:0 "Remove all farm."
+ autobuild_remove_farms:0 "Remove all farms."
  autobuild_remove_farms.tooltip:0 "Remove all regular farms, disable farm planets, enable ignore food on tiles."
  
  autobuild_remove_clinics:0 "Remove all clinics."
@@ -109,13 +109,13 @@
  autobuild_labs_not_count_planet.tooltip:0 "Improvement of the laboratories will occur without regards to any planet modifiers."
  
  autobuild_labs_engineering_priority:0 "Engineering priority."
- autobuild_labs_engineering_priority.tooltip:0 "Basic laboratory will improve in engineering twice as often."
+ autobuild_labs_engineering_priority.tooltip:0 "Basic laboratories will improve in engineering twice as often."
  
  autobuild_labs_physics_priority:0 "Physics priority."
- autobuild_labs_physics_priority.tooltip:0 "Basic laboratory will improve in physics twice as often."
+ autobuild_labs_physics_priority.tooltip:0 "Basic laboratories will improve in physics twice as often."
  
  autobuild_labs_bio_priority:0 "Biology priority."
- autobuild_labs_bio_priority.tooltip:0 "Basic laboratory will improve in biology twice as often."
+ autobuild_labs_bio_priority.tooltip:0 "Basic laboratories will improve in biology twice as often."
  
  # on ept tile
  autobuild_7:0 "Auto-build on empty tiles."
@@ -129,13 +129,13 @@
  # unique buildings
  autobuild_planet_unique:0 "§BMenu:§! Unique buildings."
  autobuild_planet_unique.tooltip:0 "Settings for building rare buildings (clinic, power hub etc)."
- autobuild_on_every_planet.tooltip:0 "Will build on every planet where it make sence in best place, will replace regular buildings, if planet haven't free space."
+ autobuild_on_every_planet.tooltip:0 "Will build on every planet in the best place (when it makes sense). Will replace regular buildings if planet doesn't have any free tiles."
  
  # cost
  autobuild_cost:0 "Keep Resources in Reserve."
  autobuild_cost.tooltip:0 "Automatic improvements and buildings occur only if you have enough resources (default 1000 minerals and 250 influence, if required)."
  
- autobuild_cost_menu:0 "§BMenu:§! $autobuild_cost$"
+ autobuild_cost_menu:0 "$modmenu_menu$ $autobuild_cost$"
  autobuild_cost_menu.tooltip:0 "$autobuild.4.desc$"
  
  autobuild_keep:0 "§HKeep§!"
@@ -158,7 +158,7 @@
  planet_labs_autobuild_desc:0 "This planet will be rebuilt into a Research center. Any mines, farms or power plants will be replaced."
  
  planet_farms_autobuild:0 "Farm Center"
- planet_farms_autobuild_desc:0 "This planet will be rebuilt into a Farm center. Any mines, power plants or laboratories will be replaced."
+ planet_farms_autobuild_desc:0 "This planet will be rebuilt into a farm center. Any mines, power plants or laboratories will be replaced."
  
  autobuild_planet_labs_physics:0 "Physics priority"
  autobuild_planet_labs_physics_desc:0 "On this planet, all laboratories will be focused on physics research."
