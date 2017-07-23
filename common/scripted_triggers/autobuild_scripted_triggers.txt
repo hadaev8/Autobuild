@@ -1,3 +1,4 @@
+
 #	Example:
 #
 #	example_trigger = {
@@ -27,22 +28,21 @@ autobuild_trigger_local_autoupdate = {
 		}
 		autobuild_trigger_cost = yes
 	}
-	or = {
-		autobuild_trigger_has_any_capital = yes
-		has_building = building_colony_shelter
-	}
+	autobuild_trigger_has_any_capital_or_shelter = yes
 }
 
-autobuild_trigger_has_any_farm = {
+# for planet/tile
+autobuild_trigger_has_any_power_plant = {
 	or = {
-		has_building = building_primitive_farm
-		has_building = building_basic_farm
-		has_building = building_hydroponics_farm_1
-		has_building = building_hydroponics_farm_2
-		has_building = building_hydroponics_farm_3
-		has_building = building_hydroponics_farm_4
-		has_building = building_hydroponics_farm_5
-		has_building = building_hab_agri_bay
+		has_building = building_basic_power_plant
+		has_building = building_power_plant_1
+		has_building = building_power_plant_2
+		has_building = building_power_plant_3
+		has_building = building_power_plant_4
+		has_building = building_power_plant_5
+		has_building = building_power_hub_1
+		has_building = building_power_hub_2
+		has_building = building_hab_solar_power_processor
 	}
 }
 
@@ -61,17 +61,16 @@ autobuild_trigger_has_any_mine = {
 	}
 }
 
-autobuild_trigger_has_any_power_plant = {
+autobuild_trigger_has_any_farm = {
 	or = {
-		has_building = building_basic_power_plant
-		has_building = building_power_plant_1
-		has_building = building_power_plant_2
-		has_building = building_power_plant_3
-		has_building = building_power_plant_4
-		has_building = building_power_plant_5
-		has_building = building_power_hub_1
-		has_building = building_power_hub_2
-		has_building = building_hab_solar_power_processor
+		has_building = building_primitive_farm
+		has_building = building_basic_farm
+		has_building = building_hydroponics_farm_1
+		has_building = building_hydroponics_farm_2
+		has_building = building_hydroponics_farm_3
+		has_building = building_hydroponics_farm_4
+		has_building = building_hydroponics_farm_5
+		has_building = building_hab_agri_bay
 	}
 }
 
@@ -93,9 +92,18 @@ autobuild_trigger_has_any_science_lab = {
 		has_building = building_hab_laboratory_module
 
 		# star trek
-		has_building = building_physics_lab_0
-		has_building = building_society_lab_0
-		has_building = building_engineering_lab_0
+		#has_building = building_physics_lab_0
+		#has_building = building_society_lab_0
+		#has_building = building_engineering_lab_0
+	}
+}
+
+autobuild_trigger_has_any_regular_building = {
+	or = {
+		autobuild_trigger_has_any_power_plant = yes
+		autobuild_trigger_has_any_farm = yes
+		autobuild_trigger_has_any_mine = yes
+		autobuild_trigger_has_any_science_lab = yes
 	}
 }
 
@@ -110,8 +118,6 @@ autobuild_trigger_has_any_mine_not_replace = {
 
 autobuild_trigger_has_any_farm_not_replace = {
 	or = {
-		has_building = building_clinic
-		has_building = building_hospital
 		has_building = building_agri_processing_complex
 		has_building = building_great_pyramid
 		has_building = building_paradise_dome
@@ -161,7 +167,20 @@ autobuild_trigger_has_any_capital = {
 		has_building = building_capital_2
 		has_building = building_capital_3
 		has_building = building_hab_capital
+		alphamod_trigger_autobuild_has_any_capital = yes
+		# fell free use this trigger for your mod
+		autobuild_trigger_has_any_capital_mod_api = yes
+		# temporaly fix
+		has_global_flag = gf_alphamod_activated
 	}
+}
+
+alphamod_trigger_autobuild_has_any_capital = {
+	always = no
+}
+
+autobuild_trigger_has_any_capital_mod_api = {
+	always = no
 }
 
 autobuild_trigger_free_from_autobuild = {
@@ -172,6 +191,23 @@ autobuild_trigger_free_from_autobuild = {
 		autobuild_trigger_planet_minerals = yes
 		autobuild_trigger_planet_food = yes
 		autobuild_trigger_planet_science = yes
+		has_building_construction = yes
+		sector_controlled = yes
+	}
+}
+
+autobuild_trigger_free_from_autobuild_not_spec_planets = {
+	or = {
+		has_modifier = free_from_autobuild
+		has_building_construction = yes
+		sector_controlled = yes
+	}
+}
+
+autobuild_trigger_free_from_autoupdate = {
+	or = {
+		is_planet_class = pc_habitat
+		has_modifier = free_from_auto_update
 		has_building_construction = yes
 		sector_controlled = yes
 	}
@@ -205,23 +241,7 @@ autobuild_trigger_planet_science = {
 	}
 }
 
-autobuild_trigger_free_from_autobuild_not_spec_planets = {
-	or = {
-		has_modifier = free_from_autobuild
-		has_building_construction = yes
-		sector_controlled = yes
-	}
-}
-
-autobuild_trigger_free_from_autoupdate = {
-	or = {
-		is_planet_class = pc_habitat
-		has_modifier = free_from_auto_update
-		has_building_construction = yes
-		sector_controlled = yes
-	}
-}
-
+# for tile
 autobuild_trigger_tile_has_strategic_res = {
 	or = {
 		has_resource = {
@@ -232,30 +252,18 @@ autobuild_trigger_tile_has_strategic_res = {
 			type = sr_betharian
 			amount > 0
 		}
-		#autobuild_trigger_tile_has_strategic_res_alphamod = yes
+		alphamod_trigger_autobuild_tile_has_strategic_res = yes
+		# fell free use this trigger for your mod
+		autobuild_trigger_tile_has_strategic_res_mod_api = yes
 	}
 }
 
-autobuild_trigger_tile_has_strategic_res_alphamod = {
+alphamod_trigger_autobuild_tile_has_strategic_res = {
 	always = no
-	# or = {
-	# 	has_resource = {
-	# 		type = sr_ice
-	# 		amount > 0
-	# 	}
-	# 	has_resource = {
-	# 		type = sr_natural_fuels
-	# 		amount > 0
-	# 	}
-	# 	has_resource = {
-	# 		type = sr_actinides
-	# 		amount > 0
-	# 	}
-	# 	has_resource = {
-	# 		type = sr_h2o
-	# 		amount > 0
-	# 	}
-	# }
+}
+
+autobuild_trigger_tile_has_strategic_res_mod_api = {
+	always = no
 }
 
 autobuild_trigger_tile_has_any_res = {
@@ -888,52 +896,56 @@ autobuild_trigger_cost = {
 		and = {
 			has_country_flag = autobuild_cost_20000
 			minerals > 20000
-			or = {
-				not = {
-					has_global_flag = gf_alphamod_activated
-				}
-				energy > 20000
-			}
 		}
 		and = {
 			has_country_flag = autobuild_cost_5000
 			minerals > 5000
-			or = {
-				not = {
-					has_global_flag = gf_alphamod_activated
-				}
-				energy > 5000
-			}
 		}
 		and = {
 			has_country_flag = autobuild_cost_2500
 			minerals > 2500
-			or = {
-				not = {
-					has_global_flag = gf_alphamod_activated
-				}
-				energy > 2500
-			}
 		}
 		and = {
 			has_country_flag = autobuild_cost_1000
 			minerals > 1000
-			or = {
-				not = {
-					has_global_flag = gf_alphamod_activated
-				}
-				energy > 1000
-			}
 		}
 		and = {
 			has_country_flag = autobuild_cost_500
 			minerals > 500
-			or = {
-				not = {
-					has_global_flag = gf_alphamod_activated
-				}
-				energy > 500
-			}
+		}
+	}
+	or = {
+		not = {
+			has_global_flag = gf_alphamod_activated
+		}
+		autobuild_trigger_cost_energy = yes
+	}
+}
+
+autobuild_trigger_cost_energy = {
+	or = {
+		not = {
+			has_country_flag = autobuild_cost
+		}
+		and = {
+			has_country_flag = autobuild_cost_20000
+			energy > 20000
+		}
+		and = {
+			has_country_flag = autobuild_cost_5000
+			energy > 5000
+		}
+		and = {
+			has_country_flag = autobuild_cost_2500
+			energy > 2500
+		}
+		and = {
+			has_country_flag = autobuild_cost_1000
+			energy > 1000
+		}
+		and = {
+			has_country_flag = autobuild_cost_500
+			energy > 500
 		}
 	}
 }

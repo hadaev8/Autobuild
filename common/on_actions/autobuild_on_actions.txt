@@ -1,3 +1,10 @@
+#
+on_game_start = {
+	events = {
+		autobuild.101
+	}
+}
+
 # No scope, like on_game_start
 on_monthly_pulse = {
 	events = {

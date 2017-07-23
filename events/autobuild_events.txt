@@ -373,6 +373,7 @@ country_event = {
 			autobuild_effect_set_planet_local_build = yes
 		}
 
+		# semi cheat options
 		# auto clean
 		if = {
 			limit = {
@@ -388,31 +389,8 @@ country_event = {
 					and = {
 						energy > 100
 						minerals > 100
-						or = {
-							not = {
-								has_country_flag = autobuild_cost
-							}
-							and = {
-								has_country_flag = autobuild_cost_5000
-								minerals > 5000
-								energy > 5000
-							}
-							and = {
-								has_country_flag = autobuild_cost_2500
-								minerals > 2500
-								energy > 2500
-							}
-							and = {
-								has_country_flag = autobuild_cost_1000
-								minerals > 1000
-								energy > 1000
-							}
-							and = {
-								has_country_flag = autobuild_cost_500
-								minerals > 500
-								energy > 500
-							}
-						}
+						autobuild_trigger_cost = yes
+						autobuild_trigger_cost_energy = yes
 					}
 				}
 			}
@@ -982,14 +960,46 @@ country_event = {
 				}
 			}
 		}
+		# auto repair
+		if = {
+			limit = {
+				or = {
+					has_country_flag = autobuild_repair
+					and = {
+						is_ai = yes
+						has_global_flag = autobuild_ai_allowed
+					}
+				}
+				minerals > 50
+				autobuild_trigger_cost = yes
+			}
+			every_owned_planet = {
+				limit = {
+					any_tile = {
+						has_building = yes
+						is_ruined = yes
+					}
+				}
+				every_tile = {
+					limit = {
+						has_building = yes
+						is_ruined = yes
+						root = {
+							minerals > 50
+						}
+					}
+					set_ruined = no
+					root = {
+						add_minerals = -50
+					}
+				}
+			}
+		}
 	}
 }
 
-
 # local autobuild for planets for on_actions
-
 # 101 - 109
-
 # local autobuild robots
 planet_event = {
 	id = autobuild.102
@@ -1009,25 +1019,7 @@ planet_event = {
 				has_policy_flag = ai_outlawed
 			}
 			energy > 100
-			or = {
-				not = { has_country_flag = autobuild_cost }
-				and = {
-					has_country_flag = autobuild_cost_5000
-					energy > 5000
-				}
-				and = {
-					has_country_flag = autobuild_cost_2500
-					energy > 2500
-				}
-				and = {
-					has_country_flag = autobuild_cost_1000
-					energy > 1000
-				}
-				and = {
-					has_country_flag = autobuild_cost_500
-					energy > 500
-				}
-			}
+			autobuild_trigger_cost_energy = yes
 			autobuild_trigger_cost = yes
 		}
 		not = {
@@ -1089,7 +1081,7 @@ planet_event = {
 							has_technology = tech_droid_workers
 						}
 					}
-					every_tile = {
+					random_tile = {
 						limit = {
 							not = {
 								exists = pop
@@ -1113,7 +1105,7 @@ planet_event = {
 						}
 					}
 					else = {
-						every_tile = {
+						random_tile = {
 							limit = {
 								not = {
 									exists = pop
@@ -1237,7 +1229,7 @@ planet_event = {
 		random_tile = {
 			limit = {
 				has_building = no
-				exists = pop
+				#exists = pop
 				or = {
 					autobuild_trigger_tile_has_science_more_than_others = yes
 					autobuild_trigger_tile_has_any_res = no
@@ -1477,7 +1469,6 @@ planet_event = {
 	trigger = {
 		nor = {
 			is_planet_class = pc_habitat
-			has_building = building_xeno_zoo
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
 		exists = owner
@@ -1564,12 +1555,8 @@ planet_event = {
 				or = {
 					has_building = no
 					and = {
-						or = {
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_power_plant = yes
-							autobuild_trigger_has_any_science_lab = yes
-						}
-						planet = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
 							free_building_tiles = 0
 						}
 					}
@@ -1736,12 +1723,7 @@ planet_event = {
 				or = {
 					has_building = no
 					and = {
-						or = {
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_farm = yes
-							autobuild_trigger_has_any_science_lab = yes
-							autobuild_trigger_has_any_power_plant = yes
-						}
+						autobuild_trigger_has_any_regular_building = yes
 						root = {
 							free_building_tiles = 0
 						}
@@ -1787,12 +1769,7 @@ planet_event = {
 				or = {
 					has_building = no
 					and = {
-						or = {
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_farm = yes
-							autobuild_trigger_has_any_science_lab = yes
-							autobuild_trigger_has_any_power_plant = yes
-						}
+						autobuild_trigger_has_any_regular_building = yes
 						root = {
 							free_building_tiles = 0
 						}
@@ -1839,11 +1816,7 @@ planet_event = {
 					has_building = no
 					autobuild_trigger_has_any_farm = yes
 					and = {
-						or = {
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_science_lab = yes
-							autobuild_trigger_has_any_power_plant = yes
-						}
+						autobuild_trigger_has_any_regular_building = yes
 						root = {
 							free_building_tiles = 0
 						}
@@ -1893,12 +1866,7 @@ planet_event = {
 				or = {
 					has_building = no
 					and = {
-						or = {
-							autobuild_trigger_has_any_farm = yes
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_science_lab = yes
-							autobuild_trigger_has_any_power_plant = yes
-						}
+						autobuild_trigger_has_any_regular_building = yes
 						root = {
 							free_building_tiles = 0
 						}
@@ -1943,12 +1911,7 @@ planet_event = {
 				or = {
 					has_building = no
 					and = {
-						or = {
-							autobuild_trigger_has_any_farm = yes
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_science_lab = yes
-							autobuild_trigger_has_any_power_plant = yes
-						}
+						autobuild_trigger_has_any_regular_building = yes
 						root = {
 							free_building_tiles = 0
 						}
@@ -1963,16 +1926,15 @@ planet_event = {
 	}
 }
 
-# local autobuild betharian
+# local betharian
 planet_event = {
 	id = autobuild.117
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger = {
-		nor = {
+		not = {
 			is_planet_class = pc_habitat
-			has_building = building_xeno_zoo
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
 		exists = owner
@@ -1989,11 +1951,11 @@ planet_event = {
 		}
 		any_tile = {
 			has_resource = {
-		 		type = sr_alien_pets
+		 		type = sr_betharian
 		 		amount > 0
 			}
 			not = {
-				has_building = building_xeno_zoo
+				has_building = betharian_power_plant
 			}
 		}
 		autobuild_trigger_has_any_capital = yes
@@ -2005,10 +1967,7 @@ planet_event = {
 				has_blocker = no
 				or = {
 					has_building = no
-					autobuild_trigger_has_any_mine = yes
-					autobuild_trigger_has_any_science_lab = yes
-					autobuild_trigger_has_any_power_plant = yes
-					autobuild_trigger_has_any_farm = yes
+					autobuild_trigger_has_any_regular_building = yes
 					has_building = building_slave_processing
 				}
 				not = {
@@ -2023,8 +1982,6 @@ planet_event = {
 		}
 	}
 }
-
-
 
 # local autobuild on ept tiles
 planet_event = {
@@ -2278,9 +2235,24 @@ planet_event = {
 							}
 						}
 					}
-					exists = pop
+					or = {
+						exists = pop
+						root.owner = {
+							is_ai = yes
+							excess_food < 0
+						}
+					}
 					# pop = { is_being_purged = no }
 					autobuild_trigger_tile_has_food_more_than_others = yes
+				}
+				root.owner = {
+					if = {
+						limit = {
+							is_ai = yes
+							excess_food < 0
+						}
+						add_food = 100
+					}
 				}
 				add_building_construction = building_hydroponics_farm_1
 			}
@@ -2617,7 +2589,6 @@ planet_event = {
 	}
 }
 
-
 # local autoupdate labs
 planet_event = {
 	id = autobuild.140
@@ -2689,7 +2660,6 @@ planet_event = {
 					limit = {
 						has_building = building_basic_science_lab_1
 						exists = pop
-						# pop = { is_being_purged = no }
 					}
 					add_building_construction = building_engineering_facility_1
 				}
@@ -2726,7 +2696,6 @@ planet_event = {
 							limit = {
 								has_building = building_basic_science_lab_1
 								exists = pop
-								# pop = { is_being_purged = no }
 							}
 							add_building_construction = building_biolab_1
 						}
@@ -2742,7 +2711,6 @@ planet_event = {
 							limit = {
 								has_building = building_basic_science_lab_1
 								exists = pop
-								# pop = { is_being_purged = no }
 							}
 							add_building_construction = building_engineering_facility_1
 						}
@@ -2760,7 +2728,6 @@ planet_event = {
 							limit = {
 								has_building = building_basic_science_lab_1
 								exists = pop
-								# pop = { is_being_purged = no }
 							}
 							add_building_construction = building_biolab_1
 						}
@@ -2774,7 +2741,6 @@ planet_event = {
 							limit = {
 								has_building = building_basic_science_lab_1
 								exists = pop
-								# pop = { is_being_purged = no }
 							}
 							add_building_construction = building_physics_lab_1
 						}
@@ -2784,7 +2750,6 @@ planet_event = {
 							limit = {
 								has_building = building_basic_science_lab_1
 								exists = pop
-								# pop = { is_being_purged = no }
 							}
 							if = {
 								limit = {
@@ -2860,26 +2825,64 @@ planet_event = {
 														random_list = {
 															10 = {
 																modifier = {
+																	factor = 0
+																	owner = {
+																		has_country_flag = autobuild_physics_lab_ratio.0
+																	}
+																}
+																modifier = {
 																	factor = 2
 																	owner = {
-																		has_country_flag = autobuild_labs_physics_priority
+																		has_country_flag = autobuild_physics_lab_ratio.2
+																	}
+																}
+																modifier = {
+																	factor = 3
+																	owner = {
+																		has_country_flag = autobuild_physics_lab_ratio.3
 																	}
 																}
 																add_building_construction = building_physics_lab_1
 															}
 															10 = {
 																modifier = {
+																	factor = 0
+																	owner = {
+																		has_country_flag = autobuild_biolab_ratio.0
+																	}
+																}
+																modifier = {
 																	factor = 2
 																	owner = {
-																		has_country_flag = autobuild_labs_bio_priority
+																		has_country_flag = autobuild_biolab_ratio.2
+																	}
+																}
+																modifier = {
+																	factor = 3
+																	owner = {
+																		has_country_flag = autobuild_biolab_ratio.3
 																	}
 																}
 																add_building_construction = building_biolab_1
 															}
 															10 = {
 																modifier = {
+																	factor = 0
+																	owner = {
+																		has_country_flag = autobuild_engineering_facility_ratio.0
+																	}
+																}
+																modifier = {
 																	factor = 2
-																	owner = { has_country_flag = autobuild_labs_engineering_priority }
+																	owner = {
+																		has_country_flag = autobuild_engineering_facility_ratio.2
+																	}
+																}
+																modifier = {
+																	factor = 3
+																	owner = {
+																		has_country_flag = autobuild_engineering_facility_ratio.3
+																	}
 																}
 																add_building_construction = building_engineering_facility_1
 															}
@@ -2900,8 +2903,6 @@ planet_event = {
 }
 
 # habitats
-# on ept tile
-
 # local autobuild habitat of power plants
 planet_event = {
 	id = autobuild.142
@@ -2929,9 +2930,14 @@ planet_event = {
 			limit = {
 				or = {
 					has_building = no
-					autobuild_trigger_has_any_mine = yes
-					autobuild_trigger_has_any_science_lab = yes
-					autobuild_trigger_has_any_farm = yes
+					and = {
+						autobuild_trigger_tile_has_any_res = no
+						or = {
+							autobuild_trigger_has_any_mine = yes
+							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_farm = yes
+						}
+					}
 				}
 				exists = pop
 				pop = {	is_non_sentient_robot = no }
@@ -2969,9 +2975,14 @@ planet_event = {
 			limit = {
 				or = {
 					has_building = no
-					autobuild_trigger_has_any_power_plant = yes
-					autobuild_trigger_has_any_science_lab = yes
-					autobuild_trigger_has_any_farm = yes
+					and = {
+						autobuild_trigger_tile_has_any_res = no
+						or = {
+							autobuild_trigger_has_any_mine = yes
+							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_farm = yes
+						}
+					}
 				}
 				exists = pop
 				# pop = { is_being_purged = no }
@@ -3008,9 +3019,14 @@ planet_event = {
 			limit = {
 				or = {
 					has_building = no
-					autobuild_trigger_has_any_power_plant = yes
-					autobuild_trigger_has_any_science_lab = yes
-					autobuild_trigger_has_any_mine = yes
+					and = {
+						autobuild_trigger_tile_has_any_res = no
+						or = {
+							autobuild_trigger_has_any_mine = yes
+							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_farm = yes
+						}
+					}
 				}
 				exists = pop
 				# pop = { is_being_purged = no }
@@ -3047,19 +3063,22 @@ planet_event = {
 			limit = {
 				exists = pop
 				pop = {	is_non_sentient_robot = no }
-				# pop = { is_being_purged = no }
 				or = {
 					has_building = no
-					autobuild_trigger_has_any_mine = yes
-					autobuild_trigger_has_any_power_plant = yes
-					autobuild_trigger_has_any_farm = yes
+					and = {
+						autobuild_trigger_tile_has_any_res = no
+						or = {
+							autobuild_trigger_has_any_mine = yes
+							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_farm = yes
+						}
+					}
 				}
 			}
 			add_building_construction = building_hab_laboratory_module
 		}
 	}
 }
-
 
 # menu
 country_event = {
@@ -3209,13 +3228,13 @@ country_event = {
 		name = autobuild_cost_on
 		trigger = {	not = { has_country_flag = autobuild_cost } }
 		custom_tooltip = autobuild_cost_on.tooltip
-		hidden_effect = { set_country_flag = autobuild_cost country_event = { id = autobuild.3 } }
+		hidden_effect = { set_country_flag = autobuild_cost country_event = { id = autobuild.3 } country_event = { id = autobuild.10 } }
 	}
 	option = {
 		name = autobuild_cost_menu
 		trigger = { has_country_flag = autobuild_cost }
 		custom_tooltip = autobuild_cost_menu.tooltip
-		hidden_effect = { country_event = { id = autobuild.4 } country_event = { id = autobuild.10 } }
+		hidden_effect = { country_event = { id = autobuild.4 } }
 	}
 	option = {
 		name = autobuild_ai_allowed_on
@@ -3259,24 +3278,39 @@ country_event = {
 	}
 	option = {
 		name = autobuild_cost_20000
+		trigger = {
+			not = {
+				has_country_flag = autobuild_cost_20000
+			}
+		}
 		hidden_effect = {
-			country_event = { id = autobuild.3 }
+			country_event = { id = autobuild.4 }
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_20000
 		}
 	}
 	option = {
 		name = autobuild_cost_5000
+		trigger = {
+			not = {
+				has_country_flag = autobuild_cost_5000
+			}
+		}
 		hidden_effect = {
-			country_event = { id = autobuild.3 }
+			country_event = { id = autobuild.4 }
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_5000
 		}
 	}
 	option = {
 		name = autobuild_cost_2500
+		trigger = {
+			not = {
+				has_country_flag = autobuild_cost_2500
+			}
+		}
 		hidden_effect = {
-			country_event = { id = autobuild.3 }
+			country_event = { id = autobuild.4 }
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_2500
 		}
@@ -3284,15 +3318,20 @@ country_event = {
 	option = {
 		name = autobuild_cost_1000
 		hidden_effect = {
-			country_event = { id = autobuild.3 }
+			country_event = { id = autobuild.4 }
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_1000
 		}
 	}
 	option = {
 		name = autobuild_cost_500
+		trigger = {
+			not = {
+				has_country_flag = autobuild_cost_500
+			}
+		}
 		hidden_effect = {
-			country_event = { id = autobuild.3 }
+			country_event = { id = autobuild.4 }
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_500
 		}
@@ -3835,6 +3874,40 @@ country_event = {
 		}
 	}
 	option = {
+		name = autobuild_repair_on
+		trigger = { not = { has_country_flag = autobuild_repair } }
+		custom_tooltip = autobuild_repair_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_repair }
+	}
+	option = {
+		name = autobuild_repair_off
+		trigger = {	has_country_flag = autobuild_repair }
+		custom_tooltip = autobuild_repair_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_repair }
+	}
+	option = {
+		name = autobuild_disable_edict_on
+		trigger = {
+			count_country = {
+				count > 1
+				limit = {
+					is_ai = no
+				}
+			}
+			not = {
+				has_global_flag = autobuild_disable_edict
+			}
+		}
+		custom_tooltip = autobuild_disable_edict_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_global_flag = autobuild_disable_edict }
+	}
+	option = {
+		name = autobuild_disable_edict_off
+		trigger = {	has_global_flag = autobuild_disable_edict }
+		custom_tooltip = autobuild_disable_edict_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_global_flag = autobuild_disable_edict }
+	}
+	option = {
 		name = modmenu_return
 		hidden_effect = { country_event = { id = autobuild.3 } }
 	}
@@ -3853,19 +3926,16 @@ country_event = {
 	trigger = {
 		has_country_flag = autobuild_cost
 		nor = {
+			has_country_flag = autobuild_cost_20000
 			has_country_flag = autobuild_cost_5000
 			has_country_flag = autobuild_cost_2500
 			has_country_flag = autobuild_cost_1000
 			has_country_flag = autobuild_cost_500
-			has_country_flag = autobuild_cost_inf_500
-			has_country_flag = autobuild_cost_inf_250
-			has_country_flag = autobuild_cost_inf_100
 		}
 	}
 
 	immediate = {
-		set_country_flag = autobuild_cost_inf_250
-		set_country_flag = autobuild_cost_1000
+		set_country_flag = autobuild_cost_500
 	}
 }
 
@@ -3919,41 +3989,113 @@ country_event = {
 		custom_tooltip = autobuild_labs_disable_random_off.tooltip
 		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_labs_disable_random }
 	}
-	option = {
-		name = autobuild_labs_physics_priority_on
-		trigger = {	not = { has_country_flag = autobuild_labs_physics_priority } }
-		custom_tooltip = autobuild_labs_physics_priority_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_labs_physics_priority }
+		option = {
+		name = autobuild_physics_lab_ratio.0_on
+		trigger = {	not = { has_country_flag = autobuild_physics_lab_ratio.0 } }
+		custom_tooltip = autobuild_physics_lab_ratio.0_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_physics_lab_ratio.0 }
 	}
 	option = {
-		name = autobuild_labs_physics_priority_off
-		trigger = {	has_country_flag = autobuild_labs_physics_priority }
-		custom_tooltip = autobuild_labs_physics_priority_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_labs_physics_priority }
+		name = autobuild_physics_lab_ratio.0_off
+		trigger = {	has_country_flag = autobuild_physics_lab_ratio.0 }
+		custom_tooltip = autobuild_physics_lab_ratio.0_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_physics_lab_ratio.0 }
 	}
 	option = {
-		name = autobuild_labs_bio_priority_on
-		trigger = {	not = { has_country_flag = autobuild_labs_bio_priority } }
-		custom_tooltip = autobuild_labs_bio_priority_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_labs_bio_priority }
+		name = autobuild_physics_lab_ratio.2_on
+		trigger = {	not = { has_country_flag = autobuild_physics_lab_ratio.2 } }
+		custom_tooltip = autobuild_physics_lab_ratio.2_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_physics_lab_ratio.2 }
 	}
 	option = {
-		name = autobuild_labs_bio_priority_off
-		trigger = {	has_country_flag = autobuild_labs_bio_priority }
-		custom_tooltip = autobuild_labs_bio_priority_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_labs_bio_priority }
+		name = autobuild_physics_lab_ratio.2_off
+		trigger = {	has_country_flag = autobuild_physics_lab_ratio.2 }
+		custom_tooltip = autobuild_physics_lab_ratio.2_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_physics_lab_ratio.2 }
 	}
 	option = {
-		name = autobuild_labs_engineering_priority_on
-		trigger = {	not = { has_country_flag = autobuild_labs_engineering_priority } }
-		custom_tooltip = autobuild_labs_engineering_priority_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_labs_engineering_priority }
+		name = autobuild_physics_lab_ratio.3_on
+		trigger = {	not = { has_country_flag = autobuild_physics_lab_ratio.3 } }
+		custom_tooltip = autobuild_physics_lab_ratio.3_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_physics_lab_ratio.3 }
 	}
 	option = {
-		name = autobuild_labs_engineering_priority_off
-		trigger = {	has_country_flag = autobuild_labs_engineering_priority }
-		custom_tooltip = autobuild_labs_engineering_priority_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_labs_engineering_priority }
+		name = autobuild_physics_lab_ratio.3_off
+		trigger = {	has_country_flag = autobuild_physics_lab_ratio.3 }
+		custom_tooltip = autobuild_physics_lab_ratio.3_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_physics_lab_ratio.3 }
+	}
+	option = {
+		name = autobuild_biolab_ratio.0_on
+		trigger = {	not = { has_country_flag = autobuild_biolab_ratio.0 } }
+		custom_tooltip = autobuild_biolab_ratio.0_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_biolab_ratio.0 }
+	}
+	option = {
+		name = autobuild_biolab_ratio.0_off
+		trigger = {	has_country_flag = autobuild_biolab_ratio.0 }
+		custom_tooltip = autobuild_biolab_ratio.0_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_biolab_ratio.0 }
+	}
+	option = {
+		name = autobuild_biolab_ratio.2_on
+		trigger = {	not = { has_country_flag = autobuild_biolab_ratio.2 } }
+		custom_tooltip = autobuild_biolab_ratio.2_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_biolab_ratio.2 }
+	}
+	option = {
+		name = autobuild_biolab_ratio.2_off
+		trigger = {	has_country_flag = autobuild_biolab_ratio.2 }
+		custom_tooltip = autobuild_biolab_ratio.2_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_biolab_ratio.2 }
+	}
+	option = {
+		name = autobuild_biolab_ratio.3_on
+		trigger = {	not = { has_country_flag = autobuild_biolab_ratio.3 } }
+		custom_tooltip = autobuild_biolab_ratio.3_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_biolab_ratio.3 }
+	}
+	option = {
+		name = autobuild_biolab_ratio.3_off
+		trigger = {	has_country_flag = autobuild_biolab_ratio.3 }
+		custom_tooltip = autobuild_biolab_ratio.3_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_biolab_ratio.3 }
+	}
+	option = {
+		name = autobuild_engineering_facility_ratio.0_on
+		trigger = {	not = { has_country_flag = autobuild_engineering_facility_ratio.0 } }
+		custom_tooltip = autobuild_engineering_facility_ratio.0_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_engineering_facility_ratio.0 }
+	}
+	option = {
+		name = autobuild_engineering_facility_ratio.0_off
+		trigger = {	has_country_flag = autobuild_engineering_facility_ratio.0 }
+		custom_tooltip = autobuild_engineering_facility_ratio.0_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_engineering_facility_ratio.0 }
+	}
+	option = {
+		name = autobuild_engineering_facility_ratio.2_on
+		trigger = {	not = { has_country_flag = autobuild_engineering_facility_ratio.2 } }
+		custom_tooltip = autobuild_engineering_facility_ratio.2_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_engineering_facility_ratio.2 }
+	}
+	option = {
+		name = autobuild_engineering_facility_ratio.2_off
+		trigger = {	has_country_flag = autobuild_engineering_facility_ratio.2 }
+		custom_tooltip = autobuild_engineering_facility_ratio.2_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_engineering_facility_ratio.2 }
+	}
+	option = {
+		name = autobuild_engineering_facility_ratio.3_on
+		trigger = {	not = { has_country_flag = autobuild_engineering_facility_ratio.3 } }
+		custom_tooltip = autobuild_engineering_facility_ratio.3_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } set_country_flag = autobuild_engineering_facility_ratio.3 }
+	}
+	option = {
+		name = autobuild_engineering_facility_ratio.3_off
+		trigger = {	has_country_flag = autobuild_engineering_facility_ratio.3 }
+		custom_tooltip = autobuild_engineering_facility_ratio.3_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_engineering_facility_ratio.3 }
 	}
 	option = {
 		name = modmenu_return
@@ -4160,9 +4302,6 @@ country_event = {
 		remove_country_flag = autobuild_cost_2500
 		remove_country_flag = autobuild_cost_1000
 		remove_country_flag = autobuild_cost_500
-		remove_country_flag = autobuild_cost_inf_500
-		remove_country_flag = autobuild_cost_inf_250
-		remove_country_flag = autobuild_cost_inf_100
 		remove_country_flag = autobuild_farm_replace
 		remove_country_flag = autobuild_fleet
 		remove_country_flag = autobuild_cost
@@ -4170,5 +4309,27 @@ country_event = {
 		remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 		remove_global_flag = hide_autobuild_planetary_edicts
 		remove_global_flag = autobuild_ai_allowed
+	}
+}
+
+# set global flag
+country_event = {
+	id = autobuild.100
+	hide_window = yes
+	fire_only_once = yes
+
+	immediate = {
+		set_global_flag = autobuild_installed
+	}
+}
+
+# for on game start
+event = {
+	id = autobuild.101
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = autobuild_installed
 	}
 }

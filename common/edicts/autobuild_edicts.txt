@@ -17,7 +17,10 @@ country_edict = {
 	influence_cost = 0
 
 	potential = {
-
+		nand = {
+			is_ai = no
+			has_global_flag = autobuild_disable_edict
+		}
 	}
 
 	ai_weight = {

@@ -34,7 +34,7 @@ autobuild_effect_clear_cost_flags = {
 	remove_country_flag = autobuild_cost_500
 }
 
-# for tile
+# for tile star trek mod
 autobuild_build_basic_lab = {
 	if = {
 		limit = {
@@ -118,6 +118,8 @@ autobuild_effect_set_planet_local_build = {
 	human_fallen_empires_effect_autobuild = yes
 	stellaris+evolved_effect_autobuild = yes
 	alphamod_effect_autobuild = yes
+	# fell free use this effect for your mod
+	autobuild_effect_mod_api = yes
 }
 
 human_fallen_empires_effect_autobuild = {
@@ -129,5 +131,9 @@ stellaris+evolved_effect_autobuild = {
 }
 
 alphamod_effect_autobuild = {
+# 	log = "123"
+}
 
+autobuild_effect_mod_api = {
+#	log = "123"
 }

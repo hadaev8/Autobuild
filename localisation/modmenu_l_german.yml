@@ -1,6 +1,4 @@
 ﻿l_german:
- # by Ryuichiro
- # Korrektur und Übersetzung
  modmenu_button:0 "Mod Menü"
  modmenu.tooltip:0 "§HÖffne§! das Mod Menü"
  modmenu.1.name:0 "Mod Menü"
@@ -19,11 +17,11 @@
  modmenu_no:0 "Nein"
  modmenu_configure:0 "Here you can configure mod"
 
- modmenu_1:0 "§HAuto Build and Improve Buildings§!"
- modmenu_1.tooltip:0 "Hier kann $modmenu_1$, sofern installiert, konfiguriert werden."
- modmenu_2:0 "§HHarder Invaders§!"
- modmenu_2.tooltip:0 "Hier kann $modmenu_2$, sofern installiert, konfiguriert werden."
- modmenu_3:0 "§HBoard That Ship§!"
- modmenu_3.tooltip:0 "Hier kann $modmenu_3$, sofern installiert, konfiguriert werden."
- modmenu_4:0 "§HHuman Fallen Empires§!"
- modmenu_4.tooltip:0 "Hier kann $modmenu_4$, sofern installiert, konfiguriert werden."
+ modmenu.0:0 "§HAuto Build and Improve Buildings§!"
+ modmenu.0.tooltip:0 "Hier kann $modmenu.0$, sofern installiert, konfiguriert werden."
+ modmenu.1:0 "§HHarder Invaders§!"
+ modmenu.1.tooltip:0 "Hier kann $modmenu.1$, sofern installiert, konfiguriert werden."
+ modmenu.2:0 "§HBoard That Ship§!"
+ modmenu.2.tooltip:0 "Hier kann $modmenu.2$, sofern installiert, konfiguriert werden."
+ modmenu.3:0 "§HHuman Fallen Empires§!"
+ modmenu.3.tooltip:0 "Hier kann $modmenu.3$, sofern installiert, konfiguriert werden."

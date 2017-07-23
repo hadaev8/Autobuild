@@ -1,6 +1,6 @@
 namespace = modmenu
 
-## menu
+# menu
 country_event = {
 	id = modmenu.1
 	title = modmenu.1.name
@@ -9,29 +9,54 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = modmenu_1
-		custom_tooltip = modmenu_1.tooltip
+		name = modmenu.0
+		custom_tooltip = modmenu.0.tooltip
+		trigger = {
+			has_global_flag = autobuild_installed
+		}
 		hidden_effect = {
 			country_event = { id = autobuild.3 }
 		}
 	}
 	option = {
-		name = modmenu_2
-		custom_tooltip = modmenu_2.tooltip
-		hidden_effect = {
-			country_event = { id = harder_invaders_menu.1 }
+		name = modmenu.1
+		custom_tooltip = modmenu.1.tooltip
+		trigger = {
+			has_global_flag = board_that_ship_installed
 		}
-	}
-	option = {
-		name = modmenu_3
-		custom_tooltip = modmenu_3.tooltip
 		hidden_effect = {
 			country_event = { id = board_that_ship_menu.1 }
 		}
 	}
 	option = {
-		name = modmenu_4
-		custom_tooltip = modmenu_4.tooltip
+		name = modmenu.2
+		custom_tooltip = modmenu.2.tooltip
+		trigger = {
+			or = {
+				has_global_flag = has_nsc_active
+				has_global_flag = has_playable_guardians
+			}
+		}
+		hidden_effect = {
+			country_event = { id = NSC_features.1 }
+		}
+	}
+	option = {
+		name = modmenu.3
+		custom_tooltip = modmenu.3.tooltip
+		trigger = {
+			has_global_flag = harder_invaders_installed
+		}
+		hidden_effect = {
+			country_event = { id = harder_invaders_menu.1 }
+		}
+	}
+	option = {
+		name = modmenu.4
+		custom_tooltip = modmenu.4.tooltip
+		trigger = {
+			has_global_flag = human_fallen_empires_installed
+		}
 		hidden_effect = {
 			country_event = { id = human_fallen_empires_menu.1 }
 		}

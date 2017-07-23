@@ -1,33 +1,6 @@
 ﻿l_german:
  # by Ryuichiro
  # Korrektur und Übersetzung
- modmenu_button:0 "Mod Menü"
- modmenu.tooltip:0 "§HÖffne§! das Mod Menü"
- modmenu.1.name:0 "Mod Menü"
- modmenu.1.desc:0 "Hier können Mods konfiguriert werden."
- edict_modmenu:0 "$modmenu_button$"
- edict_modmenu_desc:0 "$modmenu.1.desc$"
- modmenu_exit:0 "§LSchließe das Menü§!"
- modmenu_remove:0 "§HDeaktiviere§! alle Mod-Einstellungen"
- modmenu_remove.tooltip:0 "Deaktiviere alle Mod-Einstellungen und entferne alle vom Mod erstellten Eigenschaften und Modifikatoren."
- modmenu_on:0 "§GAktiviere§!"
- modmenu_off:0 "§RDeaktiviere§!"
- modmenu_tooltip_on:0 "Klicke um diese Option zu $modmenu_on$n."
- modmenu_tooltip_off:0 "Klicke um diese Option zu $modmenu_off$n."
- modmenu_return:0 "§LZurück.§!"
- modmenu_yes:0 "Ja."
- modmenu_no:0 "Nein."
- modmenu_configure:0 "Here you can configure"
-  modmenu_menu:0 "§BMenu:§!"
- 
- modmenu_1:0 "§HAuto Build and Improve Buildings§!"
- modmenu_1.tooltip:0 "Hier kann $modmenu_1$, sofern installiert, konfiguriert werden."
- modmenu_2:0 "§HHarder Invaders§!"
- modmenu_2.tooltip:0 "Hier kann $modmenu_2$, sofern installiert, konfiguriert werden."
- modmenu_3:0 "§HBoard That Ship§!"
- modmenu_3.tooltip:0 "Hier kann $modmenu_3$, sofern installiert, konfiguriert werden."
- modmenu_4:0 "§HHuman Fallen Empires§!"
- modmenu_4.tooltip:0 "Hier kann $modmenu_4$, sofern installiert, konfiguriert werden."
  
  autobuild.3.name:0 "Auto Build and Improve Buildings Menü"
  autobuild.3.desc:0 "Hier kann das automatisierte Bauen konfiguriert werden."
@@ -37,7 +10,6 @@
  
  # menu
  autobuild_0:0 "$modmenu_on$ die Grundeinstellungen."
- autobuild_0.tooltip:0 "$autobuild_0$"
  
  autobuild_fleet:0 "Autom. Bau von Raumstationen."
  autobuild_fleet.tooltip:0 "Alle momentan unbeschäftigten Konstruktionsschiffe werden automatisiert. Wenn Sie diese selbst nutzen wollen, deaktivieren Sie diese Option oder bauen Sie ein neues Konstruktionsschiff. Die Schiffe werden als "Blockierte Ereignisse" aufgeführt, das ist normal."
@@ -56,9 +28,6 @@
  
  autobuild_10:0 "Autom. Beseitigung von Feldblockern."
  autobuild_10.tooltip:0 "Beseitigt alle Feldblocker. §RWarnung§! Dies ist eine halbe Betrugsoption, die Beseitigung hat keine Bauzeit."
- 
- autobuild_14:0 "Autom. Bau von Alphamod Gebäuden."
- autobuild_14.tooltip:0 "Automatisiert den Bau einiger Alphamod Gebäude."
  
  autobuild_ai_allowed:0 "Erlaubt Autom. Bau für KI."
  autobuild_ai_allowed.tooltip:0 "Die KI nutzt $modmenu_1$ genau wie die Spieler."
@@ -93,11 +62,15 @@
  autobuild_ignore_food:0 "Ignoriere Nahrung."
  autobuild_ignore_food.tooltip:0 "Natürliche Nahrungsboni von Feldern werden ignoriert."
  
+ autobuild_repair:0 "AutoRepair."
+ autobuild_repair.tooltip:0 "Autorepair blockers. §RWarning§!, this is a semi-cheat option as buildings will be repaired instantly with fixed cost 50 minerals."
+ 
+ autobuild_disable_edict:0 "Disable edict."
+ autobuild_disable_edict.tooltip:0 "Disable no sectors edict for players in mp."
+ 
  # labs
  autobuild_5:0 "Autom. Verbesserung von Laboren."
  autobuild_5.tooltip:0 "Alle einfachen Labore werden verbessert, abhängig von den Einstellungen."
- 
- autobuild_labs_menu:0 "$modmenu_menu$ $autobuild_5$"
  
  autobuild_labs_disable_random:0 "Deaktiviere zufällige Verbesserungen von Laboren."
  autobuild_labs_disable_random.tooltip:0 "Wenn die Labore nicht unter eine der folgenden Bedingungen fallen, werden sie nicht zufällig verbessert."
@@ -108,20 +81,13 @@
  autobuild_labs_not_count_planet:0 "Ignoriere $PLANETVIEW_PLANET_MODIFIERS$."
  autobuild_labs_not_count_planet.tooltip:0 "$PLANETVIEW_PLANET_MODIFIERS$ werden bei der Verbesserung der Forschungslabore nicht berücksichtigt."
  
- autobuild_labs_engineering_priority:0 "Priorität: $engineering_research$"
- autobuild_labs_engineering_priority.tooltip:0 "Einfache Labore werden doppelt so oft zu Ingenieurlabore verbessert."
- 
- autobuild_labs_physics_priority:0 "Priorität: $physics_research$"
- autobuild_labs_physics_priority.tooltip:0 "Einfache Labore werden doppelt so oft zu Physiklabore verbessert."
- 
- autobuild_labs_bio_priority:0 "Priorität: $society_research$"
- autobuild_labs_bio_priority.tooltip:0 "Einfache Labore werden doppelt so oft zu Biolabore verbessert."
+ autobuild_physics_lab_ratio:0 "Ratio of physics labs x"
+ autobuild_biolab_ratio:0 "Ratio of biolabs x"
+ autobuild_engineering_facility_ratio:0 "Ratio of engineering facility x"
  
  # on ept tile
  autobuild_7:0 "Autom. Bau auf leeren Feldern."
- autobuild_7.tooltip:0 "Alle Felder ohne natürliche Resourcen werden automatisch bebaut, abhängig von den Einstellungen."
  
- autobuild_7_settings:0 "§BMenu:§! $autobuild_7$"
  autobuild_mine_ratio:0 "Verhältnis an Bergbaunetzwerken x"
  autobuild_power_plant_ratio:0 "Verhältnis an Kraftwerken x"
  autobuild_lab_ratio:0 "Verhältnis an Forschungslaboren x"
@@ -134,9 +100,6 @@
  # cost
  autobuild_cost:0 "Halte Ressourcen in Reserve."
  autobuild_cost.tooltip:0 "Automatisierung wird nur aktiviert wenn genug Ressourcen vorhanden sind.\nStandard: 1000 Mineralien und, sofern benötigt, 250 Einfluss."
- 
- autobuild_cost_menu:0 "$modmenu_menu$ $autobuild_cost$"
- autobuild_cost_menu.tooltip:0 "$autobuild.4.desc$"
  
  autobuild_keep:0 "§HKeep§!"
  
@@ -179,7 +142,17 @@
  edict_autobuild_clear_planetary_edicts:0 "Deaktiviere Planeten-Erlasse"
  edict_autobuild_clear_planetary_edicts_desc:0 "Deaktiviere alle Planeten-Erlasse des Mods."
  
- # lines without text
+ # lines without text, only this collum needed
+ autobuild_0.tooltip:0 "$autobuild_0$"
+ 
+ autobuild_labs_menu:0 "$modmenu_menu$ $autobuild_5$"
+ 
+ autobuild_7.tooltip:0 "$autobuild_7$"
+ autobuild_7_settings:0 "$modmenu_menu$ $autobuild_7$"
+ 
+ autobuild_cost_menu:0 "$modmenu_menu$ $autobuild_cost$"
+ autobuild_cost_menu.tooltip:0 "$autobuild.4.desc$"
+ 
  # edicts
  edict_autobuild_free_auto_update:0 "$free_from_auto_update$"
  edict_autobuild_free_auto_update_desc:0 "$free_from_auto_update_desc$"
@@ -326,6 +299,17 @@
  autobuild_ignore_food_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ignore_food.tooltip$"
  autobuild_ignore_food_off:0 "$modmenu_off$ $autobuild_ignore_food$"
  autobuild_ignore_food_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_food.tooltip$"
+ autobuild_ignore_science_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_science.tooltip$"
+ 
+ autobuild_repair_on:0 "$modmenu_on$ $autobuild_repair$"
+ autobuild_repair_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_repair.tooltip$"
+ autobuild_repair_off:0 "$modmenu_off$ $autobuild_repair$"
+ autobuild_repair_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_repair.tooltip$"
+ 
+ autobuild_disable_edict_on:0 "$modmenu_on$ $autobuild_disable_edict$"
+ autobuild_disable_edict_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_disable_edict.tooltip$"
+ autobuild_disable_edict_off:0 "$modmenu_off$ $autobuild_disable_edict$"
+ autobuild_disable_edict_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_disable_edict.tooltip$"
  
  # unique buildings
  autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique$"
@@ -392,19 +376,36 @@
  autobuild_labs_disable_random_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_disable_random.tooltip$"
  autobuild_labs_disable_random_off:0 "$modmenu_off$ $autobuild_labs_disable_random$"
  autobuild_labs_disable_random_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_disable_random.tooltip$"
- autobuild_labs_physics_priority_on:0 "$modmenu_on$ $autobuild_labs_physics_priority$"
- autobuild_labs_physics_priority_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_physics_priority.tooltip$"
- autobuild_labs_physics_priority_off:0 "$modmenu_off$ $autobuild_labs_physics_priority$"
- autobuild_labs_physics_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_physics_priority.tooltip$"
- autobuild_labs_bio_priority_on:0 "$modmenu_on$ $autobuild_labs_bio_priority$"
- autobuild_labs_bio_priority_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_bio_priority.tooltip$"
- autobuild_labs_bio_priority_off:0 "$modmenu_off$ $autobuild_labs_bio_priority$"
- autobuild_labs_bio_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_bio_priority.tooltip$"
- autobuild_labs_engineering_priority_on:0 "$modmenu_on$ $autobuild_labs_engineering_priority$"
- autobuild_labs_engineering_priority_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_labs_engineering_priority.tooltip$"
- autobuild_labs_engineering_priority_off:0 "$modmenu_off$ $autobuild_labs_engineering_priority$"
- autobuild_labs_engineering_priority_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_labs_engineering_priority.tooltip$"
  
+ autobuild_physics_lab_ratio.0:0 "$autobuild_physics_lab_ratio$0"
+ autobuild_physics_lab_ratio.0_on:0 "$modmenu_on$ $autobuild_physics_lab_ratio.0$"
+ autobuild_physics_lab_ratio.0_off:0 "$modmenu_off$ $autobuild_physics_lab_ratio.0$"
+ autobuild_physics_lab_ratio.2:0 "$autobuild_physics_lab_ratio$2"
+ autobuild_physics_lab_ratio.2_on:0 "$modmenu_on$ $autobuild_physics_lab_ratio.2$"
+ autobuild_physics_lab_ratio.2_off:0 "$modmenu_off$ $autobuild_physics_lab_ratio.2$"
+ autobuild_physics_lab_ratio.3:0 "$autobuild_physics_lab_ratio$3"
+ autobuild_physics_lab_ratio.3_on:0 "$modmenu_on$ $autobuild_physics_lab_ratio.3$"
+ autobuild_physics_lab_ratio.3_off:0 "$modmenu_off$ $autobuild_physics_lab_ratio.3$"
+ autobuild_biolab_ratio.0:0 "$autobuild_biolab_ratio$0"
+ autobuild_biolab_ratio.0_on:0 "$modmenu_on$ $autobuild_biolab_ratio.0$"
+ autobuild_biolab_ratio.0_off:0 "$modmenu_off$ $autobuild_biolab_ratio.0$"
+ autobuild_biolab_ratio.2:0 "$autobuild_biolab_ratio$2"
+ autobuild_biolab_ratio.2_on:0 "$modmenu_on$ $autobuild_biolab_ratio.2$"
+ autobuild_biolab_ratio.2_off:0 "$modmenu_off$ $autobuild_biolab_ratio.2$"
+ autobuild_biolab_ratio.3:0 "$autobuild_biolab_ratio$3"
+ autobuild_biolab_ratio.3_on:0 "$modmenu_on$ $autobuild_biolab_ratio.3$"
+ autobuild_biolab_ratio.3_off:0 "$modmenu_off$ $autobuild_biolab_ratio.3$"
+ autobuild_engineering_facility_ratio.0:0 "$autobuild_engineering_facility_ratio$0"
+ autobuild_engineering_facility_ratio.0_on:0 "$modmenu_on$ $autobuild_engineering_facility_ratio.0$"
+ autobuild_engineering_facility_ratio.0_off:0 "$modmenu_off$ $autobuild_engineering_facility_ratio.0$"
+ autobuild_engineering_facility_ratio.2:0 "$autobuild_engineering_facility_ratio$2"
+ autobuild_engineering_facility_ratio.2_on:0 "$modmenu_on$ $autobuild_engineering_facility_ratio.2$"
+ autobuild_engineering_facility_ratio.2_off:0 "$modmenu_off$ $autobuild_engineering_facility_ratio.2$"
+ autobuild_engineering_facility_ratio.3:0 "$autobuild_engineering_facility_ratio$3"
+ autobuild_engineering_facility_ratio.3_on:0 "$modmenu_on$ $autobuild_engineering_facility_ratio.3$"
+ autobuild_engineering_facility_ratio.3_off:0 "$modmenu_off$ $autobuild_engineering_facility_ratio.3$"
+ 
+ # cost menu
  autobuild_cost_20000:0 "$autobuild_keep$ 20000 $minerals$."
  autobuild_cost_5000:0 "$autobuild_keep$ 5000 $minerals$."
  autobuild_cost_2500:0 "$autobuild_keep$ 2500 $minerals$."
@@ -413,3 +414,4 @@
  autobuild_cost_inf_500:0 "$autobuild_keep$ 500 $influence$."
  autobuild_cost_inf_250:0 "$autobuild_keep$ 250 $influence$."
  autobuild_cost_inf_100:0 "$autobuild_keep$ 100 $influence$."
+ #
