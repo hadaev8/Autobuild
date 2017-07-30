@@ -1,11 +1,10 @@
-name="AutoBuild ENG/RUS/FRA/GER"
+name="AutoBuild ENG/RUS/FRA/GER/SPA"
 path="mod/autobuild"
 tags={
-	"Balance"
 	"Economy"
 	"Buildings"
 	"Gameplay"
-	"Events"
+	"Mod Menu"
 }
 picture="build.jpg"
 remote_file_id="691008512"

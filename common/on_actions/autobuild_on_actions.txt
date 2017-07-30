@@ -1,7 +1,7 @@
 #
 on_game_start = {
 	events = {
-		autobuild.101
+		autobuild.101 # set global flag autobuild_installed
 	}
 }
 
