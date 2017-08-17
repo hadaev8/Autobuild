@@ -1002,6 +1002,45 @@ country_event = {
 # 101 - 109
 # local autobuild robots
 planet_event = {
+	id = autobuild.101
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		sector_controlled = no
+		exists = owner
+		owner = {
+			is_ai = no
+			has_country_flag = autobuild_local_resettle
+		}
+		any_tile = {
+			has_building = yes
+			has_pop = no
+		}
+		any_tile = {
+			has_building = no
+			has_pop = yes
+		}
+	}
+
+	immediate = {
+		every_tile = {
+			limit = {
+				has_building = no
+				exists = pop
+			}
+			pop = {
+				resettle_pop = {
+					pop = this
+					planet = root
+				}
+			}
+		}
+	}
+}
+
+# local autobuild robots
+planet_event = {
 	id = autobuild.102
 	hide_window = yes
 	is_triggered_only = yes
@@ -3888,12 +3927,7 @@ country_event = {
 	option = {
 		name = autobuild_disable_edict_on
 		trigger = {
-			count_country = {
-				count > 1
-				limit = {
-					is_ai = no
-				}
-			}
+			is_multiplayer = yes
 			not = {
 				has_global_flag = autobuild_disable_edict
 			}
@@ -3906,6 +3940,18 @@ country_event = {
 		trigger = {	has_global_flag = autobuild_disable_edict }
 		custom_tooltip = autobuild_disable_edict_off.tooltip
 		hidden_effect = { country_event = { id = autobuild.8 } remove_global_flag = autobuild_disable_edict }
+	}
+	option = {
+		name = autobuild_local_resettle_on
+		trigger = { not = { has_country_flag = autobuild_local_resettle } }
+		custom_tooltip = autobuild_local_resettle_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_local_resettle }
+	}
+	option = {
+		name = autobuild_local_resettle_off
+		trigger = {	has_country_flag = autobuild_local_resettle }
+		custom_tooltip = autobuild_local_resettle_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_local_resettle }
 	}
 	option = {
 		name = modmenu_return
@@ -4314,7 +4360,7 @@ country_event = {
 
 # set global flag
 country_event = {
-	id = autobuild.100
+	id = autobuild.200
 	hide_window = yes
 	fire_only_once = yes
 
@@ -4325,7 +4371,7 @@ country_event = {
 
 # for on game start
 event = {
-	id = autobuild.101
+	id = autobuild.201
 	hide_window = yes
 	is_triggered_only = yes
 

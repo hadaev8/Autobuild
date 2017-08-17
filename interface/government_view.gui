@@ -164,6 +164,7 @@ guiTypes = {
 				buttonText = "modmenu_button"
 				orientation = UPPER_LEFT
 				effect = "modmenu_button_effect"
+				shortCut = "q"
 			}
 
 			# The Info sub window

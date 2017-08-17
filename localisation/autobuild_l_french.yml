@@ -68,6 +68,9 @@
  autobuild_disable_edict:0 "Disable edict."
  autobuild_disable_edict.tooltip:0 "Disable no sectors edict for players in mp."
  
+ autobuild_local_resettle:0 "Local resettle."
+ autobuild_local_resettle.tooltip:0 "Will try to place pops from tiles without buildings to tiles with buildings on every planet."
+ 
  # labs
  autobuild_5:0 "Amélioration auto des labos"
  autobuild_5.tooltip:0 "Tous les laboratoires scientifiques basiques seront améliorés selon les réglages."
@@ -310,6 +313,11 @@
  autobuild_disable_edict_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_disable_edict.tooltip$"
  autobuild_disable_edict_off:0 "$modmenu_off$ $autobuild_disable_edict$"
  autobuild_disable_edict_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_disable_edict.tooltip$"
+ 
+ autobuild_local_resettle_on:0 "$modmenu_on$ $autobuild_local_resettle$"
+ autobuild_local_resettle_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_local_resettle.tooltip$"
+ autobuild_local_resettle_off:0 "$modmenu_off$ $autobuild_local_resettle$"
+ autobuild_local_resettle_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_local_resettle.tooltip$"
  
  # unique buildings
  autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique$"

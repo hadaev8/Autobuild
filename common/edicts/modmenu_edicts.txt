@@ -6,13 +6,14 @@ country_edict = {
 	
 	potential = {
 		not = { has_country_flag = timed_modmenu }
+		always = no
 	}
 	allow = {
 	#	not = { has_country_flag = timed_modmenu }
 	}
 	
 	effect = {
-		set_timed_country_flag = { flag = timed_modmenu days = 3 }
+		#set_timed_country_flag = { flag = timed_modmenu days = 3 }
 		country_event = { id = modmenu.1 }
 	}
 	ai_weight = {

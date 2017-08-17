@@ -68,6 +68,9 @@
  autobuild_disable_edict:0 "Убрать эдикт."
  autobuild_disable_edict.tooltip:0 "Убирает эдикт для игроков в мультиплеере."
  
+ autobuild_local_resettle:0 "Локальное переселение."
+ autobuild_local_resettle.tooltip:0 "Будет пытаться переместить население с плиток без зданий на плитки со зданиями."
+ 
  # labs
  autobuild_5:0 "Автоулучшение лабораторий."
  autobuild_5.tooltip:0 "Все базовые лаборатории будут улучшаться в зависимости от настроек."
@@ -310,6 +313,11 @@
  autobuild_disable_edict_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_disable_edict.tooltip$"
  autobuild_disable_edict_off:0 "$modmenu_off$ $autobuild_disable_edict$"
  autobuild_disable_edict_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_disable_edict.tooltip$"
+ 
+ autobuild_local_resettle_on:0 "$modmenu_on$ $autobuild_local_resettle$"
+ autobuild_local_resettle_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_local_resettle.tooltip$"
+ autobuild_local_resettle_off:0 "$modmenu_off$ $autobuild_local_resettle$"
+ autobuild_local_resettle_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_local_resettle.tooltip$"
  
  # unique buildings
  autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique$"

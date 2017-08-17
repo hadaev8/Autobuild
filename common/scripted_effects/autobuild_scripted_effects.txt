@@ -81,7 +81,7 @@ autobuild_build_basic_lab = {
 
 # for planet
 autobuild_effect_set_planet_local_build = {
-#	planet_event = { id = autobuild.101 }
+	planet_event = { id = autobuild.101 }
 	planet_event = { id = autobuild.102 }
 	planet_event = { id = autobuild.103 }
 	planet_event = { id = autobuild.104 }
@@ -123,10 +123,6 @@ autobuild_effect_set_planet_local_build = {
 }
 
 human_fallen_empires_effect_autobuild = {
-
-}
-
-stellaris+evolved_effect_autobuild = {
 
 }
 
