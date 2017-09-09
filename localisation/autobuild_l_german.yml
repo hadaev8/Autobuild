@@ -71,6 +71,9 @@
  autobuild_local_resettle:0 "Local resettle."
  autobuild_local_resettle.tooltip:0 "Will try to place pops from tiles without buildings to tiles with buildings on every planet."
  
+ autobuild_rename:0 "Rename specialize planets."
+ autobuild_rename.tooltip:0 "Will rename specialize planets."
+ 
  # labs
  autobuild_5:0 "Autom. Verbesserung von Laboren."
  autobuild_5.tooltip:0 "Alle einfachen Labore werden verbessert, abhängig von den Einstellungen."
@@ -148,6 +151,11 @@
  # lines without text, only this collum needed
  autobuild_0.tooltip:0 "$autobuild_0$"
  
+ autobuild_planet_forge:0 "$planet_forge_autobuild$"
+ autobuild_planet_power_plant:0 "$planet_power_plant_autobuild$"
+ autobuild_planet_labs:0 "$planet_labs_autobuild$"
+ autobuild_planet_food:0 "$planet_farms_autobuild$"
+ 
  autobuild_labs_menu:0 "$modmenu_menu$ $autobuild_5$"
  
  autobuild_7.tooltip:0 "$autobuild_7$"
@@ -175,6 +183,14 @@
  edict_autobuild_planet_labs_bio_desc:0 "$autobuild_planet_labs_bio_desc$"
  edict_autobuild_planet_labs_engineering:0 "$autobuild_planet_labs_engineering$"
  edict_autobuild_planet_labs_engineering_desc:0 "$autobuild_planet_labs_engineering_desc$"
+ 
+ autobuild_planet_forge_rename:0 "£minerals $autobuild_planet_forge$ [Owner.autobuild_rename_planet_forge_num]"
+ autobuild_planet_power_plant_rename:0 "£energy $autobuild_planet_power_plant$ [Owner.autobuild_rename_planet_power_plant_num]"
+ autobuild_planet_labs_rename:0 "£science_ship $autobuild_planet_labs$ [Owner.autobuild_rename_planet_labs_num]"
+ autobuild_planet_labs_physics_rename:0 "£physics $autobuild_planet_labs_physics$ [Owner.autobuild_rename_planet_labs_physics_num]"
+ autobuild_planet_labs_bio_rename:0 "£society $autobuild_planet_labs_bio$ [Owner.autobuild_rename_planet_labs_bio_num]"
+ autobuild_planet_labs_engineering_rename:0 "£engineering $autobuild_planet_engineering$ [Owner.autobuild_rename_planet_labs_engineering_num]"
+ autobuild_planet_food_rename:0 "£food $autobuild_planet_food$ [Owner.autobuild_rename_planet_farms_num]"
  
  # main menu
  autobuild_1_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_1.tooltip$"
@@ -318,6 +334,11 @@
  autobuild_local_resettle_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_local_resettle.tooltip$"
  autobuild_local_resettle_off:0 "$modmenu_off$ $autobuild_local_resettle$"
  autobuild_local_resettle_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_local_resettle.tooltip$"
+ 
+ autobuild_rename_on:0 "$modmenu_on$ $autobuild_rename$"
+ autobuild_rename_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_rename.tooltip$"
+ autobuild_rename_off:0 "$modmenu_off$ $autobuild_rename$"
+ autobuild_rename_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_rename.tooltip$"
  
  # unique buildings
  autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique$"

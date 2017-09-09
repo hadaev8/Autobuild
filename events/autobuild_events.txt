@@ -3954,6 +3954,18 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_local_resettle }
 	}
 	option = {
+		name = autobuild_rename_on
+		trigger = { not = { has_country_flag = autobuild_rename } }
+		custom_tooltip = autobuild_rename_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_rename }
+	}
+	option = {
+		name = autobuild_rename_off
+		trigger = {	has_country_flag = autobuild_rename }
+		custom_tooltip = autobuild_rename_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_rename }
+	}
+	option = {
 		name = modmenu_return
 		hidden_effect = { country_event = { id = autobuild.3 } }
 	}
@@ -4305,12 +4317,7 @@ country_event = {
 					has_modifier = planet_farms_autobuild
 				}
 			}
-			remove_modifier = free_from_auto_update
-			remove_modifier = free_from_autobuild
-			remove_modifier = planet_labs_autobuild
-			remove_modifier = planet_forge_autobuild
-			remove_modifier = planet_power_plant_autobuild
-			remove_modifier = planet_farms_autobuild
+			autobuild_effect_clear_planet_modifiers = yes
 		}
 		every_owned_fleet = {
 			limit = {
@@ -4344,10 +4351,7 @@ country_event = {
 		remove_country_flag = autobuild_ignore_energy
 		remove_country_flag = autobuild_ignore_science
 		remove_country_flag = autobuild_10
-		remove_country_flag = autobuild_cost_5000
-		remove_country_flag = autobuild_cost_2500
-		remove_country_flag = autobuild_cost_1000
-		remove_country_flag = autobuild_cost_500
+		autobuild_effect_clear_cost_flags = yes
 		remove_country_flag = autobuild_farm_replace
 		remove_country_flag = autobuild_fleet
 		remove_country_flag = autobuild_cost

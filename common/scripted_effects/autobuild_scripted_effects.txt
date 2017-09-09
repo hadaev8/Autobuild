@@ -34,6 +34,19 @@ autobuild_effect_clear_cost_flags = {
 	remove_country_flag = autobuild_cost_500
 }
 
+# for planet
+autobuild_effect_clear_planet_modifiers = {
+	remove_modifier = free_from_auto_update
+	remove_modifier = free_from_autobuild
+	remove_modifier = planet_forge_autobuild
+	remove_modifier = planet_power_plant_autobuild
+	remove_modifier = planet_labs_autobuild
+	remove_modifier = autobuild_planet_labs_physics
+	remove_modifier = autobuild_planet_labs_bio
+	remove_modifier = autobuild_planet_labs_engineering
+	remove_modifier = planet_farms_autobuild
+}
+
 # for tile star trek mod
 autobuild_build_basic_lab = {
 	if = {
@@ -44,39 +57,13 @@ autobuild_build_basic_lab = {
 		}
 		add_building_construction = building_basic_science_lab_1
 		else = {
-			if = {
-				limit = {
-					has_resource = {
-						type = physics_research
-						amount > 0
-					}
-				}
-				add_building_construction = building_physics_lab_0
-				else = {
-					if = {
-						limit = {
-							has_resource = {
-								type = society_research
-								amount > 0
-							}
-						}
-						add_building_construction = building_bio_lab_0
-						else = {
-							if = {
-								limit = {
-									has_resource = {
-										type = engineering_research
-										amount > 0
-									}
-								}
-								add_building_construction = building_engineering_facility_0
-							}
-						}
-					}
-				}
-			}
+			sth_autobuild_build_basic_lab = yes
 		}
 	}
+}
+
+sth_autobuild_build_basic_lab = {
+	
 }
 
 # for planet
@@ -118,6 +105,7 @@ autobuild_effect_set_planet_local_build = {
 	human_fallen_empires_effect_autobuild = yes
 	stellaris+evolved_effect_autobuild = yes
 	alphamod_effect_autobuild = yes
+	sth_effect_autobuild = yes
 	# fell free use this effect for your mod
 	autobuild_effect_mod_api = yes
 }
@@ -128,6 +116,10 @@ human_fallen_empires_effect_autobuild = {
 
 alphamod_effect_autobuild = {
 # 	log = "123"
+}
+
+sth_effect_autobuild = {
+
 }
 
 autobuild_effect_mod_api = {

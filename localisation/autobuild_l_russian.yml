@@ -71,6 +71,9 @@
  autobuild_local_resettle:0 "Локальное переселение."
  autobuild_local_resettle.tooltip:0 "Будет пытаться переместить население с плиток без зданий на плитки со зданиями."
  
+ autobuild_rename:0 "Переименовать специальные планеты."
+ autobuild_rename.tooltip:0 "Планеты при включении специализации будут переименованы."
+ 
  # labs
  autobuild_5:0 "Автоулучшение лабораторий."
  autobuild_5.tooltip:0 "Все базовые лаборатории будут улучшаться в зависимости от настроек."
@@ -114,25 +117,25 @@
  free_from_autobuild:0 "Игнорировать автопостройку"
  free_from_autobuild_desc:0 "На этой планете не будут автоматически строиться новые постройки."
  
- planet_forge_autobuild:0 "Индустриальный центр"
+ planet_forge_autobuild:0 "Промышленная планета"
  planet_forge_autobuild_desc:0 "Эта планета будет перестроена в индустриальный центр. Обычные электростанции, фермы или лаборатории будут перестроены."
  
- planet_power_plant_autobuild:0 "Энергетический центр"
+ planet_power_plant_autobuild:0 "Энергитическая планета"
  planet_power_plant_autobuild_desc:0 "Эта планета будет перестроена в энергетический центр. Обычные шахты, фермы или лаборатории будут перестроены."
  
- planet_labs_autobuild:0 "Научный центр"
+ planet_labs_autobuild:0 "Научная планета"
  planet_labs_autobuild_desc:0 "Эта планета будет перестроена в научный центр. Обычные шахты, фермы или электростанции будут перестроены."
  
- planet_farms_autobuild:0 "Фермерский центр"
+ planet_farms_autobuild:0 "Фермерская планета"
  planet_farms_autobuild_desc:0 "Эта планета будет перестроена в фермерский центр. Обычные шахты, электростанции и лаборатории будут перестроены."
  
- autobuild_planet_labs_physics:0 "Физический приоритет"
+ autobuild_planet_labs_physics:0 "Физическая планета"
  autobuild_planet_labs_physics_desc:0 "На этой планете все лаборатории будут улучшаться в физические."
  
- autobuild_planet_labs_bio:0 "Биологический приоритет"
+ autobuild_planet_labs_bio:0 "Биологическая планета"
  autobuild_planet_labs_bio_desc:0 "На этой планете все лаборатории будут улучшаться в биологические."
  
- autobuild_planet_labs_engineering:0 "Инженерный приоритет"
+ autobuild_planet_labs_engineering:0 "Инженерная планета"
  autobuild_planet_labs_engineering_desc:0 "На этой планете все лаборатории будут улучшаться в инженерные."
  
  # edicts
@@ -147,6 +150,11 @@
  
  # lines without text, only this collum needed
  autobuild_0.tooltip:0 "$autobuild_0$"
+ 
+ autobuild_planet_forge:0 "$planet_forge_autobuild$"
+ autobuild_planet_power_plant:0 "$planet_power_plant_autobuild$"
+ autobuild_planet_labs:0 "$planet_labs_autobuild$"
+ autobuild_planet_food:0 "$planet_farms_autobuild$"
  
  autobuild_labs_menu:0 "$modmenu_menu$ $autobuild_5$"
  
@@ -175,6 +183,14 @@
  edict_autobuild_planet_labs_bio_desc:0 "$autobuild_planet_labs_bio_desc$"
  edict_autobuild_planet_labs_engineering:0 "$autobuild_planet_labs_engineering$"
  edict_autobuild_planet_labs_engineering_desc:0 "$autobuild_planet_labs_engineering_desc$"
+ 
+ autobuild_planet_forge_rename:0 "£minerals планета [Owner.autobuild_rename_planet_forge_num]"
+ autobuild_planet_power_plant_rename:0 "£energy планета [Owner.autobuild_rename_planet_power_plant_num]"
+ autobuild_planet_labs_rename:0 "£science_ship планета [Owner.autobuild_rename_planet_labs_num]"
+ autobuild_planet_labs_physics_rename:0 "£physics планета [Owner.autobuild_rename_planet_labs_physics_num]"
+ autobuild_planet_labs_bio_rename:0 "£society планета [Owner.autobuild_rename_planet_labs_bio_num]"
+ autobuild_planet_labs_engineering_rename:0 "£engineering планета [Owner.autobuild_rename_planet_labs_engineering_num]"
+ autobuild_planet_food_rename:0 "£food планета [Owner.autobuild_rename_planet_farms_num]"
  
  # main menu
  autobuild_1_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_1.tooltip$"
@@ -318,6 +334,11 @@
  autobuild_local_resettle_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_local_resettle.tooltip$"
  autobuild_local_resettle_off:0 "$modmenu_off$ $autobuild_local_resettle$"
  autobuild_local_resettle_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_local_resettle.tooltip$"
+ 
+ autobuild_rename_on:0 "$modmenu_on$ $autobuild_rename$"
+ autobuild_rename_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_rename.tooltip$"
+ autobuild_rename_off:0 "$modmenu_off$ $autobuild_rename$"
+ autobuild_rename_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_rename.tooltip$"
  
  # unique buildings
  autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique$"
