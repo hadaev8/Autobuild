@@ -203,7 +203,7 @@ fleet_event = {
 							id = autobuild.0.effect.3
 							solar_system = {
 								set_timed_star_flag = { flag = autobuild_star_block days = 100 }
-							}
+								}
 							set_timed_planet_flag = { flag = autobuild_planet_block days = 100 }
 							if = {
 								limit = {
@@ -1506,14 +1506,16 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		nor = {
 			is_planet_class = pc_habitat
 		}
+		autobuild_trigger_has_any_capital = yes
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_3
+				has_country_flag = autobuild_building_xeno_zoo
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1531,7 +1533,6 @@ planet_event = {
 				has_building = building_xeno_zoo
 			}
 		}
-		autobuild_trigger_has_any_capital = yes
 	}
 
 	immediate = {
@@ -1979,7 +1980,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_3
+				has_country_flag = autobuild_building_xeno_zoo
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1993,6 +1994,7 @@ planet_event = {
 		 		type = sr_betharian
 		 		amount > 0
 			}
+			exists = pop
 			not = {
 				has_building = betharian_power_plant
 			}
@@ -2004,11 +2006,6 @@ planet_event = {
 		random_tile = {
 			limit = {
 				has_blocker = no
-				or = {
-					has_building = no
-					autobuild_trigger_has_any_regular_building = yes
-					has_building = building_slave_processing
-				}
 				not = {
 					has_building = betharian_power_plant
 				}
@@ -2218,8 +2215,6 @@ planet_event = {
 					has_building = no
 					num_adjacent_tiles > 3
 					exists = pop
-					#pop = {	is_non_sentient_robot = no }
-					# pop = { is_being_purged = no }
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 				}
 				add_building_construction = building_colony_shelter
@@ -2465,7 +2460,15 @@ planet_event = {
 			autobuild_trigger_has_any_mine = yes
 			autobuild_trigger_has_any_science_lab = yes
 			autobuild_trigger_has_any_farm = yes
-			has_building = building_slave_processing
+			and = {
+				has_building = building_slave_processing
+				count_pops = {
+					limit = {
+						is_enslaved = yes
+					}
+					count < @autobuild_num_slave
+				}
+			}
 		}
 		autobuild_trigger_has_any_capital_or_shelter = yes
 	}
@@ -2475,17 +2478,6 @@ planet_event = {
 			limit = {
 				autobuild_trigger_has_any_capital = yes
 			}
-			if = {
-				limit = {
-					any_tile = {
-						has_resource = {
-							type = sr_betharian
-							amount > 0
-						}
-					}
-				}
-
-			}
 			every_tile = {
 				limit = {
 					or = {
@@ -2493,7 +2485,17 @@ planet_event = {
 						autobuild_trigger_has_any_mine = yes
 						autobuild_trigger_has_any_science_lab = yes
 						autobuild_trigger_has_any_farm = yes
-						has_building = building_slave_processing
+						and = {
+							has_building = building_slave_processing
+							root = {
+								count_pops = {
+									limit = {
+										is_enslaved = yes
+									}
+									count < @autobuild_num_slave
+								}
+							}
+						}
 					}
 					exists = pop
 					pop = {	is_non_sentient_robot = no }
@@ -2509,7 +2511,17 @@ planet_event = {
 							autobuild_trigger_has_any_mine = yes
 							autobuild_trigger_has_any_science_lab = yes
 							autobuild_trigger_has_any_farm = yes
-							has_building = building_slave_processing
+							and = {
+								has_building = building_slave_processing
+								root = {
+									count_pops = {
+										limit = {
+											is_enslaved = yes
+										}
+										count < @autobuild_num_slave
+									}
+								}
+							}
 						}
 						exists = pop
 						pop = {	is_non_sentient_robot = no }
@@ -2539,7 +2551,15 @@ planet_event = {
 			free_building_tiles > 0
 			autobuild_trigger_has_any_mine = yes
 			autobuild_trigger_has_any_power_plant = yes
-			has_building = building_slave_processing
+			and = {
+				has_building = building_slave_processing
+				count_pops = {
+					limit = {
+						is_enslaved = yes
+					}
+					count < @autobuild_num_slave
+				}
+			}
 			autobuild_trigger_has_any_farm = yes
 		}
 		autobuild_trigger_has_any_capital_or_shelter = yes
@@ -2556,7 +2576,17 @@ planet_event = {
 					autobuild_trigger_has_any_mine = yes
 					autobuild_trigger_has_any_power_plant = yes
 					autobuild_trigger_has_any_farm = yes
-					has_building = building_slave_processing
+					and = {
+						has_building = building_slave_processing
+						root = {
+							count_pops = {
+								limit = {
+									is_enslaved = yes
+								}
+								count < @autobuild_num_slave
+							}
+						}
+					}
 				}
 			}
 			autobuild_build_basic_lab = yes
@@ -2571,6 +2601,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_local_autoupdate = yes
 	}
 
@@ -2635,6 +2666,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_free_from_autoupdate = no
 		autobuild_trigger_has_any_capital = yes
 		has_building = building_basic_science_lab_1
@@ -2648,9 +2680,6 @@ planet_event = {
 				}
 			}
 			autobuild_trigger_cost = yes
-		}
-		not = {
-			has_global_flag = star_trek_new_horizons
 		}
 	}
 
@@ -2704,98 +2733,141 @@ planet_event = {
 				}
 				break = yes
 			}
-			else = {
-				if = {
+		}
+		if = {
+			limit = {
+				owner = {
+					not = {
+						has_country_flag = autobuild_labs_not_count_planet
+					}
+				}
+				or = {
+					has_modifier = titanic_life #25
+					has_modifier = society_animal_life #25
+					has_modifier = dangerous_wildlife #20
+					has_modifier = wild_storms #20
+					has_modifier = unstable_tectonics #20
+					has_modifier = atmospheric_hallucinogen #10
+					has_modifier = atmospheric_hallucinogen_good #10
+					has_modifier = strong_magnetic_field #5
+				}
+			}
+			if = {
+				limit = {
+					or = {
+						has_modifier = titanic_life #25
+						has_modifier = society_animal_life #25
+						has_modifier = dangerous_wildlife #20
+					}
+				}
+				every_tile = {
 					limit = {
-						owner = {
+						has_building = building_basic_science_lab_1
+						exists = pop
+					}
+					add_building_construction = building_biolab_1
+				}
+				break = yes
+			}
+			if = {
+				limit = {
+					or = {
+						has_modifier = unstable_tectonics #20
+					}
+				}
+				every_tile = {
+					limit = {
+						has_building = building_basic_science_lab_1
+						exists = pop
+					}
+					add_building_construction = building_engineering_facility_1
+				}
+				break = yes
+			}
+			if = {
+				limit = {
+					or = {
+						has_modifier = atmospheric_hallucinogen #10
+						has_modifier = atmospheric_hallucinogen_good #10
+						has_modifier = subterranean_civilization #10
+					}
+				}
+				every_tile = {
+					limit = {
+						has_building = building_basic_science_lab_1
+						exists = pop
+					}
+					add_building_construction = building_biolab_1
+				}
+				break = yes
+			}
+			if = {
+				limit = {
+					has_modifier = strong_magnetic_field #5
+				}
+				every_tile = {
+					limit = {
+						has_building = building_basic_science_lab_1
+						exists = pop
+					}
+					add_building_construction = building_physics_lab_1
+				}
+				break = yes
+			}
+		}
+		every_tile = {
+			limit = {
+				has_building = building_basic_science_lab_1
+				exists = pop
+			}
+			if = {
+				limit = {
+					or = {
+						and = {
+							pop = {
+								has_trait = trait_natural_sociologists
+							}
 							not = {
-								has_country_flag = autobuild_labs_not_count_planet
+								owner = {
+									has_country_flag = autobuild_labs_not_count_trait
+								}
 							}
 						}
-						or = {
-							has_modifier = titanic_life #25
-							has_modifier = society_animal_life #25
-							has_modifier = dangerous_wildlife #20
-							has_modifier = wild_storms #20
-							has_modifier = unstable_tectonics #20
-							has_modifier = atmospheric_hallucinogen #10
-							has_modifier = atmospheric_hallucinogen_good #10
-							has_modifier = strong_magnetic_field #5
+						has_resource = {
+							type = society_research
+							amount > 0
 						}
 					}
+				}
+				add_building_construction = building_biolab_1
+				else = {
 					if = {
 						limit = {
 							or = {
-								has_modifier = titanic_life #25
-								has_modifier = society_animal_life #25
-								has_modifier = dangerous_wildlife #20
+								and = {
+									pop = {
+										has_trait = trait_natural_physicists
+									}
+									not = {
+										owner = {
+											has_country_flag = autobuild_labs_not_count_trait
+										}
+									}
+								}
+								has_resource = {
+									type = physics_research
+									amount > 0
+								}
 							}
 						}
-						every_tile = {
-							limit = {
-								has_building = building_basic_science_lab_1
-								exists = pop
-							}
-							add_building_construction = building_biolab_1
-						}
-						break = yes
-					}
-					if = {
-						limit = {
-							or = {
-								has_modifier = unstable_tectonics #20
-							}
-						}
-						every_tile = {
-							limit = {
-								has_building = building_basic_science_lab_1
-								exists = pop
-							}
-							add_building_construction = building_engineering_facility_1
-						}
-						break = yes
-					}
-					if = {
-						limit = {
-							or = {
-								has_modifier = atmospheric_hallucinogen #10
-								has_modifier = atmospheric_hallucinogen_good #10
-								has_modifier = subterranean_civilization #10
-							}
-						}
-						every_tile = {
-							limit = {
-								has_building = building_basic_science_lab_1
-								exists = pop
-							}
-							add_building_construction = building_biolab_1
-						}
-						break = yes
-					}
-					if = {
-						limit = {
-							has_modifier = strong_magnetic_field #5
-						}
-						every_tile = {
-							limit = {
-								has_building = building_basic_science_lab_1
-								exists = pop
-							}
-							add_building_construction = building_physics_lab_1
-						}
-					}
-					else = {
-						every_tile = {
-							limit = {
-								has_building = building_basic_science_lab_1
-								exists = pop
-							}
+						add_building_construction = building_physics_lab_1
+						else = {
 							if = {
 								limit = {
 									or = {
 										and = {
 											pop = {
-												has_trait = trait_natural_sociologists
+												has_trait = trait_natural_engineers
 											}
 											not = {
 												owner = {
@@ -2804,130 +2876,84 @@ planet_event = {
 											}
 										}
 										has_resource = {
-											type = society_research
+											type = engineering_research
 											amount > 0
 										}
 									}
 								}
-								add_building_construction = building_biolab_1
+								add_building_construction = building_engineering_facility_1
 								else = {
 									if = {
 										limit = {
-											or = {
-												and = {
-													pop = {
-														has_trait = trait_natural_physicists
-													}
-													not = {
-														owner = {
-															has_country_flag = autobuild_labs_not_count_trait
-														}
-													}
-												}
-												has_resource = {
-													type = physics_research
-													amount > 0
+											not = {
+												owner = {
+													has_country_flag = autobuild_labs_disable_random
 												}
 											}
 										}
-										add_building_construction = building_physics_lab_1
-										else = {
-											if = {
-												limit = {
-													or = {
-														and = {
-															pop = {
-																has_trait = trait_natural_engineers
-															}
-															not = {
-																owner = {
-																	has_country_flag = autobuild_labs_not_count_trait
-																}
-															}
-														}
-														has_resource = {
-															type = engineering_research
-															amount > 0
-														}
+										random_list = {
+											10 = {
+												modifier = {
+													factor = 0
+													owner = {
+														has_country_flag = autobuild_physics_lab_ratio.0
+													}
+												}
+												modifier = {
+													factor = 2
+													owner = {
+														has_country_flag = autobuild_physics_lab_ratio.2
+													}
+												}
+												modifier = {
+													factor = 3
+													owner = {
+														has_country_flag = autobuild_physics_lab_ratio.3
+													}
+												}
+												add_building_construction = building_physics_lab_1
+											}
+											10 = {
+												modifier = {
+													factor = 0
+													owner = {
+														has_country_flag = autobuild_biolab_ratio.0
+													}
+												}
+												modifier = {
+													factor = 2
+													owner = {
+														has_country_flag = autobuild_biolab_ratio.2
+													}
+												}
+												modifier = {
+													factor = 3
+													owner = {
+														has_country_flag = autobuild_biolab_ratio.3
+													}
+												}
+												add_building_construction = building_biolab_1
+											}
+											10 = {
+												modifier = {
+													factor = 0
+													owner = {
+														has_country_flag = autobuild_engineering_facility_ratio.0
+													}
+												}
+												modifier = {
+													factor = 2
+													owner = {
+														has_country_flag = autobuild_engineering_facility_ratio.2
+													}
+												}
+												modifier = {
+													factor = 3
+													owner = {
+														has_country_flag = autobuild_engineering_facility_ratio.3
 													}
 												}
 												add_building_construction = building_engineering_facility_1
-												else = {
-													if = {
-														limit = {
-															not = {
-																owner = {
-																	has_country_flag = autobuild_labs_disable_random
-																}
-															}
-														}
-														random_list = {
-															10 = {
-																modifier = {
-																	factor = 0
-																	owner = {
-																		has_country_flag = autobuild_physics_lab_ratio.0
-																	}
-																}
-																modifier = {
-																	factor = 2
-																	owner = {
-																		has_country_flag = autobuild_physics_lab_ratio.2
-																	}
-																}
-																modifier = {
-																	factor = 3
-																	owner = {
-																		has_country_flag = autobuild_physics_lab_ratio.3
-																	}
-																}
-																add_building_construction = building_physics_lab_1
-															}
-															10 = {
-																modifier = {
-																	factor = 0
-																	owner = {
-																		has_country_flag = autobuild_biolab_ratio.0
-																	}
-																}
-																modifier = {
-																	factor = 2
-																	owner = {
-																		has_country_flag = autobuild_biolab_ratio.2
-																	}
-																}
-																modifier = {
-																	factor = 3
-																	owner = {
-																		has_country_flag = autobuild_biolab_ratio.3
-																	}
-																}
-																add_building_construction = building_biolab_1
-															}
-															10 = {
-																modifier = {
-																	factor = 0
-																	owner = {
-																		has_country_flag = autobuild_engineering_facility_ratio.0
-																	}
-																}
-																modifier = {
-																	factor = 2
-																	owner = {
-																		has_country_flag = autobuild_engineering_facility_ratio.2
-																	}
-																}
-																modifier = {
-																	factor = 3
-																	owner = {
-																		has_country_flag = autobuild_engineering_facility_ratio.3
-																	}
-																}
-																add_building_construction = building_engineering_facility_1
-															}
-														}
-													}
-												}
 											}
 										}
 									}
@@ -3393,6 +3419,18 @@ country_event = {
 	picture = GFX_evt_alien_city
 	is_triggered_only = yes
 
+	option = {
+		name = autobuild_building_xeno_zoo_on
+		trigger = { not = { has_country_flag = autobuild_building_xeno_zoo } }
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_xeno_zoo }
+	}
+	option = {
+		name = autobuild_building_xeno_zoo_off
+		trigger = {	has_country_flag = autobuild_building_xeno_zoo }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_xeno_zoo }
+	}
 	option = {
 		name = autobuild_building_clinic_on
 		trigger = { not = { has_country_flag = autobuild_building_clinic } }
@@ -4359,6 +4397,7 @@ country_event = {
 		remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 		remove_global_flag = hide_autobuild_planetary_edicts
 		remove_global_flag = autobuild_ai_allowed
+		remove_country_flag = autobuild_building_xeno_zoo
 	}
 }
 

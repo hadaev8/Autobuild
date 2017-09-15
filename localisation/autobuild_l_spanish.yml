@@ -344,6 +344,10 @@
  autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique$"
  autobuild_planet_unique_off.tooltip:0 "$modmenu_off$ $autobuild_planet_unique$"
  
+ autobuild_building_xeno_zoo:0 "$building_xeno_zoo$"
+ autobuild_building_xeno_zoo_on:0 "$modmenu_on$ $autobuild_building_xeno_zoo$"
+ autobuild_building_xeno_zoo_off:0 "$modmenu_off$ $autobuild_building_xeno_zoo$"
+ 
  autobuild_building_clinic:0 "$building_clinic$"
  autobuild_building_clinic_on:0 "$modmenu_on$ $autobuild_building_clinic$"
  autobuild_building_clinic_off:0 "$modmenu_off$ $autobuild_building_clinic$"

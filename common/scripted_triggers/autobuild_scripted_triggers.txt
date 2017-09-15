@@ -14,6 +14,10 @@
 #	}
 #
 
+autobuild_trigger_is_sth = {
+	has_global_flag = star_trek_new_horizons
+}
+
 # for planet
 autobuild_trigger_local_autoupdate = {
 	autobuild_trigger_free_from_autoupdate = no
@@ -90,11 +94,6 @@ autobuild_trigger_has_any_science_lab = {
 		has_building = building_engineering_facility_3
 		has_building = building_engineering_facility_4
 		has_building = building_hab_laboratory_module
-
-		# star trek
-		#has_building = building_physics_lab_0
-		#has_building = building_society_lab_0
-		#has_building = building_engineering_lab_0
 	}
 }
 
@@ -172,6 +171,7 @@ autobuild_trigger_has_any_capital = {
 		autobuild_trigger_has_any_capital_mod_api = yes
 		# temporaly fix
 		has_global_flag = gf_alphamod_activated
+		has_global_flag = star_trek_new_horizons
 	}
 }
 
@@ -185,13 +185,13 @@ autobuild_trigger_has_any_capital_mod_api = {
 
 autobuild_trigger_free_from_autobuild = {
 	or = {
-		is_planet_class = pc_habitat
 		has_modifier = free_from_autobuild
+		has_building_construction = yes
+		is_planet_class = pc_habitat
 		autobuild_trigger_planet_energy = yes
 		autobuild_trigger_planet_minerals = yes
 		autobuild_trigger_planet_food = yes
 		autobuild_trigger_planet_science = yes
-		has_building_construction = yes
 		sector_controlled = yes
 	}
 }
@@ -267,81 +267,67 @@ autobuild_trigger_tile_has_strategic_res_mod_api = {
 }
 
 autobuild_trigger_tile_has_any_res = {
-	or = {
-		autobuild_trigger_tile_has_strategic_res = yes
-		and = {
-			or = {
-				owner = {
-					not = {
-						has_country_flag = autobuild_ignore_minerals
-					}
-				}
-				planet = {
-					autobuild_trigger_planet_minerals = yes
-				}
-			}
-			has_resource = {
-				type = minerals
-				amount > 0
-			}
+	has_any_resource = yes
+	nand = {
+		owner = {
+			has_country_flag = autobuild_ignore_minerals
 		}
-		and = {
-			or = {
-				owner = {
-					not = {
-						has_country_flag = autobuild_ignore_food
-					}
-				}
-				planet = {
-					autobuild_trigger_planet_food = yes
-				}
-			}
-			has_resource = {
-				type = food
-				amount > 0
-			}
+		planet = {
+			autobuild_trigger_planet_minerals = no
 		}
-		and = {
-			or = {
-				owner = {
-					not = {
-						has_country_flag = autobuild_ignore_energy
-					}
-				}
-				planet = {
-					autobuild_trigger_planet_energy = yes
-				}
-			}
-			has_resource = {
-				type = energy
-				amount > 0
-			}
+		has_resource = {
+			type = minerals
+			amount > 0
 		}
-		and = {
-			or = {
-				owner = {
-					not = {
-						has_country_flag = autobuild_ignore_science
-					}
-				}
+	}
+	nand = {
+		owner = {
+			has_country_flag = autobuild_ignore_food
 
-				planet = {
-					autobuild_trigger_planet_science = yes
-				}
+		}
+		planet = {
+			autobuild_trigger_planet_food = yes
+		}
+
+		has_resource = {
+			type = food
+			amount > 0
+		}
+	}
+	nand = {
+		owner = {
+			has_country_flag = autobuild_ignore_energy
+		}
+
+		planet = {
+			autobuild_trigger_planet_energy = yes
+		}
+
+		has_resource = {
+			type = energy
+			amount > 0
+		}
+	}
+	nand = {
+		owner = {
+			has_country_flag = autobuild_ignore_science
+
+		}
+		planet = {
+			autobuild_trigger_planet_science = yes
+		}
+		or = {
+			has_resource = {
+				type = physics_research
+				amount > 0
 			}
-			or = {
-				has_resource = {
-					type = physics_research
-					amount > 0
-				}
-				has_resource = {
-					type = society_research
-					amount > 0
-				}
-				has_resource = {
-					type = engineering_research
-					amount > 0
-				}
+			has_resource = {
+				type = society_research
+				amount > 0
+			}
+			has_resource = {
+				type = engineering_research
+				amount > 0
 			}
 		}
 	}
