@@ -157,6 +157,9 @@ autobuild_trigger_has_any_capital_or_shelter = {
 	or = {
 		autobuild_trigger_has_any_capital = yes
 		has_building = building_colony_shelter
+		# temporaly fix
+		has_global_flag = gf_alphamod_activated
+		has_global_flag = star_trek_new_horizons
 	}
 }
 
@@ -169,9 +172,6 @@ autobuild_trigger_has_any_capital = {
 		alphamod_trigger_autobuild_has_any_capital = yes
 		# fell free use this trigger for your mod
 		autobuild_trigger_has_any_capital_mod_api = yes
-		# temporaly fix
-		has_global_flag = gf_alphamod_activated
-		has_global_flag = star_trek_new_horizons
 	}
 }
 
@@ -244,6 +244,10 @@ autobuild_trigger_planet_science = {
 # for tile
 autobuild_trigger_tile_has_strategic_res = {
 	or = {
+		alphamod_trigger_autobuild_tile_has_strategic_res = yes
+		sth_trigger_autobuild_tile_has_strategic_res = yes
+		# fell free use this trigger for your mod
+		autobuild_trigger_tile_has_strategic_res_mod_api = yes
 		has_resource = {
 			type = sr_alien_pets
 			amount > 0
@@ -252,13 +256,43 @@ autobuild_trigger_tile_has_strategic_res = {
 			type = sr_betharian
 			amount > 0
 		}
-		alphamod_trigger_autobuild_tile_has_strategic_res = yes
-		# fell free use this trigger for your mod
-		autobuild_trigger_tile_has_strategic_res_mod_api = yes
+		# and = {
+		# 	has_any_resource = yes
+		# 	nor = {
+		# 		has_resource = {
+		# 			type = minerals
+		# 			amount > 0
+		# 		}
+		# 		has_resource = {
+		# 			type = food
+		# 			amount > 0
+		# 		}
+		# 		has_resource = {
+		# 			type = energy
+		# 			amount > 0
+		# 		}
+		# 		has_resource = {
+		# 			type = physics_research
+		# 			amount > 0
+		# 		}
+		# 		has_resource = {
+		# 			type = society_research
+		# 			amount > 0
+		# 		}
+		# 		has_resource = {
+		# 			type = engineering_research
+		# 			amount > 0
+		# 		}
+		# 	}
+		# }
 	}
 }
 
 alphamod_trigger_autobuild_tile_has_strategic_res = {
+	always = no
+}
+
+sth_trigger_autobuild_tile_has_strategic_res = {
 	always = no
 }
 
@@ -283,12 +317,10 @@ autobuild_trigger_tile_has_any_res = {
 	nand = {
 		owner = {
 			has_country_flag = autobuild_ignore_food
-
 		}
 		planet = {
-			autobuild_trigger_planet_food = yes
+			autobuild_trigger_planet_food = no
 		}
-
 		has_resource = {
 			type = food
 			amount > 0
@@ -298,11 +330,9 @@ autobuild_trigger_tile_has_any_res = {
 		owner = {
 			has_country_flag = autobuild_ignore_energy
 		}
-
 		planet = {
-			autobuild_trigger_planet_energy = yes
+			autobuild_trigger_planet_energy = no
 		}
-
 		has_resource = {
 			type = energy
 			amount > 0
@@ -311,10 +341,9 @@ autobuild_trigger_tile_has_any_res = {
 	nand = {
 		owner = {
 			has_country_flag = autobuild_ignore_science
-
 		}
 		planet = {
-			autobuild_trigger_planet_science = yes
+			autobuild_trigger_planet_science = no
 		}
 		or = {
 			has_resource = {

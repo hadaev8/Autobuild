@@ -68,6 +68,11 @@ autobuild_build_basic_lab = {
 
 # for planet
 autobuild_effect_set_planet_local_build = {
+	human_fallen_empires_effect_autobuild = yes
+	alphamod_effect_autobuild = yes
+	st_new_horizons_effect_autobuild = yes
+	# fell free use this effect for your mod
+	autobuild_effect_mod_api = yes
 	planet_event = { id = autobuild.101 }
 	planet_event = { id = autobuild.102 }
 	planet_event = { id = autobuild.103 }
@@ -102,11 +107,6 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.143 }
 	planet_event = { id = autobuild.144 }
 	planet_event = { id = autobuild.145 }
-	human_fallen_empires_effect_autobuild = yes
-	alphamod_effect_autobuild = yes
-	st_new_horizons_effect_autobuild = yes
-	# fell free use this effect for your mod
-	autobuild_effect_mod_api = yes
 }
 
 human_fallen_empires_effect_autobuild = {

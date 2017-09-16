@@ -1000,7 +1000,7 @@ country_event = {
 
 # local autobuild for planets for on_actions
 # 101 - 109
-# local autobuild robots
+# local resettle
 planet_event = {
 	id = autobuild.101
 	hide_window = yes
@@ -1306,6 +1306,7 @@ planet_event = {
 			has_building = building_mineral_silo_3
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital_or_shelter = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1317,7 +1318,6 @@ planet_event = {
 			}
 			autobuild_trigger_cost = yes
 		}
-		autobuild_trigger_has_any_capital = yes
 		or = {
 			free_building_tiles > 0
 			autobuild_trigger_has_any_mine = yes
@@ -1390,6 +1390,7 @@ planet_event = {
 			has_building = building_power_hub_2
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
 		autobuild_trigger_planet_minerals = no
 		autobuild_trigger_planet_food = no
 		autobuild_trigger_planet_science = no
@@ -1405,7 +1406,6 @@ planet_event = {
 			autobuild_trigger_cost = yes
 			has_technology = tech_power_hub_1
 		}
-		autobuild_trigger_has_any_capital = yes
 		or = {
 			free_building_tiles > 0
 			autobuild_trigger_has_any_power_plant = yes
@@ -1450,6 +1450,7 @@ planet_event = {
 			has_building = building_mineral_processing_plant_2
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
 		autobuild_trigger_planet_energy = no
 		autobuild_trigger_planet_food = no
 		autobuild_trigger_planet_science = no
@@ -1465,7 +1466,6 @@ planet_event = {
 			autobuild_trigger_cost = yes
 			has_technology = tech_mineral_processing_1
 		}
-		autobuild_trigger_has_any_capital = yes
 		or = {
 			free_building_tiles > 0
 			autobuild_trigger_has_any_mine = yes
@@ -1510,8 +1510,8 @@ planet_event = {
 		nor = {
 			is_planet_class = pc_habitat
 		}
-		autobuild_trigger_has_any_capital = yes
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1565,6 +1565,7 @@ planet_event = {
 			has_building = building_akx_worm_2
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1577,7 +1578,6 @@ planet_event = {
 			has_technology = tech_akx_worm_2
 			autobuild_trigger_cost = yes
 		}
-		autobuild_trigger_has_any_capital = yes
 		count_pops = {
 			limit = {
 				is_enslaved = no
@@ -1627,6 +1627,7 @@ planet_event = {
 			has_building = building_visitor_center
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1639,7 +1640,6 @@ planet_event = {
 			has_tradition = tr_diplomacy_alien_tourism
 			autobuild_trigger_cost = yes
 		}
-		autobuild_trigger_has_any_capital = yes
 		count_pops = {
 			limit = {
 				is_enslaved = no
@@ -1835,6 +1835,7 @@ planet_event = {
 			has_building = building_paradise_dome
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1846,7 +1847,6 @@ planet_event = {
 			}
 			has_tradition = tr_harmony_utopian_dream
 		}
-		autobuild_trigger_has_any_capital = yes
 	}
 
 	immediate = {
@@ -1886,6 +1886,7 @@ planet_event = {
 			has_building = building_hypercomms_forum
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1897,7 +1898,6 @@ planet_event = {
 			}
 			has_technology = tech_hypercomms_forum
 		}
-		autobuild_trigger_has_any_capital = yes
 	}
 
 	immediate = {
@@ -1973,14 +1973,16 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			is_planet_class = pc_habitat
 		}
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_building_xeno_zoo
+				has_country_flag = autobuild_3
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1999,19 +2001,18 @@ planet_event = {
 				has_building = betharian_power_plant
 			}
 		}
-		autobuild_trigger_has_any_capital = yes
 	}
 
 	immediate = {
 		random_tile = {
 			limit = {
-				has_blocker = no
-				not = {
-					has_building = betharian_power_plant
-				}
 				has_resource = {
 					type = sr_betharian
 					amount > 0
+				}
+				exists = pop
+				not = {
+					has_building = betharian_power_plant
 				}
 			}
 			add_building_construction = betharian_power_plant
@@ -2027,11 +2028,8 @@ planet_event = {
 
 	trigger = {
 		autobuild_trigger_free_from_autobuild = no
+		autobuild_trigger_has_any_capital_or_shelter = yes
 		free_building_tiles > 0
-		or = {
-			autobuild_trigger_has_any_capital = yes
-			has_building = building_colony_shelter
-		}
 		exists = owner
 		owner = {
 			has_country_flag = autobuild_7
@@ -2333,6 +2331,7 @@ planet_event = {
 	trigger = {
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
 		autobuild_trigger_planet_minerals = yes
+		autobuild_trigger_has_any_capital_or_shelter = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -2343,7 +2342,6 @@ planet_event = {
 			autobuild_trigger_has_any_science_lab = yes
 			autobuild_trigger_has_any_farm = yes
 		}
-		autobuild_trigger_has_any_capital_or_shelter = yes
 	}
 
 	immediate = {
@@ -2392,6 +2390,7 @@ planet_event = {
 	trigger = {
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
 		autobuild_trigger_planet_food = yes
+		autobuild_trigger_has_any_capital_or_shelter = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -2402,7 +2401,6 @@ planet_event = {
 			autobuild_trigger_has_any_science_lab = yes
 			autobuild_trigger_has_any_mine = yes
 		}
-		autobuild_trigger_has_any_capital_or_shelter = yes
 	}
 
 	immediate = {
@@ -2451,6 +2449,7 @@ planet_event = {
 	trigger = {
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
 		autobuild_trigger_planet_energy = yes
+		autobuild_trigger_has_any_capital_or_shelter = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -2470,7 +2469,6 @@ planet_event = {
 				}
 			}
 		}
-		autobuild_trigger_has_any_capital_or_shelter = yes
 	}
 
 	immediate = {
@@ -2543,6 +2541,7 @@ planet_event = {
 	trigger = {
 		autobuild_trigger_free_from_autobuild_not_spec_planets = no
 		autobuild_trigger_planet_science = yes
+		autobuild_trigger_has_any_capital_or_shelter = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
@@ -2562,7 +2561,6 @@ planet_event = {
 			}
 			autobuild_trigger_has_any_farm = yes
 		}
-		autobuild_trigger_has_any_capital_or_shelter = yes
 	}
 
 	immediate = {
