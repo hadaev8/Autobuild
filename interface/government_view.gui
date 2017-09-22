@@ -17,18 +17,6 @@ guiTypes = {
 			position = { x = 5 y = 6 }
 		}
 
-
-	#	containerWindowType = {
-	#		name = "main_screen_bg_box"
-	#		size = { width = 660 height = 602 }
-	#		position = { x = 5 y = 5 }
-	#
-	#			background = {
-	#				name = "main_screen_bg"
-	#				spriteType = "GFX_tile_outliner_bg"
-	#			}
-	#	}
-
 		iconType = {
 			name = "hex_bg"
 			spriteType = "GFX_hex_bg"
@@ -68,8 +56,8 @@ guiTypes = {
 			buttonFont = "cg_16b"
 			shortcut = "z"
 			clicksound = "tab_click"
+			pdx_tooltip = "EMPIRE_TOOLTIP"
 		}
-
 		buttonType = {
 			name = "tab_government_active"
 			quadTextureSprite = "GFX_tab_1_active"
@@ -79,6 +67,7 @@ guiTypes = {
 			buttonFont = "cg_16b"
 			clicksound = "tab_click"
 			shortcut = "z"
+			pdx_tooltip = "EMPIRE_TOOLTIP"
 		}
 
 		buttonType = {
@@ -90,8 +79,8 @@ guiTypes = {
 			buttonFont = "cg_16b"
 			shortcut = "x"
 			clicksound = "tab_click"
+			pdx_tooltip = "BUDGET_TOOLTIP"
 		}
-
 		buttonType = {
 			name = "tab_budget_active"
 			quadTextureSprite = "GFX_tab_2_active"
@@ -101,6 +90,7 @@ guiTypes = {
 			buttonFont = "cg_16b"
 			clicksound = "tab_click"
 			shortcut = "x"
+			pdx_tooltip = "BUDGET_TOOLTIP"
 		}
 
 		buttonType = {
@@ -112,8 +102,8 @@ guiTypes = {
 			buttonFont = "cg_16b"
 			shortcut = "c"
 			clicksound = "tab_click"
+			pdx_tooltip = "DEMOGRAPHICS_TOOLTIP"
 		}
-
 		buttonType = {
 			name = "tab_demographics_active"
 			quadTextureSprite = "GFX_tab_2_active"
@@ -123,11 +113,31 @@ guiTypes = {
 			buttonFont = "cg_16b"
 			clicksound = "tab_click"
 			shortcut = "c"
+			pdx_tooltip = "DEMOGRAPHICS_TOOLTIP"
 		}
 
-		###############################
-		# THE GOVERNMENT WINDOW
-		###############################
+		buttonType = {
+			name = "tab_advisor"
+			quadTextureSprite = "GFX_tab_2_inactive"
+			position = { x = 386 y = @tabheight }
+			font = "cg_16b"
+			buttonText = "GOVERNMENT_ADVISOR_TAB"
+			buttonFont = "cg_16b"
+			shortcut = "v"
+			clicksound = "tab_click"
+			pdx_tooltip = "GOVERNMENT_ADVISOR_TAB_TOOLTIP"
+		}
+		buttonType = {
+			name = "tab_advisor_active"
+			quadTextureSprite = "GFX_tab_2_active"
+			position = { x = 386 y = @tabheight }
+			font = "cg_16b"
+			buttonText = "GOVERNMENT_ADVISOR_TAB"
+			buttonFont = "cg_16b"
+			clicksound = "tab_click"
+			shortcut = "v"
+			pdx_tooltip = "GOVERNMENT_ADVISOR_TAB_TOOLTIP"
+		}
 
 		instantTextBoxType={
 			name = "heading"
@@ -148,6 +158,10 @@ guiTypes = {
 			size = { x = 300 y = 25 }
 			orientation = left
 		}
+
+		###############################
+		# government_window
+		###############################
 
 		containerWindowType = {
 			name = "government_window"
@@ -471,7 +485,7 @@ guiTypes = {
 						quadTextureSprite = "GFX_portrait_character"
 						position = { x = -10 y = -20 }
 						scale = 0.15
-						alwaysTransparent = yes
+						#alwaysTransparent = yes
 					}
 
 					instantTextBoxType = {
@@ -547,7 +561,7 @@ guiTypes = {
 		}
 
 		###############################
-		# THE BUDGET WINDOW
+		# budget
 		###############################
 		containerWindowType = {
 			name = "budget"
@@ -794,7 +808,7 @@ guiTypes = {
 		}
 
 		###############################
-		# THE DEMOGRAPHICS WINDOW
+		# demographics_window
 		###############################
 
 		containerWindowType = {
@@ -986,21 +1000,141 @@ guiTypes = {
 					format = "UPPER_LEFT"
 				}
 			}
+		}
 
-			buttonType = {
-				name = "create_vassal_button"
-				quadTextureSprite = "GFX_standard_button_200_34_button"
-				position = { x = -7 y = 504  }
-				orientation = "UPPER_LEFT"
-				buttonFont = "cg_16b"
-				text = "CREATE_VASSAL"
-				font = "cg_16b"
-				oversound = menu_over_01
+		###############################
+		# advisor_window
+		###############################
+
+		containerWindowType = {
+			name = "advisor_window"
+			size = { width = 100% height = 100% }
+			position = { x = 0 y = 0 }
+
+			instantTextBoxType = {
+				name = "header"
+				font = "malgun_goth_24"
+				text = "EMPIRE_ADVISOR"
+				position = { x = 0 y = 15 }
+				maxWidth = 550
+				maxHeight = 20
+				fixedSize = yes
+				format = center
 			}
 
+			containerWindowType = {
+				name = "voice_modes"
+				position = { x = 5 y = 45 }
+				size = { width = 280 height = 176 }
 
+				containerWindowType = {
+					name = "automatic"
+					position = { x = 0 y = 0 }
+					size = { width = 280 height = 88 }
 
+					background = {
+						name = "background"
+						spriteType = "GFX_button_situation_log_advisor_voice_mode"
+						clicksound = "interface"
+					}
+					containerWindowType = {
+						name = "selected"
+						position = { x = 4 y = 5 }
+						size = { width = 272 height = 78 }
+						background = {
+							name = "background"
+							spriteType = "GFX_button_situation_log_advisor_voice_mode_selected"
+							alwaysTransparent = yes
+						}
+					}
 
+					instantTextBoxType = {
+						name = "label"
+						font = "malgun_goth_24"
+						position = { x = 11 y = 12 }
+						maxWidth = 258
+						maxHeight = 30
+						fixedsize = yes
+						text = "SETTINGS_VOICE_TYPE_auto_advisor_voice_type"
+						format = center
+						alwaysTransparent = yes
+					}
+					instantTextBoxType = {
+						name = "desc"
+						font = "cg_16b"
+						text_color_code = "L"
+						position = { x = 15 y = 39 }
+						maxWidth = 250
+						maxHeight = 50
+						fixedsize = yes
+						text = "SETTINGS_VOICE_TYPE_auto_advisor_voice_type_DESC"
+						format = center
+						alwaysTransparent = yes
+					}
+				}
+				containerWindowType = {
+					name = "specified"
+					position = { x = 0 y = 88 }
+					size = { width = 280 height = 88 }
+
+					background = {
+						name = "background"
+						spriteType = "GFX_button_situation_log_advisor_voice_mode"
+						clicksound = "interface"
+					}
+					containerWindowType = {
+						name = "selected"
+						position = { x = 4 y = 5 }
+						size = { width = 272 height = 78 }
+						background = {
+							name = "background"
+							spriteType = "GFX_button_situation_log_advisor_voice_mode_selected"
+							alwaysTransparent = yes
+						}
+					}
+
+					instantTextBoxType = {
+						name = "label"
+						font = "malgun_goth_24"
+						position = { x = 11 y = 12 }
+						maxWidth = 258
+						maxHeight = 30
+						fixedsize = yes
+						text = "SETTINGS_VOICE_TYPE_specified_advisor_voice_type"
+						format = center
+						alwaysTransparent = yes
+					}
+					instantTextBoxType = {
+						name = "desc"
+						font = "cg_16b"
+						text_color_code = "L"
+						position = { x = 15 y = 39 }
+						maxWidth = 250
+						maxHeight = 50
+						fixedsize = yes
+						text = "SETTINGS_VOICE_TYPE_specified_advisor_voice_type_DESC"
+						format = center
+						alwaysTransparent = yes
+					}
+				}
+			}
+
+			containerWindowType = {
+				name = "voice_types"
+				position = { x = 290 y = 50 }
+				size = { width = 250 height = 490 }
+				#clipping = yes
+
+				gridBoxType = {
+					name = "gridbox"
+					position = { x = 0 y = 0 }
+					size = { width = 250 height = 490 }
+					slotSize = { width = 250 height = 38 }
+					scrollbarType = "standardlistbox_slider"
+					max_slots_horizontal = 1
+					format = "UPPER_LEFT"
+				}
+			}
 		}
 	}
 }
@@ -1099,101 +1233,7 @@ guiTypes = {
 		}
 	}
 
-	# CREATE VASSAL ENTRY
-	containerWindowType = {
-		name = "create_vassal_entry"
-		position = { x=0 y=0 }
-		size = { width = 440 height = 96 }
-		moveable = no
 
-		background = {
-			name = "background"
-			quadTextureSprite = "GFX_clean_frame_area"
-		}
-
-		instantTextBoxType={
-			name = "name_label"
-			font = "cg_16b"
-			position = { x = 85 y = 12 }
-			maxWidth = 288
-			maxHeight = 22
-			fixedSize = yes
-			format = left
-			alwaysTransparent = yes
-			text = "SPECIES_NAME"
-		}
-
-		instantTextBoxType={
-			name = "name"
-			font = "cg_16b"
-			position = { x = 85 y = 28 }
-			maxWidth = 288
-			maxHeight = 22
-			fixedSize = yes
-			format = left
-			alwaysTransparent = yes
-			text_color_code = "E"
-		}
-
-		instantTextBoxType={
-			name = "planet_label"
-			font = "cg_16b"
-			position = { x = 85 y = 52 }
-			maxWidth = 288
-			maxHeight = 22
-			fixedSize = yes
-			format = left
-			alwaysTransparent = yes
-			text = "PLANET_CAP"
-		}
-
-		instantTextBoxType={
-			name = "planet"
-			font = "cg_16b"
-			position = { x = 85 y = 68 }
-			maxWidth = 288
-			maxHeight = 22
-			fixedSize = yes
-			format = left
-			alwaysTransparent = yes
-			text_color_code = "E"
-		}
-
-		containerWindowType = {
-			name = "portrait_window"
-			position = { x = 12 y = 12 }
-			size = { width = 64 height = 73 }
-			clipping = yes
-
-			buttonType = {
-				name = "species_portrait"
-				quadTextureSprite = "GFX_leader_bg_scientist"
-				position = { x = 0 y = 0 }
-				scale = 0.20
-				alwaystransparent = yes
-			}
-
-			buttonType = {
-				name = "portrait"
-				spriteType = "GFX_portrait_character"
-				position = { x = -40 y = -12 }
-				scale = 0.25
-				alwaystransparent = yes
-			}
-
-		}
-
-		buttonType = {
-			name = "create_button"
-			quadTextureSprite = "GFX_standard_button_142_34_button"
-			position = { x = -170 y = -60  }
-			orientation = "LOWER_RIGHT"
-			buttonFont = "cg_16b"
-			text = "CREATE_VASSAL"
-			font = "cg_16b"
-		}
-	}
-	
 	containerWindowType = {
 		name = "species_piechart_entry"
 		position = { x=0 y=-0 }
@@ -1327,67 +1367,6 @@ guiTypes = {
 			fixedsize = yes
 			Orientation = "UPPER_RIGHT"
 			text_color_code = "G"
-		}
-	}
-
-	containerWindowType = {
-		name = "create_vassal_window"
-		origo = center
-		orientation = center
-		position = { x = 0 y = 0 }
-		size = { width = 475 height = 460 }
-		moveable = yes
-
-		background = {
-			name = "create_vassal_window_background"
-			quadTextureSprite = "GFX_tile_outliner_bg"
-			position = { x = 0 y = 0 }
-		}
-
-		buttonType = {
-			name = "close"
-			quadTextureSprite = "GFX_close"
-			position = { x= -46 y = 16  }
-			orientation = "UPPER_RIGHT"
-			shortcut = "ESCAPE"
-			pdx_tooltip = "CLOSE_TITLE"
-			clicksound = "back_click"
-		}
-
-		iconType = {
-			name = "hex_bg"
-			spriteType = "GFX_hex_bg"
-			position = { x = -10 y = -13 }
-			alwaysTransparent = yes
-		}
-
-		iconType = {
-			name = "header_line"
-			spriteType = "GFX_line"
-			position = { x = 6 y = 21 }
-			alwaysTransparent = yes
-		}
-
-		instantTextBoxType={
-			name = "header_label"
-			font = "malgun_goth_24"
-			text = "CREATE_VASSAL"
-			position = { x = 25 y = 5 }
-			maxWidth = 563
-			maxHeight = 20
-			fixedSize = yes
-			format = left
-			alwaysTransparent = yes
-		}
-
-		smoothListboxType = {
-			name = "list"
-			position = { x = 15 y = 60 }
-			backGround=""
-			size = { x=437 y=385 }
-			scrollbartype = "standardlistbox_slider"
-			borderSize = { x = 0 y = 0 }
-			orientation = "UPPER_LEFT"
 		}
 	}
 }

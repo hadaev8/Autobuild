@@ -169,6 +169,9 @@ autobuild_trigger_has_any_capital = {
 		has_building = building_capital_2
 		has_building = building_capital_3
 		has_building = building_hab_capital
+		has_building = building_machine_capital_1
+		has_building = building_machine_capital_2
+		has_building = building_machine_capital_3
 		alphamod_trigger_autobuild_has_any_capital = yes
 		# fell free use this trigger for your mod
 		autobuild_trigger_has_any_capital_mod_api = yes
@@ -192,7 +195,12 @@ autobuild_trigger_free_from_autobuild = {
 		autobuild_trigger_planet_minerals = yes
 		autobuild_trigger_planet_food = yes
 		autobuild_trigger_planet_science = yes
-		sector_controlled = yes
+		and = {
+			sector_controlled = yes
+			owner = {
+				has_country_flag = autobuild_ignore_sector
+			}
+		}
 	}
 }
 
@@ -200,7 +208,12 @@ autobuild_trigger_free_from_autobuild_not_spec_planets = {
 	or = {
 		has_modifier = free_from_autobuild
 		has_building_construction = yes
-		sector_controlled = yes
+		and = {
+			sector_controlled = yes
+			owner = {
+				has_country_flag = autobuild_ignore_sector
+			}
+		}
 	}
 }
 
@@ -209,7 +222,12 @@ autobuild_trigger_free_from_autoupdate = {
 		is_planet_class = pc_habitat
 		has_modifier = free_from_auto_update
 		has_building_construction = yes
-		sector_controlled = yes
+		and = {
+			sector_controlled = yes
+			owner = {
+				has_country_flag = autobuild_ignore_sector
+			}
+		}
 	}
 }
 
@@ -301,6 +319,7 @@ autobuild_trigger_tile_has_strategic_res_mod_api = {
 }
 
 autobuild_trigger_tile_has_any_res = {
+	#has_resource = yes
 	has_any_resource = yes
 	nand = {
 		owner = {
@@ -896,10 +915,7 @@ autobuild_trigger_tile_has_any_minerals = {
 			autobuild_trigger_planet_minerals = yes
 		}
 	}
-	has_resource = {
-		type = minerals
-		amount > 0
-	}
+	has_resource = minerals
 }
 
 # for country

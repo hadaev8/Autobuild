@@ -1,38 +1,4 @@
-country_edict = {
-	name = no_sector
-	modifier = {
-		country_core_sector_system_cap = 900
-		pop_government_ethic_attraction = -0.1
-	}
-
-	effect = {
-		if = {
-			limit = {
-				is_ai = no
-			}
-			log = "[This.GetName] activated no sectors edict"
-		}
-	}
-
-	influence_cost = 0
-
-	potential = {
-		nand = {
-			is_ai = no
-			has_global_flag = autobuild_disable_edict
-		}
-	}
-
-	ai_weight = {
-		weight = 1
-		modifier = {
-			factor = 0
-			not = {
-				has_global_flag = autobuild_ai_allowed
-			}
-		}
-	}
-}
+#
 
 # planet edicts
 planet_edict = {

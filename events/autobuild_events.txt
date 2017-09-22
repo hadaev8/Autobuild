@@ -1270,7 +1270,7 @@ planet_event = {
 				has_building = no
 				#exists = pop
 				or = {
-					autobuild_trigger_tile_has_science_more_than_others = yes
+					has_resource = society_research
 					autobuild_trigger_tile_has_any_res = no
 				}
 			}
@@ -2041,7 +2041,7 @@ planet_event = {
 		if = {
 			limit = {
 				any_owned_pop = {
-					is_non_sentient_robot = yes
+					is_non_sapient_robot = yes
 				}
 			}
 			every_tile = {
@@ -2049,7 +2049,7 @@ planet_event = {
 					has_building = no
 					exists = pop
 					pop = {
-						is_non_sentient_robot = yes
+						is_non_sapient_robot = yes
 					}
 					autobuild_trigger_tile_has_any_res = no
 				}
@@ -2223,7 +2223,7 @@ planet_event = {
 				has_building = no
 				exists = pop
 				# pop = { is_being_purged = no }
-				pop = {	is_non_sentient_robot = no }
+				pop = {	is_non_sapient_robot = no }
 				autobuild_trigger_tile_has_science_more_than_others = yes
 			}
 			autobuild_build_basic_lab = yes
@@ -2236,7 +2236,7 @@ planet_event = {
 				limit = {
 					has_building = no
 					exists = pop
-					pop = {	is_non_sentient_robot = no }
+					pop = {	is_non_sapient_robot = no }
 					# pop = { is_being_purged = no }
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 				}
@@ -2253,38 +2253,10 @@ planet_event = {
 			}
 			every_tile = {
 				limit = {
-					or = {
-						has_building = no
-						and = {
-							root.owner = {
-								is_ai = yes
-								excess_food < 0
-							}
-							or = {
-								autobuild_trigger_has_any_power_plant = yes
-								autobuild_trigger_has_any_mine = yes
-								autobuild_trigger_has_any_science_lab = yes
-							}
-						}
-					}
-					or = {
-						exists = pop
-						root.owner = {
-							is_ai = yes
-							excess_food < 0
-						}
-					}
+					has_building = no
+					exists = pop
 					# pop = { is_being_purged = no }
 					autobuild_trigger_tile_has_food_more_than_others = yes
-				}
-				root.owner = {
-					if = {
-						limit = {
-							is_ai = yes
-							excess_food < 0
-						}
-						add_food = 100
-					}
 				}
 				add_building_construction = building_hydroponics_farm_1
 			}
@@ -2293,7 +2265,7 @@ planet_event = {
 					limit = {
 						has_building = no
 						exists = pop
-						pop = {	is_non_sentient_robot = no }
+						pop = {	is_non_sapient_robot = no }
 						# pop = { is_being_purged = no }
 						autobuild_trigger_tile_has_energy_more_than_others = yes
 					}
@@ -2496,7 +2468,7 @@ planet_event = {
 						}
 					}
 					exists = pop
-					pop = {	is_non_sentient_robot = no }
+					pop = {	is_non_sapient_robot = no }
 					# pop = { is_being_purged = no }
 				}
 				add_building_construction = building_power_plant_1
@@ -2522,7 +2494,7 @@ planet_event = {
 							}
 						}
 						exists = pop
-						pop = {	is_non_sentient_robot = no }
+						pop = {	is_non_sapient_robot = no }
 						# pop = { is_being_purged = no }
 					}
 					add_building_construction = building_basic_power_plant
@@ -2567,7 +2539,7 @@ planet_event = {
 		every_tile = {
 			limit = {
 				exists = pop
-				pop = {	is_non_sentient_robot = no }
+				pop = {	is_non_sapient_robot = no }
 				# pop = { is_being_purged = no }
 				or = {
 					has_building = no
@@ -3003,7 +2975,7 @@ planet_event = {
 					}
 				}
 				exists = pop
-				pop = {	is_non_sentient_robot = no }
+				pop = {	is_non_sapient_robot = no }
 				# pop = { is_being_purged = no }
 			}
 			add_building_construction = building_hab_solar_power_processor
@@ -3125,7 +3097,7 @@ planet_event = {
 		every_tile = {
 			limit = {
 				exists = pop
-				pop = {	is_non_sentient_robot = no }
+				pop = {	is_non_sapient_robot = no }
 				or = {
 					has_building = no
 					and = {
@@ -3961,21 +3933,20 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_repair }
 	}
 	option = {
-		name = autobuild_disable_edict_on
+		name = autobuild_ignore_scetor_on
 		trigger = {
-			is_multiplayer = yes
 			not = {
-				has_global_flag = autobuild_disable_edict
+				has_country_flag = autobuild_ignore_sector
 			}
 		}
-		custom_tooltip = autobuild_disable_edict_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.8 } set_global_flag = autobuild_disable_edict }
+		custom_tooltip = autobuild_ignore_scetor_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_ignore_scetor }
 	}
 	option = {
-		name = autobuild_disable_edict_off
-		trigger = {	has_global_flag = autobuild_disable_edict }
-		custom_tooltip = autobuild_disable_edict_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.8 } remove_global_flag = autobuild_disable_edict }
+		name = autobuild_ignore_scetor_off
+		trigger = {	has_country_flag = autobuild_ignore_scetor }
+		custom_tooltip = autobuild_ignore_scetor_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_ignore_scetor }
 	}
 	option = {
 		name = autobuild_local_resettle_on
