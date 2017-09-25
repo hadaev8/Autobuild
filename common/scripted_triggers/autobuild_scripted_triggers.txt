@@ -921,6 +921,7 @@ autobuild_trigger_tile_has_any_minerals = {
 
 # for country
 autobuild_trigger_cost = {
+	minerals > 0
 	or = {
 		not = {
 			has_country_flag = autobuild_cost
@@ -955,6 +956,7 @@ autobuild_trigger_cost = {
 }
 
 autobuild_trigger_cost_energy = {
+	energy > 0
 	or = {
 		not = {
 			has_country_flag = autobuild_cost
@@ -985,5 +987,28 @@ autobuild_trigger_cost_energy = {
 autobuild_trigger_has_pop = {
 	exists = pop
 	pop = {
+		exists = owner
+		nor = {
+			has_purge_type = {
+				country = owner
+				type = purge_matrix
+			}
+			has_purge_type = {
+				country = owner
+				type = purge_normal
+			}
+			has_purge_type = {
+				country = owner
+				type = purge_processing
+			}
+			has_slavery_type = {
+				country = owner
+				type = slavery_matrix
+			}
+			has_slavery_type = {
+				country = owner
+				type = livestock
+			}
+		}
 	}
 }

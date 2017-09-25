@@ -1026,7 +1026,7 @@ planet_event = {
 		every_tile = {
 			limit = {
 				has_building = no
-				exists = pop
+				autobuild_trigger_has_pop = yes
 			}
 			pop = {
 				resettle_pop = {
@@ -1082,9 +1082,7 @@ planet_event = {
 			}
 			random_tile = {
 				limit = {
-					not = {
-						exists = pop
-					}
+					has_pop = no
 				}
 				build_pop = {
 					name = buildable_robot_pop_4
@@ -1096,27 +1094,6 @@ planet_event = {
 			}
 			break = yes
 		}
-		# if = {
-		# 	limit = {
-		# 		owner = {
-		# 		}
-		# 	}
-		# 	random_tile = {
-		# 		limit = {
-		# 			not = {
-		# 				exists = pop
-		# 			}
-		# 		}
-		# 		build_pop = {
-		# 			name = buildable_machine_pop
-		# 			grown = no
-		# 		}
-		# 		owner = {
-		# 			add_minerals = -100
-		# 		}
-		# 	}
-		# 	break = yes
-		# }
 		if = {
 			limit = {
 				owner = {
@@ -1125,9 +1102,7 @@ planet_event = {
 			}
 			random_tile = {
 				limit = {
-					not = {
-						exists = pop
-					}
+					has_pop = no
 				}
 				build_pop = {
 					name = buildable_robot_pop_3
@@ -1147,9 +1122,7 @@ planet_event = {
 			}
 			random_tile = {
 				limit = {
-					not = {
-						exists = pop
-					}
+					has_pop = no
 					or = {
 						autobuild_trigger_has_any_mine = yes
 						autobuild_trigger_has_any_mine_not_replace = yes
@@ -1171,9 +1144,7 @@ planet_event = {
 		}
 		random_tile = {
 			limit = {
-				not = {
-					exists = pop
-				}
+				has_pop = no
 				or = {
 					autobuild_trigger_has_any_mine = yes
 					autobuild_trigger_has_any_mine_not_replace = yes
@@ -1216,7 +1187,7 @@ planet_event = {
 			}
 			every_tile = {
 				limit = {
-					exists = pop
+					autobuild_trigger_has_pop = yes
 					pop = {
 						is_being_purged = no
 						is_enslaved = yes
@@ -1231,7 +1202,7 @@ planet_event = {
 			else = {
 				every_tile = {
 					limit = {
-						exists = pop
+						autobuild_trigger_has_pop = yes
 						pop = {
 							is_being_purged = no
 							is_enslaved = yes
@@ -1280,7 +1251,7 @@ planet_event = {
 		random_tile = {
 			limit = {
 				has_building = no
-				#exists = pop
+				#autobuild_trigger_has_pop = yes
 				or = {
 					has_resource = society_research
 					autobuild_trigger_tile_has_any_res = no
@@ -1348,8 +1319,7 @@ planet_event = {
 						has_building = no
 						autobuild_trigger_has_any_mine = yes
 					}
-					exists = pop
-					# pop = { is_being_purged = no }
+					autobuild_trigger_has_pop = yes
 					autobuild_trigger_tile_has_any_res = no
 					not = {
 						any_neighboring_tile = {
@@ -1437,8 +1407,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				or = {
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 					autobuild_trigger_tile_has_any_res = no
@@ -1490,8 +1459,7 @@ planet_event = {
 		}
 		random_tile = {
 			limit = {
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				or = {
 					has_building = no
 					and = {
@@ -1553,8 +1521,7 @@ planet_event = {
 				not = {
 					has_building = building_xeno_zoo
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				has_resource = {
 					type = sr_alien_pets
 					amount > 0
@@ -1613,8 +1580,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				or = {
 					has_resource = {
 						type = society_research
@@ -1672,8 +1638,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				or = {
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 					autobuild_trigger_tile_has_any_res = no
@@ -1732,8 +1697,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				autobuild_trigger_tile_has_any_res = no
 			}
 			add_building_construction = building_slave_processing
@@ -1781,8 +1745,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				autobuild_trigger_tile_has_any_res = no
 			}
 			add_building_construction = building_temple
@@ -1827,8 +1790,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				autobuild_trigger_tile_has_any_res = no
 			}
 			add_building_construction = building_autochthon_monument
@@ -1874,8 +1836,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				or = {
 					autobuild_trigger_tile_has_any_res = no
 					autobuild_trigger_tile_has_food_more_than_others = yes
@@ -1924,8 +1885,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				autobuild_trigger_tile_has_any_res = no
 			}
 			add_building_construction = building_hypercomms_forum
@@ -1969,8 +1929,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				autobuild_trigger_tile_has_any_res = no
 			}
 			add_building_construction = building_hab_cultural_center
@@ -2008,7 +1967,7 @@ planet_event = {
 		 		type = sr_betharian
 		 		amount > 0
 			}
-			exists = pop
+			autobuild_trigger_has_pop = yes
 			not = {
 				has_building = betharian_power_plant
 			}
@@ -2022,7 +1981,7 @@ planet_event = {
 					type = sr_betharian
 					amount > 0
 				}
-				exists = pop
+				autobuild_trigger_has_pop = yes
 				not = {
 					has_building = betharian_power_plant
 				}
@@ -2066,7 +2025,7 @@ planet_event = {
 		# 		every_tile = {
 		# 			limit = {
 		# 				has_building = no
-		# 				exists = pop
+		# 				autobuild_trigger_has_pop = yes
 		# 				pop = {
 		# 					is_non_sapient_robot = yes
 		# 				}
@@ -2081,9 +2040,9 @@ planet_event = {
 		every_tile = {
 			limit = {
 				has_building = no
-				exists = pop
+				autobuild_trigger_has_pop = yes
 				autobuild_trigger_tile_has_any_res = no
-			}
+				}
 			random_list = {
 				10 = {
 					modifier = {
@@ -2223,7 +2182,7 @@ planet_event = {
 				limit = {
 					has_building = no
 					num_adjacent_tiles > 3
-					exists = pop
+					autobuild_trigger_has_pop = yes
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 				}
 				add_building_construction = building_colony_shelter
@@ -2232,8 +2191,7 @@ planet_event = {
 		every_tile = {
 			limit = {
 				has_building = no
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 				pop = {	is_non_sapient_robot = no }
 				autobuild_trigger_tile_has_science_more_than_others = yes
 			}
@@ -2246,9 +2204,8 @@ planet_event = {
 			every_tile = {
 				limit = {
 					has_building = no
-					exists = pop
+					autobuild_trigger_has_pop = yes
 					pop = {	is_non_sapient_robot = no }
-					# pop = { is_being_purged = no }
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 				}
 				add_building_construction = building_power_plant_1
@@ -2256,8 +2213,7 @@ planet_event = {
 			every_tile = {
 				limit = {
 					has_building = no
-					exists = pop
-					# pop = { is_being_purged = no }
+					autobuild_trigger_has_pop = yes
 					autobuild_trigger_tile_has_minerals_more_than_others = yes
 				}
 				add_building_construction = building_mining_network_1
@@ -2265,8 +2221,7 @@ planet_event = {
 			every_tile = {
 				limit = {
 					has_building = no
-					exists = pop
-					# pop = { is_being_purged = no }
+					autobuild_trigger_has_pop = yes
 					autobuild_trigger_tile_has_food_more_than_others = yes
 				}
 				add_building_construction = building_hydroponics_farm_1
@@ -2275,9 +2230,8 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = no
-						exists = pop
+						autobuild_trigger_has_pop = yes
 						pop = {	is_non_sapient_robot = no }
-						# pop = { is_being_purged = no }
 						autobuild_trigger_tile_has_energy_more_than_others = yes
 					}
 					add_building_construction = building_basic_power_plant
@@ -2285,8 +2239,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = no
-						exists = pop
-						# pop = { is_being_purged = no }
+						autobuild_trigger_has_pop = yes
 						autobuild_trigger_tile_has_minerals_more_than_others = yes
 					}
 					add_building_construction = building_basic_mine
@@ -2294,8 +2247,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = no
-						exists = pop
-						# pop = { is_being_purged = no }
+						autobuild_trigger_has_pop = yes
 						autobuild_trigger_tile_has_food_more_than_others = yes
 					}
 					add_building_construction = building_basic_farm
@@ -2340,8 +2292,7 @@ planet_event = {
 						autobuild_trigger_has_any_science_lab = yes
 						autobuild_trigger_has_any_farm = yes
 					}
-					exists = pop
-					# pop = { is_being_purged = no }
+					autobuild_trigger_has_pop = yes
 				}
 				add_building_construction = building_mining_network_1
 			}
@@ -2354,8 +2305,7 @@ planet_event = {
 							autobuild_trigger_has_any_science_lab = yes
 							autobuild_trigger_has_any_farm = yes
 						}
-						exists = pop
-						# pop = { is_being_purged = no }
+						autobuild_trigger_has_pop = yes
 					}
 					add_building_construction = building_basic_mine
 				}
@@ -2399,8 +2349,7 @@ planet_event = {
 						autobuild_trigger_has_any_science_lab = yes
 						autobuild_trigger_has_any_mine = yes
 					}
-					exists = pop
-					# pop = { is_being_purged = no }
+					autobuild_trigger_has_pop = yes
 				}
 				add_building_construction = building_hydroponics_farm_1
 			}
@@ -2413,8 +2362,7 @@ planet_event = {
 							autobuild_trigger_has_any_science_lab = yes
 							autobuild_trigger_has_any_mine = yes
 						}
-						exists = pop
-						# pop = { is_being_purged = no }
+						autobuild_trigger_has_pop = yes
 					}
 					add_building_construction = building_basic_farm
 				}
@@ -2478,9 +2426,8 @@ planet_event = {
 							}
 						}
 					}
-					exists = pop
+					autobuild_trigger_has_pop = yes
 					pop = {	is_non_sapient_robot = no }
-					# pop = { is_being_purged = no }
 				}
 				add_building_construction = building_power_plant_1
 			}
@@ -2504,9 +2451,8 @@ planet_event = {
 								}
 							}
 						}
-						exists = pop
+						autobuild_trigger_has_pop = yes
 						pop = {	is_non_sapient_robot = no }
-						# pop = { is_being_purged = no }
 					}
 					add_building_construction = building_basic_power_plant
 				}
@@ -2549,9 +2495,8 @@ planet_event = {
 	immediate = {
 		every_tile = {
 			limit = {
-				exists = pop
+				autobuild_trigger_has_pop = yes
 				pop = {	is_non_sapient_robot = no }
-				# pop = { is_being_purged = no }
 				or = {
 					has_building = no
 					autobuild_trigger_has_any_mine = yes
@@ -2589,8 +2534,7 @@ planet_event = {
 	immediate = {
 		every_tile = {
 			limit = {
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 			}
 			switch = {
 				trigger = has_building
@@ -2688,8 +2632,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						exists = pop
-						# pop = { is_being_purged = no }
+						autobuild_trigger_has_pop = yes
 					}
 					add_building_construction = building_physics_lab_1
 				}
@@ -2702,8 +2645,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						exists = pop
-						# pop = { is_being_purged = no }
+						autobuild_trigger_has_pop = yes
 					}
 					add_building_construction = building_biolab_1
 				}
@@ -2716,7 +2658,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						exists = pop
+						autobuild_trigger_has_pop = yes
 					}
 					add_building_construction = building_engineering_facility_1
 				}
@@ -2752,7 +2694,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						exists = pop
+						autobuild_trigger_has_pop = yes
 					}
 					add_building_construction = building_biolab_1
 				}
@@ -2767,7 +2709,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						exists = pop
+						autobuild_trigger_has_pop = yes
 					}
 					add_building_construction = building_engineering_facility_1
 				}
@@ -2784,7 +2726,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						exists = pop
+						autobuild_trigger_has_pop = yes
 					}
 					add_building_construction = building_biolab_1
 				}
@@ -2797,7 +2739,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						exists = pop
+						autobuild_trigger_has_pop = yes
 					}
 					add_building_construction = building_physics_lab_1
 				}
@@ -2807,7 +2749,7 @@ planet_event = {
 		every_tile = {
 			limit = {
 				has_building = building_basic_science_lab_1
-				exists = pop
+				autobuild_trigger_has_pop = yes
 			}
 			if = {
 				limit = {
@@ -2993,9 +2935,8 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
+				autobuild_trigger_has_pop = yes
 				pop = {	is_non_sapient_robot = no }
-				# pop = { is_being_purged = no }
 			}
 			add_building_construction = building_hab_solar_power_processor
 		}
@@ -3038,8 +2979,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 			}
 			add_building_construction = building_hab_astro_mining_facility
 		}
@@ -3082,8 +3022,7 @@ planet_event = {
 						}
 					}
 				}
-				exists = pop
-				# pop = { is_being_purged = no }
+				autobuild_trigger_has_pop = yes
 			}
 			add_building_construction = building_hab_agri_bay
 		}
@@ -3115,7 +3054,7 @@ planet_event = {
 	immediate = {
 		every_tile = {
 			limit = {
-				exists = pop
+				autobuild_trigger_has_pop = yes
 				pop = {	is_non_sapient_robot = no }
 				or = {
 					has_building = no
