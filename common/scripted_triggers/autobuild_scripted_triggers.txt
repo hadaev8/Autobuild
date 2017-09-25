@@ -993,10 +993,11 @@ autobuild_trigger_has_pop = {
 				country = owner
 				type = purge_matrix
 			}
-			has_purge_type = {
-				country = owner
-				type = purge_normal
-			}
+			# с этим дерьмом не пашет
+			# has_purge_type = {
+			# 	country = owner
+			# 	type = purge_normal
+			# }
 			has_purge_type = {
 				country = owner
 				type = purge_processing
@@ -1007,7 +1008,7 @@ autobuild_trigger_has_pop = {
 			}
 			has_slavery_type = {
 				country = owner
-				type = livestock
+				type = slavery_livestock
 			}
 		}
 	}

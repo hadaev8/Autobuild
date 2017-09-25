@@ -203,7 +203,7 @@ fleet_event = {
 							id = autobuild.0.effect.3
 							solar_system = {
 								set_timed_star_flag = { flag = autobuild_star_block days = 100 }
-								}
+							}
 							set_timed_planet_flag = { flag = autobuild_planet_block days = 100 }
 							if = {
 								limit = {
@@ -2042,7 +2042,7 @@ planet_event = {
 				has_building = no
 				autobuild_trigger_has_pop = yes
 				autobuild_trigger_tile_has_any_res = no
-				}
+			}
 			random_list = {
 				10 = {
 					modifier = {
@@ -4012,7 +4012,7 @@ country_event = {
 		custom_tooltip = autobuild_labs_disable_random_off.tooltip
 		hidden_effect = { country_event = { id = autobuild.12 } remove_country_flag = autobuild_labs_disable_random }
 	}
-		option = {
+	option = {
 		name = autobuild_physics_lab_ratio.0_on
 		trigger = {	not = { has_country_flag = autobuild_physics_lab_ratio.0 } }
 		custom_tooltip = autobuild_physics_lab_ratio.0_on.tooltip
