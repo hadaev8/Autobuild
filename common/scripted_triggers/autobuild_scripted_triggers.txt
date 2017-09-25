@@ -157,6 +157,7 @@ autobuild_trigger_has_any_capital_or_shelter = {
 	or = {
 		autobuild_trigger_has_any_capital = yes
 		has_building = building_colony_shelter
+		has_building = building_deployment_post
 		# temporaly fix
 		has_global_flag = gf_alphamod_activated
 		has_global_flag = star_trek_new_horizons
@@ -978,5 +979,11 @@ autobuild_trigger_cost_energy = {
 			has_country_flag = autobuild_cost_500
 			energy > 500
 		}
+	}
+}
+
+autobuild_trigger_has_pop = {
+	exists = pop
+	pop = {
 	}
 }

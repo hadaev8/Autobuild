@@ -372,7 +372,6 @@ country_event = {
 		every_owned_planet = {
 			autobuild_effect_set_planet_local_build = yes
 		}
-
 		# semi cheat options
 		# auto clean
 		if = {
@@ -1053,17 +1052,19 @@ planet_event = {
 		owner = {
 			is_ai = no
 			has_country_flag = autobuild_13
-			has_technology = tech_robotic_workers
-			not = {
-				has_policy_flag = ai_outlawed
+			or = {
+				has_technology = tech_robotic_workers
+				has_authority = auth_machine_intelligence
 			}
-			energy > 100
-			autobuild_trigger_cost_energy = yes
+			not = {
+				has_policy_flag = robots_outlawed
+			}
+			minerals > 100
 			autobuild_trigger_cost = yes
 		}
 		not = {
 			any_pop = {
-				has_trait = trait_mechanical
+				is_robot_pop = yes
 				is_growing = yes
 			}
 		}
@@ -1073,7 +1074,10 @@ planet_event = {
 		if = {
 			limit = {
 				owner = {
-					has_country_flag = synthetic_age
+					or = {
+						has_country_flag = synthetic_age
+						has_authority = auth_machine_intelligence
+					}
 				}
 			}
 			random_tile = {
@@ -1086,13 +1090,33 @@ planet_event = {
 					name = buildable_robot_pop_4
 					grown = no
 				}
-			}
-			owner = {
-				add_energy = -150
-				add_minerals = -50
+				owner = {
+					add_minerals = -100
+				}
 			}
 			break = yes
 		}
+		# if = {
+		# 	limit = {
+		# 		owner = {
+		# 		}
+		# 	}
+		# 	random_tile = {
+		# 		limit = {
+		# 			not = {
+		# 				exists = pop
+		# 			}
+		# 		}
+		# 		build_pop = {
+		# 			name = buildable_machine_pop
+		# 			grown = no
+		# 		}
+		# 		owner = {
+		# 			add_minerals = -100
+		# 		}
+		# 	}
+		# 	break = yes
+		# }
 		if = {
 			limit = {
 				owner = {
@@ -1101,74 +1125,70 @@ planet_event = {
 			}
 			random_tile = {
 				limit = {
-					not = { exists = pop }
-					#	has_building = yes
+					not = {
+						exists = pop
+					}
 				}
 				build_pop = {
 					name = buildable_robot_pop_3
 					grown = no
 				}
 				owner = {
-					add_energy = -150
-					add_minerals = -50
+					add_minerals = -100
 				}
 			}
-			else = {
-				if = {
-					limit = {
-						owner = {
-							has_technology = tech_droid_workers
-						}
+			break = yes
+		}
+		if = {
+			limit = {
+				owner = {
+					has_technology = tech_droid_workers
+				}
+			}
+			random_tile = {
+				limit = {
+					not = {
+						exists = pop
 					}
-					random_tile = {
-						limit = {
-							not = {
-								exists = pop
-							}
-							or = {
-								autobuild_trigger_has_any_mine = yes
-								autobuild_trigger_has_any_mine_not_replace = yes
-								autobuild_trigger_tile_has_minerals_more_than_others = yes
-							}
-						}
-						build_pop = {
-							name = buildable_robot_pop_2
-							grown = no
-						}
-						last_created_pop = {
-							wipe_pop_ethos = yes
-						}
-						owner = {
-							add_energy = -150
-							add_minerals = -50
-						}
-					}
-					else = {
-						random_tile = {
-							limit = {
-								not = {
-									exists = pop
-								}
-								or = {
-									autobuild_trigger_has_any_mine = yes
-									autobuild_trigger_has_any_mine_not_replace = yes
-									autobuild_trigger_tile_has_minerals_more_than_others = yes
-								}
-							}
-							build_pop = {
-								name = buildable_robot_pop_1
-								grown = no
-							}
-							last_created_pop = {
-								wipe_pop_ethos = yes
-							}
-							owner = {
-								add_energy = -150
-								add_minerals = -50
-							}
-						}
+					or = {
+						autobuild_trigger_has_any_mine = yes
+						autobuild_trigger_has_any_mine_not_replace = yes
+						autobuild_trigger_tile_has_minerals_more_than_others = yes
 					}
 				}
+				build_pop = {
+					name = buildable_robot_pop_2
+					grown = no
+				}
+				last_created_pop = {
+					wipe_pop_ethos = yes
+				}
+				owner = {
+					add_minerals = -100
+				}
+			}
+			break = yes
+		}
+		random_tile = {
+			limit = {
+				not = {
+					exists = pop
+				}
+				or = {
+					autobuild_trigger_has_any_mine = yes
+					autobuild_trigger_has_any_mine_not_replace = yes
+					autobuild_trigger_tile_has_minerals_more_than_others = yes
+				}
+			}
+			build_pop = {
+				name = buildable_robot_pop_1
+				grown = no
+			}
+			last_created_pop = {
+				wipe_pop_ethos = yes
+			}
+			owner = {
+				add_minerals = -100
 			}
 		}
 	}
@@ -1209,24 +1229,19 @@ planet_event = {
 				add_building_construction = building_mining_network_1
 			}
 			else = {
-				if = {
+				every_tile = {
 					limit = {
-						has_building = building_colony_shelter
-					}
-					every_tile = {
-						limit = {
-							exists = pop
-							pop = {
-								is_being_purged = no
-								is_enslaved = yes
-							}
-							or = {
-								autobuild_trigger_has_any_power_plant = yes
-								autobuild_trigger_has_any_science_lab = yes
-							}
+						exists = pop
+						pop = {
+							is_being_purged = no
+							is_enslaved = yes
 						}
-						add_building_construction = building_basic_mine
+						or = {
+							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_science_lab = yes
+						}
 					}
+					add_building_construction = building_basic_mine
 				}
 			}
 		}
@@ -1241,10 +1256,7 @@ planet_event = {
 
 	trigger = {
 		nor = {
-			is_planet_class = pc_gaia
-			is_planet_class = pc_habitat
-			is_planet_class = pc_ringworld_habitable
-			has_modifier = capital
+			#has_modifier = capital
 			has_building = building_clinic
 			has_building = building_hospital
 		}
@@ -2038,39 +2050,38 @@ planet_event = {
 	}
 
 	immediate = {
-		if = {
-			limit = {
-				any_owned_pop = {
-					is_non_sapient_robot = yes
-				}
-			}
-			every_tile = {
-				limit = {
-					has_building = no
-					exists = pop
-					pop = {
-						is_non_sapient_robot = yes
-					}
-					autobuild_trigger_tile_has_any_res = no
-				}
-				if = {
-					limit = {
-						root = {
-							has_building = building_colony_shelter
-						}
-					}
-					add_building_construction = building_basic_mine
-					else = {
-						add_building_construction = building_mining_network_1
-					}
-				}
-			}
-		}
+		# if = {
+		# 	limit = {
+		# 		any_owned_pop = {
+		# 			is_non_sapient_robot = yes
+		# 		}
+		# 	}
+		# 	if = {
+		# 		limit = {
+		# 			add_building_construction = building_mining_network_1
+		# 			root = {
+		# 				has_building = building_colony_shelter
+		# 			}
+		# 		}
+		# 		every_tile = {
+		# 			limit = {
+		# 				has_building = no
+		# 				exists = pop
+		# 				pop = {
+		# 					is_non_sapient_robot = yes
+		# 				}
+		# 				autobuild_trigger_tile_has_any_res = no
+		# 			}
+		# 			add_building_construction = building_basic_mine
+		# 		}
+		# 		else = {
+		# 		}
+		# 	}
+		# }
 		every_tile = {
 			limit = {
 				has_building = no
 				exists = pop
-				# pop = { is_being_purged = no }
 				autobuild_trigger_tile_has_any_res = no
 			}
 			random_list = {
@@ -2102,12 +2113,12 @@ planet_event = {
 					if = {
 						limit = {
 							root = {
-								has_building = building_colony_shelter
+								autobuild_trigger_has_any_capital = yes
 							}
 						}
-						add_building_construction = building_basic_mine
+						add_building_construction = building_mining_network_1
 						else = {
-							add_building_construction = building_mining_network_1
+							add_building_construction = building_basic_mine
 						}
 					}
 				}
@@ -2139,12 +2150,12 @@ planet_event = {
 					if = {
 						limit = {
 							root = {
-								has_building = building_colony_shelter
+								autobuild_trigger_has_any_capital = yes
 							}
 						}
-						add_building_construction = building_basic_power_plant
+						add_building_construction = building_power_plant_1
 						else = {
-							add_building_construction = building_power_plant_1
+							add_building_construction = building_basic_power_plant
 						}
 					}
 				}
@@ -2584,21 +2595,25 @@ planet_event = {
 			switch = {
 				trigger = has_building
 
-				building_basic_farm = { add_building_construction = building_hydroponics_farm_1 }
-				building_hydroponics_farm_1 = { add_building_construction = building_hydroponics_farm_2 }
-				building_hydroponics_farm_2 = { add_building_construction = building_hydroponics_farm_3 }
-				building_hydroponics_farm_3 = { add_building_construction = building_hydroponics_farm_4 }
-				building_hydroponics_farm_4 = { add_building_construction = building_hydroponics_farm_5 }
 				building_basic_power_plant = { add_building_construction = building_power_plant_1 }
 				building_power_plant_1 = { add_building_construction = building_power_plant_2 }
 				building_power_plant_2 = { add_building_construction = building_power_plant_3 }
 				building_power_plant_3 = { add_building_construction = building_power_plant_4 }
 				building_power_plant_4 = { add_building_construction = building_power_plant_5 }
+				building_power_hub_1 = { add_building_construction = building_power_hub_2 }
+				building_basic_farm = { add_building_construction = building_hydroponics_farm_1 }
+				building_hydroponics_farm_1 = { add_building_construction = building_hydroponics_farm_2 }
+				building_hydroponics_farm_2 = { add_building_construction = building_hydroponics_farm_3 }
+				building_hydroponics_farm_3 = { add_building_construction = building_hydroponics_farm_4 }
+				building_hydroponics_farm_4 = { add_building_construction = building_hydroponics_farm_5 }
+				building_mineral_silo_1 = { add_building_construction = building_mineral_silo_2 }
+				building_mineral_silo_2 = { add_building_construction = building_mineral_silo_3 }
 				building_basic_mine = { add_building_construction = building_mining_network_1 }
 				building_mining_network_1 = { add_building_construction = building_mining_network_2 }
 				building_mining_network_2 = { add_building_construction = building_mining_network_3 }
 				building_mining_network_3 = { add_building_construction = building_mining_network_4 }
 				building_mining_network_4 = { add_building_construction = building_mining_network_5 }
+				building_mineral_processing_plant_1 = { add_building_construction = building_mineral_processing_plant_2 }
 				building_engineering_facility_1 = { add_building_construction = building_engineering_facility_2 }
 				building_engineering_facility_2 = { add_building_construction = building_engineering_facility_3 }
 				building_engineering_facility_3 = { add_building_construction = building_engineering_facility_4 }
@@ -2608,21 +2623,25 @@ planet_event = {
 				building_biolab_1 = { add_building_construction = building_biolab_2 }
 				building_biolab_2 = { add_building_construction = building_biolab_3 }
 				building_biolab_3 = { add_building_construction = building_biolab_4 }
-				building_mineral_silo_1 = { add_building_construction = building_mineral_silo_2 }
-				building_mineral_silo_2 = { add_building_construction = building_mineral_silo_3 }
-				building_primitive_factory = { add_building_construction = building_mining_network_1 }
-				building_primitive_farm = { add_building_construction = building_hydroponics_farm_1 }
-				building_power_hub_1 = { add_building_construction = building_power_hub_2 }
-				building_mineral_processing_plant_1 = { add_building_construction = building_mineral_processing_plant_2 }
-				building_clinic = { add_building_construction = building_hospital }
-				building_colony_shelter = { add_building_construction = building_capital_1 }
-				building_capital_1 = { add_building_construction = building_capital_2 }
-				building_capital_2 = { add_building_construction = building_capital_3 }
 				building_autochthon_monument = { add_building_construction = building_heritage_site }
 				building_heritage_site = { add_building_construction = building_hypercomms_forum }
 				building_hypercomms_forum = { add_building_construction = building_autocurating_vault }
 				building_temple = { add_building_construction = building_holotemple }
-				building_holotemple = { add_building_construction = building_citadel_of_faith }
+				building_holotemple = { add_building_construction = building_sacred_nexus }
+				building_sacred_nexus = { add_building_construction = building_citadel_of_faith }
+				building_colony_shelter = { add_building_construction = building_capital_1 }
+				building_capital_1 = { add_building_construction = building_capital_2 }
+				building_capital_2 = { add_building_construction = building_capital_3 }
+				building_clinic = { add_building_construction = building_hospital }
+				building_primitive_farm = { add_building_construction = building_hydroponics_farm_1 }
+				building_primitive_factory = { add_building_construction = building_mining_network_1 }
+				building_uplink_node = { add_building_construction = building_network_junction }
+				building_network_junction = { add_building_construction = building_system_conflux }
+				building_system_conflux = { add_building_construction = building_alpha_hub }
+				building_deployment_post = { add_building_construction = building_machine_capital_1 }
+				building_machine_capital_1 = { add_building_construction = building_machine_capital_2 }
+				building_machine_capital_2 = { add_building_construction = building_machine_capital_3 }
+				building_spare_parts_depot = { add_building_construction = building_unit_assembly_plant }
 
 			}
 		}
@@ -2969,7 +2988,7 @@ planet_event = {
 						autobuild_trigger_tile_has_any_res = no
 						or = {
 							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_science_lab = yes
 							autobuild_trigger_has_any_farm = yes
 						}
 					}
@@ -3013,8 +3032,8 @@ planet_event = {
 					and = {
 						autobuild_trigger_tile_has_any_res = no
 						or = {
-							autobuild_trigger_has_any_mine = yes
 							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_science_lab = yes
 							autobuild_trigger_has_any_farm = yes
 						}
 					}
@@ -3043,9 +3062,9 @@ planet_event = {
 		}
 		or = {
 			free_building_tiles > 0
+			autobuild_trigger_has_any_mine = yes
 			autobuild_trigger_has_any_power_plant = yes
 			autobuild_trigger_has_any_science_lab = yes
-			autobuild_trigger_has_any_mine = yes
 		}
 	}
 
@@ -3059,7 +3078,7 @@ planet_event = {
 						or = {
 							autobuild_trigger_has_any_mine = yes
 							autobuild_trigger_has_any_power_plant = yes
-							autobuild_trigger_has_any_farm = yes
+							autobuild_trigger_has_any_science_lab = yes
 						}
 					}
 				}
