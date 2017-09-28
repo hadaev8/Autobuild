@@ -1013,3 +1013,8 @@ autobuild_trigger_has_pop = {
 		}
 	}
 }
+
+autobuild_trigger_tile_is_clean = {
+	has_pop = no
+	has_blocker = no
+}

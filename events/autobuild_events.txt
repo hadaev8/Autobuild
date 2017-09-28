@@ -1014,7 +1014,7 @@ planet_event = {
 		}
 		any_tile = {
 			has_building = yes
-			has_pop = no
+			autobuild_trigger_tile_is_clean = yes
 		}
 		any_tile = {
 			has_building = no
@@ -1048,6 +1048,7 @@ planet_event = {
 		free_pop_tiles > 0
 		is_under_colonization = no
 		is_occupied_flag = no
+		sector_controlled = no
 		exists = owner
 		owner = {
 			is_ai = no
@@ -1082,7 +1083,7 @@ planet_event = {
 			}
 			random_tile = {
 				limit = {
-					has_pop = no
+					autobuild_trigger_tile_is_clean = yes
 				}
 				build_pop = {
 					name = buildable_robot_pop_4
@@ -1102,7 +1103,7 @@ planet_event = {
 			}
 			random_tile = {
 				limit = {
-					has_pop = no
+					autobuild_trigger_tile_is_clean = yes
 				}
 				build_pop = {
 					name = buildable_robot_pop_3
@@ -1122,7 +1123,7 @@ planet_event = {
 			}
 			random_tile = {
 				limit = {
-					has_pop = no
+					autobuild_trigger_tile_is_clean = yes
 					or = {
 						autobuild_trigger_has_any_mine = yes
 						autobuild_trigger_has_any_mine_not_replace = yes
@@ -1144,7 +1145,7 @@ planet_event = {
 		}
 		random_tile = {
 			limit = {
-				has_pop = no
+				autobuild_trigger_tile_is_clean = yes
 				or = {
 					autobuild_trigger_has_any_mine = yes
 					autobuild_trigger_has_any_mine_not_replace = yes
@@ -1251,7 +1252,7 @@ planet_event = {
 		random_tile = {
 			limit = {
 				has_building = no
-				#autobuild_trigger_has_pop = yes
+				autobuild_trigger_has_pop = yes
 				or = {
 					has_resource = society_research
 					autobuild_trigger_tile_has_any_res = no
@@ -1352,7 +1353,6 @@ planet_event = {
 						}
 					}
 					add_building_construction = building_mineral_silo_1
-					break = yes
 				}
 			}
 		}
@@ -1395,7 +1395,6 @@ planet_event = {
 	}
 
 	immediate = {
-		owner = { save_event_target_as = autobuild_country }
 		random_tile = {
 			limit = {
 				or = {
@@ -1454,9 +1453,6 @@ planet_event = {
 	}
 
 	immediate = {
-		owner = {
-			save_event_target_as = autobuild_country
-		}
 		random_tile = {
 			limit = {
 				autobuild_trigger_has_pop = yes
