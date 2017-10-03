@@ -1,0 +1,147 @@
+﻿l_trad_chinese:
+ #Traditional Chinese
+#By kctony
+ 
+ 
+ autobuild.3.name:0 "自動建設選單"
+ autobuild.3.desc:0 "$modmenu_configure$ $modmenu_1$."
+ autobuild.4.desc:0 "$modmenu_configure$ 保存資源."
+ autobuild.6.desc:0 "$modmenu_configure$ 自動建造獨特建築."
+ autobuild.7.desc:0 "$modmenu_configure$ $autobuild_7$"
+ 
+ # 選單
+ autobuild_0:0 "$modmenu_on$ 所有主要設定."
+ 
+ autobuild_fleet:0 "自動建設: 空間站."
+ autobuild_fleet.tooltip:0 “所有當前的閒置工程船將被分配到自動建造，如果要需要使用它們，請禁用此選項或建造新的工程船，工程船將被列為”事件阻止“，這是正常的“。
+ 
+ autobuild_1:0 "建築物自動升級."
+ autobuild_1.tooltip:0 "升級所有建築物，除了基本實驗室和需選擇的實驗室."
+ 
+ autobuild_2:0 "依成本自動升級建築物."
+ autobuild_2.tooltip:0 "依成本自動升級建築物."
+ 
+ autobuild_3:0 "建造新建築在合適的地塊上."
+ autobuild_3.tooltip:0 "自動建築時取決於地塊上現有的資源."
+ 
+ autobuild_13:0 "自動建造: 機器人."
+ autobuild_13.tooltip:0 "將建造有意義的機器人."
+ 
+ autobuild_10:0 "自動清除障礙物."
+ autobuild_10.tooltip:0 "自動清除障礙物. §RWarning§!, this is a semi-cheat option as blockers will disappear instantly."
+ 
+ autobuild_ai_allowed:0 "允許AI自動建造."
+ autobuild_ai_allowed.tooltip:0 "AI的建築將與玩家一樣的方式建築."
+ 
+ # 其他選單
+ autobuild_others_options_menu:0 "§BMenu§! 其他選單."
+ 
+ autobuild_4_2:0 "給奴隸礦物!"
+ autobuild_4_2.tooltip:0 "有自動建築了, 誰還需要聰明的奴隸?."
+ 
+ autobuild_ship_ignore_1_and_less_mineral:0 "忽略 1 單位的礦物."
+ autobuild_ship_ignore_1_and_less_mineral.tooltip:0 “自動建築工程船不會建造只有1單位礦物的採礦站。”
+ 
+ autobuild_ship_ignore_2_and_less_mineral:0 "忽略 2 單位以下的礦物."
+ autobuild_ship_ignore_2_and_less_mineral.tooltip:0 “自動建築工程船不會建造2單位以下礦物的採礦站。”
+ 
+ autobuild_remove_farms_not_planet_farm:0 "拆除農場星以外的農場."
+ autobuild_remove_farms_not_planet_farm.tooltip:0 "拆除農場星以外的農場. 啟用忽略地塊上的食物."
+ 
+ autobuild_remove_farms:0 "拆除所有農場."
+ autobuild_remove_farms.tooltip:0 "拆除所有農場, 關閉農場星, 啟用忽略地塊上的食物."
+ 
+ autobuild_remove_clinics:0 "拆除所有診所."
+ autobuild_remove_clinics.tooltip:0 "刪除所有診所，如果啟用則禁用該選項."
+ 
+ autobuild_ignore_minerals:0 "忽略地塊上的礦物."
+ autobuild_ignore_minerals.tooltip:0 "地塊上的礦物將被忽略."
+ autobuild_ignore_energy:0 "忽略地塊上的能量."
+ autobuild_ignore_energy.tooltip:0 "地塊上的能量將被忽略."
+ autobuild_ignore_science:0 "忽略地塊上的科技."
+ autobuild_ignore_science.tooltip:0 "地塊上的科技將被忽略."
+ autobuild_ignore_food:0 "忽略地塊上的食物."
+ autobuild_ignore_food.tooltip:0 "地塊上的食物將被忽略."
+ 
+ autobuild_repair:0 "自動修復."
+ autobuild_repair.tooltip:0 "自動修復. §RWarning§!, this is a semi-cheat option as buildings will be repaired instantly with fixed cost 50 minerals."
+ 
+ autobuild_ignore_seсtor:0 "忽略星區."
+ autobuild_ignore_seсtor.tooltip:0 "不建設星區."
+ 
+ autobuild_local_resettle:0 "本地安置."
+ autobuild_local_resettle.tooltip:0 "將沒有工作的人口安置到建築物.(待確認)"
+ 
+ autobuild_rename:0 "重新命名專門化行星."
+ autobuild_rename.tooltip:0 "將重新命名專門化行星."
+ 
+ # 實驗室
+ autobuild_5:0 "自動升級實驗室."
+ autobuild_5.tooltip:0 "所有基本實驗室都將根據設定進行升級."
+ 
+ autobuild_labs_disable_random:0 "刪除實驗室的隨機升級."
+ autobuild_labs_disable_random.tooltip:0 "如果實驗室不屬於任何設定,將不會隨機升級."
+ 
+ autobuild_labs_not_count_trait:0 "不計算特性."
+ autobuild_labs_not_count_trait.tooltip:0 "實驗室升級時, 不考慮種族的特性."
+ 
+ autobuild_labs_not_count_planet:0 "不計算星球修正."
+ autobuild_labs_not_count_planet.tooltip:0 "實驗室升級時, 不考慮星球的修正."
+ 
+ autobuild_physics_lab_ratio:0 "物理學實驗室比例 x"
+ autobuild_biolab_ratio:0 "社會學實驗室比例 x"
+ autobuild_engineering_facility_ratio:0 "工程學設施比例 x"
+ 
+ # 地塊上
+ autobuild_7:0 "自動建設在空白地塊."
+ 
+ autobuild_mine_ratio:0 "礦物比例 x"
+ autobuild_power_plant_ratio:0 "能源比例 x"
+ autobuild_lab_ratio:0 "實驗室比例 x"
+ 
+ # 特殊建築
+ autobuild_planet_unique:0 "§BMenu:§! 特殊建築物."
+ autobuild_planet_unique.tooltip:0 "稀有建築物設定 (診所, 能源陣列...等)."
+ autobuild_on_every_planet.tooltip:0 "將建立在最適合的地方, 如果沒有空白的地塊, 將取代掉普通建築."
+ 
+ # 成本
+ autobuild_cost:0 "保留資源."
+ autobuild_cost.tooltip:0 "僅當有足夠資源時, 才會自動建築或升級 (預設 1000 礦物以上)."
+ 
+ autobuild_keep:0 "§HKeep§!"
+ 
+ # 星球
+ # 修正
+ free_from_auto_update:0 "忽略自動升級"
+ free_from_auto_update_desc:0 "不自動升級這個星球上的建築物."
+ 
+ free_from_autobuild:0 "忽略自動建築"
+ free_from_autobuild_desc:0 "不自動建築這個星星球."
+ 
+ planet_forge_autobuild:0 "礦物星"
+ planet_forge_autobuild_desc:0 "這個星球將重建成礦物星, 能量/農場/實驗室將被拆除."
+ 
+ planet_power_plant_autobuild:0 "能量星"
+ planet_power_plant_autobuild_desc:0 "這個星球將重建成能量星, 礦物/農場/實驗室將被拆除."
+ 
+ planet_labs_autobuild:0 "實驗星"
+ planet_labs_autobuild_desc:0 "這個星球將重建成實驗星, 礦物/農場/能量將被拆除."
+ 
+ planet_farms_autobuild:0 "食物星"
+ planet_farms_autobuild_desc:0 "這個星球將重建成食物星, 礦物/能量/實驗室將被拆除."
+ 
+ autobuild_planet_labs_physics:0 "物理學星"
+ autobuild_planet_labs_physics_desc:0 "在這個星球上, 所有實驗室都將專注於物理學研究."
+ 
+ autobuild_planet_labs_bio:0 "社會學星"
+ autobuild_planet_labs_bio_desc:0 "在這個星球上, 所有實驗室都將專注於社會學研究."
+ 
+ autobuild_planet_labs_engineering:0 "工程學星"
+ autobuild_planet_labs_engineering_desc:0 "在這個星球上, 所有實驗室都將專注於工程學研究."
+ 
+ # 法案
+ edict_autobuild_hide_planetary_edicts:0 "隱藏/顯示 自動建築法案"
+ edict_autobuild_hide_planetary_edicts_desc:0 "將 隱藏/顯示 自動建築法案."
+ 
+ edict_autobuild_clear_planetary_edicts:0 "清除所有自動建築法案"
+ edict_autobuild_clear_planetary_edicts_desc:0 "將清除所有自動建築法案."

@@ -25,6 +25,9 @@ fleet_event = {
 		#	not = { sector_controlled = yes }
 		is_in_combat = no
 		is_fleet_idle = yes
+		not = {
+			has_fleet_flag = autonomous_assembler
+		}
 	}
 
 	immediate = {
@@ -52,8 +55,9 @@ fleet_event = {
 							has_owner = no
 							has_orbital_station = no
 							has_any_megastructure = no
-							not = {
+							nor = {
 								has_planet_flag = autobuild_planet_block
+								has_planet_flag = ass_target
 							}
 							is_surveyed = {
 								who = root.owner
@@ -130,6 +134,7 @@ fleet_event = {
 						nor = {
 							exists = owner
 							has_planet_flag = autobuild_planet_block
+							has_planet_flag = ass_target
 						}
 						has_orbital_station = no
 						has_any_megastructure = no
@@ -179,8 +184,9 @@ fleet_event = {
 							}
 							if = {
 								limit = {
-									not = {
+									nor = {
 										has_planet_flag = autobuild_planet_block
+										has_planet_flag = ass_target
 									}
 								}
 								set_timed_planet_flag = { flag = autobuild_planet_block days = 100 }
@@ -1060,7 +1066,6 @@ planet_event = {
 			not = {
 				has_policy_flag = robots_outlawed
 			}
-			minerals > 100
 			autobuild_trigger_cost = yes
 		}
 		not = {
@@ -1518,10 +1523,7 @@ planet_event = {
 					has_building = building_xeno_zoo
 				}
 				autobuild_trigger_has_pop = yes
-				has_resource = {
-					type = sr_alien_pets
-					amount > 0
-				}
+				has_resource = sr_alien_pets
 			}
 			add_building_construction = building_xeno_zoo
 		}
@@ -1578,10 +1580,7 @@ planet_event = {
 				}
 				autobuild_trigger_has_pop = yes
 				or = {
-					has_resource = {
-						type = society_research
-						amount > 0
-					}
+					has_resource = society_research
 					autobuild_trigger_tile_has_any_res = no
 				}
 			}
@@ -1973,10 +1972,7 @@ planet_event = {
 	immediate = {
 		random_tile = {
 			limit = {
-				has_resource = {
-					type = sr_betharian
-					amount > 0
-				}
+				has_resource = sr_betharian
 				autobuild_trigger_has_pop = yes
 				not = {
 					has_building = betharian_power_plant
@@ -2182,6 +2178,7 @@ planet_event = {
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 				}
 				add_building_construction = building_colony_shelter
+				add_building_construction = building_deployment_post
 			}
 		}
 		every_tile = {
@@ -2760,10 +2757,7 @@ planet_event = {
 								}
 							}
 						}
-						has_resource = {
-							type = society_research
-							amount > 0
-						}
+						has_resource = society_research
 					}
 				}
 				add_building_construction = building_biolab_1
@@ -2781,10 +2775,7 @@ planet_event = {
 										}
 									}
 								}
-								has_resource = {
-									type = physics_research
-									amount > 0
-								}
+								has_resource = physics_research
 							}
 						}
 						add_building_construction = building_physics_lab_1
@@ -2802,10 +2793,7 @@ planet_event = {
 												}
 											}
 										}
-										has_resource = {
-											type = engineering_research
-											amount > 0
-										}
+										has_resource = engineering_research
 									}
 								}
 								add_building_construction = building_engineering_facility_1
@@ -3887,20 +3875,20 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_repair }
 	}
 	option = {
-		name = autobuild_ignore_scetor_on
+		name = autobuild_ignore_sector_on
 		trigger = {
 			not = {
 				has_country_flag = autobuild_ignore_sector
 			}
 		}
-		custom_tooltip = autobuild_ignore_scetor_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_ignore_scetor }
+		custom_tooltip = autobuild_ignore_sector_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } set_country_flag = autobuild_ignore_sector }
 	}
 	option = {
-		name = autobuild_ignore_scetor_off
-		trigger = {	has_country_flag = autobuild_ignore_scetor }
-		custom_tooltip = autobuild_ignore_scetor_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_ignore_scetor }
+		name = autobuild_ignore_sector_off
+		trigger = {	has_country_flag = autobuild_ignore_sector }
+		custom_tooltip = autobuild_ignore_sector_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.8 } remove_country_flag = autobuild_ignore_sector }
 	}
 	option = {
 		name = autobuild_local_resettle_on

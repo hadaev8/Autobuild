@@ -65,8 +65,8 @@
  autobuild_repair:0 "AutoRepair."
  autobuild_repair.tooltip:0 "Autorepair blockers. §RWarning§!, this is a semi-cheat option as buildings will be repaired instantly with fixed cost 50 minerals."
  
- autobuild_disable_edict:0 "Disable edict."
- autobuild_disable_edict.tooltip:0 "Disable no sectors edict for players in mp."
+ autobuild_ignore_seсtor:0 "Ignore sectors."
+ autobuild_ignore_seсtor.tooltip:0 "Will not build in sectors."
  
  autobuild_local_resettle:0 "Local resettle."
  autobuild_local_resettle.tooltip:0 "Will try to place pops from tiles without buildings to tiles with buildings on every planet."
@@ -139,9 +139,6 @@
  autobuild_planet_labs_engineering_desc:0 "On this planet, all laboratories will be focused on engineering research."
  
  # edicts
- edict_no_sector:0 "There is No Need for Sectors"
- edict_no_sector_desc:0 "This edict will remove the need for sectors."
- 
  edict_autobuild_hide_planetary_edicts:0 "Hide/Show auto edicts"
  edict_autobuild_hide_planetary_edicts_desc:0 "Will hide or show all planetary AutoBuild edicts."
  
@@ -325,10 +322,10 @@
  autobuild_repair_off:0 "$modmenu_off$ $autobuild_repair$"
  autobuild_repair_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_repair.tooltip$"
  
- autobuild_disable_edict_on:0 "$modmenu_on$ $autobuild_disable_edict$"
- autobuild_disable_edict_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_disable_edict.tooltip$"
- autobuild_disable_edict_off:0 "$modmenu_off$ $autobuild_disable_edict$"
- autobuild_disable_edict_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_disable_edict.tooltip$"
+ autobuild_ignore_seсtor_on:0 "$modmenu_on$ $autobuild_ignore_seсtor$"
+ autobuild_ignore_seсtor_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ignore_seсtor.tooltip$"
+ autobuild_ignore_seсtor_off:0 "$modmenu_off$ $autobuild_ignore_seсtor$"
+ autobuild_ignore_seсtor_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_seсtor.tooltip$"
  
  autobuild_local_resettle_on:0 "$modmenu_on$ $autobuild_local_resettle$"
  autobuild_local_resettle_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_local_resettle.tooltip$"

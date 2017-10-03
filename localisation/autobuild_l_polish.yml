@@ -1,152 +1,149 @@
 ﻿l_polish:
- #wait for a hero
+ #by Vlad77
  
  
- autobuild.3.name:0 "AutoBuild menu"
+ autobuild.3.name:0 "Konfiguracja Autobudowy"
  autobuild.3.desc:0 "$modmenu_configure$ $modmenu_1$."
- autobuild.4.desc:0 "$modmenu_configure$ resources in reserve."
- autobuild.6.desc:0 "$modmenu_configure$ autobuild unique buildings."
+ autobuild.4.desc:0 "$modmenu_configure$ zasoby w rezerwie."
+ autobuild.6.desc:0 "$modmenu_configure$ autobudowa unikalnych budynków."
  autobuild.7.desc:0 "$modmenu_configure$ $autobuild_7$"
  
  # menu
- autobuild_0:0 "$modmenu_on$ all main settings."
+ autobuild_0:0 "$modmenu_on$ Ustawienia główne."
  
- autobuild_fleet:0 "AutoBuild Space Stations."
- autobuild_fleet.tooltip:0 "All current idle construction ships will be assigned to autobuild. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be listed as "event blocked", this is normal."
+ autobuild_fleet:0 "Autobudowa stacji kosmicznych."
+ autobuild_fleet.tooltip:0 "Wszystkie bezczynne statki konstrukyjne zostaną przydzielone do autobudowy. Jeśli chcesz używać ich do swoich potrzeb, wyłącz tę opcję lub zbuduj nowy statek konstrukcyjny. Statki zostaną oznaczone "statek zablokowany", to jest normalne."
  
- autobuild_1:0 "AutoImprove Buildings."
- autobuild_1.tooltip:0 "All buildings automatically improve, except for basic laboratories and those that cost influence."
+ autobuild_1:0 "Auto ulepszenie budynków."
+ autobuild_1.tooltip:0 "Wszystkie budynki ulepszą się automatycznie, z wyjątkiem podstawowych laboratoriów i tych, które wpływają na koszty utrzymania."
  
- autobuild_2:0 "AutoImprove Buildings That Cost Influence."
- autobuild_2.tooltip:0 "Buildings that cost influence automatically improve."
+ autobuild_2:0 "Auto ulepszenie budynków, z kosztem utrzymania."
+ autobuild_2.tooltip:0 "Budynki zwiększające koszty utrzymania zostają ulepszone."
  
- autobuild_3:0 "New Buildings on Good Tiles."
- autobuild_3.tooltip:0 "All tiles with resources gain buildings depending on type and amount of resources."
+ autobuild_3:0 "Nowe budynki na polach z zasobami."
+ autobuild_3.tooltip:0 "Wszystkie pola z zasobami otrzymują budynki w zależności od typu i ilości zasobów."
  
- autobuild_13:0 "AutoBuild: Robots."
- autobuild_13.tooltip:0 "Will build robots where it makes sense."
+ autobuild_13:0 "Autobudowa Robotów."
+ autobuild_13.tooltip:0 "Buduje roboty tam gdzie ma to sens."
  
- autobuild_10:0 "AutoClean Blockers."
- autobuild_10.tooltip:0 "Autoclean blockers. §RWarning§!, this is a semi-cheat option as blockers will disappear instantly."
+ autobuild_10:0 "Auto oczyszczanie zablokowanych pól."
+ autobuild_10.tooltip:0 "Auto oczyszczanie zablokowanych pól. §RUwaga§!, to opcja oszustwa zablokowane pola zostają oczyszczone natychmaist."
  
- autobuild_ai_allowed:0 "Allow AutoBuild for AI."
- autobuild_ai_allowed.tooltip:0 "AI's buildings will be constructed in the same way as the player's."
+ autobuild_ai_allowed:0 "Zezwalaj na Autobudowę dla AI."
+ autobuild_ai_allowed.tooltip:0 "Budynki AI zostaną skonstruowane w ten sam sposób, co gracza."
  
  # other menu
- autobuild_others_options_menu:0 "§BMenu§! of other options."
+ autobuild_others_options_menu:0 "§BUstawienia§! innych opcji."
  
- autobuild_4_2:0 "Give Mines to the Slaves!"
- autobuild_4_2.tooltip:0 "AutoBuild mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?."
+ autobuild_4_2:0 "Daj niewolnikom ich kopalnie!"
+ autobuild_4_2.tooltip:0 "Automatycznie buduj kopalnie na każdym polu, które ma populację niewolników i laboratorium lub elektrownię. Kto potrzebuje mądrych niewolników?."
  
- autobuild_ship_ignore_1_and_less_mineral:0 "Ignore 1 mineral."
- autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "AutoBuild Ships will not build a mining station where there is only 1 mineral."
+ autobuild_ship_ignore_1_and_less_mineral:0 "Ignoruj 1 minerał."
+ autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "Statki z autobudową nie wybudują stacji górniczej, w miejscu gdzie znajduje się 1 minerał."
  
- autobuild_ship_ignore_2_and_less_mineral:0 "Ignore 2 minerals or less."
- autobuild_ship_ignore_2_and_less_mineral.tooltip:0 "AutoBuild Ships will not build a mining station where there are 2 minerals or less."
+ autobuild_ship_ignore_2_and_less_mineral:0 "Ignoruj 2 minerały lub mniej."
+ autobuild_ship_ignore_2_and_less_mineral.tooltip:0 "Statki z autobudową nie wybudują stacji górniczej, w miejscu gdzie znajdują się 2 minerały lub mniej."
  
- autobuild_remove_farms_not_planet_farm:0 "Remove all farms except farm planets."
- autobuild_remove_farms_not_planet_farm.tooltip:0 "Remove all regular farms except on farm planets. Enable ignore food on tiles."
+ autobuild_remove_farms_not_planet_farm:0 "Usuń wszystkie farmy z wyjątkiem planet rolniczych."
+ autobuild_remove_farms_not_planet_farm.tooltip:0 "Usuń wszystkie regularne farmy, z wyjątkiem planet rolniczych. Włącz zignoruj jedzenie na na polach."
  
- autobuild_remove_farms:0 "Remove all farms."
- autobuild_remove_farms.tooltip:0 "Remove all regular farms, disable farm planets, enable ignore food on tiles."
+ autobuild_remove_farms:0 "Usuń wszystkie farmy."
+ autobuild_remove_farms.tooltip:0 "Usuń wszystkie regularne farmy, wyłącz planety rolnicze, włącz ignoruj jedzenie na polach."
  
- autobuild_remove_clinics:0 "Remove all clinics."
- autobuild_remove_clinics.tooltip:0 "Remove all clinics, disable option, if enabled."
+ autobuild_remove_clinics:0 "Usuń wszystkie kliniki."
+ autobuild_remove_clinics.tooltip:0 "Usuń wszystkie kliniki, wyłącz opcję, jeśli włączona."
  
- autobuild_ignore_minerals:0 "Ignore minerals on tiles."
- autobuild_ignore_minerals.tooltip:0 "Minerals on the tiles will be ignored."
- autobuild_ignore_energy:0 "Ignore energy on tiles."
- autobuild_ignore_energy.tooltip:0 "Energy on the tiles will be ignored."
- autobuild_ignore_science:0 "Ignore science on tiles."
- autobuild_ignore_science.tooltip:0 "Science on the tiles will be ignored."
- autobuild_ignore_food:0 "Ignore food on tiles."
- autobuild_ignore_food.tooltip:0 "Food on the tiles will be ignored."
+ autobuild_ignore_minerals:0 "Ignoruj minerały na polach."
+ autobuild_ignore_minerals.tooltip:0 "Minerały na polach będą ignorowane."
+ autobuild_ignore_energy:0 "Ignoruj energię na polach."
+ autobuild_ignore_energy.tooltip:0 "Energia na polach będzie ignorowana."
+ autobuild_ignore_science:0 "Ignoruj naukę na polach."
+ autobuild_ignore_science.tooltip:0 "Nauka na polach będzie ignorowana."
+ autobuild_ignore_food:0 "Ignoruj jedzenie na polach."
+ autobuild_ignore_food.tooltip:0 "Jedzenie na polach będzie ignorowane."
  
- autobuild_repair:0 "AutoRepair."
- autobuild_repair.tooltip:0 "Autorepair blockers. §RWarning§!, this is a semi-cheat option as buildings will be repaired instantly with fixed cost 50 minerals."
+ autobuild_repair:0 "Auto Naprawa."
+ autobuild_repair.tooltip:0 "Automatyczna naprawa budynków. §RUwaga§!, to opcja oszustwa, naprawa będzie natychmiastowa ze stałym kosztem 50 minerałów."
  
- autobuild_disable_edict:0 "Disable edict."
- autobuild_disable_edict.tooltip:0 "Disable no sectors edict for players in mp."
+ autobuild_ignore_seсtor:0 "Ignoruj sektory."
+ autobuild_ignore_seсtor.tooltip:0 "Budowa w sektorach wyłączona."
  
- autobuild_local_resettle:0 "Local resettle."
- autobuild_local_resettle.tooltip:0 "Will try to place pops from tiles without buildings to tiles with buildings on every planet."
+ autobuild_local_resettle:0 "Lokalne przesiedlenie."
+ autobuild_local_resettle.tooltip:0 "Spróbuje przemieścić populacje z pól bez budynków na pola z budynkami na każdej planecie."
  
- autobuild_rename:0 "Rename specialize planets."
- autobuild_rename.tooltip:0 "Will rename specialize planets."
+ autobuild_rename:0 "Zmiana specjalizacji planet."
+ autobuild_rename.tooltip:0 "Zmieni specjalizację planet."
  
  # labs
- autobuild_5:0 "AutoImprove Laboratories."
- autobuild_5.tooltip:0 "All basic labs will be improved depending on the settings."
+ autobuild_5:0 "Auto ulepszenie Laboratoriów."
+ autobuild_5.tooltip:0 "Wszystkie podstawowe laboratoria zostaną ulepszone w zależności od ustawień."
  
- autobuild_labs_disable_random:0 "Remove random improvement of laboratories."
- autobuild_labs_disable_random.tooltip:0 "If the laboratory doesn't fall under any condition then it will not improve randomly."
+ autobuild_labs_disable_random:0 "Usunąć losowe ulepszenie laboratoriów."
+ autobuild_labs_disable_random.tooltip:0 "Jeśli laboratoria nie spelniają jednego z poniższych warunków, nie są losowo ulepszone."
  
- autobuild_labs_not_count_trait:0 "Don't count trait."
- autobuild_labs_not_count_trait.tooltip:0 "Don't take into account a pop's traits (natural sociologists etc) when laboratories improve."
+ autobuild_labs_not_count_trait:0 "Nie zaliczaj cech."
+ autobuild_labs_not_count_trait.tooltip:0 "Nie bierz pod uwagę cech ludności (wykwalifikowanych socjologów, fizyków, inżynierów) przy ulepszaniu laboratoriów."
  
- autobuild_labs_not_count_planet:0 "Don't count planet's modifiers."
- autobuild_labs_not_count_planet.tooltip:0 "Improvement of the laboratories will occur without regards to any planet modifiers."
+ autobuild_labs_not_count_planet:0 "Nie zaliczaj modyfikatorów planet."
+ autobuild_labs_not_count_planet.tooltip:0 "Ulepszenie laboratoriów nastąpi bez uwzględnienia modyfikatorów planet."
  
- autobuild_physics_lab_ratio:0 "Ratio of physics labs x"
- autobuild_biolab_ratio:0 "Ratio of biolabs x"
- autobuild_engineering_facility_ratio:0 "Ratio of engineering facility x"
+ autobuild_physics_lab_ratio:0 "Współczynnik laboratoriów fizyki x"
+ autobuild_biolab_ratio:0 "Wspólczynnik laboratoriów socjologii x"
+ autobuild_engineering_facility_ratio:0 "Współczynnik laboratoriów technicznych x"
  
  # on ept tile
- autobuild_7:0 "AutoBuild on empty tiles."
+ autobuild_7:0 "Autobudowa na pustych polach."
  
- autobuild_mine_ratio:0 "Ratio of mines x"
- autobuild_power_plant_ratio:0 "Ratio of power plants x"
- autobuild_lab_ratio:0 "Ratio of labs x"
+ autobuild_mine_ratio:0 "Współczynnik kopalń x"
+ autobuild_power_plant_ratio:0 "Współczynnik elektrowni x"
+ autobuild_lab_ratio:0 "Współczynnik laboratoriów x"
  
  # unique buildings
- autobuild_planet_unique:0 "§BMenu:§! Unique buildings."
- autobuild_planet_unique.tooltip:0 "Settings for building rare buildings (clinic, power hub etc)."
- autobuild_on_every_planet.tooltip:0 "Will build on every planet in the best place (when it makes sense). Will replace regular buildings if planet doesn't have any free tiles."
+ autobuild_planet_unique:0 "§BUstawienia:§! Unikalne Budynki."
+ autobuild_planet_unique.tooltip:0 "Ustawienie budowy unikalnych budynków (klinik, węzłów energetycznych etc)."
+ autobuild_on_every_planet.tooltip:0 "Będą budowane na każdej planecie w najlepszym miejscu (jeśli będzie miało to sens). Zastąpi regularne budynki planety jesli nie ma żadnych wolnych pól."
  
  # cost
- autobuild_cost:0 "Keep Resources in Reserve."
- autobuild_cost.tooltip:0 "Automatic improvements and buildings occur only if you have enough resources (default 1000 minerals)."
+ autobuild_cost:0 "Zachowaj Zasoby w Rezerwie."
+ autobuild_cost.tooltip:0 "Automatyczne ulepszenia i budowa budynków będą działały tylko wtedy, gdy masz wystarczająco dużo zasobów (domyślnie 1000 minerałów)."
  
- autobuild_keep:0 "§HKeep§!"
+ autobuild_keep:0 "§HZachowaj§!"
  
  # planets
  # modifiers
- free_from_auto_update:0 "Ignore AutoImprove"
- free_from_auto_update_desc:0 "On this planet buildings will not be improved automatically."
+ free_from_auto_update:0 "Ignoruj auto ulepszenia"
+ free_from_auto_update_desc:0 "Na tej planecie budynki nie zostaną ulepszonee automatycznie."
  
- free_from_autobuild:0 "Ignore AutoBuild"
- free_from_autobuild_desc:0 "On this planet new buildings will not be built automatically."
+ free_from_autobuild:0 "Ignoruj Autobudowę"
+ free_from_autobuild_desc:0 "Na tej planecie budynki nie zostaną zbudowane automatycznie."
  
- planet_forge_autobuild:0 "Industrial Planet"
- planet_forge_autobuild_desc:0 "This planet will be rebuilt into an industrial center. Any power plants, farms or laboratories will be replaced."
+ planet_forge_autobuild:0 "Planeta Przemysłowa"
+ planet_forge_autobuild_desc:0 "Ta planeta zostanie przebudowana w centrum przemysłowe. Wszelkie elektrownie, farmy i laboratoria zostaną zastąpione."
  
- planet_power_plant_autobuild:0 "Energy Planet"
- planet_power_plant_autobuild_desc:0 "This planet will be rebuilt into an energy center. Any mines, farms or laboratories will be replaced."
+ planet_power_plant_autobuild:0 "Planeta Energetyczna"
+ planet_power_plant_autobuild_desc:0 "Ta planeta zostanie przebudowana w centrum energetyczne. Wszelkie kopalnie, farmy i laboratoria zostaną zastąpione."
  
- planet_labs_autobuild:0 "Research Planet"
- planet_labs_autobuild_desc:0 "This planet will be rebuilt into a Research center. Any mines, farms or power plants will be replaced."
+ planet_labs_autobuild:0 "Planeta Naukowa"
+ planet_labs_autobuild_desc:0 "Ta planeta zostanie przebudowana w centrum badań. Wszelkie kopalnie, farmy i elektrownie zostaną zastąpione."
  
- planet_farms_autobuild:0 "Farm Planet"
- planet_farms_autobuild_desc:0 "This planet will be rebuilt into a farm center. Any mines, power plants or laboratories will be replaced."
+ planet_farms_autobuild:0 "Planeta Rolnicza"
+ planet_farms_autobuild_desc:0 "Ta planeta zostanie przebudowana w centrum rolnicze. Wszelkie kopalnie, elektrownie i laboratoria zostaną zastąpione."
  
- autobuild_planet_labs_physics:0 "Physics Planet"
- autobuild_planet_labs_physics_desc:0 "On this planet, all laboratories will be focused on physics research."
+ autobuild_planet_labs_physics:0 "Planeta Fizyki"
+ autobuild_planet_labs_physics_desc:0 "Na tej planecie wszystkie laboratoria skoncentrują się na badaniach fizyki."
  
- autobuild_planet_labs_bio:0 "Society Planet"
- autobuild_planet_labs_bio_desc:0 "On this planet, all laboratories will be focused on society research."
+ autobuild_planet_labs_bio:0 "Planeta Socjologii"
+ autobuild_planet_labs_bio_desc:0 "Na tej planecie wszystkie laboratoria skoncentrują się na badaniach socjologii."
  
- autobuild_planet_labs_engineering:0 "Engineering Planet"
- autobuild_planet_labs_engineering_desc:0 "On this planet, all laboratories will be focused on engineering research."
+ autobuild_planet_labs_engineering:0 "Planeta Techniki"
+ autobuild_planet_labs_engineering_desc:0 "Na tej planecie wszystkie laboratoria skoncentrują się na badaniach techniki."
  
  # edicts
- edict_no_sector:0 "There is No Need for Sectors"
- edict_no_sector_desc:0 "This edict will remove the need for sectors."
+ edict_autobuild_hide_planetary_edicts:0 "Ukryj/Pokaż auto edykty"
+ edict_autobuild_hide_planetary_edicts_desc:0 "Wszystkie planetarne auto edykty zostaną ukryte lub pokazane."
  
- edict_autobuild_hide_planetary_edicts:0 "Hide/Show auto edicts"
- edict_autobuild_hide_planetary_edicts_desc:0 "Will hide or show all planetary AutoBuild edicts."
- 
- edict_autobuild_clear_planetary_edicts:0 "Clear auto edicts"
- edict_autobuild_clear_planetary_edicts_desc:0 "All autobuild will be removed."
+ edict_autobuild_clear_planetary_edicts:0 "Wyczyść auto edykty"
+ edict_autobuild_clear_planetary_edicts_desc:0 "Wszystkie autobudowy będą usunięte."
  
  # lines without text, only this collum needed
  autobuild_0.tooltip:0 "$autobuild_0$"
@@ -325,10 +322,10 @@
  autobuild_repair_off:0 "$modmenu_off$ $autobuild_repair$"
  autobuild_repair_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_repair.tooltip$"
  
- autobuild_disable_edict_on:0 "$modmenu_on$ $autobuild_disable_edict$"
- autobuild_disable_edict_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_disable_edict.tooltip$"
- autobuild_disable_edict_off:0 "$modmenu_off$ $autobuild_disable_edict$"
- autobuild_disable_edict_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_disable_edict.tooltip$"
+ autobuild_ignore_seсtor_on:0 "$modmenu_on$ $autobuild_ignore_seсtor$"
+ autobuild_ignore_seсtor_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ignore_seсtor.tooltip$"
+ autobuild_ignore_seсtor_off:0 "$modmenu_off$ $autobuild_ignore_seсtor$"
+ autobuild_ignore_seсtor_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_seсtor.tooltip$"
  
  autobuild_local_resettle_on:0 "$modmenu_on$ $autobuild_local_resettle$"
  autobuild_local_resettle_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_local_resettle.tooltip$"

@@ -267,43 +267,19 @@ autobuild_trigger_tile_has_strategic_res = {
 		sth_trigger_autobuild_tile_has_strategic_res = yes
 		# fell free use this trigger for your mod
 		autobuild_trigger_tile_has_strategic_res_mod_api = yes
-		has_resource = {
-			type = sr_alien_pets
-			amount > 0
+		has_resource = sr_alien_pets
+		has_resource = sr_betharian
+		and = {
+			has_resource = yes
+			nor = {
+				has_resource = minerals
+				has_resource = food
+				has_resource = energy
+				has_resource = physics_research
+				has_resource = society_research
+				has_resource = engineering_research
+			}
 		}
-		has_resource = {
-			type = sr_betharian
-			amount > 0
-		}
-		# and = {
-		# 	has_any_resource = yes
-		# 	nor = {
-		# 		has_resource = {
-		# 			type = minerals
-		# 			amount > 0
-		# 		}
-		# 		has_resource = {
-		# 			type = food
-		# 			amount > 0
-		# 		}
-		# 		has_resource = {
-		# 			type = energy
-		# 			amount > 0
-		# 		}
-		# 		has_resource = {
-		# 			type = physics_research
-		# 			amount > 0
-		# 		}
-		# 		has_resource = {
-		# 			type = society_research
-		# 			amount > 0
-		# 		}
-		# 		has_resource = {
-		# 			type = engineering_research
-		# 			amount > 0
-		# 		}
-		# 	}
-		# }
 	}
 }
 
@@ -320,8 +296,8 @@ autobuild_trigger_tile_has_strategic_res_mod_api = {
 }
 
 autobuild_trigger_tile_has_any_res = {
-	#has_resource = yes
-	has_any_resource = yes
+	has_resource = yes
+	#has_any_resource = yes
 	nand = {
 		owner = {
 			has_country_flag = autobuild_ignore_minerals
@@ -329,10 +305,7 @@ autobuild_trigger_tile_has_any_res = {
 		planet = {
 			autobuild_trigger_planet_minerals = no
 		}
-		has_resource = {
-			type = minerals
-			amount > 0
-		}
+		has_resource = minerals
 	}
 	nand = {
 		owner = {
@@ -341,10 +314,7 @@ autobuild_trigger_tile_has_any_res = {
 		planet = {
 			autobuild_trigger_planet_food = no
 		}
-		has_resource = {
-			type = food
-			amount > 0
-		}
+		has_resource = food
 	}
 	nand = {
 		owner = {
@@ -353,10 +323,7 @@ autobuild_trigger_tile_has_any_res = {
 		planet = {
 			autobuild_trigger_planet_energy = no
 		}
-		has_resource = {
-			type = energy
-			amount > 0
-		}
+		has_resource = energy
 	}
 	nand = {
 		owner = {
@@ -366,18 +333,9 @@ autobuild_trigger_tile_has_any_res = {
 			autobuild_trigger_planet_science = no
 		}
 		or = {
-			has_resource = {
-				type = physics_research
-				amount > 0
-			}
-			has_resource = {
-				type = society_research
-				amount > 0
-			}
-			has_resource = {
-				type = engineering_research
-				amount > 0
-			}
+			has_resource = physics_research
+			has_resource = society_research
+			has_resource = engineering_research
 		}
 	}
 }
@@ -626,31 +584,13 @@ autobuild_trigger_tile_has_food_more_than_others = {
 			autobuild_trigger_planet_food = yes
 		}
 	}
-	has_resource = {
-		type = food
-		amount > 0
-	}
+	has_resource = food
 	nor = {
-		has_resource = {
-			type = energy
-			amount > 0
-		}
-		has_resource = {
-			type = minerals
-			amount > 0
-		}
-		has_resource = {
-			type = physics_research
-			amount > 0
-		}
-		has_resource = {
-			type = society_research
-			amount > 0
-		}
-		has_resource = {
-			type = engineering_research
-			amount > 0
-		}
+		has_resource = energy
+		has_resource = minerals
+		has_resource = physics_research
+		has_resource = society_research
+		has_resource = engineering_research
 	}
 	# or = {
 	# 	has_resource = {
@@ -998,10 +938,10 @@ autobuild_trigger_has_pop = {
 			# 	country = owner
 			# 	type = purge_normal
 			# }
-			has_purge_type = {
-				country = owner
-				type = purge_processing
-			}
+			# has_purge_type = {
+			# 	country = owner
+			# 	type = purge_processing
+			# }
 			has_slavery_type = {
 				country = owner
 				type = slavery_matrix
