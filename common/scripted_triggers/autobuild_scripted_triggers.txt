@@ -296,8 +296,8 @@ autobuild_trigger_tile_has_strategic_res_mod_api = {
 }
 
 autobuild_trigger_tile_has_any_res = {
-	has_resource = yes
-	#has_any_resource = yes
+	#has_resource = yes
+	has_any_resource = yes
 	nand = {
 		owner = {
 			has_country_flag = autobuild_ignore_minerals

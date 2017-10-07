@@ -65,8 +65,8 @@
  autobuild_repair:0 "Auto Naprawa."
  autobuild_repair.tooltip:0 "Automatyczna naprawa budynków. §RUwaga§!, to opcja oszustwa, naprawa będzie natychmiastowa ze stałym kosztem 50 minerałów."
  
- autobuild_ignore_seсtor:0 "Ignoruj sektory."
- autobuild_ignore_seсtor.tooltip:0 "Budowa w sektorach wyłączona."
+ autobuild_ignore_sector:0 "Ignoruj sektory."
+ autobuild_ignore_sector.tooltip:0 "Budowa w sektorach wyłączona."
  
  autobuild_local_resettle:0 "Lokalne przesiedlenie."
  autobuild_local_resettle.tooltip:0 "Spróbuje przemieścić populacje z pól bez budynków na pola z budynkami na każdej planecie."
@@ -322,10 +322,10 @@
  autobuild_repair_off:0 "$modmenu_off$ $autobuild_repair$"
  autobuild_repair_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_repair.tooltip$"
  
- autobuild_ignore_seсtor_on:0 "$modmenu_on$ $autobuild_ignore_seсtor$"
- autobuild_ignore_seсtor_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ignore_seсtor.tooltip$"
- autobuild_ignore_seсtor_off:0 "$modmenu_off$ $autobuild_ignore_seсtor$"
- autobuild_ignore_seсtor_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_seсtor.tooltip$"
+ autobuild_ignore_sector_on:0 "$modmenu_on$ $autobuild_ignore_sector$"
+ autobuild_ignore_sector_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ignore_sector.tooltip$"
+ autobuild_ignore_sector_off:0 "$modmenu_off$ $autobuild_ignore_sector$"
+ autobuild_ignore_sector_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_sector.tooltip$"
  
  autobuild_local_resettle_on:0 "$modmenu_on$ $autobuild_local_resettle$"
  autobuild_local_resettle_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_local_resettle.tooltip$"

@@ -65,8 +65,8 @@
  autobuild_repair:0 "Авторемонт."
  autobuild_repair.tooltip:0 "Автоматический ремонт построек. §RВнимание§!, это читерная опция, тк ремонт будет мгновенным с фиксированной стоимостью 50 минералов."
  
- autobuild_ignore_seсtor:0 "Игнорировать сектора."
- autobuild_ignore_seсtor.tooltip:0 "Не будет строить в секторах."
+ autobuild_ignore_sector:0 "Игнорировать сектора."
+ autobuild_ignore_sector.tooltip:0 "Не будет строить в секторах."
  
  autobuild_local_resettle:0 "Локальное переселение."
  autobuild_local_resettle.tooltip:0 "Будет пытаться переместить население с плиток без зданий на плитки со зданиями."
@@ -322,10 +322,10 @@
  autobuild_repair_off:0 "$modmenu_off$ $autobuild_repair$"
  autobuild_repair_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_repair.tooltip$"
  
- autobuild_ignore_seсtor_on:0 "$modmenu_on$ $autobuild_ignore_seсtor$"
- autobuild_ignore_seсtor_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ignore_seсtor.tooltip$"
- autobuild_ignore_seсtor_off:0 "$modmenu_off$ $autobuild_ignore_seсtor$"
- autobuild_ignore_seсtor_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_seсtor.tooltip$"
+ autobuild_ignore_sector_on:0 "$modmenu_on$ $autobuild_ignore_sector$"
+ autobuild_ignore_sector_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ignore_sector.tooltip$"
+ autobuild_ignore_sector_off:0 "$modmenu_off$ $autobuild_ignore_sector$"
+ autobuild_ignore_sector_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_sector.tooltip$"
  
  autobuild_local_resettle_on:0 "$modmenu_on$ $autobuild_local_resettle$"
  autobuild_local_resettle_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_local_resettle.tooltip$"

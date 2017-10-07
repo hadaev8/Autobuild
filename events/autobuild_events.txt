@@ -1247,36 +1247,35 @@ planet_event = {
 					has_global_flag = autobuild_ai_allowed
 				}
 			}
+			minerals > 100
 			autobuild_trigger_cost = yes
 			has_technology = tech_frontier_health
 		}
-		free_building_tiles > 0
+		or = {
+			free_building_tiles > 0
+			autobuild_trigger_has_any_regular_building = yes
+		}
 	}
 
 	immediate = {
 		random_tile = {
 			limit = {
-				has_building = no
+				or = {
+					has_building = no
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
 				autobuild_trigger_has_pop = yes
 				or = {
 					has_resource = society_research
 					autobuild_trigger_tile_has_any_res = no
 				}
 			}
-			if = {
-				limit = {
-					root = {
-						or = {
-							has_building = building_capital_2
-							has_building = building_capital_3
-						}
-					}
-				}
-				add_building_construction = building_hospital
-				else = {
-					add_building_construction = building_clinic
-				}
-			}
+			add_building_construction = building_clinic
 		}
 	}
 }
@@ -4188,7 +4187,7 @@ fleet_event = {
 				set_event_locked = no
 				remove_fleet_flag = autobuild_fleet
 				fleet_event = { id = autobuild.0 days = 100 }
-				set_name = "Autobuild Ship"
+				set_name = "Construction Ship"
 			}
 		}
 	}
@@ -4243,7 +4242,7 @@ ship_event = {
 			clear_fleet_actions = this
 			set_event_locked = no
 			remove_fleet_flag = autobuild_fleet
-			set_name = "[Root.GetName]"
+			set_name = "Construction Ship"
 		}
 	}
 }
@@ -4276,7 +4275,7 @@ country_event = {
 			clear_fleet_actions = this
 			set_event_locked = no
 			remove_fleet_flag = autobuild_fleet
-			set_name = random
+			set_name = "Construction Ship"
 		}
 		remove_country_flag = autobuild_1
 		remove_country_flag = autobuild_2

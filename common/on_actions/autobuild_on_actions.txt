@@ -120,11 +120,11 @@ on_pop_birth = {
 
 # A pop has been built
 # This = pop
-#on_buildable_pop_created = {
-#	events = {
-#		autobuild.158
-#	}
-#}
+on_buildable_pop_created = {
+	events = {
+		autobuild.158
+	}
+}
 
 #From = Country scope
 #This = Planet scope

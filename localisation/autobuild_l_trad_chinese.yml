@@ -66,8 +66,8 @@
  autobuild_repair:0 "自動修復."
  autobuild_repair.tooltip:0 "自動修復. §RWarning§!, this is a semi-cheat option as buildings will be repaired instantly with fixed cost 50 minerals."
  
- autobuild_ignore_seсtor:0 "忽略星區."
- autobuild_ignore_seсtor.tooltip:0 "不建設星區."
+ autobuild_ignore_sector:0 "忽略星區."
+ autobuild_ignore_sector.tooltip:0 "不建設星區."
  
  autobuild_local_resettle:0 "本地安置."
  autobuild_local_resettle.tooltip:0 "將沒有工作的人口安置到建築物.(待確認)"

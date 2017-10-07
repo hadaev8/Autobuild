@@ -66,8 +66,8 @@
  autobuild_repair:0 "自动修复."
  autobuild_repair.tooltip:0 "自动修复. §RWarning§!, this is a semi-cheat option as buildings will be repaired instantly with fixed cost 50 minerals."
  
- autobuild_ignore_seсtor:0 "忽略星区."
- autobuild_ignore_seсtor.tooltip:0 "不建设星区."
+ autobuild_ignore_sector:0 "忽略星区."
+ autobuild_ignore_sector.tooltip:0 "不建设星区."
  
  autobuild_local_resettle:0 "本地安置."
  autobuild_local_resettle.tooltip:0 "将没有工作的人口安置到建筑物.(待确认)"
@@ -323,10 +323,10 @@
  autobuild_repair_off:0 "$modmenu_off$ $autobuild_repair$"
  autobuild_repair_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_repair.tooltip$"
  
- autobuild_ignore_seсtor_on:0 "$modmenu_on$ $autobuild_ignore_seсtor$"
- autobuild_ignore_seсtor_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ignore_seсtor.tooltip$"
- autobuild_ignore_seсtor_off:0 "$modmenu_off$ $autobuild_ignore_seсtor$"
- autobuild_ignore_seсtor_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_seсtor.tooltip$"
+ autobuild_ignore_sector_on:0 "$modmenu_on$ $autobuild_ignore_sector$"
+ autobuild_ignore_sector_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_ignore_sector.tooltip$"
+ autobuild_ignore_sector_off:0 "$modmenu_off$ $autobuild_ignore_sector$"
+ autobuild_ignore_sector_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_ignore_sector.tooltip$"
  
  autobuild_local_resettle_on:0 "$modmenu_on$ $autobuild_local_resettle$"
  autobuild_local_resettle_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_local_resettle.tooltip$"
