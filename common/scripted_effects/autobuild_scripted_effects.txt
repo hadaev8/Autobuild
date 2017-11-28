@@ -27,6 +27,7 @@
 #
 
 autobuild_effect_clear_cost_flags = {
+	remove_country_flag = autobuild_cost_100000
 	remove_country_flag = autobuild_cost_20000
 	remove_country_flag = autobuild_cost_5000
 	remove_country_flag = autobuild_cost_2500
@@ -91,6 +92,15 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.115 }
 	planet_event = { id = autobuild.116 }
 	planet_event = { id = autobuild.117 }
+	planet_event = { id = autobuild.118 }
+	planet_event = { id = autobuild.119 }
+	planet_event = { id = autobuild.120 }
+	planet_event = { id = autobuild.121 }
+	planet_event = { id = autobuild.122 }
+	planet_event = { id = autobuild.123 }
+	planet_event = { id = autobuild.124 }
+	planet_event = { id = autobuild.125 }
+	planet_event = { id = autobuild.126 }
 
 
 #	planet_event = { id = autobuild.130 }

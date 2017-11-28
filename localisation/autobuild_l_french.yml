@@ -101,7 +101,7 @@
  # unique buildings
  autobuild_planet_unique:0 "§BMenu:§! Bâtiments uniques"
  autobuild_planet_unique.tooltip:0 "Paramétrage de la construction des bâtiments uniques (clinique, centre d'alimentation etc…)."
- autobuild_on every_planet.tooltip:0 "Seront construits sur toutes les planètes où cela fait sens et ce au meilleur endroit. Va éventuellement remplacer des bâtiments préexistants s'il ne reste pas de cases vides sur la planète."
+ autobuild_on_every_planet.tooltip:0 "Seront construits sur toutes les planètes où cela fait sens et ce au meilleur endroit. Va éventuellement remplacer des bâtiments préexistants s'il ne reste pas de cases vides sur la planète."
  
  # cost
  autobuild_cost:0 "Garder une réserve"
@@ -186,7 +186,7 @@
  autobuild_planet_labs_rename:0 "£science_ship $autobuild_planet_labs$ [Owner.autobuild_rename_planet_labs_num]"
  autobuild_planet_labs_physics_rename:0 "£physics $autobuild_planet_labs_physics$ [Owner.autobuild_rename_planet_labs_physics_num]"
  autobuild_planet_labs_bio_rename:0 "£society $autobuild_planet_labs_bio$ [Owner.autobuild_rename_planet_labs_bio_num]"
- autobuild_planet_labs_engineering_rename:0 "£engineering $autobuild_planet_engineering$ [Owner.autobuild_rename_planet_labs_engineering_num]"
+ autobuild_planet_labs_engineering_rename:0 "£engineering $autobuild_planet_labs_engineering$ [Owner.autobuild_rename_planet_labs_engineering_num]"
  autobuild_planet_food_rename:0 "£food $autobuild_planet_food$ [Owner.autobuild_rename_planet_farms_num]"
  
  # main menu
@@ -338,60 +338,51 @@
  autobuild_rename_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_rename.tooltip$"
  
  # unique buildings
- autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique$"
- autobuild_planet_unique_off.tooltip:0 "$modmenu_off$ $autobuild_planet_unique$"
+ autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique.tooltip$"
+ autobuild_planet_unique_off.tooltip:0 "$modmenu_off$ $autobuild_planet_unique.tooltip$"
  
- autobuild_building_xeno_zoo:0 "$building_xeno_zoo$"
- autobuild_building_xeno_zoo_on:0 "$modmenu_on$ $autobuild_building_xeno_zoo$"
- autobuild_building_xeno_zoo_off:0 "$modmenu_off$ $autobuild_building_xeno_zoo$"
- 
- autobuild_building_clinic:0 "$building_clinic$"
- autobuild_building_clinic_on:0 "$modmenu_on$ $autobuild_building_clinic$"
- autobuild_building_clinic_off:0 "$modmenu_off$ $autobuild_building_clinic$"
- 
- autobuild_building_mineral_silo_1:0 "$building_mineral_silo_1$"
- autobuild_building_mineral_silo_1_on:0 "$modmenu_on$ $autobuild_building_mineral_silo_1$"
- autobuild_building_mineral_silo_1_off:0 "$modmenu_off$ $autobuild_building_mineral_silo_1$"
- 
- autobuild_building_akx_worm_2:0 "$building_akx_worm_2$"
- autobuild_building_akx_worm_2_on:0 "$modmenu_on$ $autobuild_building_akx_worm_2$"
- autobuild_building_akx_worm_2_off:0 "$modmenu_off$ $autobuild_building_akx_worm_2$"
- 
- autobuild_building_visitor_center:0 "$building_visitor_center$"
- autobuild_building_visitor_center_on:0 "$modmenu_on$ $autobuild_building_visitor_center$"
- autobuild_building_visitor_center_off:0 "$modmenu_off$ $autobuild_building_visitor_center$"
- 
- autobuild_building_slave_processing:0 "$building_slave_processing$"
- autobuild_building_slave_processing_on:0 "$modmenu_on$ $autobuild_building_slave_processing$"
- autobuild_building_slave_processing_off:0 "$modmenu_off$ $autobuild_building_slave_processing$"
- 
- autobuild_building_temple:0 "$building_temple$"
- autobuild_building_temple_on:0 "$modmenu_on$ $autobuild_building_temple$"
- autobuild_building_temple_off:0 "$modmenu_off$ $autobuild_building_temple$"
- 
- autobuild_building_autochthon_monument:0 "$building_autochthon_monument$"
- autobuild_building_autochthon_monument_on:0 "$modmenu_on$ $autobuild_building_autochthon_monument$"
- autobuild_building_autochthon_monument_off:0 "$modmenu_off$ $autobuild_building_autochthon_monument$"
- 
- autobuild_building_power_hub_1:0 "$building_power_hub_1$"
- autobuild_building_power_hub_1_on:0 "$modmenu_on$ $autobuild_building_power_hub_1$"
- autobuild_building_power_hub_1_off:0 "$modmenu_off$ $autobuild_building_power_hub_1$"
- 
- autobuild_building_mineral_processing_plant_1:0 "$building_mineral_processing_plant_1$"
- autobuild_building_mineral_processing_plant_1_on:0 "$modmenu_on$ $autobuild_building_mineral_processing_plant_1$"
- autobuild_building_mineral_processing_plant_1_off:0 "$modmenu_off$ $autobuild_building_mineral_processing_plant_1$"
- 
- autobuild_building_paradise_dome:0 "$building_paradise_dome$"
- autobuild_building_paradise_dome_on:0 "$modmenu_on$ $autobuild_building_paradise_dome$"
- autobuild_building_paradise_dome_off:0 "$modmenu_off$ $autobuild_building_paradise_dome$"
- 
- autobuild_building_hypercomms_forum:0 "$building_hypercomms_forum$"
- autobuild_building_hypercomms_forum_on:0 "$modmenu_on$ $autobuild_building_hypercomms_forum$"
- autobuild_building_hypercomms_forum_off:0 "$modmenu_off$ $autobuild_building_hypercomms_forum$"
- 
- autobuild_building_hab_cultural_center:0 "$building_hab_cultural_center$"
- autobuild_building_hab_cultural_center_on:0 "$modmenu_on$ $autobuild_building_hab_cultural_center$"
- autobuild_building_hab_cultural_center_off:0 "$modmenu_off$ $autobuild_building_hab_cultural_center$"
+ autobuild_building_power_hub_1_on:0 "$modmenu_on$ $building_power_hub_1$"
+ autobuild_building_power_hub_1_off:0 "$modmenu_off$ $building_power_hub_1$"
+ autobuild_building_mineral_silo_1_on:0 "$modmenu_on$ $building_mineral_silo_1$"
+ autobuild_building_mineral_silo_1_off:0 "$modmenu_off$ $building_mineral_silo_1$"
+ autobuild_building_mineral_processing_plant_1_on:0 "$modmenu_on$ $building_mineral_processing_plant_1$"
+ autobuild_building_mineral_processing_plant_1_off:0 "$modmenu_off$ $building_mineral_processing_plant_1$"
+ autobuild_building_autochthon_monument_on:0 "$modmenu_on$ $building_autochthon_monument$"
+ autobuild_building_autochthon_monument_off:0 "$modmenu_off$ $building_autochthon_monument$"
+ autobuild_building_temple_on:0 "$modmenu_on$ $building_temple$"
+ autobuild_building_temple_off:0 "$modmenu_off$ $building_temple$"
+ autobuild_building_clone_vats_on:0 "$modmenu_on$ $building_clone_vats$"
+ autobuild_building_clone_vats_off:0 "$modmenu_off$ $building_clone_vats$"
+ autobuild_building_planetary_shield_generator_on:0 "$modmenu_on$ $building_planetary_shield_generator$"
+ autobuild_building_planetary_shield_generator_off:0 "$modmenu_off$ $building_planetary_shield_generator$"
+ autobuild_building_slave_processing_on:0 "$modmenu_on$ $building_slave_processing$"
+ autobuild_building_slave_processing_off:0 "$modmenu_off$ $building_slave_processing$"
+ autobuild_building_clinic_on:0 "$modmenu_on$ $building_clinic$"
+ autobuild_building_clinic_off:0 "$modmenu_off$ $building_clinic$"
+ autobuild_building_military_academy_on:0 "$modmenu_on$ $building_military_academy$"
+ autobuild_building_military_academy_off:0 "$modmenu_off$ $building_military_academy$"
+ autobuild_building_paradise_dome_on:0 "$modmenu_on$ $building_paradise_dome$"
+ autobuild_building_paradise_dome_off:0 "$modmenu_off$ $building_paradise_dome$"
+ autobuild_building_visitor_center_on:0 "$modmenu_on$ $building_visitor_center$"
+ autobuild_building_visitor_center_off:0 "$modmenu_off$ $building_visitor_center$"
+ autobuild_building_hive_synapse_on:0 "$modmenu_on$ $building_hive_synapse$"
+ autobuild_building_hive_synapse_off:0 "$modmenu_off$ $building_hive_synapse$"
+ autobuild_building_symbol_purity_on:0 "$modmenu_on$ $building_symbol_purity$"
+ autobuild_building_symbol_purity_off:0 "$modmenu_off$ $building_symbol_purity$"
+ autobuild_building_hab_cultural_center_on:0 "$modmenu_on$ $building_hab_cultural_center$"
+ autobuild_building_hab_cultural_center_off:0 "$modmenu_off$ $building_hab_cultural_center$"
+ autobuild_building_akx_worm_1_on:0 "$modmenu_on$ $building_akx_worm_1$"
+ autobuild_building_akx_worm_1_off:0 "$modmenu_off$ $building_akx_worm_1$"
+ autobuild_building_akx_worm_2_on:0 "$modmenu_on$ $building_akx_worm_2$"
+ autobuild_building_akx_worm_2_off:0 "$modmenu_off$ $building_akx_worm_2$"
+ autobuild_building_uplink_node_on:0 "$modmenu_on$ $building_uplink_node$"
+ autobuild_building_uplink_node_off:0 "$modmenu_off$ $building_uplink_node$"
+ autobuild_building_spare_parts_depot_on:0 "$modmenu_on$ $building_spare_parts_depot$"
+ autobuild_building_spare_parts_depot_off:0 "$modmenu_off$ $building_spare_parts_depot$"
+ autobuild_building_neuro_electric_amplifier_on:0 "$modmenu_on$ $building_neuro_electric_amplifier$"
+ autobuild_building_neuro_electric_amplifier_off:0 "$modmenu_off$ $building_neuro_electric_amplifier$"
+ autobuild_building_war_factory_on:0 "$modmenu_on$ $building_war_factory$"
+ autobuild_building_war_factory_off:0 "$modmenu_off$ $building_war_factory$"
  
  # labs
  autobuild_labs_not_count_planet_on:0 "$modmenu_on$ $autobuild_labs_not_count_planet$"
@@ -441,7 +432,4 @@
  autobuild_cost_2500:0 "$autobuild_keep$ 2500 $minerals$."
  autobuild_cost_1000:0 "$autobuild_keep$ 1000 $minerals$."
  autobuild_cost_500:0 "$autobuild_keep$ 500 $minerals$."
- autobuild_cost_inf_500:0 "$autobuild_keep$ 500 $influence$."
- autobuild_cost_inf_250:0 "$autobuild_keep$ 250 $influence$."
- autobuild_cost_inf_100:0 "$autobuild_keep$ 100 $influence$."
  #

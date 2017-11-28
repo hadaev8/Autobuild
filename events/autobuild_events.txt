@@ -1066,6 +1066,7 @@ planet_event = {
 			not = {
 				has_policy_flag = robots_outlawed
 			}
+			minerals > 100
 			autobuild_trigger_cost = yes
 		}
 		not = {
@@ -1247,7 +1248,6 @@ planet_event = {
 					has_global_flag = autobuild_ai_allowed
 				}
 			}
-			minerals > 100
 			autobuild_trigger_cost = yes
 			has_technology = tech_frontier_health
 		}
@@ -1363,7 +1363,7 @@ planet_event = {
 	}
 }
 
-# local autobuild energy hub
+# local energy hub
 planet_event = {
 	id = autobuild.106
 	hide_window = yes
@@ -1421,7 +1421,7 @@ planet_event = {
 	}
 }
 
-# local autobuild minerals complex
+# local building_mineral_processing_plant_1
 planet_event = {
 	id = autobuild.107
 	hide_window = yes
@@ -1479,7 +1479,7 @@ planet_event = {
 	}
 }
 
-# local autobuild xeno zoo
+# local xeno zoo
 planet_event = {
 	id = autobuild.108
 	hide_window = yes
@@ -1961,10 +1961,10 @@ planet_event = {
 		 		type = sr_betharian
 		 		amount > 0
 			}
-			autobuild_trigger_has_pop = yes
 			not = {
 				has_building = betharian_power_plant
 			}
+			autobuild_trigger_has_pop = yes
 		}
 	}
 
@@ -1976,8 +1976,447 @@ planet_event = {
 				not = {
 					has_building = betharian_power_plant
 				}
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_regular_building = yes
+				}
 			}
 			add_building_construction = betharian_power_plant
+		}
+	}
+}
+
+# local building_clone_vats
+planet_event = {
+	id = autobuild.118
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_clone_vats
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_clone_vats
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_technology = tech_cloning
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_science_lab = yes
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_has_pop = yes
+				or = {
+					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_society_more_than_others = yes
+				}
+			}
+			add_building_construction = building_clone_vats
+		}
+	}
+}
+
+# local building_planetary_shield_generator
+planet_event = {
+	id = autobuild.119
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_planetary_shield_generator
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_planetary_shield_generator
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_technology = tech_planetary_shield_generator
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_science_lab = yes
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_has_pop = yes
+				or = {
+					autobuild_trigger_tile_has_any_res = no
+					#autobuild_trigger_tile_has_science_more_than_others = yes
+				}
+			}
+			add_building_construction = building_planetary_shield_generator
+		}
+	}
+}
+
+# local building_military_academy
+planet_event = {
+	id = autobuild.120
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_military_academy
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_military_academy
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_technology = tech_centralized_command
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_science_lab = yes
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_has_pop = yes
+				or = {
+					autobuild_trigger_tile_has_any_res = no
+					#autobuild_trigger_tile_has_science_more_than_others = yes
+				}
+			}
+			add_building_construction = building_military_academy
+		}
+	}
+}
+
+# local building_hive_synapse
+planet_event = {
+	id = autobuild.121
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_hive_synapse
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_hive_synapse
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_swapped_tradition = tr_synchronicity_hive_mind_synapse
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_power_plant = yes
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_has_pop = yes
+				or = {
+					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_energy_more_than_others = yes
+				}
+			}
+			add_building_construction = building_hive_synapse
+		}
+	}
+}
+
+# local building_symbol_purity
+planet_event = {
+	id = autobuild.122
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_symbol_purity
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_symbol_purity
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_swapped_tradition = tr_purity_symbol_purity
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_any_res = no
+			}
+			add_building_construction = building_symbol_purity
+		}
+	}
+}
+
+# local building_uplink_node
+planet_event = {
+	id = autobuild.123
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_uplink_node
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_uplink_node
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_technology = tech_cultural_heritage
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_any_res = no
+			}
+			add_building_construction = building_uplink_node
+		}
+	}
+}
+
+# local building_spare_parts_depot
+planet_event = {
+	id = autobuild.124
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_spare_parts_depot
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_spare_parts_depot
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_technology = tech_modular_components
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_science_lab = yes
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_has_pop = yes
+				or = {
+					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_society_more_than_others = yes
+				}
+			}
+			add_building_construction = building_spare_parts_depot
+		}
+	}
+}
+
+# local building_neuro_electric_amplifier
+planet_event = {
+	id = autobuild.125
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_neuro_electric_amplifier
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_neuro_electric_amplifier
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_swapped_tradition = tr_synchronicity_cyber_comms
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_power_plant = yes
+					autobuild_trigger_has_any_mine = yes
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_has_pop = yes
+				or = {
+					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_energy_more_than_others = yes
+					autobuild_trigger_tile_has_minerals_more_than_others = yes
+				}
+			}
+			add_building_construction = building_neuro_electric_amplifier
+		}
+	}
+}
+
+# local building_war_factory
+planet_event = {
+	id = autobuild.126
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_war_factory
+		}
+		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_has_any_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_war_factory
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					autobuild_trigger_has_any_science_lab = yes
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_has_pop = yes
+				or = {
+					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_science_more_than_others = yes
+				}
+			}
+			add_building_construction = building_war_factory
 		}
 	}
 }
@@ -3330,45 +3769,11 @@ country_event = {
 	picture = GFX_evt_alien_city
 	is_triggered_only = yes
 
-	option = {
-		name = autobuild_building_xeno_zoo_on
-		trigger = { not = { has_country_flag = autobuild_building_xeno_zoo } }
-		custom_tooltip = autobuild_planet_unique_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_xeno_zoo }
-	}
-	option = {
-		name = autobuild_building_xeno_zoo_off
-		trigger = {	has_country_flag = autobuild_building_xeno_zoo }
-		custom_tooltip = autobuild_planet_unique_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_xeno_zoo }
-	}
-	option = {
-		name = autobuild_building_clinic_on
-		trigger = { not = { has_country_flag = autobuild_building_clinic } }
-		custom_tooltip = autobuild_planet_unique_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_clinic }
-	}
-	option = {
-		name = autobuild_building_clinic_off
-		trigger = {	has_country_flag = autobuild_building_clinic }
-		custom_tooltip = autobuild_planet_unique_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_clinic }
-	}
-	option = {
-		name = autobuild_building_mineral_silo_1_on
-		trigger = {	not = { has_country_flag = autobuild_building_mineral_silo_1 } }
-		custom_tooltip = autobuild_planet_unique_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_mineral_silo_1 }
-	}
-	option = {
-		name = autobuild_building_mineral_silo_1_off
-		trigger = {	has_country_flag = autobuild_building_mineral_silo_1 }
-		custom_tooltip = autobuild_planet_unique_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_mineral_silo_1 }
-	}
-	option = {
+		option = {
 		name = autobuild_building_power_hub_1_on
-		trigger = { not = { has_country_flag = autobuild_building_power_hub_1 } }
+		trigger = {
+			not = { has_country_flag = autobuild_building_power_hub_1 }
+		}
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_power_hub_1 }
 	}
@@ -3379,8 +3784,24 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_power_hub_1 }
 	}
 	option = {
+		name = autobuild_building_mineral_silo_1_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_mineral_silo_1 }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_mineral_silo_1 }
+	}
+	option = {
+		name = autobuild_building_mineral_silo_1_off
+		trigger = {	has_country_flag = autobuild_building_mineral_silo_1 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_mineral_silo_1 }
+	}
+	option = {
 		name = autobuild_building_mineral_processing_plant_1_on
-		trigger = { not = { has_country_flag = autobuild_building_mineral_processing_plant_1 } }
+		trigger = {
+			not = { has_country_flag = autobuild_building_mineral_processing_plant_1 }
+		}
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_mineral_processing_plant_1 }
 	}
@@ -3391,80 +3812,11 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_mineral_processing_plant_1 }
 	}
 	option = {
-		name = autobuild_building_akx_worm_2_on
-		trigger = { not = { has_country_flag = autobuild_building_akx_worm_2 } }
-		custom_tooltip = autobuild_planet_unique_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_akx_worm_2 }
-	}
-	option = {
-		name = autobuild_building_akx_worm_2_off
-		trigger = {	has_country_flag = autobuild_building_akx_worm_2 }
-		custom_tooltip = autobuild_planet_unique_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_akx_worm_2 }
-	}
-	option = {
-		name = autobuild_building_visitor_center_on
-		trigger = { not = { has_country_flag = autobuild_building_visitor_center } }
-		custom_tooltip = autobuild_planet_unique_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_visitor_center }
-	}
-	option = {
-		name = autobuild_building_visitor_center_off
-		trigger = {	has_country_flag = autobuild_building_visitor_center }
-		custom_tooltip = autobuild_planet_unique_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_visitor_center }
-	}
-	option = {
-		name = autobuild_building_slave_processing_on
-		trigger = { not = { has_country_flag = autobuild_building_slave_processing } }
-		custom_tooltip = autobuild_planet_unique_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_slave_processing }
-	}
-	option = {
-		name = autobuild_building_slave_processing_off
-		trigger = {	has_country_flag = autobuild_building_slave_processing }
-		custom_tooltip = autobuild_planet_unique_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_slave_processing }
-	}
-	option = {
-		name = autobuild_building_temple_on
-		trigger = { not = { has_country_flag = autobuild_building_temple } }
-		custom_tooltip = autobuild_planet_unique_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_temple }
-	}
-	option = {
-		name = autobuild_building_temple_off
-		trigger = {	has_country_flag = autobuild_building_temple }
-		custom_tooltip = autobuild_planet_unique_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_temple }
-	}
-	option = {
-		name = autobuild_building_hypercomms_forum_on
-		trigger = { not = { has_country_flag = autobuild_building_hypercomms_forum } }
-		custom_tooltip = autobuild_planet_unique_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_hypercomms_forum }
-	}
-	option = {
-		name = autobuild_building_hypercomms_forum_off
-		trigger = {	has_country_flag = autobuild_building_hypercomms_forum }
-		custom_tooltip = autobuild_planet_unique_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_hypercomms_forum }
-	}
-	option = {
-		name = autobuild_building_paradise_dome_on
-		trigger = { not = { has_country_flag = autobuild_building_paradise_dome } }
-		custom_tooltip = autobuild_planet_unique_on.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_paradise_dome }
-	}
-	option = {
-		name = autobuild_building_paradise_dome_off
-		trigger = {	has_country_flag = autobuild_building_paradise_dome }
-		custom_tooltip = autobuild_planet_unique_off.tooltip
-		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_paradise_dome }
-	}
-	option = {
 		name = autobuild_building_autochthon_monument_on
-		trigger = { not = { has_country_flag = autobuild_building_autochthon_monument } }
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+			not = { has_country_flag = autobuild_building_autochthon_monument }
+		}
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_autochthon_monument }
 	}
@@ -3475,8 +3827,154 @@ country_event = {
 		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_autochthon_monument }
 	}
 	option = {
+		name = autobuild_building_temple_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_temple }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_temple }
+	}
+	option = {
+		name = autobuild_building_temple_off
+		trigger = {	has_country_flag = autobuild_building_temple }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_temple }
+	}
+	option = {
+		name = autobuild_building_clone_vats_on
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+			not = { has_country_flag = autobuild_building_clone_vats }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_clone_vats }
+	}
+	option = {
+		name = autobuild_building_clone_vats_off
+		trigger = {	has_country_flag = autobuild_building_clone_vats }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_clone_vats }
+	}
+	option = {
+		name = autobuild_building_planetary_shield_generator_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_planetary_shield_generator }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_planetary_shield_generator }
+	}
+	option = {
+		name = autobuild_building_planetary_shield_generator_off
+		trigger = {	has_country_flag = autobuild_building_planetary_shield_generator }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_planetary_shield_generator }
+	}
+	option = {
+		name = autobuild_building_slave_processing_on
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+			not = { has_country_flag = autobuild_building_slave_processing }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_slave_processing }
+	}
+	option = {
+		name = autobuild_building_slave_processing_off
+		trigger = {	has_country_flag = autobuild_building_slave_processing }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_slave_processing }
+	}
+	option = {
+		name = autobuild_building_clinic_on
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+			not = { has_country_flag = autobuild_building_clinic }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_clinic }
+	}
+	option = {
+		name = autobuild_building_clinic_off
+		trigger = {	has_country_flag = autobuild_building_clinic }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_clinic }
+	}
+	option = {
+		name = autobuild_building_military_academy_on
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+			not = { has_country_flag = autobuild_building_military_academy }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_military_academy }
+	}
+	option = {
+		name = autobuild_building_military_academy_off
+		trigger = {	has_country_flag = autobuild_building_military_academy }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_military_academy }
+	}
+	option = {
+		name = autobuild_building_paradise_dome_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_paradise_dome }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_paradise_dome }
+	}
+	option = {
+		name = autobuild_building_paradise_dome_off
+		trigger = {	has_country_flag = autobuild_building_paradise_dome }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_paradise_dome }
+	}
+	option = {
+		name = autobuild_building_visitor_center_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_visitor_center }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_visitor_center }
+	}
+	option = {
+		name = autobuild_building_visitor_center_off
+		trigger = {	has_country_flag = autobuild_building_visitor_center }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_visitor_center }
+	}
+	option = {
+		name = autobuild_building_hive_synapse_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_hive_synapse }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_hive_synapse }
+	}
+	option = {
+		name = autobuild_building_hive_synapse_off
+		trigger = {	has_country_flag = autobuild_building_hive_synapse }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_hive_synapse }
+	}
+	option = {
+		name = autobuild_building_symbol_purity_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_symbol_purity }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_symbol_purity }
+	}
+	option = {
+		name = autobuild_building_symbol_purity_off
+		trigger = {	has_country_flag = autobuild_building_symbol_purity }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_symbol_purity }
+	}
+	option = {
 		name = autobuild_building_hab_cultural_center_on
-		trigger = { not = { has_country_flag = autobuild_building_hab_cultural_center } }
+		trigger = {
+			not = { has_country_flag = autobuild_building_hab_cultural_center }
+		}
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_hab_cultural_center }
 	}
@@ -3485,6 +3983,94 @@ country_event = {
 		trigger = {	has_country_flag = autobuild_building_hab_cultural_center }
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_hab_cultural_center }
+	}
+	option = {
+		name = autobuild_building_akx_worm_1_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_akx_worm_1 }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_akx_worm_1 }
+	}
+	option = {
+		name = autobuild_building_akx_worm_1_off
+		trigger = {	has_country_flag = autobuild_building_akx_worm_1 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_akx_worm_1 }
+	}
+	option = {
+		name = autobuild_building_akx_worm_2_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_akx_worm_2 }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_akx_worm_2 }
+	}
+	option = {
+		name = autobuild_building_akx_worm_2_off
+		trigger = {	has_country_flag = autobuild_building_akx_worm_2 }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_akx_worm_2 }
+	}
+	option = {
+		name = autobuild_building_uplink_node_on
+		trigger = {
+			has_authority = auth_machine_intelligence 
+			not = { has_country_flag = autobuild_building_uplink_node }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_uplink_node }
+	}
+	option = {
+		name = autobuild_building_uplink_node_off
+		trigger = {	has_country_flag = autobuild_building_uplink_node }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_uplink_node }
+	}
+	option = {
+		name = autobuild_building_spare_parts_depot_on
+		trigger = {
+			has_authority = auth_machine_intelligence 
+			not = { has_country_flag = autobuild_building_spare_parts_depot }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_spare_parts_depot }
+	}
+	option = {
+		name = autobuild_building_spare_parts_depot_off
+		trigger = {	has_country_flag = autobuild_building_spare_parts_depot }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_spare_parts_depot }
+	}
+	option = {
+		name = autobuild_building_neuro_electric_amplifier_on
+		trigger = {
+			not = { has_country_flag = autobuild_building_neuro_electric_amplifier }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_neuro_electric_amplifier }
+	}
+	option = {
+		name = autobuild_building_neuro_electric_amplifier_off
+		trigger = {	has_country_flag = autobuild_building_neuro_electric_amplifier }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_neuro_electric_amplifier }
+	}
+	option = {
+		name = autobuild_building_war_factory_on
+		trigger = {
+			has_authority = auth_machine_intelligence
+			has_government = gov_machine_terminator # required civic cannot be added/removed
+			not = { has_country_flag = autobuild_building_war_factory }
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } set_country_flag = autobuild_building_war_factory }
+	}
+	option = {
+		name = autobuild_building_war_factory_off
+		trigger = {	has_country_flag = autobuild_building_war_factory }
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = { country_event = { id = autobuild.6 } remove_country_flag = autobuild_building_war_factory }
 	}
 	option = {
 		name = modmenu_return
