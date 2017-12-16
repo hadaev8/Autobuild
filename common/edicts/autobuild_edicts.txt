@@ -20,6 +20,7 @@ planet_edict = {
 				modifier = free_from_auto_update
 				days = -1
 			}
+			set_planet_flag = free_from_auto_update
 		}
 	}
 	ai_weight = {
@@ -46,6 +47,7 @@ planet_edict = {
 				modifier = free_from_autobuild
 				days = -1
 			}
+			set_planet_flag = free_from_autobuild
 		}
 	}
 	ai_weight = {
@@ -140,7 +142,8 @@ planet_edict = {
 			add_modifier = {
 				modifier = planet_forge_autobuild
 				days = -1
-			}
+			}			
+			set_planet_flag = planet_forge_autobuild
 		}
 	}
 	ai_weight = {
@@ -184,6 +187,7 @@ planet_edict = {
 				modifier = planet_power_plant_autobuild
 				days = -1
 			}
+			set_planet_flag = planet_power_plant_autobuild
 		}
 	}
 	ai_weight = {
@@ -227,6 +231,7 @@ planet_edict = {
 				modifier = planet_labs_autobuild
 				days = -1
 			}
+			set_planet_flag = planet_labs_autobuild
 		}
 	}
 	ai_weight = {
@@ -266,6 +271,7 @@ planet_edict = {
 				modifier = autobuild_planet_labs_physics
 				days = -1
 			}
+			set_planet_flag = autobuild_planet_labs_physics
 		}
 	}
 	ai_weight = {
@@ -305,6 +311,7 @@ planet_edict = {
 				modifier = autobuild_planet_labs_bio
 				days = -1
 			}
+			set_planet_flag = autobuild_planet_labs_bio
 		}
 	}
 	ai_weight = {
@@ -344,6 +351,7 @@ planet_edict = {
 				modifier = autobuild_planet_labs_engineering
 				days = -1
 			}
+			set_planet_flag = autobuild_planet_labs_engineering
 		}
 	}
 	ai_weight = {
@@ -387,6 +395,7 @@ planet_edict = {
 				modifier = planet_farms_autobuild
 				days = -1
 			}
+			set_planet_flag = planet_farms_autobuild
 		}
 	}
 	ai_weight = {

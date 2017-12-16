@@ -46,6 +46,15 @@ autobuild_effect_clear_planet_modifiers = {
 	remove_modifier = autobuild_planet_labs_bio
 	remove_modifier = autobuild_planet_labs_engineering
 	remove_modifier = planet_farms_autobuild
+	remove_planet_flag = free_from_auto_update
+	remove_planet_flag = free_from_autobuild
+	remove_planet_flag = planet_forge_autobuild
+	remove_planet_flag = planet_power_plant_autobuild
+	remove_planet_flag = planet_labs_autobuild
+	remove_planet_flag = autobuild_planet_labs_physics
+	remove_planet_flag = autobuild_planet_labs_bio
+	remove_planet_flag = autobuild_planet_labs_engineering
+	remove_planet_flag = planet_farms_autobuild
 }
 
 # for tile star trek mod

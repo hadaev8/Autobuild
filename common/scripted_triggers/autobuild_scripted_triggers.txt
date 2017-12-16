@@ -189,7 +189,7 @@ autobuild_trigger_has_any_capital_mod_api = {
 
 autobuild_trigger_free_from_autobuild = {
 	or = {
-		has_modifier = free_from_autobuild
+		has_planet_flag = free_from_autobuild
 		has_building_construction = yes
 		is_planet_class = pc_habitat
 		autobuild_trigger_planet_energy = yes
@@ -207,7 +207,7 @@ autobuild_trigger_free_from_autobuild = {
 
 autobuild_trigger_free_from_autobuild_not_spec_planets = {
 	or = {
-		has_modifier = free_from_autobuild
+		has_planet_flag = free_from_autobuild
 		has_building_construction = yes
 		and = {
 			sector_controlled = yes
@@ -221,7 +221,7 @@ autobuild_trigger_free_from_autobuild_not_spec_planets = {
 autobuild_trigger_free_from_autoupdate = {
 	or = {
 		is_planet_class = pc_habitat
-		has_modifier = free_from_auto_update
+		has_planet_flag = free_from_auto_update
 		has_building_construction = yes
 		and = {
 			sector_controlled = yes
@@ -234,28 +234,28 @@ autobuild_trigger_free_from_autoupdate = {
 
 autobuild_trigger_planet_energy = {
 	or = {
-		has_modifier = planet_power_plant_autobuild
+		has_planet_flag = planet_power_plant_autobuild
 		has_modifier = human_fallen_empires_migration_yellow_ring
 	}
 }
 
 autobuild_trigger_planet_minerals = {
 	or = {
-		has_modifier = planet_forge_autobuild
+		has_planet_flag = planet_forge_autobuild
 		has_modifier = human_fallen_empires_migration_red_ring
 	}
 }
 
 autobuild_trigger_planet_food = {
 	or = {
-		has_modifier = planet_farms_autobuild
+		has_planet_flag = planet_farms_autobuild
 		has_modifier = human_fallen_empires_migration_green_ring
 	}
 }
 
 autobuild_trigger_planet_science = {
 	or = {
-		has_modifier = planet_labs_autobuild
+		has_planet_flag = planet_labs_autobuild
 		has_modifier = human_fallen_empires_migration_blue_ring
 	}
 }
@@ -990,24 +990,28 @@ autobuild_trigger_cost = {
 			has_country_flag = autobuild_cost
 		}
 		and = {
-			has_country_flag = autobuild_cost_20000
-			minerals > 20000
-		}
-		and = {
-			has_country_flag = autobuild_cost_5000
-			minerals > 5000
-		}
-		and = {
-			has_country_flag = autobuild_cost_2500
-			minerals > 2500
+			has_country_flag = autobuild_cost_500
+			minerals > 500
 		}
 		and = {
 			has_country_flag = autobuild_cost_1000
 			minerals > 1000
 		}
 		and = {
-			has_country_flag = autobuild_cost_500
-			minerals > 500
+			has_country_flag = autobuild_cost_2500
+			minerals > 2500
+		}
+		and = {
+			has_country_flag = autobuild_cost_5000
+			minerals > 5000
+		}
+		and = {
+			has_country_flag = autobuild_cost_20000
+			minerals > 20000
+		}
+		and = {
+			has_country_flag = autobuild_cost_100000
+			minerals > 10000
 		}
 	}
 	or = {
@@ -1025,24 +1029,28 @@ autobuild_trigger_cost_energy = {
 			has_country_flag = autobuild_cost
 		}
 		and = {
-			has_country_flag = autobuild_cost_20000
-			energy > 20000
-		}
-		and = {
-			has_country_flag = autobuild_cost_5000
-			energy > 5000
-		}
-		and = {
-			has_country_flag = autobuild_cost_2500
-			energy > 2500
+			has_country_flag = autobuild_cost_500
+			energy > 500
 		}
 		and = {
 			has_country_flag = autobuild_cost_1000
 			energy > 1000
 		}
 		and = {
-			has_country_flag = autobuild_cost_500
-			energy > 500
+			has_country_flag = autobuild_cost_2500
+			energy > 2500
+		}
+		and = {
+			has_country_flag = autobuild_cost_5000
+			energy > 5000
+		}
+		and = {
+			has_country_flag = autobuild_cost_20000
+			energy > 20000
+		}
+		and = {
+			has_country_flag = autobuild_cost_100000
+			energy > 100000
 		}
 	}
 }
