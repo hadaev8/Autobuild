@@ -8,4 +8,4 @@ tags={
 }
 picture="build.jpg"
 remote_file_id="691008512"
-supported_version="1.9.*"
+supported_version="2.0.*"

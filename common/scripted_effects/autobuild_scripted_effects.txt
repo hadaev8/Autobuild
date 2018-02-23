@@ -1,29 +1,3 @@
-#	Example:
-#
-#	example_effect = {
-#		add_energy = -100
-#	}
-#
-#
-#	In a script file:
-#
-#	effect = {
-#		example_effect = yes
-#	}
-#
-
-#	Example:
-#
-#	example_effect = {
-#		add_energy = -100
-#	}
-#
-#
-#	In a script file:
-#
-#	effect = {
-#		example_effect = yes
-#	}
 #
 
 autobuild_effect_clear_cost_flags = {
@@ -88,7 +62,6 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.102 }
 	planet_event = { id = autobuild.103 }
 	planet_event = { id = autobuild.104 }
-	planet_event = { id = autobuild.105 }
 	planet_event = { id = autobuild.106 }
 	planet_event = { id = autobuild.107 }
 	planet_event = { id = autobuild.108 }
@@ -110,7 +83,6 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.124 }
 	planet_event = { id = autobuild.125 }
 	planet_event = { id = autobuild.126 }
-
 
 #	planet_event = { id = autobuild.130 }
 #	planet_event = { id = autobuild.131 }

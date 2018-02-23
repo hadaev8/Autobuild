@@ -44,31 +44,31 @@ autobuild_planet_labs_engineering = {
 }
 
 # for human fallen empires
-human_fallen_empires_migration_yellow_ring = {
+human_fallen_empires_population_yellow_ring = {
 
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
 	icon_frame = 1
 }
 
-human_fallen_empires_migration_red_ring = {
+human_fallen_empires_population_red_ring = {
 
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
 	icon_frame = 1
 }
 
-human_fallen_empires_migration_green_ring = {
+human_fallen_empires_population_green_ring = {
 
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
 	icon_frame = 1
 }
 
-human_fallen_empires_migration_blue_ring = {
+human_fallen_empires_population_blue_ring = {
 
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
 	icon_frame = 1
 }
 
-human_fallen_empires_migration_grey_ring = {
+human_fallen_empires_population_grey_ring = {
 
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
 	icon_frame = 1

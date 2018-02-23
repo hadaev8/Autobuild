@@ -3,7 +3,7 @@
 # planet edicts
 planet_edict = {
 	name = autobuild_free_auto_update
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		nor = {
@@ -30,7 +30,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_free_autobuild
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		nor = {
@@ -57,7 +57,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_clear_planetary_edicts
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		OR = {
@@ -87,7 +87,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_hide_planetary_edicts
-	influence_cost = 0
+	
 	length = 0
 	potential = {}
 
@@ -109,7 +109,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_forge
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_energy = no
@@ -153,7 +153,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_power_plant
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_energy = no
@@ -197,7 +197,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_labs
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_energy = no
@@ -241,7 +241,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_labs_physics
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_science = yes
@@ -281,7 +281,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_labs_bio
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_science = yes
@@ -321,7 +321,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_labs_engineering
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_science = yes
@@ -361,7 +361,7 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_farms
-	influence_cost = 0
+	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_energy = no

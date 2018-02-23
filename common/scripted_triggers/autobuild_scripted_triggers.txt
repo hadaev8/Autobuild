@@ -38,7 +38,6 @@ autobuild_trigger_local_autoupdate = {
 # for planet/tile
 autobuild_trigger_has_any_power_plant = {
 	or = {
-		has_building = building_basic_power_plant
 		has_building = building_power_plant_1
 		has_building = building_power_plant_2
 		has_building = building_power_plant_3
@@ -55,7 +54,6 @@ autobuild_trigger_has_any_mine = {
 		has_building = building_primitive_factory
 		has_building = building_mineral_processing_plant_1
 		has_building = building_mineral_processing_plant_2
-		has_building = building_basic_mine
 		has_building = building_mining_network_1
 		has_building = building_mining_network_2
 		has_building = building_mining_network_3
@@ -68,7 +66,6 @@ autobuild_trigger_has_any_mine = {
 autobuild_trigger_has_any_farm = {
 	or = {
 		has_building = building_primitive_farm
-		has_building = building_basic_farm
 		has_building = building_hydroponics_farm_1
 		has_building = building_hydroponics_farm_2
 		has_building = building_hydroponics_farm_3
@@ -235,28 +232,28 @@ autobuild_trigger_free_from_autoupdate = {
 autobuild_trigger_planet_energy = {
 	or = {
 		has_planet_flag = planet_power_plant_autobuild
-		has_modifier = human_fallen_empires_migration_yellow_ring
+		has_modifier = human_fallen_empires_population_yellow_ring
 	}
 }
 
 autobuild_trigger_planet_minerals = {
 	or = {
 		has_planet_flag = planet_forge_autobuild
-		has_modifier = human_fallen_empires_migration_red_ring
+		has_modifier = human_fallen_empires_population_red_ring
 	}
 }
 
 autobuild_trigger_planet_food = {
 	or = {
 		has_planet_flag = planet_farms_autobuild
-		has_modifier = human_fallen_empires_migration_green_ring
+		has_modifier = human_fallen_empires_population_green_ring
 	}
 }
 
 autobuild_trigger_planet_science = {
 	or = {
 		has_planet_flag = planet_labs_autobuild
-		has_modifier = human_fallen_empires_migration_blue_ring
+		has_modifier = human_fallen_empires_population_blue_ring
 	}
 }
 
@@ -1088,4 +1085,57 @@ autobuild_trigger_has_pop = {
 autobuild_trigger_tile_is_clean = {
 	has_pop = no
 	has_blocker = no
+}
+
+# for autobuild ship
+autobuild_trigger_ship_planet_valid_target = {
+	has_owner = no
+	has_orbital_station = no
+	has_any_megastructure = no
+	nor = {
+		has_planet_flag = autobuild_planet_block
+		has_planet_flag = ass_target
+	}
+	is_surveyed = {
+		who = root.owner
+		status = yes
+	}
+	or = {
+		has_deposit_for = shipclass_research_station
+		and = {
+			has_deposit_for = shipclass_mining_station
+			or = {
+				orbital_deposit_tile = {
+					has_resource = {
+						type = energy
+						amount > 0
+					}
+				}
+				nor = {
+					and = {
+						root.owner = {
+							has_country_flag = autobuild_ship_ignore_2_and_less_mineral
+						}
+						orbital_deposit_tile = {
+							has_resource = {
+								type = minerals
+								amount < 3
+							}
+						}
+					}
+					and = {
+						root.owner = {
+							has_country_flag = autobuild_ship_ignore_1_and_less_mineral
+						}
+						orbital_deposit_tile = {
+							has_resource = {
+								type = minerals
+								amount < 2
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
