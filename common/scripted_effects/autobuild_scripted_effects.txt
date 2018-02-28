@@ -1,5 +1,14 @@
 #
 
+# for fleet
+
+autobuild_effect_clear_fleet = {
+	clear_fleet_actions = this
+	set_event_locked = no
+	remove_fleet_flag = autobuild_fleet
+	set_name = "Construction Ship"
+}
+
 autobuild_effect_clear_cost_flags = {
 	remove_country_flag = autobuild_cost_100000
 	remove_country_flag = autobuild_cost_20000

@@ -42,16 +42,6 @@ country_event = {
 		}
 	}
 	option = {
-		name = modmenu.3
-		custom_tooltip = modmenu.3.tooltip
-		trigger = {
-			has_global_flag = harder_invaders_installed
-		}
-		hidden_effect = {
-			country_event = { id = harder_invaders_menu.1 }
-		}
-	}
-	option = {
 		name = modmenu.4
 		custom_tooltip = modmenu.4.tooltip
 		trigger = {

@@ -14,6 +14,73 @@
 #	}
 #
 
+# for fleet
+autobuild_trigger_valid_fleet = {
+	exists = owner
+	is_ship_class = shipclass_constructor
+	is_disabled = no
+	is_in_combat = no
+	is_fleet_idle = yes
+	not = {
+		has_fleet_flag = autobuild_fleet
+		has_fleet_flag = autonomous_assembler
+	}
+}
+
+
+# for autobuild ship
+autobuild_trigger_ship_planet_valid_target = {
+	has_owner = no
+	has_orbital_station = no
+	has_any_megastructure = no
+	nor = {
+		has_planet_flag = autobuild_planet_block
+		has_planet_flag = ass_target
+	}
+	is_surveyed = {
+		who = root.owner
+		status = yes
+	}
+	or = {
+		has_deposit_for = shipclass_research_station
+		and = {
+			has_deposit_for = shipclass_mining_station
+			or = {
+				orbital_deposit_tile = {
+					has_resource = {
+						type = energy
+						amount > 0
+					}
+				}
+				nor = {
+					and = {
+						root.owner = {
+							has_country_flag = autobuild_ship_ignore_2_and_less_mineral
+						}
+						orbital_deposit_tile = {
+							has_resource = {
+								type = minerals
+								amount < 3
+							}
+						}
+					}
+					and = {
+						root.owner = {
+							has_country_flag = autobuild_ship_ignore_1_and_less_mineral
+						}
+						orbital_deposit_tile = {
+							has_resource = {
+								type = minerals
+								amount < 2
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 autobuild_trigger_is_sth = {
 	has_global_flag = star_trek_new_horizons
 }
@@ -184,15 +251,13 @@ autobuild_trigger_has_any_capital_mod_api = {
 	always = no
 }
 
-autobuild_trigger_free_from_autobuild = {
+autobuild_trigger_planet_block = {
 	or = {
-		has_planet_flag = free_from_autobuild
-		has_building_construction = yes
-		is_planet_class = pc_habitat
-		autobuild_trigger_planet_energy = yes
-		autobuild_trigger_planet_minerals = yes
-		autobuild_trigger_planet_food = yes
-		autobuild_trigger_planet_science = yes
+		not = {
+			is_controlled_by = owner
+		}
+		has_ground_combat = yes
+		is_under_colonization = yes
 		and = {
 			sector_controlled = yes
 			owner = {
@@ -203,29 +268,30 @@ autobuild_trigger_free_from_autobuild = {
 }
 
 autobuild_trigger_free_from_autobuild_not_spec_planets = {
+	autobuild_trigger_planet_block = no
 	or = {
-		has_planet_flag = free_from_autobuild
 		has_building_construction = yes
-		and = {
-			sector_controlled = yes
-			owner = {
-				has_country_flag = autobuild_ignore_sector
-			}
-		}
+		has_planet_flag = free_from_autobuild
+	}
+}
+
+autobuild_trigger_free_from_autobuild = {
+	autobuild_trigger_free_from_autobuild_not_spec_planets = no
+	or = {
+		is_planet_class = pc_habitat
+		autobuild_trigger_planet_energy = yes
+		autobuild_trigger_planet_minerals = yes
+		autobuild_trigger_planet_food = yes
+		autobuild_trigger_planet_science = yes
 	}
 }
 
 autobuild_trigger_free_from_autoupdate = {
+	autobuild_trigger_planet_block = no
 	or = {
+		has_building_construction = yes
 		is_planet_class = pc_habitat
 		has_planet_flag = free_from_auto_update
-		has_building_construction = yes
-		and = {
-			sector_controlled = yes
-			owner = {
-				has_country_flag = autobuild_ignore_sector
-			}
-		}
 	}
 }
 
@@ -257,6 +323,15 @@ autobuild_trigger_planet_science = {
 	}
 }
 
+autobuild_trigger_any_planet_type = {
+	or = {
+		autobuild_trigger_planet_energy = yes
+		autobuild_trigger_planet_minerals = yes
+		autobuild_trigger_planet_food = yes
+		autobuild_trigger_planet_science = yes
+	}
+}
+
 # for tile
 autobuild_trigger_tile_has_strategic_res = {
 	or = {
@@ -267,7 +342,7 @@ autobuild_trigger_tile_has_strategic_res = {
 		has_resource = sr_alien_pets
 		has_resource = sr_betharian
 		and = {
-			has_resource = yes
+			has_any_resource = yes
 			nor = {
 				has_resource = minerals
 				has_resource = food
@@ -1085,57 +1160,4 @@ autobuild_trigger_has_pop = {
 autobuild_trigger_tile_is_clean = {
 	has_pop = no
 	has_blocker = no
-}
-
-# for autobuild ship
-autobuild_trigger_ship_planet_valid_target = {
-	has_owner = no
-	has_orbital_station = no
-	has_any_megastructure = no
-	nor = {
-		has_planet_flag = autobuild_planet_block
-		has_planet_flag = ass_target
-	}
-	is_surveyed = {
-		who = root.owner
-		status = yes
-	}
-	or = {
-		has_deposit_for = shipclass_research_station
-		and = {
-			has_deposit_for = shipclass_mining_station
-			or = {
-				orbital_deposit_tile = {
-					has_resource = {
-						type = energy
-						amount > 0
-					}
-				}
-				nor = {
-					and = {
-						root.owner = {
-							has_country_flag = autobuild_ship_ignore_2_and_less_mineral
-						}
-						orbital_deposit_tile = {
-							has_resource = {
-								type = minerals
-								amount < 3
-							}
-						}
-					}
-					and = {
-						root.owner = {
-							has_country_flag = autobuild_ship_ignore_1_and_less_mineral
-						}
-						orbital_deposit_tile = {
-							has_resource = {
-								type = minerals
-								amount < 2
-							}
-						}
-					}
-				}
-			}
-		}
-	}
 }
