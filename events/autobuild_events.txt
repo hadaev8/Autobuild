@@ -53,16 +53,9 @@ fleet_event = {
 					found_system = {
 						effect = {
 							id = autobuild.0.effect.0
-							if = {
-								limit = {
-									not = {
-										has_star_flag = autobuild_planet_block
-									}
-								}
-								set_timed_star_flag = {
-									flag = autobuild_star_block
-									days = 100
-								}
+							set_timed_star_flag = {
+								flag = autobuild_star_block
+								days = 100
 							}
 							root = {
 								set_name = "Move to [prev.GetName]"
@@ -74,8 +67,8 @@ fleet_event = {
 						effect = {
 							id = autobuild.0.effect.1
 							root = {
+								autobuild_effect_clear_fleet = yes
 								set_name = "Target not found, wait"
-								clear_fleet_actions = this
 								fleet_event = {
 									id = autobuild.0
 									days = 101
@@ -92,37 +85,51 @@ fleet_event = {
 					found_planet = {
 						effect = {
 							id = autobuild.0.effect.2
-							solar_system = {
-								set_timed_star_flag = {
-									flag = autobuild_star_block
-									days = 100
-								}
-							}
 							if = {
 								limit = {
+									solar_system = {
+										exists = owner
+										owner = {
+											is_country = root.owner
+										}
+										not = {
+											any_ship_in_system = {
+												exists = owner
+												owner = {
+													is_hostile = root.owner
+												}
+											}
+										}
+									}
 									nor = {
 										has_planet_flag = autobuild_planet_block
 										has_planet_flag = ass_target
+									}
+								}
+								solar_system = {
+									set_timed_star_flag = {
+										flag = autobuild_star_block
+										days = 100
 									}
 								}
 								set_timed_planet_flag = {
 									flag = autobuild_planet_block
 									days = 100
 								}
+								root = {
+									set_name = "Move to [prev.GetName]"
+								}
 								else = {
 									solar_system = {
 										remove_star_flag = autobuild_star_block
 									}
 									root = {
-										clear_fleet_actions = this
+										autobuild_effect_clear_fleet = yes
 										fleet_event = {
 											id = autobuild.0
 										}
 									}
 								}
-							}
-							root = {
-								set_name = "Move to [prev.GetName]"
 							}
 						}
 						orbit_planet = this
@@ -151,7 +158,7 @@ fleet_event = {
 										remove_star_flag = autobuild_star_block
 									}
 									root = {
-										clear_fleet_actions = this
+										autobuild_effect_clear_fleet = yes
 										fleet_event = {
 											id = autobuild.0
 										}
@@ -164,34 +171,13 @@ fleet_event = {
 							id = autobuild.0.effect.4
 							root = {
 								set_event_locked = no
-								set_name = "Autobuild Ship"
 							}
 							if = {
 								limit = {
 									has_orbital_station = no
 									root.owner = {
 										minerals > 90
-										or = {
-											not = {
-												has_country_flag = autobuild_cost
-											}
-											and = {
-												has_country_flag = autobuild_cost_5000
-												minerals > 5000
-											}
-											and = {
-												has_country_flag = autobuild_cost_2500
-												minerals > 2500
-											}
-											and = {
-												has_country_flag = autobuild_cost_1000
-												minerals > 1000
-											}
-											and = {
-												has_country_flag = autobuild_cost_500
-												minerals > 500
-											}
-										}
+										autobuild_trigger_cost = yes
 									}
 								}
 								if = {
@@ -265,8 +251,8 @@ fleet_event = {
 										remove_star_flag = autobuild_star_block
 									}
 									root = {
+										autobuild_effect_clear_fleet = yes
 										set_name = "Haven't minerals"
-										clear_fleet_actions = this
 										fleet_event = {
 											id = autobuild.0
 											days = 100
@@ -348,7 +334,7 @@ country_event = {
 							has_blocker = tb_mountain_range
 							owner = {
 								energy > 400
-								has_technology = { "tech_tb_mountain_range" }
+								has_technology = tech_tb_mountain_range
 							}
 						}
 						owner = {
@@ -369,7 +355,7 @@ country_event = {
 							has_blocker = tb_active_volcano
 							owner = {
 								energy > 400
-								has_technology = { "tech_tb_volcano" }
+								has_technology = tech_tb_volcano
 							}
 						}
 						owner = {
@@ -390,7 +376,7 @@ country_event = {
 							has_blocker = tb_dangerous_wildlife
 							owner = {
 								energy > 400
-								has_technology = { "tech_tb_dangerous_wildlife" }
+								has_technology = tech_tb_dangerous_wildlife
 							}
 						}
 						owner = {
@@ -411,7 +397,7 @@ country_event = {
 							has_blocker = tb_dense_jungle
 							owner = {
 								energy > 200
-								has_technology = { "tech_tb_dense_jungle" }
+								has_technology = tech_tb_dense_jungle
 							}
 						}
 						owner = {
@@ -432,7 +418,7 @@ country_event = {
 							has_blocker = tb_quicksand_basin
 							owner = {
 								energy > 200
-								has_technology = { "tech_tb_quicksand_basin" }
+								has_technology = tech_tb_quicksand_basin
 							}
 						}
 						owner = {
@@ -453,7 +439,7 @@ country_event = {
 							has_blocker = tb_noxious_swamp
 							owner = {
 								energy > 200
-								has_technology = { "tech_tb_noxious_swamp" }
+								has_technology = tech_tb_noxious_swamp
 							}
 						}
 						owner = {
@@ -474,7 +460,7 @@ country_event = {
 							has_blocker = tb_massive_glacier
 							owner = {
 								energy > 200
-								has_technology = { "tech_tb_massive_glacier" }
+								has_technology = tech_tb_massive_glacier
 							}
 						}
 						owner = {
@@ -495,7 +481,7 @@ country_event = {
 							has_blocker = tb_toxic_kelp
 							owner = {
 								energy > 200
-								has_technology = { "tech_tb_toxic_kelp" }
+								has_technology = tech_tb_toxic_kelp
 							}
 						}
 						owner = {
@@ -516,7 +502,7 @@ country_event = {
 							has_blocker = tb_deep_sinkhole
 							owner = {
 								energy > 200
-								has_technology = { "tech_tb_deep_sinkhole" }
+								has_technology = tech_tb_deep_sinkhole
 							}
 						}
 						owner = {
