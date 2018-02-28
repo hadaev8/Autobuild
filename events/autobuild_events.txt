@@ -19,7 +19,7 @@ fleet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_valid_fleet = yes
+		autobuild_trigger_fleet_is_valid = yes
 		# not = { sector_controlled = yes }
 		# sector = {
 		# 	log = "[this.GetName]"
@@ -47,7 +47,7 @@ fleet_event = {
 							}
 						}
 						any_planet = {
-							autobuild_trigger_ship_planet_valid_target = yes
+							autobuild_trigger_fleet_valid_planet = yes
 						}
 					}
 					found_system = {
@@ -67,7 +67,7 @@ fleet_event = {
 						effect = {
 							id = autobuild.0.effect.1
 							root = {
-								autobuild_effect_clear_fleet = yes
+								autobuild_effect_fleet_clear = yes
 								set_name = "Target not found, wait"
 								fleet_event = {
 									id = autobuild.0
@@ -80,7 +80,7 @@ fleet_event = {
 				find_closest_planet = {
 					trigger = {
 						id = autobuild.0.trigger.2
-						autobuild_trigger_ship_planet_valid_target = yes
+						autobuild_trigger_fleet_valid_planet = yes
 					}
 					found_planet = {
 						effect = {
@@ -124,7 +124,7 @@ fleet_event = {
 										remove_star_flag = autobuild_star_block
 									}
 									root = {
-										autobuild_effect_clear_fleet = yes
+										autobuild_effect_fleet_clear = yes
 										fleet_event = {
 											id = autobuild.0
 										}
@@ -158,7 +158,7 @@ fleet_event = {
 										remove_star_flag = autobuild_star_block
 									}
 									root = {
-										autobuild_effect_clear_fleet = yes
+										autobuild_effect_fleet_clear = yes
 										fleet_event = {
 											id = autobuild.0
 										}
@@ -251,7 +251,7 @@ fleet_event = {
 										remove_star_flag = autobuild_star_block
 									}
 									root = {
-										autobuild_effect_clear_fleet = yes
+										autobuild_effect_fleet_clear = yes
 										set_name = "Haven't minerals"
 										fleet_event = {
 											id = autobuild.0
@@ -297,7 +297,7 @@ country_event = {
 		# }
 		# start local events
 		every_owned_planet = {
-			autobuild_effect_set_planet_local_build = yes
+			autobuild_effect_planet_build = yes
 		}
 		# semi cheat options
 		# auto clean
@@ -322,7 +322,7 @@ country_event = {
 			}
 			every_owned_planet = {
 				limit = {
-					autobuild_trigger_planet_block = no
+					autobuild_trigger_block_planet = no
 					has_blocker = yes
 				}
 				every_tile = {
@@ -916,7 +916,7 @@ country_event = {
 			}
 			every_owned_planet = {
 				limit = {
-					autobuild_trigger_planet_block = no
+					autobuild_trigger_block_planet = no
 					any_tile = {
 						has_building = yes
 						is_ruined = yes
@@ -949,7 +949,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_planet_block = no
+		autobuild_trigger_block_planet = no
 		sector_controlled = no
 		exists = owner
 		owner = {
@@ -996,7 +996,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_planet_block = no
+		autobuild_trigger_block_planet = no
 		free_pop_tiles > 0
 		sector_controlled = no
 		exists = owner
@@ -1114,7 +1114,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_free_from_autobuild = no
+		autobuild_trigger_block_planet_build = no
 		exists = owner
 		owner = {
 			has_country_flag = autobuild_4_2
@@ -1151,7 +1151,7 @@ planet_event = {
 			has_building = building_clinic
 			has_building = building_hospital
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		exists = owner
 		owner = {
 			or = {
@@ -1205,7 +1205,7 @@ planet_event = {
 			has_building = building_power_hub_1
 			has_building = building_power_hub_2
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		autobuild_trigger_planet_minerals = no
 		autobuild_trigger_planet_food = no
@@ -1263,7 +1263,7 @@ planet_event = {
 			has_building = building_mineral_processing_plant_1
 			has_building = building_mineral_processing_plant_2
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		autobuild_trigger_planet_energy = no
 		autobuild_trigger_planet_food = no
@@ -1320,7 +1320,7 @@ planet_event = {
 		nor = {
 			is_planet_class = pc_habitat
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1370,7 +1370,7 @@ planet_event = {
 			is_planet_class = pc_habitat
 			has_building = building_akx_worm_2
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1428,7 +1428,7 @@ planet_event = {
 		not = {
 			has_building = building_visitor_center
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1484,7 +1484,7 @@ planet_event = {
 			is_planet_class = pc_habitat
 			has_building = building_slave_processing
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		exists = owner
 		owner = {
 			or = {
@@ -1543,7 +1543,7 @@ planet_event = {
 			is_planet_class = pc_habitat
 			has_building = building_temple
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		exists = owner
 		owner = {
 			or = {
@@ -1591,7 +1591,7 @@ planet_event = {
 			is_planet_class = pc_habitat
 			has_building = building_autochthon_monument
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		exists = owner
 		owner = {
 			or = {
@@ -1635,7 +1635,7 @@ planet_event = {
 		not = {
 			has_building = building_paradise_dome
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1685,7 +1685,7 @@ planet_event = {
 			is_planet_class = pc_habitat
 			has_building = building_hypercomms_forum
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1731,7 +1731,7 @@ planet_event = {
 		not = {
 			has_building = building_hab_cultural_center
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		exists = owner
 		owner = {
 			or = {
@@ -1775,7 +1775,7 @@ planet_event = {
 		not = {
 			is_planet_class = pc_habitat
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1829,7 +1829,7 @@ planet_event = {
 		not = {
 			has_building = building_clone_vats
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1878,7 +1878,7 @@ planet_event = {
 		not = {
 			has_building = building_planetary_shield_generator
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1927,7 +1927,7 @@ planet_event = {
 		not = {
 			has_building = building_military_academy
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1976,7 +1976,7 @@ planet_event = {
 		not = {
 			has_building = building_hive_synapse
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2025,7 +2025,7 @@ planet_event = {
 		not = {
 			has_building = building_symbol_purity
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2071,7 +2071,7 @@ planet_event = {
 		not = {
 			has_building = building_uplink_node
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2116,7 +2116,7 @@ planet_event = {
 		not = {
 			has_building = building_spare_parts_depot
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2165,7 +2165,7 @@ planet_event = {
 		not = {
 			has_building = building_neuro_electric_amplifier
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2216,7 +2216,7 @@ planet_event = {
 		not = {
 			has_building = building_war_factory
 		}
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2261,7 +2261,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_free_from_autobuild = no
+		autobuild_trigger_block_planet_build = no
 		autobuild_trigger_has_any_capital_or_shelter = yes
 		free_building_tiles > 0
 		exists = owner
@@ -2367,7 +2367,7 @@ planet_event = {
 							}
 						}
 						any_neighboring_tile = {
-							autobuild_trigger_has_any_capital = yes
+							autobuild_trigger_has_any_capital_or_shelter = yes
 						}
 					}
 					add_building_construction = building_basic_science_lab_1
@@ -2384,7 +2384,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_free_from_autobuild = no
+		autobuild_trigger_block_planet_build = no
 		free_building_tiles > 0
 		exists = owner
 		owner = {
@@ -2464,7 +2464,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_planet_minerals = yes
 		autobuild_trigger_has_any_capital_or_shelter = yes
 		exists = owner
@@ -2502,7 +2502,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_planet_food = yes
 		autobuild_trigger_has_any_capital_or_shelter = yes
 		exists = owner
@@ -2540,7 +2540,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_planet_energy = yes
 		autobuild_trigger_has_any_capital_or_shelter = yes
 		exists = owner
@@ -2601,7 +2601,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_planet_science = yes
 		autobuild_trigger_has_any_capital_or_shelter = yes
 		exists = owner
@@ -2814,7 +2814,7 @@ planet_event = {
 
 	trigger = {
 		autobuild_trigger_is_sth = no
-		autobuild_trigger_free_from_autoupdate = no
+		autobuild_trigger_block_planet_update = no
 		autobuild_trigger_has_any_capital = yes
 		has_building = building_basic_science_lab_1
 		exists = owner
@@ -3112,7 +3112,7 @@ planet_event = {
 
 	trigger = {
 		is_planet_class = pc_habitat
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_planet_energy = yes
 		exists = owner
 		owner = {
@@ -3158,7 +3158,7 @@ planet_event = {
 
 	trigger = {
 		is_planet_class = pc_habitat
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_planet_minerals = yes
 		exists = owner
 		owner = {
@@ -3201,7 +3201,7 @@ planet_event = {
 
 	trigger = {
 		is_planet_class = pc_habitat
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_planet_food = yes
 		exists = owner
 		owner = {
@@ -3244,7 +3244,7 @@ planet_event = {
 
 	trigger = {
 		is_planet_class = pc_habitat
-		autobuild_trigger_free_from_autobuild_not_spec_planets = no
+		autobuild_trigger_block_planet_build_non_special = no
 		autobuild_trigger_planet_science = yes
 		exists = owner
 		owner = {
@@ -3313,7 +3313,7 @@ country_event = {
 		name = autobuild_fleet_on
 		trigger = {
 			any_owned_fleet = {
-				autobuild_trigger_valid_fleet = yes
+				autobuild_trigger_fleet_is_valid = yes
 			}
 		}
 		custom_tooltip = autobuild_fleet_on.tooltip
@@ -3350,7 +3350,7 @@ country_event = {
 				limit = {
 					has_fleet_flag = autobuild_fleet
 				}
-				autobuild_effect_clear_fleet = yes
+				autobuild_effect_fleet_clear = yes
 			}
 		}
 	}
@@ -5554,7 +5554,7 @@ fleet_event = {
 				limit = {
 					has_fleet_flag = autobuild_fleet
 				}
-				autobuild_effect_clear_fleet = yes
+				autobuild_effect_fleet_clear = yes
 				fleet_event = {
 					id = autobuild.0
 					days = 365
@@ -5578,7 +5578,7 @@ pop_event = {
 
 	immediate = {
 		planet = {
-			autobuild_effect_set_planet_local_build = yes
+			autobuild_effect_planet_build = yes
 		}
 	}
 }
@@ -5590,7 +5590,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		autobuild_effect_set_planet_local_build = yes
+		autobuild_effect_planet_build = yes
 	}
 }
 
@@ -5637,7 +5637,7 @@ country_event = {
 			limit = {
 				has_fleet_flag = autobuild_fleet
 			}
-			autobuild_effect_clear_fleet = yes
+			autobuild_effect_fleet_clear = yes
 		}
 		remove_country_flag = autobuild_1
 		remove_country_flag = autobuild_2

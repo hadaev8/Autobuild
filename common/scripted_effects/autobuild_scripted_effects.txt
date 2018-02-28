@@ -1,8 +1,7 @@
 #
 
 # for fleet
-
-autobuild_effect_clear_fleet = {
+autobuild_effect_fleet_clear = {
 	clear_fleet_actions = this
 	set_event_locked = no
 	remove_fleet_flag = autobuild_fleet
@@ -56,11 +55,10 @@ autobuild_build_basic_lab = {
 }
 
 # sth_autobuild_build_basic_lab = {
-
 # }
 
 # for planet
-autobuild_effect_set_planet_local_build = {
+autobuild_effect_planet_build = {
 	human_fallen_empires_effect_autobuild = yes
 	alphamod_effect_autobuild = yes
 	st_new_horizons_effect_autobuild = yes
@@ -93,8 +91,6 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.125 }
 	planet_event = { id = autobuild.126 }
 
-#	planet_event = { id = autobuild.130 }
-#	planet_event = { id = autobuild.131 }
 	planet_event = { id = autobuild.132 }
 	planet_event = { id = autobuild.133 }
 	planet_event = { id = autobuild.134 }
@@ -102,7 +98,6 @@ autobuild_effect_set_planet_local_build = {
 	planet_event = { id = autobuild.136 }
 	planet_event = { id = autobuild.137 }
 	planet_event = { id = autobuild.138 }
-	#planet_event = { id = autobuild.139 }
 	planet_event = { id = autobuild.140 }
 	planet_event = { id = autobuild.142 }
 	planet_event = { id = autobuild.143 }
@@ -111,21 +106,16 @@ autobuild_effect_set_planet_local_build = {
 }
 
 human_fallen_empires_effect_autobuild = {
-
 }
 
 alphamod_effect_autobuild = {
-# 	log = "123"
 }
 
 #st_new_horizons_effect_autobuild = {
-
 #}
 
 sda_autobuild = {
-
 }
 
 autobuild_effect_mod_api = {
-#	log = "123"
 }

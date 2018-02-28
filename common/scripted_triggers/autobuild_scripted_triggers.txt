@@ -15,7 +15,7 @@
 #
 
 # for fleet
-autobuild_trigger_valid_fleet = {
+autobuild_trigger_fleet_is_valid = {
 	exists = owner
 	is_ship_class = shipclass_constructor
 	is_disabled = no
@@ -27,9 +27,8 @@ autobuild_trigger_valid_fleet = {
 	}
 }
 
-
 # for autobuild ship
-autobuild_trigger_ship_planet_valid_target = {
+autobuild_trigger_fleet_valid_planet = {
 	has_owner = no
 	has_orbital_station = no
 	has_any_megastructure = no
@@ -87,7 +86,7 @@ autobuild_trigger_is_sth = {
 
 # for planet
 autobuild_trigger_local_autoupdate = {
-	autobuild_trigger_free_from_autoupdate = no
+	autobuild_trigger_block_planet_update = no
 	exists = owner
 	owner = {
 		or = {
@@ -251,7 +250,7 @@ autobuild_trigger_has_any_capital_mod_api = {
 	always = no
 }
 
-autobuild_trigger_planet_block = {
+autobuild_trigger_block_planet = {
 	or = {
 		not = {
 			is_controlled_by = owner
@@ -267,17 +266,17 @@ autobuild_trigger_planet_block = {
 	}
 }
 
-autobuild_trigger_free_from_autobuild_not_spec_planets = {
-	autobuild_trigger_planet_block = no
+autobuild_trigger_block_planet_build_non_special = {
 	or = {
+		autobuild_trigger_block_planet = yes
 		has_building_construction = yes
 		has_planet_flag = free_from_autobuild
 	}
 }
 
-autobuild_trigger_free_from_autobuild = {
-	autobuild_trigger_free_from_autobuild_not_spec_planets = no
+autobuild_trigger_block_planet_build = {
 	or = {
+		autobuild_trigger_block_planet_build_non_special = yes
 		is_planet_class = pc_habitat
 		autobuild_trigger_planet_energy = yes
 		autobuild_trigger_planet_minerals = yes
@@ -286,9 +285,9 @@ autobuild_trigger_free_from_autobuild = {
 	}
 }
 
-autobuild_trigger_free_from_autoupdate = {
-	autobuild_trigger_planet_block = no
+autobuild_trigger_block_planet_update = {
 	or = {
+		autobuild_trigger_block_planet = yes
 		has_building_construction = yes
 		is_planet_class = pc_habitat
 		has_planet_flag = free_from_auto_update
