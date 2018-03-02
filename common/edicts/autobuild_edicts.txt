@@ -1,9 +1,7 @@
 #
-
 # planet edicts
 planet_edict = {
 	name = autobuild_free_auto_update
-	
 	length = 0
 	potential = {
 		nor = {
@@ -11,10 +9,10 @@ planet_edict = {
 			has_global_flag = hide_autobuild_planetary_edicts
 		}
 	}
-	allow = { }
-
+	allow = {
+	}
 	effect = {
-	#	custom_tooltip = edict_free_from_auto_update.tooltip
+		#	custom_tooltip = edict_free_from_auto_update.tooltip
 		hidden_effect = {
 			add_modifier = {
 				modifier = free_from_auto_update
@@ -30,7 +28,6 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_free_autobuild
-	
 	length = 0
 	potential = {
 		nor = {
@@ -38,10 +35,10 @@ planet_edict = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
-	allow = { }
-
+	allow = {
+	}
 	effect = {
-	#	custom_tooltip = edict_free_from_autobuild.tooltip
+		#	custom_tooltip = edict_free_from_autobuild.tooltip
 		hidden_effect = {
 			add_modifier = {
 				modifier = free_from_autobuild
@@ -57,7 +54,6 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_clear_planetary_edicts
-	
 	length = 0
 	potential = {
 		OR = {
@@ -81,16 +77,15 @@ planet_edict = {
 		}
 	}
 	ai_weight = {
-		weight = 0
+		weight = 1
 	}
 }
 
 planet_edict = {
 	name = autobuild_hide_planetary_edicts
-	
 	length = 0
-	potential = {}
-
+	potential = {
+	}
 	effect = {
 		if = {
 			limit = {
@@ -107,21 +102,18 @@ planet_edict = {
 	}
 }
 
+# special planets
 planet_edict = {
 	name = autobuild_planet_forge
-	
 	length = 0
 	potential = {
-		autobuild_trigger_planet_energy = no
-		autobuild_trigger_planet_minerals = no
-		autobuild_trigger_planet_food = no
-		autobuild_trigger_planet_science = no
+		autobuild_trigger_planet_special = no
 		NOT = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
-	allow = { }
-
+	allow = {
+	}
 	effect = {
 		hidden_effect = {
 			autobuild_effect_clear_planet_modifiers = yes
@@ -142,8 +134,11 @@ planet_edict = {
 			add_modifier = {
 				modifier = planet_forge_autobuild
 				days = -1
-			}			
+			}
 			set_planet_flag = planet_forge_autobuild
+			planet_event = {
+				id = autobuild.134
+			}
 		}
 	}
 	ai_weight = {
@@ -153,19 +148,15 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_power_plant
-	
 	length = 0
 	potential = {
-		autobuild_trigger_planet_energy = no
-		autobuild_trigger_planet_minerals = no
-		autobuild_trigger_planet_food = no
-		autobuild_trigger_planet_science = no
+		autobuild_trigger_planet_special = no
 		NOT = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
-	allow = { }
-
+	allow = {
+	}
 	effect = {
 		hidden_effect = {
 			autobuild_effect_clear_planet_modifiers = yes
@@ -188,6 +179,9 @@ planet_edict = {
 				days = -1
 			}
 			set_planet_flag = planet_power_plant_autobuild
+			planet_event = {
+				id = autobuild.134
+			}
 		}
 	}
 	ai_weight = {
@@ -197,19 +191,15 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_labs
-	
 	length = 0
 	potential = {
-		autobuild_trigger_planet_energy = no
-		autobuild_trigger_planet_minerals = no
-		autobuild_trigger_planet_food = no
-		autobuild_trigger_planet_science = no
+		autobuild_trigger_planet_special = no
 		NOT = {
 			has_global_flag = hide_autobuild_planetary_edicts
 		}
 	}
-	allow = { }
-
+	allow = {
+	}
 	effect = {
 		hidden_effect = {
 			autobuild_effect_clear_planet_modifiers = yes
@@ -232,6 +222,9 @@ planet_edict = {
 				days = -1
 			}
 			set_planet_flag = planet_labs_autobuild
+			planet_event = {
+				id = autobuild.134
+			}
 		}
 	}
 	ai_weight = {
@@ -241,7 +234,6 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_labs_physics
-	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_science = yes
@@ -249,8 +241,8 @@ planet_edict = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
-	allow = { }
-
+	allow = {
+	}
 	effect = {
 		hidden_effect = {
 			owner = {
@@ -272,6 +264,9 @@ planet_edict = {
 				days = -1
 			}
 			set_planet_flag = autobuild_planet_labs_physics
+			planet_event = {
+				id = autobuild.134
+			}
 		}
 	}
 	ai_weight = {
@@ -281,7 +276,6 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_labs_bio
-	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_science = yes
@@ -289,8 +283,8 @@ planet_edict = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
-	allow = { }
-
+	allow = {
+	}
 	effect = {
 		hidden_effect = {
 			owner = {
@@ -321,7 +315,6 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_labs_engineering
-	
 	length = 0
 	potential = {
 		autobuild_trigger_planet_science = yes
@@ -329,8 +322,8 @@ planet_edict = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
-	allow = { }
-
+	allow = {
+	}
 	effect = {
 		hidden_effect = {
 			owner = {
@@ -361,19 +354,15 @@ planet_edict = {
 
 planet_edict = {
 	name = autobuild_planet_farms
-	
 	length = 0
 	potential = {
-		autobuild_trigger_planet_energy = no
-		autobuild_trigger_planet_minerals = no
-		autobuild_trigger_planet_food = no
-		autobuild_trigger_planet_science = no
+		autobuild_trigger_planet_special = no
 		NOT = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
-	allow = { }
-
+	allow = {
+	}
 	effect = {
 		hidden_effect = {
 			autobuild_effect_clear_planet_modifiers = yes
@@ -396,6 +385,9 @@ planet_edict = {
 				days = -1
 			}
 			set_planet_flag = planet_farms_autobuild
+			planet_event = {
+				id = autobuild.134
+			}
 		}
 	}
 	ai_weight = {

@@ -1,8 +1,6 @@
 #
 ## 1 - auto update
-## 2 - auto update influence cost
 ## 3 - auto build new buildings on good tiles
-## 4_2 - replace power plants and labs if slave
 ## 7 - auto build in ept tiles
 ## 13 - robots
 ## 14 - alphamod
@@ -322,7 +320,7 @@ country_event = {
 			}
 			every_owned_planet = {
 				limit = {
-					autobuild_trigger_block_planet = no
+					autobuild_trigger_planet_block = no
 					has_blocker = yes
 				}
 				every_tile = {
@@ -916,7 +914,7 @@ country_event = {
 			}
 			every_owned_planet = {
 				limit = {
-					autobuild_trigger_block_planet = no
+					autobuild_trigger_planet_block = no
 					any_tile = {
 						has_building = yes
 						is_ruined = yes
@@ -949,7 +947,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_block_planet = no
+		autobuild_trigger_planet_block = no
 		sector_controlled = no
 		exists = owner
 		owner = {
@@ -996,7 +994,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_block_planet = no
+		autobuild_trigger_planet_block = no
 		free_pop_tiles > 0
 		sector_controlled = no
 		exists = owner
@@ -1114,7 +1112,8 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_block_planet_build = no
+		always = no
+		autobuild_trigger_planet_block_build = no
 		exists = owner
 		owner = {
 			has_country_flag = autobuild_4_2
@@ -1125,17 +1124,14 @@ planet_event = {
 	immediate = {
 		every_tile = {
 			limit = {
-				autobuild_trigger_has_pop = yes
-				pop = {
-					is_being_purged = no
-					is_enslaved = yes
-				}
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_tile_pop_robot_or_slave = yes
 				or = {
 					autobuild_trigger_has_any_power_plant = yes
 					autobuild_trigger_has_any_science_lab = yes
 				}
 			}
-			add_building_construction = building_mining_network_1
+			autobuild_build_mine = yes
 		}
 	}
 }
@@ -1151,7 +1147,7 @@ planet_event = {
 			has_building = building_clinic
 			has_building = building_hospital
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		exists = owner
 		owner = {
 			or = {
@@ -1182,10 +1178,10 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
-					has_resource = society_research
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_society_more_than_others = yes
+					autobuild_trigger_tile_has_res = no
 				}
 			}
 			add_building_construction = building_clinic
@@ -1200,12 +1196,12 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		nor = {
-			is_planet_class = pc_habitat
+		autobuild_trigger_planet_habitat = no
+		not = {
 			has_building = building_power_hub_1
 			has_building = building_power_hub_2
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		autobuild_trigger_planet_minerals = no
 		autobuild_trigger_planet_food = no
@@ -1240,10 +1236,10 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
 					autobuild_trigger_tile_has_energy_more_than_others = yes
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 				}
 			}
 			add_building_construction = building_power_hub_1
@@ -1258,12 +1254,12 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		nor = {
-			is_planet_class = pc_habitat
+		autobuild_trigger_planet_habitat = no
+		not = {
 			has_building = building_mineral_processing_plant_1
 			has_building = building_mineral_processing_plant_2
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		autobuild_trigger_planet_energy = no
 		autobuild_trigger_planet_food = no
@@ -1289,7 +1285,7 @@ planet_event = {
 	immediate = {
 		random_tile = {
 			limit = {
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
 					has_building = no
 					and = {
@@ -1301,7 +1297,7 @@ planet_event = {
 				}
 				or = {
 					autobuild_trigger_tile_has_minerals_more_than_others = yes
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 				}
 			}
 			add_building_construction = building_mineral_processing_plant_1
@@ -1317,10 +1313,10 @@ planet_event = {
 
 	trigger = {
 		autobuild_trigger_is_sth = no
-		nor = {
-			is_planet_class = pc_habitat
+		autobuild_trigger_planet_habitat = no
+		not = {
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1351,7 +1347,7 @@ planet_event = {
 				not = {
 					has_building = building_xeno_zoo
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				has_resource = sr_alien_pets
 			}
 			add_building_construction = building_xeno_zoo
@@ -1366,11 +1362,11 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		nor = {
-			is_planet_class = pc_habitat
+		autobuild_trigger_planet_habitat = no
+		not = {
 			has_building = building_akx_worm_2
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1384,11 +1380,11 @@ planet_event = {
 			has_technology = tech_akx_worm_2
 			autobuild_trigger_cost = yes
 		}
-		count_pops = {
+		count_tile = {
 			limit = {
-				is_enslaved = no
+				autobuild_trigger_tile_pop_robot_or_slave = no
 			}
-			count > @autobuild_num_slave
+			count < @autobuild_num_slave
 		}
 	}
 
@@ -1407,10 +1403,10 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
 					has_resource = society_research
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 				}
 			}
 			add_building_construction = building_akx_worm_2
@@ -1428,7 +1424,7 @@ planet_event = {
 		not = {
 			has_building = building_visitor_center
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1442,11 +1438,11 @@ planet_event = {
 			has_tradition = tr_diplomacy_alien_tourism
 			autobuild_trigger_cost = yes
 		}
-		count_pops = {
+		count_tile = {
 			limit = {
-				is_enslaved = no
+				autobuild_trigger_tile_pop_robot_or_slave = no
 			}
-			count > @autobuild_num_slave
+			count < @autobuild_num_slave
 		}
 	}
 
@@ -1462,10 +1458,10 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
 					autobuild_trigger_tile_has_energy_more_than_others = yes
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 				}
 			}
 			add_building_construction = building_visitor_center
@@ -1480,11 +1476,11 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		nor = {
-			is_planet_class = pc_habitat
+		autobuild_trigger_planet_habitat = no
+		not = {
 			has_building = building_slave_processing
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		exists = owner
 		owner = {
 			or = {
@@ -1521,7 +1517,7 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
 					autobuild_trigger_tile_has_minerals_more_than_others = yes
 					autobuild_trigger_tile_has_food_more_than_others = yes
@@ -1539,11 +1535,11 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		nor = {
-			is_planet_class = pc_habitat
+		autobuild_trigger_planet_habitat = no
+		not = {
 			has_building = building_temple
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		exists = owner
 		owner = {
 			or = {
@@ -1572,8 +1568,8 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
-				autobuild_trigger_tile_has_any_res = no
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_tile_has_res = no
 			}
 			add_building_construction = building_temple
 		}
@@ -1587,11 +1583,11 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		nor = {
-			is_planet_class = pc_habitat
+		autobuild_trigger_planet_habitat = no
+		not = {
 			has_building = building_autochthon_monument
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		exists = owner
 		owner = {
 			or = {
@@ -1617,8 +1613,8 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
-				autobuild_trigger_tile_has_any_res = no
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_tile_has_res = no
 			}
 			add_building_construction = building_autochthon_monument
 		}
@@ -1635,7 +1631,7 @@ planet_event = {
 		not = {
 			has_building = building_paradise_dome
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1663,9 +1659,9 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 					autobuild_trigger_tile_has_food_more_than_others = yes
 				}
 			}
@@ -1681,11 +1677,11 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		nor = {
-			is_planet_class = pc_habitat
+		autobuild_trigger_planet_habitat = no
+		not = {
 			has_building = building_hypercomms_forum
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1712,8 +1708,8 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
-				autobuild_trigger_tile_has_any_res = no
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_tile_has_res = no
 			}
 			add_building_construction = building_hypercomms_forum
 		}
@@ -1727,11 +1723,11 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_planet_class = pc_habitat
+		autobuild_trigger_planet_habitat = yes
 		not = {
 			has_building = building_hab_cultural_center
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		exists = owner
 		owner = {
 			or = {
@@ -1756,8 +1752,8 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
-				autobuild_trigger_tile_has_any_res = no
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_tile_has_res = no
 			}
 			add_building_construction = building_hab_cultural_center
 		}
@@ -1772,10 +1768,8 @@ planet_event = {
 
 	trigger = {
 		autobuild_trigger_is_sth = no
-		not = {
-			is_planet_class = pc_habitat
-		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_habitat = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1797,7 +1791,7 @@ planet_event = {
 			not = {
 				has_building = betharian_power_plant
 			}
-			autobuild_trigger_has_pop = yes
+			autobuild_trigger_tile_has_pop = yes
 		}
 	}
 
@@ -1805,7 +1799,7 @@ planet_event = {
 		random_tile = {
 			limit = {
 				has_resource = sr_betharian
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				not = {
 					has_building = betharian_power_plant
 				}
@@ -1829,7 +1823,7 @@ planet_event = {
 		not = {
 			has_building = building_clone_vats
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1857,9 +1851,9 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 					autobuild_trigger_tile_has_society_more_than_others = yes
 				}
 			}
@@ -1878,7 +1872,7 @@ planet_event = {
 		not = {
 			has_building = building_planetary_shield_generator
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1906,9 +1900,9 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 					#autobuild_trigger_tile_has_science_more_than_others = yes
 				}
 			}
@@ -1927,7 +1921,7 @@ planet_event = {
 		not = {
 			has_building = building_military_academy
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -1955,9 +1949,9 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 					#autobuild_trigger_tile_has_science_more_than_others = yes
 				}
 			}
@@ -1976,7 +1970,7 @@ planet_event = {
 		not = {
 			has_building = building_hive_synapse
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2004,9 +1998,9 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 				}
 			}
@@ -2025,7 +2019,7 @@ planet_event = {
 		not = {
 			has_building = building_symbol_purity
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2053,8 +2047,8 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
-				autobuild_trigger_tile_has_any_res = no
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_tile_has_res = no
 			}
 			add_building_construction = building_symbol_purity
 		}
@@ -2071,7 +2065,7 @@ planet_event = {
 		not = {
 			has_building = building_uplink_node
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2098,8 +2092,8 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
-				autobuild_trigger_tile_has_any_res = no
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_tile_has_res = no
 			}
 			add_building_construction = building_uplink_node
 		}
@@ -2116,7 +2110,7 @@ planet_event = {
 		not = {
 			has_building = building_spare_parts_depot
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2144,9 +2138,9 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 					autobuild_trigger_tile_has_society_more_than_others = yes
 				}
 			}
@@ -2165,7 +2159,7 @@ planet_event = {
 		not = {
 			has_building = building_neuro_electric_amplifier
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2194,9 +2188,9 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 					autobuild_trigger_tile_has_minerals_more_than_others = yes
 				}
@@ -2216,7 +2210,7 @@ planet_event = {
 		not = {
 			has_building = building_war_factory
 		}
-		autobuild_trigger_block_planet_build_non_special = no
+		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
@@ -2243,9 +2237,9 @@ planet_event = {
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 				or = {
-					autobuild_trigger_tile_has_any_res = no
+					autobuild_trigger_tile_has_res = no
 					autobuild_trigger_tile_has_science_more_than_others = yes
 				}
 			}
@@ -2254,65 +2248,91 @@ planet_event = {
 	}
 }
 
-# local autobuild on ept tiles
+# local autobuild on tiles
 planet_event = {
 	id = autobuild.132
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_block_planet_build = no
-		autobuild_trigger_has_any_capital_or_shelter = yes
+		autobuild_trigger_planet_block_build = no
 		free_building_tiles > 0
 		exists = owner
 		owner = {
-			has_country_flag = autobuild_7
+			or = {
+				has_country_flag = autobuild_3
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
 			autobuild_trigger_cost = yes
 		}
 	}
 
 	immediate = {
+		if = {
+			limit = {
+				autobuild_trigger_has_any_capital_or_shelter = no
+			}
+			random_tile = {
+				limit = {
+					has_building = no
+					num_adjacent_tiles > 3
+					autobuild_trigger_tile_has_pop = yes
+					autobuild_trigger_tile_has_energy_more_than_others = yes
+				}
+				add_building_construction = building_colony_shelter
+				add_building_construction = building_deployment_post
+			}
+		}
 		every_tile = {
 			limit = {
 				has_building = no
-				autobuild_trigger_has_pop = yes
-				autobuild_trigger_tile_has_any_res = no
+				autobuild_trigger_tile_has_pop = yes
+				or = {
+					owner = {
+						has_country_flag = autobuild_7
+					}
+					autobuild_trigger_tile_has_res = yes
+				}
 			}
 			random_list = {
-				10 = {
+				# energy
+				100 = {
+					# all cases of 0 factor
 					modifier = {
 						factor = 0
-						owner = {
-							has_country_flag = autobuild_mine_ratio.0
+						or = {
+							and = {
+								autobuild_trigger_planet_special = no
+								or = {
+									# on ept tile options
+									owner = {
+										or = {
+											not = {
+												has_country_flag = autobuild_7
+											}
+											has_country_flag = autobuild_power_plant_ratio.0
+										}
+									}
+									# have some other res
+									and = {
+										autobuild_trigger_tile_has_res = yes
+										autobuild_trigger_tile_has_energy_more_than_others = no
+									}
+								}
+							}
+							# scpecial planet
+							and = {
+								autobuild_trigger_planet_special = yes
+								autobuild_trigger_planet_energy = no
+							}
+							# slave or robot
+							autobuild_trigger_tile_pop_robot_or_slave = yes
 						}
 					}
-					modifier = {
-						factor = 2
-						owner = {
-							has_country_flag = autobuild_mine_ratio.2
-						}
-					}
-					modifier = {
-						factor = 3
-						owner = {
-							has_country_flag = autobuild_mine_ratio.3
-						}
-					}
-					modifier = {
-						factor = 4
-						owner = {
-							has_country_flag = autobuild_mine_ratio.4
-						}
-					}
-					add_building_construction = building_mining_network_1
-				}
-				10 = {
-					modifier = {
-						factor = 0
-						owner = {
-							has_country_flag = autobuild_power_plant_ratio.0
-						}
-					}
+					# ratio settings for ept tiles
 					modifier = {
 						factor = 2
 						owner = {
@@ -2331,13 +2351,145 @@ planet_event = {
 							has_country_flag = autobuild_power_plant_ratio.4
 						}
 					}
-					add_building_construction = building_power_plant_1
+					autobuild_build_power_plant = yes
 				}
-				10 = {
+				# minerals
+				100 = {
+					# all cases of 0 factor
 					modifier = {
 						factor = 0
+						or = {
+							and = {
+								autobuild_trigger_planet_special = no
+								or = {
+									# on ept tile options
+									owner = {
+										or = {
+											not = {
+												has_country_flag = autobuild_7
+											}
+											has_country_flag = autobuild_mine_ratio.0
+										}
+									}
+									# habitat
+									autobuild_trigger_planet_habitat = yes
+									# have some other res
+									and = {
+										autobuild_trigger_tile_has_res = yes
+										autobuild_trigger_tile_has_minerals_more_than_others = no
+									}
+								}
+							}
+							# scpecial planet
+							and = {
+								autobuild_trigger_planet_special = yes
+								autobuild_trigger_planet_minerals = no
+							}
+						}
+					}
+					# ratio settings for ept tiles
+					modifier = {
+						factor = 2
 						owner = {
-							has_country_flag = autobuild_lab_ratio.0
+							has_country_flag = autobuild_mine_ratio.2
+						}
+					}
+					modifier = {
+						factor = 3
+						owner = {
+							has_country_flag = autobuild_mine_ratio.3
+						}
+					}
+					modifier = {
+						factor = 4
+						owner = {
+							has_country_flag = autobuild_mine_ratio.4
+						}
+					}
+					autobuild_build_mine = yes
+				}
+				# food
+				100 = {
+					# all cases of 0 factor
+					modifier = {
+						factor = 0
+						or = {
+							and = {
+								autobuild_trigger_planet_special = no
+								or = {
+									# habitat
+									autobuild_trigger_planet_habitat = yes
+									# have some other res
+									and = {
+										autobuild_trigger_tile_has_res = yes
+										autobuild_trigger_tile_has_food_more_than_others = no
+									}
+								}
+							}
+							# scpecial planet
+							and = {
+								autobuild_trigger_planet_special = yes
+								autobuild_trigger_planet_food = no
+							}
+							# ept tile and not starving
+							and = {
+								owner = {
+									food > 1
+									has_monthly_income = {
+										resource = food
+										value > 1
+									}
+								}
+								autobuild_trigger_tile_has_res = no
+							}
+						}
+					}
+					autobuild_build_farm = yes
+				}
+				# science
+				100 = {
+					# all cases of 0 factor
+					modifier = {
+						factor = 0
+						or = {
+							and = {
+								autobuild_trigger_planet_special = no
+								or = {
+									# on ept tile options
+									owner = {
+										or = {
+											not = {
+												has_country_flag = autobuild_7
+											}
+											has_country_flag = autobuild_lab_ratio.0
+										}
+									}
+									# not near capital
+									and = {
+										owner = {
+											nor = {
+												has_country_flag = autobuild_mine_ratio.0
+												has_country_flag = autobuild_power_plant_ratio.0
+											}
+										}
+										any_neighboring_tile = {
+											autobuild_trigger_has_any_capital_or_shelter = yes
+										}
+									}
+									# have some other res
+									and = {
+										autobuild_trigger_tile_has_res = yes
+										autobuild_trigger_tile_has_science_more_than_others = no
+									}
+								}
+							}
+							# scpecial planet
+							and = {
+								autobuild_trigger_planet_special = yes
+								autobuild_trigger_planet_science = no
+							}
+							# slave or robot
+							autobuild_trigger_tile_pop_robot_or_slave = yes
 						}
 					}
 					modifier = {
@@ -2358,299 +2510,122 @@ planet_event = {
 							has_country_flag = autobuild_lab_ratio.4
 						}
 					}
-					modifier = {
-						factor = 0
-						owner = {
-							nor = {
-								has_country_flag = autobuild_mine_ratio.0
-								has_country_flag = autobuild_power_plant_ratio.0
-							}
-						}
-						any_neighboring_tile = {
-							autobuild_trigger_has_any_capital_or_shelter = yes
-						}
-					}
-					add_building_construction = building_basic_science_lab_1
+					autobuild_build_lab = yes
+				}
+				1 = {
 				}
 			}
 		}
 	}
 }
 
-# local autobuild on good tiles
-planet_event = {
-	id = autobuild.133
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		autobuild_trigger_block_planet_build = no
-		free_building_tiles > 0
-		exists = owner
-		owner = {
-			or = {
-				has_country_flag = autobuild_3
-				and = {
-					is_ai = yes
-					has_global_flag = autobuild_ai_allowed
-				}
-			}
-			autobuild_trigger_cost = yes
-		}
-		#autobuild_trigger_has_any_capital_or_shelter = yes
-	}
-
-	immediate = {
-		if = {
-			limit = {
-				autobuild_trigger_has_any_capital_or_shelter = no
-			}
-			random_tile = {
-				limit = {
-					has_building = no
-					num_adjacent_tiles > 3
-					autobuild_trigger_has_pop = yes
-					autobuild_trigger_tile_has_energy_more_than_others = yes
-				}
-				add_building_construction = building_colony_shelter
-				add_building_construction = building_deployment_post
-			}
-		}
-		every_tile = {
-			limit = {
-				has_building = no
-				autobuild_trigger_has_pop = yes
-				pop = {
-					is_non_sapient_robot = no
-				}
-				autobuild_trigger_tile_has_science_more_than_others = yes
-			}
-			autobuild_build_basic_lab = yes
-		}
-		every_tile = {
-			limit = {
-				has_building = no
-				autobuild_trigger_has_pop = yes
-				pop = {
-					is_non_sapient_robot = no
-				}
-				autobuild_trigger_tile_has_energy_more_than_others = yes
-			}
-			add_building_construction = building_power_plant_1
-		}
-		every_tile = {
-			limit = {
-				has_building = no
-				autobuild_trigger_has_pop = yes
-				autobuild_trigger_tile_has_minerals_more_than_others = yes
-			}
-			add_building_construction = building_mining_network_1
-		}
-		every_tile = {
-			limit = {
-				has_building = no
-				autobuild_trigger_has_pop = yes
-				autobuild_trigger_tile_has_food_more_than_others = yes
-			}
-			add_building_construction = building_hydroponics_farm_1
-		}
-	}
-}
-
-# local autobuild planet of mines
+# replace buildings on edict enabled
 planet_event = {
 	id = autobuild.134
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_block_planet_build_non_special = no
-		autobuild_trigger_planet_minerals = yes
-		autobuild_trigger_has_any_capital_or_shelter = yes
+		#autobuild_trigger_planet_block_build = no
+		#autobuild_trigger_planet_special = yes
 		exists = owner
 		owner = {
 			autobuild_trigger_cost = yes
 		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_power_plant = yes
-			autobuild_trigger_has_any_science_lab = yes
-			autobuild_trigger_has_any_farm = yes
-		}
 	}
 
 	immediate = {
-		every_tile = {
+		if = {
 			limit = {
-				or = {
-					has_building = no
-					autobuild_trigger_has_any_power_plant = yes
-					autobuild_trigger_has_any_science_lab = yes
-					autobuild_trigger_has_any_farm = yes
-				}
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_planet_energy = yes
 			}
-			add_building_construction = building_mining_network_1
-		}
-	}
-}
-
-# local autobuild planet of farms
-planet_event = {
-	id = autobuild.135
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		autobuild_trigger_block_planet_build_non_special = no
-		autobuild_trigger_planet_food = yes
-		autobuild_trigger_has_any_capital_or_shelter = yes
-		exists = owner
-		owner = {
-			autobuild_trigger_cost = yes
-		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_power_plant = yes
-			autobuild_trigger_has_any_science_lab = yes
-			autobuild_trigger_has_any_mine = yes
-		}
-	}
-
-	immediate = {
-		every_tile = {
-			limit = {
-				or = {
-					has_building = no
-					autobuild_trigger_has_any_power_plant = yes
-					autobuild_trigger_has_any_science_lab = yes
-					autobuild_trigger_has_any_mine = yes
-				}
-				autobuild_trigger_has_pop = yes
-			}
-			add_building_construction = building_hydroponics_farm_1
-		}
-	}
-}
-
-# local autobuild planet of power plants
-planet_event = {
-	id = autobuild.136
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		autobuild_trigger_block_planet_build_non_special = no
-		autobuild_trigger_planet_energy = yes
-		autobuild_trigger_has_any_capital_or_shelter = yes
-		exists = owner
-		owner = {
-			autobuild_trigger_cost = yes
-		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_mine = yes
-			autobuild_trigger_has_any_science_lab = yes
-			autobuild_trigger_has_any_farm = yes
-			and = {
-				has_building = building_slave_processing
-				count_pops = {
-					limit = {
-						is_enslaved = yes
-					}
-					count < @autobuild_num_slave
-				}
-			}
-		}
-	}
-
-	immediate = {
-		every_tile = {
-			limit = {
-				or = {
-					has_building = no
-					autobuild_trigger_has_any_mine = yes
-					autobuild_trigger_has_any_science_lab = yes
-					autobuild_trigger_has_any_farm = yes
-					and = {
-						has_building = building_slave_processing
-						root = {
-							count_pops = {
-								limit = {
-									is_enslaved = yes
+			every_tile = {
+				limit = {
+					autobuild_trigger_tile_has_pop = yes
+					autobuild_trigger_tile_pop_robot_or_slave = no
+					or = {
+						has_building = no
+						autobuild_trigger_has_any_mine = yes
+						autobuild_trigger_has_any_science_lab = yes
+						autobuild_trigger_has_any_farm = yes
+						and = {
+							has_building = building_slave_processing
+							root = {
+								count_pops = {
+									limit = {
+										is_enslaved = yes
+									}
+									count < @autobuild_num_slave
 								}
-								count < @autobuild_num_slave
 							}
 						}
 					}
 				}
-				autobuild_trigger_has_pop = yes
-				pop = {
-					is_non_sapient_robot = no
-				}
+				autobuild_build_power_plant = yes
 			}
-			add_building_construction = building_power_plant_1
 		}
-	}
-}
-
-# local autobuild planet of labs
-planet_event = {
-	id = autobuild.137
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		autobuild_trigger_block_planet_build_non_special = no
-		autobuild_trigger_planet_science = yes
-		autobuild_trigger_has_any_capital_or_shelter = yes
-		exists = owner
-		owner = {
-			autobuild_trigger_cost = yes
-		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_mine = yes
-			autobuild_trigger_has_any_power_plant = yes
-			and = {
-				has_building = building_slave_processing
-				count_pops = {
-					limit = {
-						is_enslaved = yes
-					}
-					count < @autobuild_num_slave
-				}
-			}
-			autobuild_trigger_has_any_farm = yes
-		}
-	}
-
-	immediate = {
-		every_tile = {
+		if = {
 			limit = {
-				autobuild_trigger_has_pop = yes
-				pop = {
-					is_non_sapient_robot = no
+				autobuild_trigger_planet_minerals = yes
+			}
+			every_tile = {
+				limit = {
+					or = {
+						has_building = no
+						autobuild_trigger_has_any_power_plant = yes
+						autobuild_trigger_has_any_science_lab = yes
+						autobuild_trigger_has_any_farm = yes
+					}
+					autobuild_trigger_tile_has_pop = yes
 				}
-				or = {
-					has_building = no
-					autobuild_trigger_has_any_mine = yes
-					autobuild_trigger_has_any_power_plant = yes
-					autobuild_trigger_has_any_farm = yes
-					and = {
-						has_building = building_slave_processing
-						root = {
-							count_pops = {
-								limit = {
-									is_enslaved = yes
+				autobuild_build_mine = yes
+			}
+		}
+		if = {
+			limit = {
+				autobuild_trigger_planet_food = yes
+			}
+			every_tile = {
+				limit = {
+					or = {
+						has_building = no
+						autobuild_trigger_has_any_power_plant = yes
+						autobuild_trigger_has_any_science_lab = yes
+						autobuild_trigger_has_any_mine = yes
+					}
+					autobuild_trigger_tile_has_pop = yes
+				}
+				autobuild_build_farm = yes
+			}
+		}
+		if = {
+			limit = {
+				autobuild_trigger_planet_science = yes
+			}
+			every_tile = {
+				limit = {
+					autobuild_trigger_tile_has_pop = yes
+					autobuild_trigger_tile_pop_robot_or_slave = no
+					or = {
+						has_building = no
+						autobuild_trigger_has_any_mine = yes
+						autobuild_trigger_has_any_power_plant = yes
+						autobuild_trigger_has_any_farm = yes
+						and = {
+							has_building = building_slave_processing
+							root = {
+								count_pops = {
+									limit = {
+										is_enslaved = yes
+									}
+									count < @autobuild_num_slave
 								}
-								count < @autobuild_num_slave
 							}
 						}
 					}
 				}
+				autobuild_build_lab = yes
 			}
-			autobuild_build_basic_lab = yes
 		}
 	}
 }
@@ -2669,7 +2644,7 @@ planet_event = {
 	immediate = {
 		every_tile = {
 			limit = {
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 			}
 			switch = {
 				trigger = has_building
@@ -2774,10 +2749,10 @@ planet_event = {
 					add_building_construction = building_hospital
 				}
 				building_primitive_farm = {
-					add_building_construction = building_hydroponics_farm_1
+					autobuild_build_farm = yes
 				}
 				building_primitive_factory = {
-					add_building_construction = building_mining_network_1
+					autobuild_build_mine = yes
 				}
 				building_uplink_node = {
 					add_building_construction = building_network_junction
@@ -2814,7 +2789,7 @@ planet_event = {
 
 	trigger = {
 		autobuild_trigger_is_sth = no
-		autobuild_trigger_block_planet_update = no
+		autobuild_trigger_planet_block_update = no
 		autobuild_trigger_has_any_capital = yes
 		has_building = building_basic_science_lab_1
 		exists = owner
@@ -2846,7 +2821,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						autobuild_trigger_has_pop = yes
+						autobuild_trigger_tile_has_pop = yes
 					}
 					add_building_construction = building_physics_lab_1
 				}
@@ -2859,7 +2834,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						autobuild_trigger_has_pop = yes
+						autobuild_trigger_tile_has_pop = yes
 					}
 					add_building_construction = building_biolab_1
 				}
@@ -2872,7 +2847,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						autobuild_trigger_has_pop = yes
+						autobuild_trigger_tile_has_pop = yes
 					}
 					add_building_construction = building_engineering_facility_1
 				}
@@ -2908,7 +2883,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						autobuild_trigger_has_pop = yes
+						autobuild_trigger_tile_has_pop = yes
 					}
 					add_building_construction = building_biolab_1
 				}
@@ -2923,7 +2898,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						autobuild_trigger_has_pop = yes
+						autobuild_trigger_tile_has_pop = yes
 					}
 					add_building_construction = building_engineering_facility_1
 				}
@@ -2940,7 +2915,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						autobuild_trigger_has_pop = yes
+						autobuild_trigger_tile_has_pop = yes
 					}
 					add_building_construction = building_biolab_1
 				}
@@ -2953,7 +2928,7 @@ planet_event = {
 				every_tile = {
 					limit = {
 						has_building = building_basic_science_lab_1
-						autobuild_trigger_has_pop = yes
+						autobuild_trigger_tile_has_pop = yes
 					}
 					add_building_construction = building_physics_lab_1
 				}
@@ -2963,7 +2938,7 @@ planet_event = {
 		every_tile = {
 			limit = {
 				has_building = building_basic_science_lab_1
-				autobuild_trigger_has_pop = yes
+				autobuild_trigger_tile_has_pop = yes
 			}
 			if = {
 				limit = {
@@ -3099,185 +3074,6 @@ planet_event = {
 					}
 				}
 			}
-		}
-	}
-}
-
-# habitats
-# local autobuild habitat of power plants
-planet_event = {
-	id = autobuild.142
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_habitat
-		autobuild_trigger_block_planet_build_non_special = no
-		autobuild_trigger_planet_energy = yes
-		exists = owner
-		owner = {
-			autobuild_trigger_cost = yes
-		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_mine = yes
-			autobuild_trigger_has_any_science_lab = yes
-			autobuild_trigger_has_any_farm = yes
-		}
-	}
-
-	immediate = {
-		every_tile = {
-			limit = {
-				or = {
-					has_building = no
-					and = {
-						autobuild_trigger_tile_has_any_res = no
-						or = {
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_science_lab = yes
-							autobuild_trigger_has_any_farm = yes
-						}
-					}
-				}
-				autobuild_trigger_has_pop = yes
-				pop = {
-					is_non_sapient_robot = no
-				}
-			}
-			add_building_construction = building_hab_solar_power_processor
-		}
-	}
-}
-
-# local autobuild habitat of mines
-planet_event = {
-	id = autobuild.143
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_habitat
-		autobuild_trigger_block_planet_build_non_special = no
-		autobuild_trigger_planet_minerals = yes
-		exists = owner
-		owner = {
-			autobuild_trigger_cost = yes
-		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_power_plant = yes
-			autobuild_trigger_has_any_science_lab = yes
-			autobuild_trigger_has_any_farm = yes
-		}
-	}
-
-	immediate = {
-		every_tile = {
-			limit = {
-				or = {
-					has_building = no
-					and = {
-						autobuild_trigger_tile_has_any_res = no
-						or = {
-							autobuild_trigger_has_any_power_plant = yes
-							autobuild_trigger_has_any_science_lab = yes
-							autobuild_trigger_has_any_farm = yes
-						}
-					}
-				}
-				autobuild_trigger_has_pop = yes
-			}
-			add_building_construction = building_hab_astro_mining_facility
-		}
-	}
-}
-
-# local autobuild habitat of farms
-planet_event = {
-	id = autobuild.144
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_habitat
-		autobuild_trigger_block_planet_build_non_special = no
-		autobuild_trigger_planet_food = yes
-		exists = owner
-		owner = {
-			autobuild_trigger_cost = yes
-		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_mine = yes
-			autobuild_trigger_has_any_power_plant = yes
-			autobuild_trigger_has_any_science_lab = yes
-		}
-	}
-
-	immediate = {
-		every_tile = {
-			limit = {
-				or = {
-					has_building = no
-					and = {
-						autobuild_trigger_tile_has_any_res = no
-						or = {
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_power_plant = yes
-							autobuild_trigger_has_any_science_lab = yes
-						}
-					}
-				}
-				autobuild_trigger_has_pop = yes
-			}
-			add_building_construction = building_hab_agri_bay
-		}
-	}
-}
-
-# local autobuild habitat of labs
-planet_event = {
-	id = autobuild.145
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_habitat
-		autobuild_trigger_block_planet_build_non_special = no
-		autobuild_trigger_planet_science = yes
-		exists = owner
-		owner = {
-			autobuild_trigger_cost = yes
-		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_mine = yes
-			autobuild_trigger_has_any_power_plant = yes
-			autobuild_trigger_has_any_farm = yes
-		}
-	}
-
-	immediate = {
-		every_tile = {
-			limit = {
-				autobuild_trigger_has_pop = yes
-				pop = {
-					is_non_sapient_robot = no
-				}
-				or = {
-					has_building = no
-					and = {
-						autobuild_trigger_tile_has_any_res = no
-						or = {
-							autobuild_trigger_has_any_mine = yes
-							autobuild_trigger_has_any_power_plant = yes
-							autobuild_trigger_has_any_farm = yes
-						}
-					}
-				}
-			}
-			add_building_construction = building_hab_laboratory_module
 		}
 	}
 }
@@ -4693,31 +4489,44 @@ country_event = {
 		name = autobuild_4_2_on
 		trigger = {
 			allows_slavery = yes
-			not = {
-				has_country_flag = autobuild_4_2
-			}
+			# not = {
+			# 	has_country_flag = autobuild_4_2
+			# }
 		}
 		custom_tooltip = autobuild_4_2_on.tooltip
 		hidden_effect = {
+			every_owned_planet = {
+				every_tile = {
+					limit = {
+						autobuild_trigger_tile_has_pop = yes
+						autobuild_trigger_tile_pop_robot_or_slave = yes
+						or = {
+							autobuild_trigger_has_any_power_plant = yes
+							autobuild_trigger_has_any_science_lab = yes
+						}
+					}
+					autobuild_build_mine = yes
+				}
+			}
 			country_event = {
 				id = autobuild.8
 			}
-			set_country_flag = autobuild_4_2
+			#set_country_flag = autobuild_4_2
 		}
 	}
-	option = {
-		name = autobuild_4_2_off
-		trigger = {
-			has_country_flag = autobuild_4_2
-		}
-		custom_tooltip = autobuild_4_2_off.tooltip
-		hidden_effect = {
-			country_event = {
-				id = autobuild.8
-			}
-			remove_country_flag = autobuild_4_2
-		}
-	}
+	# option = {
+	# 	name = autobuild_4_2_off
+	# 	trigger = {
+	# 		has_country_flag = autobuild_4_2
+	# 	}
+	# 	custom_tooltip = autobuild_4_2_off.tooltip
+	# 	hidden_effect = {
+	# 		country_event = {
+	# 			id = autobuild.8
+	# 		}
+	# 		remove_country_flag = autobuild_4_2
+	# 	}
+	# }
 	option = {
 		name = autobuild_ship_ignore_1_and_less_mineral_on
 		trigger = {
@@ -5629,7 +5438,7 @@ country_event = {
 	immediate = {
 		every_planet = {
 			limit = {
-				autobuild_trigger_any_planet_type = yes
+				autobuild_trigger_planet_special = yes
 			}
 			autobuild_effect_clear_planet_modifiers = yes
 		}

@@ -1,18 +1,9 @@
+#
 
-#	Example:
-#
-#	example_trigger = {
-#		is_country_type = default
-#		free_leader_slots > 0
-#	}
-#
-#
-#	In a script file:
-#
-#	trigger = {
-#		example_trigger = yes
-#	}
-#
+# global
+autobuild_trigger_is_sth = {
+	has_global_flag = star_trek_new_horizons
+}
 
 # for fleet
 autobuild_trigger_fleet_is_valid = {
@@ -27,7 +18,6 @@ autobuild_trigger_fleet_is_valid = {
 	}
 }
 
-# for autobuild ship
 autobuild_trigger_fleet_valid_planet = {
 	has_owner = no
 	has_orbital_station = no
@@ -80,13 +70,9 @@ autobuild_trigger_fleet_valid_planet = {
 	}
 }
 
-autobuild_trigger_is_sth = {
-	has_global_flag = star_trek_new_horizons
-}
-
 # for planet
 autobuild_trigger_local_autoupdate = {
-	autobuild_trigger_block_planet_update = no
+	autobuild_trigger_planet_block_update = no
 	exists = owner
 	owner = {
 		or = {
@@ -101,7 +87,91 @@ autobuild_trigger_local_autoupdate = {
 	autobuild_trigger_has_any_capital_or_shelter = yes
 }
 
+autobuild_trigger_planet_block = {
+	or = {
+		not = {
+			is_controlled_by = owner
+		}
+		has_ground_combat = yes
+		is_under_colonization = yes
+		and = {
+			sector_controlled = yes
+			owner = {
+				has_country_flag = autobuild_ignore_sector
+			}
+		}
+	}
+}
+
+autobuild_trigger_planet_block_build = {
+	or = {
+		autobuild_trigger_planet_block = yes
+		has_building_construction = yes
+		has_planet_flag = free_from_autobuild
+	}
+}
+
+autobuild_trigger_planet_block_update = {
+	or = {
+		autobuild_trigger_planet_block = yes
+		has_building_construction = yes
+		is_planet_class = pc_habitat
+		has_planet_flag = free_from_auto_update
+	}
+}
+
 # for planet/tile
+autobuild_trigger_planet_habitat = {
+	root = {
+		is_planet_class = pc_habitat
+	}
+}
+
+autobuild_trigger_planet_energy = {
+	root = {
+		or = {
+			has_planet_flag = planet_power_plant_autobuild
+			has_modifier = human_fallen_empires_population_yellow_ring
+		}
+	}
+}
+
+autobuild_trigger_planet_minerals = {
+	root = {
+		or = {
+			has_planet_flag = planet_forge_autobuild
+			has_modifier = human_fallen_empires_population_red_ring
+		}
+	}
+}
+
+autobuild_trigger_planet_food = {
+	root = {
+		or = {
+			has_planet_flag = planet_farms_autobuild
+			has_modifier = human_fallen_empires_population_green_ring
+		}
+	}
+}
+
+autobuild_trigger_planet_science = {
+	root = {
+		or = {
+			has_planet_flag = planet_labs_autobuild
+			has_modifier = human_fallen_empires_population_blue_ring
+		}
+	}
+}
+
+autobuild_trigger_planet_special = {
+	or = {
+		autobuild_trigger_planet_energy = yes
+		autobuild_trigger_planet_minerals = yes
+		autobuild_trigger_planet_food = yes
+		autobuild_trigger_planet_science = yes
+	}
+}
+
 autobuild_trigger_has_any_power_plant = {
 	or = {
 		has_building = building_power_plant_1
@@ -250,87 +320,6 @@ autobuild_trigger_has_any_capital_mod_api = {
 	always = no
 }
 
-autobuild_trigger_block_planet = {
-	or = {
-		not = {
-			is_controlled_by = owner
-		}
-		has_ground_combat = yes
-		is_under_colonization = yes
-		and = {
-			sector_controlled = yes
-			owner = {
-				has_country_flag = autobuild_ignore_sector
-			}
-		}
-	}
-}
-
-autobuild_trigger_block_planet_build_non_special = {
-	or = {
-		autobuild_trigger_block_planet = yes
-		has_building_construction = yes
-		has_planet_flag = free_from_autobuild
-	}
-}
-
-autobuild_trigger_block_planet_build = {
-	or = {
-		autobuild_trigger_block_planet_build_non_special = yes
-		is_planet_class = pc_habitat
-		autobuild_trigger_planet_energy = yes
-		autobuild_trigger_planet_minerals = yes
-		autobuild_trigger_planet_food = yes
-		autobuild_trigger_planet_science = yes
-	}
-}
-
-autobuild_trigger_block_planet_update = {
-	or = {
-		autobuild_trigger_block_planet = yes
-		has_building_construction = yes
-		is_planet_class = pc_habitat
-		has_planet_flag = free_from_auto_update
-	}
-}
-
-autobuild_trigger_planet_energy = {
-	or = {
-		has_planet_flag = planet_power_plant_autobuild
-		has_modifier = human_fallen_empires_population_yellow_ring
-	}
-}
-
-autobuild_trigger_planet_minerals = {
-	or = {
-		has_planet_flag = planet_forge_autobuild
-		has_modifier = human_fallen_empires_population_red_ring
-	}
-}
-
-autobuild_trigger_planet_food = {
-	or = {
-		has_planet_flag = planet_farms_autobuild
-		has_modifier = human_fallen_empires_population_green_ring
-	}
-}
-
-autobuild_trigger_planet_science = {
-	or = {
-		has_planet_flag = planet_labs_autobuild
-		has_modifier = human_fallen_empires_population_blue_ring
-	}
-}
-
-autobuild_trigger_any_planet_type = {
-	or = {
-		autobuild_trigger_planet_energy = yes
-		autobuild_trigger_planet_minerals = yes
-		autobuild_trigger_planet_food = yes
-		autobuild_trigger_planet_science = yes
-	}
-}
-
 # for tile
 autobuild_trigger_tile_has_strategic_res = {
 	or = {
@@ -366,7 +355,7 @@ autobuild_trigger_tile_has_strategic_res_mod_api = {
 	always = no
 }
 
-autobuild_trigger_tile_has_any_res = {
+autobuild_trigger_tile_has_res = {
 	#has_resource = yes
 	has_any_resource = yes
 	nand = {
@@ -413,16 +402,17 @@ autobuild_trigger_tile_has_any_res = {
 
 autobuild_trigger_tile_has_energy_more_than_others = {
 	autobuild_trigger_tile_has_strategic_res = no
-	or = {
-		owner = {
-			not = {
-				has_country_flag = autobuild_ignore_energy
-			}
-		}
-		planet = {
-			autobuild_trigger_planet_energy = yes
-		}
-	}
+	autobuild_trigger_tile_pop_robot_or_slave = no
+	# or = {
+		# owner = {
+			# not = {
+				# has_country_flag = autobuild_ignore_energy
+			# }
+		# }
+		# planet = {
+			# autobuild_trigger_planet_energy = yes
+		# }
+	# }
 	or = {
 		has_resource = {
 			type = energy
@@ -529,16 +519,16 @@ autobuild_trigger_tile_has_energy_more_than_others = {
 
 autobuild_trigger_tile_has_minerals_more_than_others = {
 	autobuild_trigger_tile_has_strategic_res = no
-	or = {
-		owner = {
-			not = {
-				has_country_flag = autobuild_ignore_minerals
-			}
-		}
-		planet = {
-			autobuild_trigger_planet_minerals = yes
-		}
-	}
+	# or = {
+		# owner = {
+			# not = {
+				# has_country_flag = autobuild_ignore_minerals
+			# }
+		# }
+		# planet = {
+			# autobuild_trigger_planet_minerals = yes
+		# }
+	# }
 	or = {
 		has_resource = {
 			type = minerals
@@ -645,16 +635,16 @@ autobuild_trigger_tile_has_minerals_more_than_others = {
 
 autobuild_trigger_tile_has_food_more_than_others = {
 	autobuild_trigger_tile_has_strategic_res = no
-	or = {
-		owner = {
-			not = {
-				has_country_flag = autobuild_ignore_food
-			}
-		}
-		planet = {
-			autobuild_trigger_planet_food = yes
-		}
-	}
+	# or = {
+		# owner = {
+			# not = {
+				# has_country_flag = autobuild_ignore_food
+			# }
+		# }
+		# planet = {
+			# autobuild_trigger_planet_food = yes
+		# }
+	# }
 	has_resource = food
 	nor = {
 		has_resource = energy
@@ -785,16 +775,17 @@ autobuild_trigger_tile_has_food_more_than_others = {
 
 autobuild_trigger_tile_has_science_more_than_others = {
 	autobuild_trigger_tile_has_strategic_res = no
-	or = {
-		owner = {
-			not = {
-				has_country_flag = autobuild_ignore_science
-			}
-		}
-		planet = {
-			autobuild_trigger_planet_energy = yes
-		}
-	}
+	autobuild_trigger_tile_pop_robot_or_slave = no
+	# or = {
+		# owner = {
+			# not = {
+				# has_country_flag = autobuild_ignore_science
+			# }
+		# }
+		# planet = {
+			# autobuild_trigger_planet_science = yes
+		# }
+	# }
 	or = {
 		has_resource = {
 			type = physics_research
@@ -917,16 +908,17 @@ autobuild_trigger_tile_has_science_more_than_others = {
 
 autobuild_trigger_tile_has_society_more_than_others = {
 	autobuild_trigger_tile_has_strategic_res = no
-	or = {
-		owner = {
-			not = {
-				has_country_flag = autobuild_ignore_science
-			}
-		}
-		planet = {
-			autobuild_trigger_planet_energy = yes
-		}
-	}
+	autobuild_trigger_tile_pop_robot_or_slave = no
+	# or = {
+		# owner = {
+			# not = {
+				# has_country_flag = autobuild_ignore_science
+			# }
+		# }
+		# planet = {
+			# autobuild_trigger_planet_science = yes
+		# }
+	# }
 	or = {
 		has_resource = {
 			type = society_research
@@ -1037,20 +1029,56 @@ autobuild_trigger_tile_has_society_more_than_others = {
 	}
 }
 
-
-autobuild_trigger_tile_has_any_minerals = {
-	autobuild_trigger_tile_has_strategic_res = no
-	or = {
-		owner = {
-			not = {
-				has_country_flag = autobuild_ignore_minerals
+autobuild_trigger_tile_has_pop = {
+	exists = pop
+	pop = {
+		exists = owner
+		or = {
+			is_being_purged = no
+			has_purge_type = {
+				#country = owner
+				type = purge_neutering
 			}
 		}
-		planet = {
-			autobuild_trigger_planet_minerals = yes
+		nand = {
+			has_citizenship_type = {
+				#country = owner
+				type = citizenship_slavery
+			}
+			or = {
+				has_slavery_type = {
+					#country = owner
+					type = slavery_livestock
+				}
+				has_slavery_type = {
+					#country = owner
+					type = slavery_matrix
+				}
+			}
 		}
 	}
-	has_resource = minerals
+}
+
+autobuild_trigger_tile_is_clean = {
+	has_pop = no
+	has_blocker = no
+}
+
+autobuild_trigger_tile_pop_robot_or_slave = {
+	exists = pop
+	pop = {
+		or = {
+			is_non_sapient_robot = yes
+			and = {
+				has_citizenship_type = {
+					type = citizenship_slavery
+				}
+				has_slavery_type = {
+					type = slavery_normal
+				}
+			}
+		}
+	}
 }
 
 # for country
@@ -1082,7 +1110,7 @@ autobuild_trigger_cost = {
 		}
 		and = {
 			has_country_flag = autobuild_cost_100000
-			minerals > 10000
+			minerals > 100000
 		}
 	}
 	or = {
@@ -1124,39 +1152,4 @@ autobuild_trigger_cost_energy = {
 			energy > 100000
 		}
 	}
-}
-
-autobuild_trigger_has_pop = {
-	exists = pop
-	pop = {
-		exists = owner
-		# nor = {
-		# 	has_purge_type = {
-		# 		#country = owner
-		# 		type = purge_matrix
-		# 	}
-		# 	# с этим дерьмом не пашет
-		# 	has_purge_type = {
-		# 		#country = owner
-		# 		type = purge_normal
-		# 	}
-		# 	has_purge_type = {
-		# 		#country = owner
-		# 		type = purge_processing
-		# 	}
-		# 	has_slavery_type = {
-		# 		#country = owner
-		# 		type = slavery_matrix
-		# 	}
-		# 	has_slavery_type = {
-		# 		#country = owner
-		# 		type = slavery_livestock
-		# 	}
-		# }
-	}
-}
-
-autobuild_trigger_tile_is_clean = {
-	has_pop = no
-	has_blocker = no
 }

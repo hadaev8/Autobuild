@@ -39,25 +39,6 @@ autobuild_effect_clear_planet_modifiers = {
 	remove_planet_flag = planet_farms_autobuild
 }
 
-# for tile star trek mod
-autobuild_build_basic_lab = {
-	if = {
-		limit = {
-			not = {
-				has_global_flag = star_trek_new_horizons
-			}
-		}
-		add_building_construction = building_basic_science_lab_1
-		else = {
-			sth_autobuild_build_basic_lab = yes
-		}
-	}
-}
-
-# sth_autobuild_build_basic_lab = {
-# }
-
-# for planet
 autobuild_effect_planet_build = {
 	human_fallen_empires_effect_autobuild = yes
 	alphamod_effect_autobuild = yes
@@ -92,17 +73,9 @@ autobuild_effect_planet_build = {
 	planet_event = { id = autobuild.126 }
 
 	planet_event = { id = autobuild.132 }
-	planet_event = { id = autobuild.133 }
-	planet_event = { id = autobuild.134 }
-	planet_event = { id = autobuild.135 }
-	planet_event = { id = autobuild.136 }
-	planet_event = { id = autobuild.137 }
+	#planet_event = { id = autobuild.134 }
 	planet_event = { id = autobuild.138 }
 	planet_event = { id = autobuild.140 }
-	planet_event = { id = autobuild.142 }
-	planet_event = { id = autobuild.143 }
-	planet_event = { id = autobuild.144 }
-	planet_event = { id = autobuild.145 }
 }
 
 human_fallen_empires_effect_autobuild = {
@@ -119,3 +92,65 @@ sda_autobuild = {
 
 autobuild_effect_mod_api = {
 }
+
+# for tile, root is planet
+autobuild_build_power_plant = {
+	if = {
+		limit = {
+			autobuild_trigger_planet_habitat = yes
+		}
+		add_building_construction = building_hab_solar_power_processor
+		else = {
+			add_building_construction = building_power_plant_1
+		}
+	}
+}
+
+autobuild_build_mine = {
+	if = {
+		limit = {
+			autobuild_trigger_planet_habitat = yes
+		}
+		add_building_construction = building_hab_astro_mining_facility
+		else = {
+			add_building_construction = building_mining_network_1
+		}
+	}
+}
+
+autobuild_build_farm = {
+	if = {
+		limit = {
+			autobuild_trigger_planet_habitat = yes
+		}
+		add_building_construction = building_hab_agri_bay
+		else = {
+			add_building_construction = building_hydroponics_farm_1
+		}
+	}
+}
+
+autobuild_build_lab = {
+	if = {
+		limit = {
+			autobuild_trigger_planet_habitat = yes
+		}
+		add_building_construction = building_hab_laboratory_module
+		else = {
+			# star trek mod exepion
+			if = {
+				limit = {
+					autobuild_trigger_is_sth = no
+				}
+				add_building_construction = building_basic_science_lab_1
+				else = {
+					sth_autobuild_build_basic_lab = yes
+				}
+			}
+		}
+	}
+}
+
+
+# sth_autobuild_build_basic_lab = {
+# }
