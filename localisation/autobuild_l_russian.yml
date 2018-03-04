@@ -26,8 +26,8 @@
  autobuild_13:0 "Автопостройка: Роботы."
  autobuild_13.tooltip:0 "Будут строиться роботы там, где это имеет смысл."
  
- autobuild_10:0 "Авторасчистка."
- autobuild_10.tooltip:0 "Автоматическая расчистка плиток. §RВнимание§!, это читерная опция, тк блокираторы будут исчезать мгновенно."
+ autobuild_clean_blockers:0 "Авторасчистка."
+ autobuild_clean_blockers.tooltip:0 "Автоматическая расчистка плиток. §RВнимание§!, это читерная опция, тк блокираторы будут исчезать мгновенно."
  
  autobuild_ai_allowed:0 "Разрешить ИИ пользоваться автопостройкой."
  autobuild_ai_allowed.tooltip:0 "У ИИ здания будут строиться так же, как и у игрока."
@@ -120,7 +120,7 @@
  planet_forge_autobuild:0 "Промышленная планета"
  planet_forge_autobuild_desc:0 "Эта планета будет перестроена в индустриальный центр. Обычные электростанции, фермы или лаборатории будут перестроены."
  
- planet_power_plant_autobuild:0 "Энергитическая планета"
+ planet_power_plant_autobuild:0 "Энергетическая планета"
  planet_power_plant_autobuild_desc:0 "Эта планета будет перестроена в энергетический центр. Обычные шахты, фермы или лаборатории будут перестроены."
  
  planet_labs_autobuild:0 "Научная планета"
@@ -197,7 +197,7 @@
  autobuild_5_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_5.tooltip$"
  autobuild_6_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_6.tooltip$"
  autobuild_7_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_7.tooltip$"
- autobuild_10_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_10.tooltip$"
+ autobuild_clean_blockers_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_clean_blockers.tooltip$"
  autobuild_fleet_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_fleet.tooltip$"
  autobuild_cost_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_cost.tooltip$"
  
@@ -208,7 +208,7 @@
  autobuild_5_on:0 "$modmenu_on$ $autobuild_5$"
  autobuild_6_on:0 "$modmenu_on$ $autobuild_6$"
  autobuild_7_on:0 "$modmenu_on$ $autobuild_7$"
- autobuild_10_on:0 "$modmenu_on$ $autobuild_10$"
+ autobuild_clean_blockers_on:0 "$modmenu_on$ $autobuild_clean_blockers$"
  autobuild_fleet_on:0 "$modmenu_on$ $autobuild_fleet$"
  autobuild_cost_on:0 "$modmenu_on$ $autobuild_cost$"
  
@@ -221,7 +221,7 @@
  autobuild_5_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_5.tooltip$"
  autobuild_6_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_6.tooltip$"
  autobuild_7_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_7.tooltip$"
- autobuild_10_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_10.tooltip$"
+ autobuild_clean_blockers_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_clean_blockers.tooltip$"
  autobuild_fleet_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_fleet.tooltip$"
  autobuild_cost_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_cost.tooltip$"
  autobuild_cost_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_cost.tooltip$"
@@ -233,7 +233,7 @@
  autobuild_5_off:0 "$modmenu_off$ $autobuild_5$"
  autobuild_6_off:0 "$modmenu_off$ $autobuild_6$"
  autobuild_7_off:0 "$modmenu_off$ $autobuild_7$"
- autobuild_10_off:0 "$modmenu_off$ $autobuild_10$"
+ autobuild_clean_blockers_off:0 "$modmenu_off$ $autobuild_clean_blockers$"
  autobuild_fleet_off:0 "$modmenu_off$ $autobuild_fleet$"
  autobuild_cost_off:0 "$modmenu_off$ $autobuild_cost$"
  

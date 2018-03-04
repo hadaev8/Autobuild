@@ -43,7 +43,7 @@ autobuild_effect_planet_build = {
 	human_fallen_empires_effect_autobuild = yes
 	alphamod_effect_autobuild = yes
 	st_new_horizons_effect_autobuild = yes
-	sda_autobuild = yes
+	guilli_planet_modifier_effect_autobuild = yes
 	# fell free use this effect for your mod
 	autobuild_effect_mod_api = yes
 	planet_event = { id = autobuild.101 }
@@ -73,7 +73,6 @@ autobuild_effect_planet_build = {
 	planet_event = { id = autobuild.126 }
 
 	planet_event = { id = autobuild.132 }
-	#planet_event = { id = autobuild.134 }
 	planet_event = { id = autobuild.138 }
 	planet_event = { id = autobuild.140 }
 }
@@ -87,7 +86,7 @@ alphamod_effect_autobuild = {
 #st_new_horizons_effect_autobuild = {
 #}
 
-sda_autobuild = {
+guilli_planet_modifier_effect_autobuild = {
 }
 
 autobuild_effect_mod_api = {

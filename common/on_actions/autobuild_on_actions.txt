@@ -1,7 +1,8 @@
 #
 on_game_start = {
 	events = {
-		autobuild.201 # set global flag autobuild_installed
+		# set global flag autobuild_installed
+		autobuild.201
 	}
 }
 
@@ -17,7 +18,7 @@ on_monthly_pulse = {
 # From = System
 on_entering_system_fleet = {
 	events = {
-		autobuild.157
+		autobuild_fleet.50
 	}
 }
 
@@ -26,7 +27,7 @@ on_entering_system_fleet = {
 # From = Country
 on_ship_order = {
 	events = {
-		autobuild.160
+		autobuild_fleet.51
 	}
 }
 

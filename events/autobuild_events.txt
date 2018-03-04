@@ -3,268 +3,11 @@
 ## 3 - auto build new buildings on good tiles
 ## 7 - auto build in ept tiles
 ## 13 - robots
-## 14 - alphamod
 ## spec planets
 
 namespace = autobuild
 
 @autobuild_num_slave = 6
-
-# fleet order
-fleet_event = {
-	id = autobuild.0
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		autobuild_trigger_fleet_is_valid = yes
-		# not = { sector_controlled = yes }
-		# sector = {
-		# 	log = "[this.GetName]"
-		# }
-	}
-
-	immediate = {
-		set_fleet_flag = autobuild_fleet
-		queue_actions = {
-			repeat = {
-				find_closest_system = {
-					trigger = {
-						id = autobuild.0.trigger.1
-						exists = owner
-						owner = {
-							is_country = root.owner
-						}
-						nor = {
-							has_star_flag = autobuild_star_block
-							any_ship_in_system = {
-								exists = owner
-								owner = {
-									is_hostile = root.owner
-								}
-							}
-						}
-						any_planet = {
-							autobuild_trigger_fleet_valid_planet = yes
-						}
-					}
-					found_system = {
-						effect = {
-							id = autobuild.0.effect.0
-							set_timed_star_flag = {
-								flag = autobuild_star_block
-								days = 100
-							}
-							root = {
-								set_name = "Move to [prev.GetName]"
-							}
-						}
-						move_to = this
-					}
-					failed = {
-						effect = {
-							id = autobuild.0.effect.1
-							root = {
-								autobuild_effect_fleet_clear = yes
-								set_name = "Target not found, wait"
-								fleet_event = {
-									id = autobuild.0
-									days = 101
-								}
-							}
-						}
-					}
-				}
-				find_closest_planet = {
-					trigger = {
-						id = autobuild.0.trigger.2
-						autobuild_trigger_fleet_valid_planet = yes
-					}
-					found_planet = {
-						effect = {
-							id = autobuild.0.effect.2
-							if = {
-								limit = {
-									solar_system = {
-										exists = owner
-										owner = {
-											is_country = root.owner
-										}
-										not = {
-											any_ship_in_system = {
-												exists = owner
-												owner = {
-													is_hostile = root.owner
-												}
-											}
-										}
-									}
-									nor = {
-										has_planet_flag = autobuild_planet_block
-										has_planet_flag = ass_target
-									}
-								}
-								solar_system = {
-									set_timed_star_flag = {
-										flag = autobuild_star_block
-										days = 100
-									}
-								}
-								set_timed_planet_flag = {
-									flag = autobuild_planet_block
-									days = 100
-								}
-								root = {
-									set_name = "Move to [prev.GetName]"
-								}
-								else = {
-									solar_system = {
-										remove_star_flag = autobuild_star_block
-									}
-									root = {
-										autobuild_effect_fleet_clear = yes
-										fleet_event = {
-											id = autobuild.0
-										}
-									}
-								}
-							}
-						}
-						orbit_planet = this
-						effect = {
-							id = autobuild.0.effect.3
-							solar_system = {
-								set_timed_star_flag = {
-									flag = autobuild_star_block
-									days = 100
-								}
-							}
-							set_timed_planet_flag = {
-								flag = autobuild_planet_block
-								days = 100
-							}
-							if = {
-								limit = {
-									has_orbital_station = no
-								}
-								root = {
-									set_name = "Building..."
-									set_event_locked = yes
-								}
-								else = {
-									solar_system = {
-										remove_star_flag = autobuild_star_block
-									}
-									root = {
-										autobuild_effect_fleet_clear = yes
-										fleet_event = {
-											id = autobuild.0
-										}
-									}
-								}
-							}
-						}
-						wait = 100
-						effect = {
-							id = autobuild.0.effect.4
-							root = {
-								set_event_locked = no
-							}
-							if = {
-								limit = {
-									has_orbital_station = no
-									root.owner = {
-										minerals > 90
-										autobuild_trigger_cost = yes
-									}
-								}
-								if = {
-									limit = {
-										has_deposit_for = shipclass_mining_station
-									}
-									create_mining_station = {
-										owner = root.owner
-									}
-									root.owner = {
-										add_minerals = -90
-										if = {
-											limit = {
-												has_event_chain = mandate_miner_chain
-											}
-											add_event_chain_counter = {
-												event_chain = mandate_miner_chain
-												counter = mining_stations_built
-												amount = 1
-											}
-											if = {
-												limit = {
-													has_completed_event_chain_counter = {
-														event_chain = mandate_miner_chain
-														counter = mining_stations_built
-													}
-												}
-												country_event = {
-													id = mandate.111
-												}
-											}
-										}
-									}
-									else = {
-										if = {
-											limit = {
-												has_deposit_for = shipclass_research_station
-											}
-											create_research_station = {
-												owner = root.owner
-											}
-											root.owner = {
-												add_minerals = -90
-												if = {
-													limit = {
-														has_event_chain = mandate_orbresearch_chain
-													}
-													add_event_chain_counter = {
-														event_chain = mandate_orbresearch_chain
-														counter = orbresearch_built
-														amount = 1
-													}
-													if = {
-														limit = {
-															has_completed_event_chain_counter = {
-																event_chain = mandate_orbresearch_chain
-																counter = orbresearch_built
-															}
-														}
-														country_event = {
-															id = mandate.121
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-								else = {
-									solar_system = {
-										remove_star_flag = autobuild_star_block
-									}
-									root = {
-										autobuild_effect_fleet_clear = yes
-										set_name = "Haven't minerals"
-										fleet_event = {
-											id = autobuild.0
-											days = 100
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
 
 # main event
 country_event = {
@@ -302,21 +45,14 @@ country_event = {
 		if = {
 			limit = {
 				or = {
-					has_country_flag = autobuild_10
+					has_country_flag = autobuild_clean_blockers
 					and = {
 						is_ai = yes
 						has_global_flag = autobuild_ai_allowed
 					}
 				}
-				or = {
-					has_ascension_perk = ap_mastery_of_nature
-					and = {
-						energy > 100
-						minerals > 100
-						autobuild_trigger_cost = yes
-						autobuild_trigger_cost_energy = yes
-					}
-				}
+				energy > 100
+				autobuild_trigger_cost_energy = yes
 			}
 			every_owned_planet = {
 				limit = {
@@ -327,7 +63,7 @@ country_event = {
 					limit = {
 						has_blocker = yes
 					}
-										if = {
+					if = {
 						limit = {
 							has_blocker = tb_mountain_range
 							owner = {
@@ -2307,13 +2043,16 @@ planet_event = {
 							and = {
 								autobuild_trigger_planet_special = no
 								or = {
-									# on ept tile options
-									owner = {
-										or = {
-											not = {
-												has_country_flag = autobuild_7
+									and = {
+										# on ept tile options
+										autobuild_trigger_tile_has_res = no
+										owner = {
+											or = {
+												not = {
+													has_country_flag = autobuild_7
+												}
+												has_country_flag = autobuild_power_plant_ratio.0
 											}
-											has_country_flag = autobuild_power_plant_ratio.0
 										}
 									}
 									# have some other res
@@ -2362,13 +2101,16 @@ planet_event = {
 							and = {
 								autobuild_trigger_planet_special = no
 								or = {
-									# on ept tile options
-									owner = {
-										or = {
-											not = {
-												has_country_flag = autobuild_7
+									and = {
+										# on ept tile options
+										autobuild_trigger_tile_has_res = no
+										owner = {
+											or = {
+												not = {
+													has_country_flag = autobuild_7
+												}
+												has_country_flag = autobuild_mine_ratio.0
 											}
-											has_country_flag = autobuild_mine_ratio.0
 										}
 									}
 									# habitat
@@ -2455,25 +2197,16 @@ planet_event = {
 							and = {
 								autobuild_trigger_planet_special = no
 								or = {
-									# on ept tile options
-									owner = {
-										or = {
-											not = {
-												has_country_flag = autobuild_7
-											}
-											has_country_flag = autobuild_lab_ratio.0
-										}
-									}
-									# not near capital
 									and = {
+										# on ept tile options
+										autobuild_trigger_tile_has_res = no
 										owner = {
-											nor = {
-												has_country_flag = autobuild_mine_ratio.0
-												has_country_flag = autobuild_power_plant_ratio.0
+											or = {
+												not = {
+													has_country_flag = autobuild_7
+												}
+												has_country_flag = autobuild_lab_ratio.0
 											}
-										}
-										any_neighboring_tile = {
-											autobuild_trigger_has_any_capital_or_shelter = yes
 										}
 									}
 									# have some other res
@@ -2649,133 +2382,49 @@ planet_event = {
 			switch = {
 				trigger = has_building
 
-				building_power_plant_1 = {
-					add_building_construction = building_power_plant_2
-				}
-				building_power_plant_2 = {
-					add_building_construction = building_power_plant_3
-				}
-				building_power_plant_3 = {
-					add_building_construction = building_power_plant_4
-				}
-				building_power_plant_4 = {
-					add_building_construction = building_power_plant_5
-				}
-				building_power_hub_1 = {
-					add_building_construction = building_power_hub_2
-				}
-				building_hydroponics_farm_1 = {
-					add_building_construction = building_hydroponics_farm_2
-				}
-				building_hydroponics_farm_2 = {
-					add_building_construction = building_hydroponics_farm_3
-				}
-				building_hydroponics_farm_3 = {
-					add_building_construction = building_hydroponics_farm_4
-				}
-				building_hydroponics_farm_4 = {
-					add_building_construction = building_hydroponics_farm_5
-				}
-				building_mining_network_1 = {
-					add_building_construction = building_mining_network_2
-				}
-				building_mining_network_2 = {
-					add_building_construction = building_mining_network_3
-				}
-				building_mining_network_3 = {
-					add_building_construction = building_mining_network_4
-				}
-				building_mining_network_4 = {
-					add_building_construction = building_mining_network_5
-				}
-				building_mineral_processing_plant_1 = {
-					add_building_construction = building_mineral_processing_plant_2
-				}
-				building_engineering_facility_1 = {
-					add_building_construction = building_engineering_facility_2
-				}
-				building_engineering_facility_2 = {
-					add_building_construction = building_engineering_facility_3
-				}
-				building_engineering_facility_3 = {
-					add_building_construction = building_engineering_facility_4
-				}
-				building_physics_lab_1 = {
-					add_building_construction = building_physics_lab_2
-				}
-				building_physics_lab_2 = {
-					add_building_construction = building_physics_lab_3
-				}
-				building_physics_lab_3 = {
-					add_building_construction = building_physics_lab_4
-				}
-				building_biolab_1 = {
-					add_building_construction = building_biolab_2
-				}
-				building_biolab_2 = {
-					add_building_construction = building_biolab_3
-				}
-				building_biolab_3 = {
-					add_building_construction = building_biolab_4
-				}
-				building_autochthon_monument = {
-					add_building_construction = building_heritage_site
-				}
-				building_heritage_site = {
-					add_building_construction = building_hypercomms_forum
-				}
-				building_hypercomms_forum = {
-					add_building_construction = building_autocurating_vault
-				}
-				building_temple = {
-					add_building_construction = building_holotemple
-				}
-				building_holotemple = {
-					add_building_construction = building_sacred_nexus
-				}
-				building_sacred_nexus = {
-					add_building_construction = building_citadel_of_faith
-				}
-				building_colony_shelter = {
-					add_building_construction = building_capital_1
-				}
-				building_capital_1 = {
-					add_building_construction = building_capital_2
-				}
-				building_capital_2 = {
-					add_building_construction = building_capital_3
-				}
-				building_clinic = {
-					add_building_construction = building_hospital
-				}
-				building_primitive_farm = {
-					autobuild_build_farm = yes
-				}
-				building_primitive_factory = {
-					autobuild_build_mine = yes
-				}
-				building_uplink_node = {
-					add_building_construction = building_network_junction
-				}
-				building_network_junction = {
-					add_building_construction = building_system_conflux
-				}
-				building_system_conflux = {
-					add_building_construction = building_alpha_hub
-				}
-				building_deployment_post = {
-					add_building_construction = building_machine_capital_1
-				}
-				building_machine_capital_1 = {
-					add_building_construction = building_machine_capital_2
-				}
-				building_machine_capital_2 = {
-					add_building_construction = building_machine_capital_3
-				}
-				building_spare_parts_depot = {
-					add_building_construction = building_unit_assembly_plant
-				}
-
+				building_power_plant_1 = { building_power_plant_2 }
+				building_power_plant_2 = { building_power_plant_3 }
+				building_power_plant_3 = { building_power_plant_4 }
+				building_power_plant_4 = { building_power_plant_5 }
+				building_power_hub_1 = { building_power_hub_2 }
+				building_hydroponics_farm_1 = { building_hydroponics_farm_2 }
+				building_hydroponics_farm_2 = { building_hydroponics_farm_3 }
+				building_hydroponics_farm_3 = { building_hydroponics_farm_4 }
+				building_hydroponics_farm_4 = { building_hydroponics_farm_5 }
+				building_mining_network_1 = { building_mining_network_2 }
+				building_mining_network_2 = { building_mining_network_3 }
+				building_mining_network_3 = { building_mining_network_4 }
+				building_mining_network_4 = { building_mining_network_5 }
+				building_mineral_processing_plant_1 = { building_mineral_processing_plant_2 }
+				building_engineering_facility_1 = { building_engineering_facility_2 }
+				building_engineering_facility_2 = { building_engineering_facility_3 }
+				building_engineering_facility_3 = { building_engineering_facility_4 }
+				building_physics_lab_1 = { building_physics_lab_2 }
+				building_physics_lab_2 = { building_physics_lab_3 }
+				building_physics_lab_3 = { building_physics_lab_4 }
+				building_biolab_1 = { building_biolab_2 }
+				building_biolab_2 = { building_biolab_3 }
+				building_biolab_3 = { building_biolab_4 }
+				building_autochthon_monument = { building_heritage_site }
+				building_heritage_site = { building_hypercomms_forum }
+				building_hypercomms_forum = { building_autocurating_vault }
+				building_temple = { building_holotemple }
+				building_holotemple = { building_sacred_nexus }
+				building_sacred_nexus = { building_citadel_of_faith }
+				building_colony_shelter = { building_capital_1 }
+				building_capital_1 = { building_capital_2 }
+				building_capital_2 = { building_capital_3 }
+				building_clinic = { building_hospital }
+				building_stronghold = { building_fortress }
+				building_primitive_farm = { building_hydroponics_farm_1 }
+				building_primitive_factory = { building_mining_network_1 }
+				building_uplink_node = { building_network_junction }
+				building_network_junction = { building_system_conflux }
+				building_system_conflux = { building_alpha_hub }
+				building_deployment_post = { building_machine_capital_1 }
+				building_machine_capital_1 = { building_machine_capital_2 }
+				building_machine_capital_2 = { building_machine_capital_3 }
+				building_spare_parts_depot = { building_unit_assembly_plant }
 			}
 		}
 	}
@@ -3119,13 +2768,10 @@ country_event = {
 			}
 			every_owned_fleet = {
 				limit = {
-					is_ship_class = shipclass_constructor
-					not = {
-						has_fleet_flag = autobuild_fleet
-					}
+					autobuild_trigger_fleet_is_valid = yes
 				}
 				fleet_event = {
-					id = autobuild.0
+					id = autobuild_fleet.0
 				}
 			}
 		}
@@ -3288,29 +2934,29 @@ country_event = {
 		}
 	}
 	option = {
-		name = autobuild_10_on
+		name = autobuild_clean_blockers_on
 		trigger = {
 			not = {
-				has_country_flag = autobuild_10
+				has_country_flag = autobuild_clean_blockers
 			}
 		}
-		custom_tooltip = autobuild_10_on.tooltip
+		custom_tooltip = autobuild_clean_blockers_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.3
-			} set_country_flag = autobuild_10
+			} set_country_flag = autobuild_clean_blockers
 		}
 	}
 	option = {
-		name = autobuild_10_off
+		name = autobuild_clean_blockers_off
 		trigger = {
-			has_country_flag = autobuild_10
+			has_country_flag = autobuild_clean_blockers
 		}
-		custom_tooltip = autobuild_10_off.tooltip
+		custom_tooltip = autobuild_clean_blockers_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.3
-			} remove_country_flag = autobuild_10
+			} remove_country_flag = autobuild_clean_blockers
 		}
 	}
 	option = {
@@ -5336,45 +4982,6 @@ planet_event = {
 	}
 }
 
-# fleet debug
-fleet_event = {
-	id = autobuild.157
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		from = {
-			any_ship_in_system = {
-				fleet = {
-					has_fleet_flag = autobuild_fleet
-					#fleet_stance = evasive
-				}
-				exists = owner
-				owner = {
-					is_hostile = root.owner
-				}
-			}
-		}
-	}
-
-	immediate = {
-		from = {
-			every_fleet_in_system = {
-				limit = {
-					has_fleet_flag = autobuild_fleet
-				}
-				autobuild_effect_fleet_clear = yes
-				fleet_event = {
-					id = autobuild.0
-					days = 365
-				}
-				set_fleet_stance = passive
-				order_forced_return = yes
-			}
-		}
-	}
-}
-
 # on pop birth and migrate
 pop_event = {
 	id = autobuild.158
@@ -5400,32 +5007,6 @@ planet_event = {
 
 	immediate = {
 		autobuild_effect_planet_build = yes
-	}
-}
-
-# clear comands on_ship_order
-ship_event = {
-	id = autobuild.160
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		always = no
-		is_ship_size = constructor
-		exists = fleet
-		fleet = {
-			has_fleet_flag = autobuild_fleet
-		}
-	}
-
-	immediate = {
-		log = "Stop autobuild ship"
-		fleet = {
-			clear_fleet_actions = this
-			set_event_locked = no
-			remove_fleet_flag = autobuild_fleet
-			set_name = "Construction Ship"
-		}
 	}
 }
 
@@ -5469,7 +5050,7 @@ country_event = {
 		remove_country_flag = autobuild_ignore_food
 		remove_country_flag = autobuild_ignore_energy
 		remove_country_flag = autobuild_ignore_science
-		remove_country_flag = autobuild_10
+		remove_country_flag = autobuild_clean_blockers
 		autobuild_effect_clear_cost_flags = yes
 		remove_country_flag = autobuild_farm_replace
 		remove_country_flag = autobuild_cost

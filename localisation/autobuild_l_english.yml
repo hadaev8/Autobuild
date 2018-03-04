@@ -26,8 +26,8 @@
  autobuild_13:0 "AutoBuild: Robots."
  autobuild_13.tooltip:0 "Will build robots where it makes sense."
  
- autobuild_10:0 "AutoClean Blockers."
- autobuild_10.tooltip:0 "Autoclean blockers. §RWarning§!, this is a semi-cheat option as blockers will disappear instantly."
+ autobuild_clean_blockers:0 "AutoClean Blockers."
+ autobuild_clean_blockers.tooltip:0 "Autoclean blockers. §RWarning§!, this is a semi-cheat option as blockers will disappear instantly."
  
  autobuild_ai_allowed:0 "Allow AutoBuild for AI."
  autobuild_ai_allowed.tooltip:0 "AI's buildings will be constructed in the same way as the player's."
@@ -197,7 +197,7 @@
  autobuild_5_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_5.tooltip$"
  autobuild_6_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_6.tooltip$"
  autobuild_7_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_7.tooltip$"
- autobuild_10_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_10.tooltip$"
+ autobuild_clean_blockers_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_clean_blockers.tooltip$"
  autobuild_fleet_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_fleet.tooltip$"
  autobuild_cost_on.tooltip:0 "$modmenu_tooltip_on$ $autobuild_cost.tooltip$"
  
@@ -208,7 +208,7 @@
  autobuild_5_on:0 "$modmenu_on$ $autobuild_5$"
  autobuild_6_on:0 "$modmenu_on$ $autobuild_6$"
  autobuild_7_on:0 "$modmenu_on$ $autobuild_7$"
- autobuild_10_on:0 "$modmenu_on$ $autobuild_10$"
+ autobuild_clean_blockers_on:0 "$modmenu_on$ $autobuild_clean_blockers$"
  autobuild_fleet_on:0 "$modmenu_on$ $autobuild_fleet$"
  autobuild_cost_on:0 "$modmenu_on$ $autobuild_cost$"
  
@@ -221,7 +221,7 @@
  autobuild_5_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_5.tooltip$"
  autobuild_6_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_6.tooltip$"
  autobuild_7_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_7.tooltip$"
- autobuild_10_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_10.tooltip$"
+ autobuild_clean_blockers_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_clean_blockers.tooltip$"
  autobuild_fleet_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_fleet.tooltip$"
  autobuild_cost_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_cost.tooltip$"
  autobuild_cost_off.tooltip:0 "$modmenu_tooltip_off$ $autobuild_cost.tooltip$"
@@ -233,7 +233,7 @@
  autobuild_5_off:0 "$modmenu_off$ $autobuild_5$"
  autobuild_6_off:0 "$modmenu_off$ $autobuild_6$"
  autobuild_7_off:0 "$modmenu_off$ $autobuild_7$"
- autobuild_10_off:0 "$modmenu_off$ $autobuild_10$"
+ autobuild_clean_blockers_off:0 "$modmenu_off$ $autobuild_clean_blockers$"
  autobuild_fleet_off:0 "$modmenu_off$ $autobuild_fleet$"
  autobuild_cost_off:0 "$modmenu_off$ $autobuild_cost$"
  
