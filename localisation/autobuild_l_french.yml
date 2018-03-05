@@ -12,13 +12,11 @@
  autobuild_0:0 "$modmenu_on$ tous les réglages principaux"
  
  autobuild_fleet:0 "Construction auto de stations spatiales"
+ autobuild_fleet_allow_tooltip:0 "Any ship is suitable for autobuilding."
  autobuild_fleet.tooltip:0 "Tous les vaisseaux de construction actuellement au repos seront assignés à construire automatiquement. Si tu veux les utiliser à d'autres fins, désactive cette option ou construis-en un nouveau. Les vaisseaux seront listés comme « Évènement bloqué », c'est normal."
  
  autobuild_1:0 "Amélioration automatique"
  autobuild_1.tooltip:0 "Tous les bâtiments seront améliorés automatiquement, exceptés les laboratoires scientifiques basiques et ceux coûtant de l'influence."
- 
- autobuild_2:0 "Amélioration auto coûtant de l'influence"
- autobuild_2.tooltip:0 "Les bâtiments qui ont un coût en influence seront améliorés automatiquement."
  
  autobuild_3:0 "Construction auto de nouveaux bâtiments"
  autobuild_3.tooltip:0 "Toutes les cases comptant des ressources verront un bâtiment se construire selon le type de ressource et sa quantité."

@@ -11,10 +11,6 @@ fleet_event = {
 
 	trigger = {
 		autobuild_trigger_fleet_is_valid = yes
-		# not = { sector_controlled = yes }
-		# sector = {
-		# 	log = "[this.GetName]"
-		# }
 	}
 
 	immediate = {
@@ -35,6 +31,9 @@ fleet_event = {
 								owner = {
 									is_hostile = root.owner
 								}
+							}
+							any_ship_in_system = {
+								is_constructing = megastructure
 							}
 						}
 						any_planet = {

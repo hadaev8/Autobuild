@@ -660,12 +660,12 @@ country_event = {
 					limit = {
 						has_building = yes
 						is_ruined = yes
-						root = {
+						owner = {
 							minerals > 50
 						}
 					}
 					set_ruined = no
-					root = {
+					owner = {
 						add_minerals = -50
 					}
 				}
@@ -936,6 +936,7 @@ planet_event = {
 		not = {
 			has_building = building_power_hub_1
 			has_building = building_power_hub_2
+			has_building = building_akx_worm_1
 		}
 		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
@@ -2104,17 +2105,19 @@ planet_event = {
 									and = {
 										# on ept tile options
 										autobuild_trigger_tile_has_res = no
-										owner = {
-											or = {
-												not = {
-													has_country_flag = autobuild_7
+										or = {
+											# habitat
+											autobuild_trigger_planet_habitat = yes
+											owner = {
+												or = {
+													not = {
+														has_country_flag = autobuild_7
+													}
+													has_country_flag = autobuild_mine_ratio.0
 												}
-												has_country_flag = autobuild_mine_ratio.0
 											}
 										}
 									}
-									# habitat
-									autobuild_trigger_planet_habitat = yes
 									# have some other res
 									and = {
 										autobuild_trigger_tile_has_res = yes
@@ -2160,7 +2163,7 @@ planet_event = {
 								autobuild_trigger_planet_special = no
 								or = {
 									# habitat
-									autobuild_trigger_planet_habitat = yes
+									#autobuild_trigger_planet_habitat = yes
 									# have some other res
 									and = {
 										autobuild_trigger_tile_has_res = yes
@@ -2756,9 +2759,12 @@ country_event = {
 	}
 	option = {
 		name = autobuild_fleet_on
-		trigger = {
-			any_owned_fleet = {
-				autobuild_trigger_fleet_is_valid = yes
+		allow = {
+			custom_tooltip = {
+				text = autobuild_fleet_allow_tooltip
+				any_owned_fleet = {
+					autobuild_trigger_fleet_is_valid = yes
+				}
 			}
 		}
 		custom_tooltip = autobuild_fleet_on.tooltip
@@ -2807,7 +2813,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.3
-			} set_country_flag = autobuild_1
+			}
+			set_country_flag = autobuild_1
 		}
 	}
 	option = {
@@ -2819,7 +2826,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.3
-			} remove_country_flag = autobuild_1
+			}
+			remove_country_flag = autobuild_1
 		}
 	}
 	option = {
@@ -4135,9 +4143,6 @@ country_event = {
 		name = autobuild_4_2_on
 		trigger = {
 			allows_slavery = yes
-			# not = {
-			# 	has_country_flag = autobuild_4_2
-			# }
 		}
 		custom_tooltip = autobuild_4_2_on.tooltip
 		hidden_effect = {
@@ -4157,22 +4162,8 @@ country_event = {
 			country_event = {
 				id = autobuild.8
 			}
-			#set_country_flag = autobuild_4_2
 		}
 	}
-	# option = {
-	# 	name = autobuild_4_2_off
-	# 	trigger = {
-	# 		has_country_flag = autobuild_4_2
-	# 	}
-	# 	custom_tooltip = autobuild_4_2_off.tooltip
-	# 	hidden_effect = {
-	# 		country_event = {
-	# 			id = autobuild.8
-	# 		}
-	# 		remove_country_flag = autobuild_4_2
-	# 	}
-	# }
 	option = {
 		name = autobuild_ship_ignore_1_and_less_mineral_on
 		trigger = {
@@ -4945,7 +4936,7 @@ country_event = {
 
 # on actions events
 
-# send mods events by on action
+# send mod's events by on action
 event = {
 	id = autobuild.155
 	hide_window = yes
@@ -4954,7 +4945,9 @@ event = {
 	immediate = {
 		every_country = {
 			country_event = {
-				id = autobuild.1 days = 15 random = 10
+				id = autobuild.1
+				days = 15
+				random = 10
 			}
 		}
 	}

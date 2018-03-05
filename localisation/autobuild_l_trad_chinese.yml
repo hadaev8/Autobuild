@@ -13,13 +13,11 @@
  autobuild_0:0 "$modmenu_on$ 所有主要設定."
  
  autobuild_fleet:0 "自動建設: 空間站."
+ autobuild_fleet_allow_tooltip:0 "Any ship is suitable for autobuilding."
  autobuild_fleet.tooltip:0 “所有當前的閒置工程船將被分配到自動建造，如果要需要使用它們，請禁用此選項或建造新的工程船，工程船將被列為”事件阻止“，這是正常的“。
  
  autobuild_1:0 "建築物自動升級."
  autobuild_1.tooltip:0 "升級所有建築物，除了基本實驗室和需選擇的實驗室."
- 
- autobuild_2:0 "依成本自動升級建築物."
- autobuild_2.tooltip:0 "依成本自動升級建築物."
  
  autobuild_3:0 "建造新建築在合適的地塊上."
  autobuild_3.tooltip:0 "自動建築時取決於地塊上現有的資源."
@@ -37,7 +35,7 @@
  autobuild_others_options_menu:0 "§BMenu§! 其他選單."
  
  autobuild_4_2:0 "給奴隸礦物!"
- autobuild_4_2.tooltip:0 "有自動建築了, 誰還需要聰明的奴隸?."
+ autobuild_4_2.tooltip:0 "有自動建築了, 誰還需要聰明的奴隸?"
  
  autobuild_ship_ignore_1_and_less_mineral:0 "忽略 1 單位的礦物."
  autobuild_ship_ignore_1_and_less_mineral.tooltip:0 “自動建築工程船不會建造只有1單位礦物的採礦站。”

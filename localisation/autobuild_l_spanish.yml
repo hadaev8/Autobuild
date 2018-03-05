@@ -12,13 +12,11 @@
  autobuild_0:0 "$modmenu_on$ todos los ajustes principales"
  
  autobuild_fleet:0 "Auto-construir Estaciones Espaciales"
+ autobuild_fleet_allow_tooltip:0 "Any ship is suitable for autobuilding."
  autobuild_fleet.tooltip:0 "Todas las naves de construcción inactivas actuales se asignarán a la construcción automática. Si desea utilizarlos para sus necesidades, deshabilite esta opción o construya una nueva nave de construcción. Las naves aparecerán como "evento bloqueado", esto es normal."
  
  autobuild_1:0 "Auto-mejorar Edificios"
  autobuild_1.tooltip:0 "Todos los edificios mejoran automáticamente, a excepción de los laboratorios básicos y los que cuestan influencia."
- 
- autobuild_2:0 "Auto-mejorar edificios que cuestan influencia"
- autobuild_2.tooltip:0 "Los edificios que cuestan influencia mejoran automáticamente."
  
  autobuild_3:0 "Nuevos edificios en buenas áreas"
  autobuild_3.tooltip:0 "Todas las áreas con recursos ganan edificios dependiendo del tipo y cantidad de recursos."
@@ -36,7 +34,7 @@
  autobuild_others_options_menu:0 "§BMenú§! de otras opciones"
  
  autobuild_4_2:0 "¡Dar las minas a los esclavos!"
- autobuild_4_2.tooltip:0 "Auto-construye minas en áreas que tienen población de esclavos ya sea un laboratorio o planta de energía que ya existe. ¿Quién necesita esclavos inteligentes?."
+ autobuild_4_2.tooltip:0 "Auto-construye minas en áreas que tienen población de esclavos ya sea un laboratorio o planta de energía que ya existe. ¿Quién necesita esclavos inteligentes?"
  
  autobuild_ship_ignore_1_and_less_mineral:0 "Ignorar 1 mineral"
  autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "La automatización no construirá estaciónes mineras donde solo haya 1 mineral."

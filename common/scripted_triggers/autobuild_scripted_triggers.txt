@@ -12,6 +12,16 @@ autobuild_trigger_fleet_is_valid = {
 	is_disabled = no
 	is_in_combat = no
 	is_fleet_idle = yes
+	#sector_controlled = no
+	# try to filter out non sector constructors
+	exists = solar_system
+	solar_system = {
+		not = {
+			any_planet = {
+				sector_controlled = yes
+			}
+		}
+	}
 	not = {
 		has_fleet_flag = autobuild_fleet
 		has_fleet_flag = autonomous_assembler
@@ -71,28 +81,13 @@ autobuild_trigger_fleet_valid_planet = {
 }
 
 # for planet
-autobuild_trigger_local_autoupdate = {
-	autobuild_trigger_planet_block_update = no
-	exists = owner
-	owner = {
-		or = {
-			has_country_flag = autobuild_1
-			and = {
-				is_ai = yes
-				has_global_flag = autobuild_ai_allowed
-			}
-		}
-		autobuild_trigger_cost = yes
-	}
-	autobuild_trigger_has_any_capital_or_shelter = yes
-}
-
 autobuild_trigger_planet_block = {
 	or = {
 		not = {
 			is_controlled_by = owner
 		}
 		has_ground_combat = yes
+		has_orbital_bombardment = yes
 		is_under_colonization = yes
 		and = {
 			sector_controlled = yes
@@ -115,9 +110,25 @@ autobuild_trigger_planet_block_update = {
 	or = {
 		autobuild_trigger_planet_block = yes
 		has_building_construction = yes
-		is_planet_class = pc_habitat
+		#is_planet_class = pc_habitat
 		has_planet_flag = free_from_auto_update
 	}
+}
+
+autobuild_trigger_local_autoupdate = {
+	autobuild_trigger_planet_block_update = no
+	exists = owner
+	owner = {
+		or = {
+			has_country_flag = autobuild_1
+			and = {
+				is_ai = yes
+				has_global_flag = autobuild_ai_allowed
+			}
+		}
+		autobuild_trigger_cost = yes
+	}
+	autobuild_trigger_has_any_capital_or_shelter = yes
 }
 
 # for planet/tile
@@ -286,31 +297,53 @@ autobuild_trigger_has_any_science_lab_not_replace = {
 	}
 }
 
-autobuild_trigger_has_any_capital_or_shelter = {
-	or = {
-		autobuild_trigger_has_any_capital = yes
-		has_building = building_colony_shelter
-		has_building = building_deployment_post
-		# temporaly fix
-		has_global_flag = gf_alphamod_activated
-		has_global_flag = star_trek_new_horizons
-	}
-}
-
-autobuild_trigger_has_any_capital = {
+# надо что-то сделать с этой кучей
+autobuild_trigger_has_planet_capital = {
 	or = {
 		has_building = building_capital_1
 		has_building = building_capital_2
 		has_building = building_capital_3
-		has_building = building_hab_capital
 		has_building = building_machine_capital_1
 		has_building = building_machine_capital_2
 		has_building = building_machine_capital_3
+	}
+}
+
+autobuild_trigger_has_planet_capital_or_shelter = {
+	or = {
+		autobuild_trigger_has_planet_capital = yes
+		autobuild_trigger_has_planet_shelter = yes
+	}
+}
+
+autobuild_trigger_has_planet_shelter = {
+	or = {
+		has_building = building_colony_shelter
+		has_building = building_deployment_post
+	}
+}
+
+autobuild_trigger_has_any_capital_or_shelter = {
+	or = {
+		autobuild_trigger_has_planet_capital_or_shelter = yes
+		has_building = building_hab_capital
+		# temporaly fix
+		has_global_flag = gf_alphamod_activated
+		has_global_flag = star_trek_new_horizons
 		alphamod_trigger_autobuild_has_any_capital = yes
 		# fell free use this trigger for your mod
 		autobuild_trigger_has_any_capital_mod_api = yes
 	}
 }
+
+autobuild_trigger_has_any_capital = {
+	or = {
+		autobuild_trigger_has_planet_capital = yes
+		has_building = building_hab_capital
+	}
+}
+
+
 
 alphamod_trigger_autobuild_has_any_capital = {
 	always = no
@@ -358,14 +391,14 @@ autobuild_trigger_tile_has_strategic_res_mod_api = {
 
 autobuild_trigger_tile_good_for_energy = {
 	any_neighboring_tile = {
-		autobuild_trigger_has_any_capital_or_shelter = yes
+		autobuild_trigger_has_planet_capital_or_shelter = yes
 	}
 }
 
 autobuild_trigger_tile_good_for_food_minerals = {
 	or = {
 		any_neighboring_tile = {
-			autobuild_trigger_has_any_capital_or_shelter = yes
+			autobuild_trigger_has_planet_capital_or_shelter = yes
 		}
 		autobuild_trigger_tile_pop_robot_or_slave = yes
 	}
@@ -373,7 +406,11 @@ autobuild_trigger_tile_good_for_food_minerals = {
 
 autobuild_trigger_tile_has_res = {
 	#has_resource = yes
-	#has_any_resource = yes
+	or = {
+		has_any_resource = yes
+		autobuild_trigger_tile_good_for_food_minerals = yes
+		autobuild_trigger_tile_good_for_energy = yes
+	}
 	nand = {
 		owner = {
 			has_country_flag = autobuild_ignore_minerals
@@ -1095,10 +1132,11 @@ autobuild_trigger_tile_pop_robot_or_slave = {
 			is_non_sapient_robot = yes
 			and = {
 				has_citizenship_type = {
+					#country = owner
 					type = citizenship_slavery
 				}
 				has_slavery_type = {
-					type = slavery_normal
+				 	type = slavery_normal
 				}
 			}
 		}

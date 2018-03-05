@@ -12,13 +12,11 @@
  autobuild_0:0 "$modmenu_on$ all main settings."
  
  autobuild_fleet:0 "AutoBuild Space Stations."
- autobuild_fleet.tooltip:0 "All current idle construction ships will be assigned to autobuild. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be listed as "event blocked", this is normal."
+ autobuild_fleet_allow_tooltip:0 "Any ship is suitable for autobuilding."
+ autobuild_fleet.tooltip:0 "All current idle construction ships will be assigned to autobuild mining and science stations. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be listed as "event blocked", this is normal."
  
  autobuild_1:0 "AutoImprove Buildings."
- autobuild_1.tooltip:0 "All buildings automatically improve, except for basic laboratories and those that cost influence."
- 
- autobuild_2:0 "AutoImprove Buildings That Cost Influence."
- autobuild_2.tooltip:0 "Buildings that cost influence automatically improve."
+ autobuild_1.tooltip:0 "All buildings automatically improve, except for basic laboratories."
  
  autobuild_3:0 "New Buildings on Good Tiles."
  autobuild_3.tooltip:0 "All tiles with resources gain buildings depending on type and amount of resources."
@@ -36,7 +34,7 @@
  autobuild_others_options_menu:0 "§BMenu§! of other options."
  
  autobuild_4_2:0 "Give Mines to the Slaves!"
- autobuild_4_2.tooltip:0 "AutoBuild mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?."
+ autobuild_4_2.tooltip:0 "AutoBuild mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?"
  
  autobuild_ship_ignore_1_and_less_mineral:0 "Ignore 1 mineral."
  autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "AutoBuild Ships will not build a mining station where there is only 1 mineral."

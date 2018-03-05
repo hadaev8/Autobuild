@@ -12,13 +12,11 @@
  autobuild_0:0 "$modmenu_on$ Ustawienia główne."
  
  autobuild_fleet:0 "Autobudowa stacji kosmicznych."
+ autobuild_fleet_allow_tooltip:0 "Any ship is suitable for autobuilding."
  autobuild_fleet.tooltip:0 "Wszystkie bezczynne statki konstrukyjne zostaną przydzielone do autobudowy. Jeśli chcesz używać ich do swoich potrzeb, wyłącz tę opcję lub zbuduj nowy statek konstrukcyjny. Statki zostaną oznaczone "statek zablokowany", to jest normalne."
  
  autobuild_1:0 "Auto ulepszenie budynków."
  autobuild_1.tooltip:0 "Wszystkie budynki ulepszą się automatycznie, z wyjątkiem podstawowych laboratoriów i tych, które wpływają na koszty utrzymania."
- 
- autobuild_2:0 "Auto ulepszenie budynków, z kosztem utrzymania."
- autobuild_2.tooltip:0 "Budynki zwiększające koszty utrzymania zostają ulepszone."
  
  autobuild_3:0 "Nowe budynki na polach z zasobami."
  autobuild_3.tooltip:0 "Wszystkie pola z zasobami otrzymują budynki w zależności od typu i ilości zasobów."
@@ -36,7 +34,7 @@
  autobuild_others_options_menu:0 "§BUstawienia§! innych opcji."
  
  autobuild_4_2:0 "Daj niewolnikom ich kopalnie!"
- autobuild_4_2.tooltip:0 "Automatycznie buduj kopalnie na każdym polu, które ma populację niewolników i laboratorium lub elektrownię. Kto potrzebuje mądrych niewolników?."
+ autobuild_4_2.tooltip:0 "Automatycznie buduj kopalnie na każdym polu, które ma populację niewolników i laboratorium lub elektrownię. Kto potrzebuje mądrych niewolników?"
  
  autobuild_ship_ignore_1_and_less_mineral:0 "Ignoruj 1 minerał."
  autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "Statki z autobudową nie wybudują stacji górniczej, w miejscu gdzie znajduje się 1 minerał."
