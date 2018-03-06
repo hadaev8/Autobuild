@@ -1051,14 +1051,12 @@ planet_event = {
 	trigger = {
 		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = no
-		not = {
-		}
 		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_building_xeno_zoo
+				has_country_flag = autobuild_3
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1068,24 +1066,22 @@ planet_event = {
 			autobuild_trigger_cost = yes
 		}
 		any_tile = {
-			has_resource = {
-		 		type = sr_alien_pets
-		 		amount > 0
-			}
+			has_resource = sr_alien_pets
 			not = {
 				has_building = building_xeno_zoo
 			}
+			autobuild_trigger_tile_has_pop = yes
 		}
 	}
 
 	immediate = {
 		random_tile = {
 			limit = {
+				has_resource = sr_alien_pets
 				not = {
 					has_building = building_xeno_zoo
 				}
 				autobuild_trigger_tile_has_pop = yes
-				has_resource = sr_alien_pets
 			}
 			add_building_construction = building_xeno_zoo
 		}
@@ -1521,10 +1517,7 @@ planet_event = {
 			autobuild_trigger_cost = yes
 		}
 		any_tile = {
-			has_resource = {
-		 		type = sr_betharian
-		 		amount > 0
-			}
+			has_resource = sr_betharian
 			not = {
 				has_building = betharian_power_plant
 			}
@@ -1536,14 +1529,10 @@ planet_event = {
 		random_tile = {
 			limit = {
 				has_resource = sr_betharian
-				autobuild_trigger_tile_has_pop = yes
 				not = {
 					has_building = betharian_power_plant
 				}
-				or = {
-					has_building = no
-					autobuild_trigger_has_any_regular_building = yes
-				}
+				autobuild_trigger_tile_has_pop = yes
 			}
 			add_building_construction = betharian_power_plant
 		}
@@ -5051,7 +5040,6 @@ country_event = {
 		remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 		remove_global_flag = hide_autobuild_planetary_edicts
 		remove_global_flag = autobuild_ai_allowed
-		remove_country_flag = autobuild_building_xeno_zoo
 	}
 }
 
