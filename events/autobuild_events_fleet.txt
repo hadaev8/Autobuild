@@ -15,6 +15,40 @@ fleet_event = {
 
 	immediate = {
 		set_fleet_flag = autobuild_fleet
+		# probably not good idea
+		# closest_system = {
+		# 	limit = {
+		# 		exists = owner
+		# 		owner = {
+		# 			is_country = root.owner
+		# 		}
+		# 		nor = {
+		# 			any_ship_in_system = {
+		# 				exists = owner
+		# 				owner = {
+		# 					is_hostile = root.owner
+		# 				}
+		# 			}
+		# 			any_ship_in_system = {
+		# 				is_constructing = megastructure
+		# 			}
+		# 		}
+		# 		any_planet = {
+		# 			autobuild_trigger_fleet_valid_planet = yes
+		# 		}
+		# 	}
+		# 	random_system_planet = {
+		# 		limit = {
+		# 			autobuild_trigger_fleet_valid_planet = yes
+		# 		}
+		# 		root = {
+		# 			auto_move_to_planet = {
+		# 				target = prev
+		# 				clear_auto_move_on_arrival = yes
+		# 			}
+		# 		}
+		# 	}
+		# }
 		queue_actions = {
 			repeat = {
 				find_closest_system = {
@@ -24,20 +58,19 @@ fleet_event = {
 						owner = {
 							is_country = root.owner
 						}
-						nor = {
-							has_star_flag = autobuild_star_block
-							any_ship_in_system = {
-								exists = owner
-								owner = {
-									is_hostile = root.owner
-								}
-							}
-							any_ship_in_system = {
-								is_constructing = megastructure
-							}
-						}
 						any_planet = {
 							autobuild_trigger_fleet_valid_planet = yes
+						}
+						not = {
+							any_ship_in_system = {
+								exists = owner
+								or = {
+									owner = {
+										is_hostile = root.owner
+									}
+									is_constructing = megastructure
+								}
+							}
 						}
 					}
 					found_system = {

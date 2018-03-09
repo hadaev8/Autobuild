@@ -44,6 +44,8 @@ autobuild_effect_planet_build = {
 	alphamod_effect_autobuild = yes
 	st_new_horizons_effect_autobuild = yes
 	guilli_planet_modifier_effect_autobuild = yes
+	realspace_stellarexpedition_effect_autobuild = yes
+	buildable_ancient_building_effects_autobuild = yes
 	# fell free use this effect for your mod
 	autobuild_effect_mod_api = yes
 	planet_event = { id = autobuild.101 }
@@ -87,6 +89,9 @@ alphamod_effect_autobuild = {
 #}
 
 guilli_planet_modifier_effect_autobuild = {
+}
+
+realspace_stellarexpedition_autobuild = {
 }
 
 autobuild_effect_mod_api = {

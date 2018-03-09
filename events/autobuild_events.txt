@@ -1067,8 +1067,9 @@ planet_event = {
 		}
 		any_tile = {
 			has_resource = sr_alien_pets
-			not = {
+			nor = {
 				has_building = building_xeno_zoo
+				has_building = building_animal_evaluation_laboratory
 			}
 			autobuild_trigger_tile_has_pop = yes
 		}
@@ -1078,12 +1079,14 @@ planet_event = {
 		random_tile = {
 			limit = {
 				has_resource = sr_alien_pets
-				not = {
+				nor = {
 					has_building = building_xeno_zoo
+					has_building = building_animal_evaluation_laboratory
 				}
 				autobuild_trigger_tile_has_pop = yes
 			}
 			add_building_construction = building_xeno_zoo
+			add_building_construction = building_animal_evaluation_laboratory
 		}
 	}
 }
