@@ -1143,6 +1143,29 @@ autobuild_trigger_tile_pop_robot_or_slave = {
 	}
 }
 
+autobuild_trigger_can_deliver_pop = {
+	has_pop = no
+	root.owner = {
+		has_country_flag = autobuild_local_resettle
+	}
+	root = {
+		any_tile = {
+			or = {
+				has_building = no
+				autobuild_trigger_has_any_regular_building = yes
+			}
+			autobuild_trigger_tile_has_pop = yes
+		}
+	}
+}
+
+autobuild_trigger_tile_has_pop_or_can_deliver = {
+	or = {
+		autobuild_trigger_tile_has_pop = yes
+		autobuild_trigger_can_deliver_pop = yes
+	}
+}
+
 # for country
 autobuild_trigger_cost = {
 	minerals > 0

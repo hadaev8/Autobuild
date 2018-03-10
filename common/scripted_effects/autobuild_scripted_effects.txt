@@ -50,7 +50,6 @@ autobuild_effect_planet_build = {
 	autobuild_effect_mod_api = yes
 	planet_event = { id = autobuild.101 }
 	planet_event = { id = autobuild.102 }
-	planet_event = { id = autobuild.103 }
 	planet_event = { id = autobuild.104 }
 	planet_event = { id = autobuild.106 }
 	planet_event = { id = autobuild.107 }
@@ -61,7 +60,6 @@ autobuild_effect_planet_build = {
 	planet_event = { id = autobuild.112 }
 	planet_event = { id = autobuild.113 }
 	planet_event = { id = autobuild.114 }
-	planet_event = { id = autobuild.115 }
 	planet_event = { id = autobuild.116 }
 	planet_event = { id = autobuild.117 }
 	planet_event = { id = autobuild.118 }
@@ -91,7 +89,13 @@ alphamod_effect_autobuild = {
 guilli_planet_modifier_effect_autobuild = {
 }
 
-realspace_stellarexpedition_autobuild = {
+realspace_stellarexpedition_effect_autobuild = {
+}
+
+realspace_stellarexpedition_effect_autobuild = {
+}
+
+buildable_ancient_building_effects_autobuild = {
 }
 
 autobuild_effect_mod_api = {
@@ -155,6 +159,28 @@ autobuild_build_lab = {
 	}
 }
 
+autobuild_effect_deliver_pop = {
+	if = {
+		limit = {
+			has_pop = no
+		}
+		root = {
+			random_tile = {
+				limit = {
+					or = {
+						has_building = no
+						autobuild_trigger_has_any_regular_building = yes
+					}
+					autobuild_trigger_tile_has_pop = yes
+				}
+				resettle_pop = {
+					pop = pop
+					tile = prevprev
+				}
+			}
+		}
+	}
+}
 
 # sth_autobuild_build_basic_lab = {
 # }
