@@ -1919,6 +1919,7 @@ planet_event = {
 		owner = {
 			or = {
 				has_country_flag = autobuild_3
+				autobuild_trigger_planet_special = yes
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed

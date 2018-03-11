@@ -564,6 +564,10 @@ autobuild_trigger_tile_has_energy_more_than_others = {
 					amount > 1
 				}
 				has_resource = {
+					type = food
+					amount > 1
+				}
+				has_resource = {
 					type = physics_research
 					amount > 1
 				}
@@ -678,6 +682,10 @@ autobuild_trigger_tile_has_minerals_more_than_others = {
 			nor = {
 				has_resource = {
 					type = energy
+					amount > 1
+				}
+				has_resource = {
+					type = food
 					amount > 1
 				}
 				has_resource = {
