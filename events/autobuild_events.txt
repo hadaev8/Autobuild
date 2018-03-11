@@ -912,7 +912,7 @@ planet_event = {
 			has_building = building_akx_worm_1
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		autobuild_trigger_planet_minerals = no
 		autobuild_trigger_planet_food = no
 		autobuild_trigger_planet_science = no
@@ -970,7 +970,7 @@ planet_event = {
 			has_building = building_mineral_processing_plant_2
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		autobuild_trigger_planet_energy = no
 		autobuild_trigger_planet_food = no
 		autobuild_trigger_planet_science = no
@@ -1025,11 +1025,11 @@ planet_event = {
 		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = no
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_3
+				has_country_flag = autobuild_on_tile
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1076,7 +1076,7 @@ planet_event = {
 			has_building = building_akx_worm_2
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1123,7 +1123,7 @@ planet_event = {
 	}
 }
 
-# local visitor senter
+# local visitor center
 planet_event = {
 	id = autobuild.110
 	hide_window = yes
@@ -1134,7 +1134,7 @@ planet_event = {
 			has_building = building_visitor_center
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1338,7 +1338,6 @@ planet_event = {
 			has_building = building_paradise_dome
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1431,11 +1430,11 @@ planet_event = {
 		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = no
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_3
+				has_country_flag = autobuild_on_tile
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1478,7 +1477,7 @@ planet_event = {
 			has_building = building_clone_vats
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1527,7 +1526,7 @@ planet_event = {
 			has_building = building_planetary_shield_generator
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1576,7 +1575,7 @@ planet_event = {
 			has_building = building_military_academy
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1625,7 +1624,7 @@ planet_event = {
 			has_building = building_hive_synapse
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1675,7 +1674,7 @@ planet_event = {
 			has_building = building_symbol_purity
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1722,7 +1721,7 @@ planet_event = {
 			has_building = building_uplink_node
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1768,7 +1767,7 @@ planet_event = {
 			has_building = building_spare_parts_depot
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1817,7 +1816,7 @@ planet_event = {
 			has_building = building_neuro_electric_amplifier
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1869,7 +1868,7 @@ planet_event = {
 			has_building = building_war_factory
 		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
@@ -1918,7 +1917,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_3
+				has_country_flag = autobuild_on_tile
 				autobuild_trigger_planet_special = yes
 				and = {
 					is_ai = yes
@@ -1932,7 +1931,7 @@ planet_event = {
 	immediate = {
 		if = {
 			limit = {
-				autobuild_trigger_has_any_capital_or_shelter = no
+				autobuild_trigger_has_planet_capital_or_shelter = no
 			}
 			random_tile = {
 				limit = {
@@ -2364,7 +2363,7 @@ planet_event = {
 	trigger = {
 		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_block_update = no
-		autobuild_trigger_has_any_capital = yes
+		autobuild_trigger_has_planet_capital = yes
 		has_building = building_basic_science_lab_1
 		exists = owner
 		owner = {
@@ -2742,7 +2741,7 @@ country_event = {
 		}
 		remove_country_flag = autobuild_1
 		remove_country_flag = autobuild_2
-		remove_country_flag = autobuild_3
+		remove_country_flag = autobuild_on_tile
 		remove_country_flag = autobuild_5
 		remove_country_flag = autobuild_mine_ratio.0
 		remove_country_flag = autobuild_mine_ratio.2

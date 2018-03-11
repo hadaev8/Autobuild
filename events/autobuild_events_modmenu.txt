@@ -17,14 +17,14 @@ country_event = {
 		trigger = {
 			nand = {
 				has_country_flag = autobuild_1
-				has_country_flag = autobuild_3
+				has_country_flag = autobuild_on_tile
 				has_country_flag = autobuild_5
 			}
 		}
 		custom_tooltip = autobuild_0.tooltip
 		hidden_effect = {
 			set_country_flag = autobuild_1
-			set_country_flag = autobuild_3
+			set_country_flag = autobuild_on_tile
 			set_country_flag = autobuild_5
 			country_event = {
 				id = autobuild.3
@@ -105,29 +105,29 @@ country_event = {
 		}
 	}
 	option = {
-		name = autobuild_3_on
+		name = autobuild_on_tile_on
 		trigger = {
 			not = {
-				has_country_flag = autobuild_3
+				has_country_flag = autobuild_on_tile
 			}
 		}
-		custom_tooltip = autobuild_3_on.tooltip
+		custom_tooltip = autobuild_on_tile_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.3
-			} set_country_flag = autobuild_3
+			} set_country_flag = autobuild_on_tile
 		}
 	}
 	option = {
-		name = autobuild_3_off
+		name = autobuild_on_tile_off
 		trigger = {
-			has_country_flag = autobuild_3
+			has_country_flag = autobuild_on_tile
 		}
-		custom_tooltip = autobuild_3_off.tooltip
+		custom_tooltip = autobuild_on_tile_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.3
-			} remove_country_flag = autobuild_3
+			} remove_country_flag = autobuild_on_tile
 		}
 	}
 	option = {

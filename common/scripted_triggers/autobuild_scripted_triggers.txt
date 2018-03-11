@@ -128,7 +128,7 @@ autobuild_trigger_local_autoupdate = {
 		}
 		autobuild_trigger_cost = yes
 	}
-	autobuild_trigger_has_any_capital_or_shelter = yes
+	#autobuild_trigger_has_any_capital_or_shelter = yes
 }
 
 # for planet/tile
@@ -254,7 +254,7 @@ autobuild_trigger_has_any_mine_not_replace = {
 	or = {
 		has_building = building_ancient_factory
 
-		# dlc
+		# horizon dlc
 		has_building = building_worm_mine
 	}
 }
@@ -265,7 +265,7 @@ autobuild_trigger_has_any_farm_not_replace = {
 		has_building = building_great_pyramid
 		has_building = building_paradise_dome
 
-		# horizont dlc
+		# horizon dlc
 		has_building = building_worm_farm
 	}
 }
@@ -276,7 +276,7 @@ autobuild_trigger_has_any_power_plant_not_replace = {
 		has_building = building_dark_matter_power_plant
 		has_building = building_odd_factory
 
-		# dlc
+		# horizon dlc
 		has_building = building_akx_worm_1
 	}
 }
@@ -297,7 +297,6 @@ autobuild_trigger_has_any_science_lab_not_replace = {
 	}
 }
 
-# надо что-то сделать с этой кучей
 autobuild_trigger_has_planet_capital = {
 	or = {
 		has_building = building_capital_1
@@ -309,13 +308,6 @@ autobuild_trigger_has_planet_capital = {
 	}
 }
 
-autobuild_trigger_has_planet_capital_or_shelter = {
-	or = {
-		autobuild_trigger_has_planet_capital = yes
-		autobuild_trigger_has_planet_shelter = yes
-	}
-}
-
 autobuild_trigger_has_planet_shelter = {
 	or = {
 		has_building = building_colony_shelter
@@ -323,35 +315,25 @@ autobuild_trigger_has_planet_shelter = {
 	}
 }
 
-autobuild_trigger_has_any_capital_or_shelter = {
-	or = {
-		autobuild_trigger_has_planet_capital_or_shelter = yes
-		has_building = building_hab_capital
-		# temporaly fix
-		has_global_flag = gf_alphamod_activated
-		has_global_flag = star_trek_new_horizons
-		alphamod_trigger_autobuild_has_any_capital = yes
-		# fell free use this trigger for your mod
-		autobuild_trigger_has_any_capital_mod_api = yes
-	}
-}
-
-autobuild_trigger_has_any_capital = {
+autobuild_trigger_has_planet_capital_or_shelter = {
 	or = {
 		autobuild_trigger_has_planet_capital = yes
-		has_building = building_hab_capital
+		autobuild_trigger_has_planet_shelter = yes
 	}
 }
 
-
-
-alphamod_trigger_autobuild_has_any_capital = {
-	always = no
-}
-
-autobuild_trigger_has_any_capital_mod_api = {
-	always = no
-}
+# autobuild_trigger_has_any_capital_or_shelter = {
+	# or = {
+		# autobuild_trigger_has_planet_capital_or_shelter = yes
+		# has_building = building_hab_capital
+		# # temporal fix
+		# has_global_flag = gf_alphamod_activated
+		# has_global_flag = star_trek_new_horizons
+		# alphamod_trigger_autobuild_has_any_capital = yes
+		# # fell free use this trigger for your mod
+		# autobuild_trigger_has_any_capital_mod_api = yes
+	# }
+# }
 
 # for tile
 autobuild_trigger_tile_has_strategic_res = {
