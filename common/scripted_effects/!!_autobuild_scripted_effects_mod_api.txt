@@ -1,0 +1,28 @@
+#
+
+human_fallen_empires_effect_autobuild = {
+}
+
+alphamod_effect_autobuild = {
+}
+
+st_new_horizons_effect_autobuild = {
+}
+
+guilli_planet_modifier_effect_autobuild = {
+}
+
+realspace_stellarexpedition_effect_autobuild = {
+}
+
+realspace_stellarexpedition_effect_autobuild = {
+}
+
+buildable_ancient_building_effects_autobuild = {
+}
+
+autobuild_effect_mod_api = {
+}
+
+sth_autobuild_build_basic_lab = {
+}

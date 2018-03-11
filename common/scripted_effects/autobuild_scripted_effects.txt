@@ -77,30 +77,6 @@ autobuild_effect_planet_build = {
 	planet_event = { id = autobuild.140 }
 }
 
-human_fallen_empires_effect_autobuild = {
-}
-
-alphamod_effect_autobuild = {
-}
-
-#st_new_horizons_effect_autobuild = {
-#}
-
-guilli_planet_modifier_effect_autobuild = {
-}
-
-realspace_stellarexpedition_effect_autobuild = {
-}
-
-realspace_stellarexpedition_effect_autobuild = {
-}
-
-buildable_ancient_building_effects_autobuild = {
-}
-
-autobuild_effect_mod_api = {
-}
-
 # for tile, root is planet
 autobuild_build_power_plant = {
 	if = {
@@ -181,6 +157,3 @@ autobuild_effect_deliver_pop = {
 		}
 	}
 }
-
-# sth_autobuild_build_basic_lab = {
-# }
