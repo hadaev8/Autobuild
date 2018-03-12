@@ -26,3 +26,9 @@ autobuild_effect_mod_api = {
 
 sth_autobuild_build_basic_lab = {
 }
+
+direct_build_affects_autobuild_init = {
+}
+
+direct_build_affects_autobuild_finish = {
+}
