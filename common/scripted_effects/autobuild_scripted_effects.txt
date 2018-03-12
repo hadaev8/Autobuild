@@ -46,6 +46,7 @@ autobuild_effect_planet_build = {
 	guilli_planet_modifier_effect_autobuild = yes
 	realspace_stellarexpedition_effect_autobuild = yes
 	buildable_ancient_building_effects_autobuild = yes
+	direct_build_affects_autobuild_init = yes
 	# fell free use this effect for your mod
 	autobuild_effect_mod_api = yes
 	planet_event = { id = autobuild.101 }
@@ -75,6 +76,7 @@ autobuild_effect_planet_build = {
 	planet_event = { id = autobuild.132 }
 	planet_event = { id = autobuild.138 }
 	planet_event = { id = autobuild.140 }
+	direct_build_affects_autobuild_finish = yes
 }
 
 # for tile, root is planet
