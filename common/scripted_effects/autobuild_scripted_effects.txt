@@ -46,6 +46,7 @@ autobuild_effect_planet_build = {
 	guilli_planet_modifier_effect_autobuild = yes
 	realspace_stellarexpedition_effect_autobuild = yes
 	buildable_ancient_building_effects_autobuild = yes
+	autobuild_RSA_effects_planet_build = yes
 	direct_build_affects_autobuild_init = yes
 	# fell free use this effect for your mod
 	autobuild_effect_mod_api = yes

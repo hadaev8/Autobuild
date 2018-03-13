@@ -21,6 +21,9 @@ realspace_stellarexpedition_effect_autobuild = {
 buildable_ancient_building_effects_autobuild = {
 }
 
+autobuild_RSA_effects_planet_build = {
+}
+
 autobuild_effect_mod_api = {
 }
 

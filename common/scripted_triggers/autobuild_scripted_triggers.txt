@@ -698,8 +698,25 @@ autobuild_trigger_tile_has_food_more_than_others = {
 		autobuild_trigger_planet_food = yes
 	}
 	or = {
-		has_resource = food
-		autobuild_trigger_tile_good_for_food_minerals = yes
+		has_resource = {
+			type = food
+			amount > 1
+		}
+		and = {
+			has_resource = {
+				type = food
+				amount = 1
+			}
+			owner = {
+				nor = {
+					food > 1000
+					has_monthly_income = {
+						resource = food
+						value > 30
+					}
+				}
+			}
+		}
 	}
 	nor = {
 		has_resource = energy
