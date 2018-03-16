@@ -358,19 +358,6 @@ autobuild_trigger_tile_has_strategic_res = {
 	}
 }
 
-alphamod_trigger_autobuild_tile_has_strategic_res = {
-	always = no
-}
-
-sth_trigger_autobuild_tile_has_strategic_res = {
-	always = no
-}
-
-autobuild_trigger_tile_has_strategic_res_mod_api = {
-	always = no
-}
-
-
 autobuild_trigger_tile_good_for_energy = {
 	any_neighboring_tile = {
 		autobuild_trigger_has_planet_capital_or_shelter = yes
