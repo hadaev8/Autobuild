@@ -3,63 +3,107 @@
 
 namespace = autobuild
 
-# local autobuild clinics
+# local res
+# local betharian
 planet_event = {
-	id = autobuild.104
+	id = autobuild.117
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger = {
-		nor = {
-			has_building = building_clinic
-			has_building = building_hospital
-		}
+		autobuild_trigger_is_sth = no
+		autobuild_trigger_planet_habitat = no
 		autobuild_trigger_planet_block_build = no
+		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_building_clinic
+				has_country_flag = autobuild_on_tile
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
 				}
 			}
+			has_technology = tech_mine_betharian
 			autobuild_trigger_cost = yes
-			has_technology = tech_frontier_health
 		}
-		or = {
-			free_building_tiles > 0
-			autobuild_trigger_has_any_regular_building = yes
-		}
+		# any_tile = {
+		# 	has_resource = sr_betharian
+		# 	not = {
+		# 		has_building = betharian_power_plant
+		# 	}
+		# 	autobuild_trigger_has_any_regular_building_or_nothing = yes
+		# 	autobuild_trigger_tile_has_pop = yes
+		# }
 	}
 
 	immediate = {
 		random_tile = {
 			limit = {
-				or = {
-					has_building = no
-					and = {
-						root = {
-							free_building_tiles = 0
-						}
-						autobuild_trigger_has_any_regular_building = yes
-					}
+				has_resource = sr_betharian
+				not = {
+					has_building = betharian_power_plant
 				}
-				or = {
-					autobuild_trigger_tile_has_pop = yes
-					autobuild_trigger_can_deliver_pop = yes
-				}
-				or = {
-					autobuild_trigger_tile_has_society_more_than_others = yes
-					autobuild_trigger_tile_has_res = no
-				}
+				autobuild_trigger_has_any_regular_building_or_nothing = yes
+				autobuild_trigger_tile_has_pop = yes
 			}
-			add_building_construction = building_clinic
-			autobuild_effect_deliver_pop = yes
+			add_building_construction = betharian_power_plant
 		}
 	}
 }
 
+# local xeno zoo
+planet_event = {
+	id = autobuild.108
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		autobuild_trigger_is_sth = no
+		autobuild_trigger_planet_habitat = no
+		autobuild_trigger_planet_block_build = no
+		autobuild_trigger_has_planet_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_on_tile
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+			has_technology = tech_alien_life_studies
+			autobuild_trigger_cost = yes
+		}
+		# any_tile = {
+		# 	has_resource = sr_alien_pets
+		# 	nor = {
+		# 		has_building = building_xeno_zoo
+		# 		has_building = building_animal_evaluation_laboratory
+		# 	}
+		# 	autobuild_trigger_has_any_regular_building = yes
+		# 	autobuild_trigger_tile_has_pop = yes
+		# }
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				has_resource = sr_alien_pets
+				nor = {
+					has_building = building_xeno_zoo
+					has_building = building_animal_evaluation_laboratory
+				}
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_has_any_regular_building_or_nothing = yes
+			}
+			add_building_construction = building_xeno_zoo
+			add_building_construction = building_animal_evaluation_laboratory
+		}
+	}
+}
+
+# colony unique
 # local energy hub
 planet_event = {
 	id = autobuild.106
@@ -177,51 +221,60 @@ planet_event = {
 	}
 }
 
-# local xeno zoo
+# auto generated
+# local autobuild clinics
 planet_event = {
-	id = autobuild.108
+	id = autobuild.104
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger = {
-		autobuild_trigger_is_sth = no
-		autobuild_trigger_planet_habitat = no
+		nor = {
+			has_building = building_clinic
+			has_building = building_hospital
+		}
 		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_planet_capital = yes
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_on_tile
+				has_country_flag = autobuild_building_clinic
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
 				}
 			}
-			has_technology = tech_alien_life_studies
 			autobuild_trigger_cost = yes
+			has_technology = tech_frontier_health
 		}
-		any_tile = {
-			has_resource = sr_alien_pets
-			nor = {
-				has_building = building_xeno_zoo
-				has_building = building_animal_evaluation_laboratory
-			}
-			autobuild_trigger_tile_has_pop = yes
+		or = {
+			free_building_tiles > 0
+			autobuild_trigger_has_any_regular_building = yes
 		}
 	}
 
 	immediate = {
 		random_tile = {
 			limit = {
-				has_resource = sr_alien_pets
-				nor = {
-					has_building = building_xeno_zoo
-					has_building = building_animal_evaluation_laboratory
+				or = {
+					has_building = no
+					and = {
+						root = {
+							free_building_tiles = 0
+						}
+						autobuild_trigger_has_any_regular_building = yes
+					}
 				}
-				autobuild_trigger_tile_has_pop = yes
+				or = {
+					autobuild_trigger_tile_has_pop = yes
+					autobuild_trigger_can_deliver_pop = yes
+				}
+				or = {
+					autobuild_trigger_tile_has_society_more_than_others = yes
+					autobuild_trigger_tile_has_res = no
+				}
 			}
-			add_building_construction = building_xeno_zoo
-			add_building_construction = building_animal_evaluation_laboratory
+			add_building_construction = building_clinic
+			autobuild_effect_deliver_pop = yes
 		}
 	}
 }
@@ -578,52 +631,6 @@ planet_event = {
 				autobuild_trigger_tile_has_res = no
 			}
 			add_building_construction = building_hab_cultural_center
-		}
-	}
-}
-
-# local betharian
-planet_event = {
-	id = autobuild.117
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		autobuild_trigger_is_sth = no
-		autobuild_trigger_planet_habitat = no
-		autobuild_trigger_planet_block_build = no
-		autobuild_trigger_has_planet_capital = yes
-		exists = owner
-		owner = {
-			or = {
-				has_country_flag = autobuild_on_tile
-				and = {
-					is_ai = yes
-					has_global_flag = autobuild_ai_allowed
-				}
-			}
-			has_technology = tech_mine_betharian
-			autobuild_trigger_cost = yes
-		}
-		any_tile = {
-			has_resource = sr_betharian
-			not = {
-				has_building = betharian_power_plant
-			}
-			autobuild_trigger_tile_has_pop = yes
-		}
-	}
-
-	immediate = {
-		random_tile = {
-			limit = {
-				has_resource = sr_betharian
-				not = {
-					has_building = betharian_power_plant
-				}
-				autobuild_trigger_tile_has_pop = yes
-			}
-			add_building_construction = betharian_power_plant
 		}
 	}
 }

@@ -17,11 +17,26 @@
  modmenu_no:0 "Nein"
  modmenu_configure:0 "Here you can configure mod"
 
- modmenu.0:0 "§HAuto Build and Improve Buildings§!"
- modmenu.0.tooltip:0 "Hier kann $modmenu.0$, sofern installiert, konfiguriert werden."
- modmenu.1:0 "§HHarder Invaders§!"
- modmenu.1.tooltip:0 "Hier kann $modmenu.1$, sofern installiert, konfiguriert werden."
- modmenu.2:0 "§HBoard That Ship§!"
- modmenu.2.tooltip:0 "Hier kann $modmenu.2$, sofern installiert, konfiguriert werden."
- modmenu.3:0 "§HHuman Fallen Empires§!"
- modmenu.3.tooltip:0 "Hier kann $modmenu.3$, sofern installiert, konfiguriert werden."
+ modmenu.0:0 "§HAutoBuild§!"
+ modmenu.0.tooltip:0 "$modmenu_configure$ $modmenu.0$"
+
+ modmenu.1:0 "§HBoard That Ship§!"
+ modmenu.1.tooltip:0 "$modmenu_configure$ $modmenu.1$"
+
+ modmenu.2:0 "§HNew Ship Classes & More§!"
+ modmenu.2.tooltip:0 "$modmenu_configure$ $modmenu.2$"
+
+ modmenu.3:0 "§HHarder Invaders§!"
+ modmenu.3.tooltip:0 "$modmenu_configure$ $modmenu.3$"
+
+ modmenu.4:0 "§HHuman Fallen Empires§!"
+ modmenu.4.tooltip:0 "$modmenu_configure$ $modmenu.4$"
+
+ custom_crisis_strength:0 "§HCustom Crisis Strength"
+ custom_crisis_strength.tooltip:0 "$modmenu_configure$ $custom_crisis_strength$§!"
+
+ terraforming_candidate_finder:0 "§HTerraforming Candidate Finder§!"
+ terraforming_candidate_finder.tooltip:0 "$modmenu_configure$ $terraforming_candidate_finder$"
+
+ custom_difficulty:0 "§HUltimate Custom Difficulty§!"
+ custom_difficulty.tooltip:0 "$modmenu_configure$ $custom_difficulty$"

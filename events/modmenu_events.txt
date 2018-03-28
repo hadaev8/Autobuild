@@ -15,7 +15,9 @@ country_event = {
 			has_global_flag = autobuild_installed
 		}
 		hidden_effect = {
-			country_event = { id = autobuild.3 }
+			country_event = {
+				id = autobuild.3
+			}
 		}
 	}
 	option = {
@@ -25,7 +27,9 @@ country_event = {
 			has_global_flag = board_that_ship_installed
 		}
 		hidden_effect = {
-			country_event = { id = board_that_ship_menu.1 }
+			country_event = {
+				id = board_that_ship_menu.1
+			}
 		}
 	}
 	option = {
@@ -38,7 +42,9 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			country_event = { id = NSC_features.1 }
+			country_event = {
+				id = NSC_features.1
+			}
 		}
 	}
 	option = {
@@ -48,10 +54,58 @@ country_event = {
 			has_global_flag = human_fallen_empires_installed
 		}
 		hidden_effect = {
-			country_event = { id = human_fallen_empires_menu.1 }
+			country_event = {
+				id = human_fallen_empires_menu.1
+			}
+		}
+	}
+	option = {
+		name = custom_crisis_strength
+		custom_tooltip = custom_crisis_strength.tooltip
+		trigger = {
+			has_global_flag = custom_crisis_strength_installed
+		}
+		hidden_effect = {
+			country_event = {
+				id = CSS_menu.1
+			}
+		}
+	}
+	option = {
+		name = terraforming_candidate_finder
+		custom_tooltip = terraforming_candidate_finder.tooltip
+		trigger = {
+			has_global_flag = terraforming_candidate_finder_installed
+		}
+		hidden_effect = {
+			country_event = {
+				id = tcf_menu.1
+			}
+		}
+	}
+	option = {
+		name = custom_difficulty
+		custom_tooltip = custom_difficulty.tooltip
+		trigger = {
+			has_global_flag = custom_difficulty_active
+		}
+		hidden_effect = {
+			country_event = {
+				id = custom_difficulty.0
+			}
 		}
 	}
 	option = {
 		name = modmenu_exit
+	}
+}
+
+country_event = {
+	id = modmenu.2
+	hide_window = yes
+	fire_only_once = yes
+
+	immediate = {
+		set_global_flag = mod_menu_installed
 	}
 }

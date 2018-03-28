@@ -23,7 +23,7 @@
 
 modmenu_button_effect = {
 	potential = {
-		always = yes
+		exists = from
 	}
 	allow = {
 		always = yes

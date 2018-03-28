@@ -15,9 +15,6 @@ guilli_planet_modifier_effect_autobuild = {
 realspace_stellarexpedition_effect_autobuild = {
 }
 
-realspace_stellarexpedition_effect_autobuild = {
-}
-
 buildable_ancient_building_effects_autobuild = {
 }
 

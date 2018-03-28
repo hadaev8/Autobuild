@@ -731,7 +731,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			is_ai = no
-			has_country_flag = autobuild_13
+			has_country_flag = autobuild_robots
 			or = {
 				has_technology = tech_robotic_workers
 				has_authority = auth_machine_intelligence
@@ -804,9 +804,9 @@ planet_event = {
 					name = buildable_robot_pop_2
 					grown = no
 				}
-				last_created_pop = {
-					wipe_pop_ethos = yes
-				}
+				# last_created_pop = {
+				# 	wipe_pop_ethos = yes
+				# }
 				owner = {
 					add_minerals = -100
 				}
@@ -826,9 +826,9 @@ planet_event = {
 				name = buildable_robot_pop_1
 				grown = no
 			}
-			last_created_pop = {
-				wipe_pop_ethos = yes
-			}
+			# last_created_pop = {
+			# 	wipe_pop_ethos = yes
+			# }
 			owner = {
 				add_minerals = -100
 			}
@@ -1299,7 +1299,7 @@ planet_event = {
 		exists = owner
 		owner = {
 			or = {
-				has_country_flag = autobuild_5
+				has_country_flag = autobuild_labs
 				and = {
 					is_ai = yes
 					has_global_flag = autobuild_ai_allowed
@@ -1669,10 +1669,10 @@ country_event = {
 			}
 			autobuild_effect_fleet_clear = yes
 		}
-		remove_country_flag = autobuild_1
+		remove_country_flag = autobuild_update
 		remove_country_flag = autobuild_2
 		remove_country_flag = autobuild_on_tile
-		remove_country_flag = autobuild_5
+		remove_country_flag = autobuild_labs
 		remove_country_flag = autobuild_mine_ratio.0
 		remove_country_flag = autobuild_mine_ratio.2
 		remove_country_flag = autobuild_mine_ratio.3

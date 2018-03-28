@@ -24,7 +24,6 @@
 fleet_autobuild_on_button_effect = {
 	potential = {
 		always = yes
-
 	}
 	allow = {
 		log = "[This.GetName]"

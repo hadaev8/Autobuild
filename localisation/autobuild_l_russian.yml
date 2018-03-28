@@ -15,14 +15,14 @@
  autobuild_fleet_allow_tooltip:0 "Любой корабль подходит для автопостройки."
  autobuild_fleet.tooltip:0 "Все текущие строительные корабли будут назначены на автопостройку научных и добывающих станций. Если вы хотите использовать их для своих нужд, отключите эту опцию или постройте новый строительный корабль. Корабли будут значиться "событие заблокировано", это нормально."
  
- autobuild_1:0 "Автоулучшения зданий."
- autobuild_1.tooltip:0 "Все постройки (кроме базовых лабораторий) будут автоматически улучшаться."
+ autobuild_update:0 "Автоулучшения зданий."
+ autobuild_update.tooltip:0 "Все постройки (кроме базовых лабораторий) будут автоматически улучшаться."
  
  autobuild_on_tile:0 "Автопостройка новых зданий на хороших клетках."
  autobuild_on_tile.tooltip:0 "На всех плитках с ресурсами и населением будут построены здания в зависимости от типа ресурса и количества."
  
- autobuild_13:0 "Автопостройка: Роботы."
- autobuild_13.tooltip:0 "Будут строиться роботы там, где это имеет смысл."
+ autobuild_robots:0 "Автопостройка: Роботы."
+ autobuild_robots.tooltip:0 "Будут строиться роботы там, где это имеет смысл."
  
  autobuild_clean_blockers:0 "Авторасчистка."
  autobuild_clean_blockers.tooltip:0 "Автоматическая расчистка плиток. §RВнимание§!, это читерная опция, тк блокираторы будут исчезать мгновенно."
@@ -73,8 +73,8 @@
  autobuild_rename.tooltip:0 "Планеты при включении специализации будут переименованы."
  
  # labs
- autobuild_5:0 "Автоулучшение лабораторий."
- autobuild_5.tooltip:0 "Все базовые лаборатории будут улучшаться в зависимости от настроек."
+ autobuild_labs:0 "Автоулучшение лабораторий."
+ autobuild_labs.tooltip:0 "Все базовые лаборатории будут улучшаться в зависимости от настроек."
  
  autobuild_labs_disable_random:0 "Убрать случайное улучшение лабораторий."
  autobuild_labs_disable_random.tooltip:0 "Если лаборатория не подпадает ни под одно условие, она не будет улучшаться в случайный тип."
@@ -151,7 +151,7 @@
  autobuild_planet_labs:0 "$planet_labs_autobuild$"
  autobuild_planet_food:0 "$planet_farms_autobuild$"
  
- autobuild_labs_menu:0 "$modmenu_menu$ $autobuild_5$"
+ autobuild_labs_menu:0 "$modmenu_menu$ $autobuild_labs$"
  
  autobuild_7.tooltip:0 "$autobuild_7$"
  autobuild_7_settings:0 "$modmenu_menu$ $autobuild_7$"
@@ -188,35 +188,35 @@
  autobuild_planet_food_rename:0 "£food планета [Owner.autobuild_rename_planet_farms_num]"
  
  # main menu
- autobuild_1_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_1.tooltip$"
+ autobuild_update_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_update.tooltip$"
  autobuild_2_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_2.tooltip$"
  autobuild_on_tile_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_on_tile.tooltip$"
  autobuild_4_2_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_4_2.tooltip$"
- autobuild_5_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_5.tooltip$"
+ autobuild_labs_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_labs.tooltip$"
  autobuild_6_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_6.tooltip$"
  autobuild_7_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_7.tooltip$"
  autobuild_clean_blockers_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_clean_blockers.tooltip$"
  autobuild_fleet_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_fleet.tooltip$"
  autobuild_cost_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_cost.tooltip$"
  
- autobuild_1_on:0 "$modmenu_on$ $autobuild_1$"
+ autobuild_update_on:0 "$modmenu_on$ $autobuild_update$"
  autobuild_2_on:0 "$modmenu_on$ $autobuild_2$"
  autobuild_on_tile_on:0 "$modmenu_on$ $autobuild_on_tile$"
  autobuild_4_2_on:0 "$modmenu_on$ $autobuild_4_2$"
- autobuild_5_on:0 "$modmenu_on$ $autobuild_5$"
+ autobuild_labs_on:0 "$modmenu_on$ $autobuild_labs$"
  autobuild_6_on:0 "$modmenu_on$ $autobuild_6$"
  autobuild_7_on:0 "$modmenu_on$ $autobuild_7$"
  autobuild_clean_blockers_on:0 "$modmenu_on$ $autobuild_clean_blockers$"
  autobuild_fleet_on:0 "$modmenu_on$ $autobuild_fleet$"
  autobuild_cost_on:0 "$modmenu_on$ $autobuild_cost$"
  
- autobuild_1_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_1.tooltip$"
+ autobuild_update_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_update.tooltip$"
  autobuild_2_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_2.tooltip$"
  autobuild_on_tile_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_on_tile.tooltip$"
  autobuild_4_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_4.tooltip$"
  autobuild_4_1_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_4_1.tooltip$"
  autobuild_4_2_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_4_2.tooltip$"
- autobuild_5_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_5.tooltip$"
+ autobuild_labs_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_labs.tooltip$"
  autobuild_6_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_6.tooltip$"
  autobuild_7_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_7.tooltip$"
  autobuild_clean_blockers_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_clean_blockers.tooltip$"
@@ -224,11 +224,11 @@
  autobuild_cost_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_cost.tooltip$"
  autobuild_cost_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_cost.tooltip$"
  
- autobuild_1_off:0 "$modmenu_off$ $autobuild_1$"
+ autobuild_update_off:0 "$modmenu_off$ $autobuild_update$"
  autobuild_2_off:0 "$modmenu_off$ $autobuild_2$"
  autobuild_on_tile_off:0 "$modmenu_off$ $autobuild_on_tile$"
  autobuild_4_2_off:0 "$modmenu_off$ $autobuild_4_2$"
- autobuild_5_off:0 "$modmenu_off$ $autobuild_5$"
+ autobuild_labs_off:0 "$modmenu_off$ $autobuild_labs$"
  autobuild_6_off:0 "$modmenu_off$ $autobuild_6$"
  autobuild_7_off:0 "$modmenu_off$ $autobuild_7$"
  autobuild_clean_blockers_off:0 "$modmenu_off$ $autobuild_clean_blockers$"
@@ -240,14 +240,14 @@
  autobuild_ai_allowed_off:0 "$modmenu_off$ $autobuild_ai_allowed$"
  autobuild_ai_allowed_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_ai_allowed.tooltip$"
  
- autobuild_13_on:0 "$modmenu_on$ $autobuild_13$"
- autobuild_13_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_13.tooltip$"
- autobuild_13_off:0 "$modmenu_off$ $autobuild_13$"
- autobuild_13_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_13.tooltip$"
- autobuild_14_on:0 "$modmenu_on$ $autobuild_14$"
- autobuild_14_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_14.tooltip$"
- autobuild_14_off:0 "$modmenu_off$ $autobuild_14$"
- autobuild_14_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_14.tooltip$"
+ autobuild_robots_on:0 "$modmenu_on$ $autobuild_robots$"
+ autobuild_robots_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_robots.tooltip$"
+ autobuild_robots_off:0 "$modmenu_off$ $autobuild_robots$"
+ autobuild_robots_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_robots.tooltip$"
+ autobuild_update4_on:0 "$modmenu_on$ $autobuild_update4$"
+ autobuild_update4_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_update4.tooltip$"
+ autobuild_update4_off:0 "$modmenu_off$ $autobuild_update4$"
+ autobuild_update4_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_update4.tooltip$"
  
  # on ept tile
  autobuild_mine_ratio.0:0 "$autobuild_mine_ratio$0"

@@ -10,8 +10,8 @@
  modmenu_remove.tooltip:0 "Удалить все флаги и модификаторы мода."
  modmenu_on:0 "§GВключить§!"
  modmenu_off:0 "§RВыключить§!"
- modmenu_tooltip_on:0 "Нажатие на кнопку §GВключит§! эту опцию.\n"
- modmenu_tooltip_off:0 "Нажатие на кнопку §RВыключит§! эту опцию.\n"
+ modmenu_tooltip_on:0 "Нажатие на кнопку §GВключит§! эту опцию."
+ modmenu_tooltip_off:0 "Нажатие на кнопку §RВыключит§! эту опцию."
  modmenu_return:0 "§LВернуться.§!"
  modmenu_yes:0 "Да."
  modmenu_no:0 "Нет."
@@ -32,3 +32,12 @@
 
  modmenu.4:0 "§HHuman Fallen Empires§!"
  modmenu.4.tooltip:0 "$modmenu_configure$ $modmenu.4$"
+
+ custom_crisis_strength:0 "§HCustom Crisis Strength"
+ custom_crisis_strength.tooltip:0 "$modmenu_configure$ $custom_crisis_strength$§!"
+
+ terraforming_candidate_finder:0 "§HTerraforming Candidate Finder§!"
+ terraforming_candidate_finder.tooltip:0 "$modmenu_configure$ $terraforming_candidate_finder$"
+
+ custom_difficulty:0 "§HUltimate Custom Difficulty§!"
+ custom_difficulty.tooltip:0 "$modmenu_configure$ $custom_difficulty$"

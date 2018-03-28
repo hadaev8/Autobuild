@@ -32,3 +32,12 @@
 
  modmenu.4:0 "§HHuman Fallen Empires§!"
  modmenu.4.tooltip:0 "$modmenu_configure$ $modmenu.4$"
+
+ custom_crisis_strength:0 "§HCustom Crisis Strength"
+ custom_crisis_strength.tooltip:0 "$modmenu_configure$ $custom_crisis_strength$§!"
+
+ terraforming_candidate_finder:0 "§HTerraforming Candidate Finder§!"
+ terraforming_candidate_finder.tooltip:0 "$modmenu_configure$ $terraforming_candidate_finder$"
+
+ custom_difficulty:0 "§HUltimate Custom Difficulty§!"
+ custom_difficulty.tooltip:0 "$modmenu_configure$ $custom_difficulty$"
