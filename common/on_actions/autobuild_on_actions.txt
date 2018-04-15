@@ -51,11 +51,11 @@ on_building_complete = {
 # A building construction has been queued.
 # This = Planet
 # From = Tile
-on_building_queued = {
-	events = {
-		autobuild.159
-	}
-}
+# on_building_queued = {
+# 	events = {
+# 		autobuild.159
+# 	}
+# }
 
 # A building construction has been unqueued.
 # This = Planet

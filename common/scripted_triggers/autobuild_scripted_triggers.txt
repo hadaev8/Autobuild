@@ -350,7 +350,7 @@ autobuild_trigger_tile_has_strategic_res = {
 		has_resource = sr_alien_pets
 		has_resource = sr_betharian
 		and = {
-			has_any_resource = yes
+			has_deposit = yes
 			nor = {
 				has_resource = minerals
 				has_resource = food
@@ -379,9 +379,8 @@ autobuild_trigger_tile_good_for_food_minerals = {
 }
 
 autobuild_trigger_tile_has_res = {
-	#has_resource = yes
 	or = {
-		has_any_resource = yes
+		has_deposit = yes
 		autobuild_trigger_tile_good_for_food_minerals = yes
 		autobuild_trigger_tile_good_for_energy = yes
 	}
