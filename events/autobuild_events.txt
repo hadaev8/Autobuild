@@ -846,16 +846,18 @@ planet_event = {
 		autobuild_trigger_planet_block_build = no
 		free_building_tiles > 0
 		exists = owner
-		owner = {
-			or = {
-				has_country_flag = autobuild_on_tile
-				autobuild_trigger_planet_special = yes
-				and = {
-					is_ai = yes
-					has_global_flag = autobuild_ai_allowed
+		or = {
+			autobuild_trigger_planet_special = yes
+			owner = {
+				or = {
+					has_country_flag = autobuild_on_tile
+					and = {
+						is_ai = yes
+						has_global_flag = autobuild_ai_allowed
+					}
 				}
+				autobuild_trigger_cost = yes
 			}
-			autobuild_trigger_cost = yes
 		}
 	}
 
@@ -868,7 +870,6 @@ planet_event = {
 				limit = {
 					has_building = no
 					num_adjacent_tiles > 3
-					autobuild_trigger_tile_has_pop = yes
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 				}
 				add_building_construction = building_colony_shelter
@@ -915,7 +916,7 @@ planet_event = {
 									}
 								}
 							}
-							# scpecial planet
+							# special planet
 							and = {
 								autobuild_trigger_planet_special = yes
 								autobuild_trigger_planet_energy = no
@@ -977,7 +978,7 @@ planet_event = {
 									}
 								}
 							}
-							# scpecial planet
+							# special planet
 							and = {
 								autobuild_trigger_planet_special = yes
 								autobuild_trigger_planet_minerals = no
@@ -1023,7 +1024,7 @@ planet_event = {
 									}
 								}
 							}
-							# scpecial planet
+							# special planet
 							and = {
 								autobuild_trigger_planet_special = yes
 								autobuild_trigger_planet_food = no
@@ -1071,7 +1072,7 @@ planet_event = {
 									}
 								}
 							}
-							# scpecial planet
+							# special planet
 							and = {
 								autobuild_trigger_planet_special = yes
 								autobuild_trigger_planet_science = no
@@ -1318,44 +1319,35 @@ planet_event = {
 					has_modifier = autobuild_planet_labs_engineering
 				}
 			}
-			if = {
-				limit = {
-					has_modifier = autobuild_planet_labs_physics
-				}
-				every_tile = {
-					limit = {
-						has_building = building_basic_science_lab_1
-						autobuild_trigger_tile_has_pop = yes
+			switch = {
+				trigger = has_modifier
+				autobuild_planet_labs_physics = {
+					every_tile = {
+						limit = {
+							has_building = building_basic_science_lab_1
+							autobuild_trigger_tile_has_pop = yes
+						}
+						add_building_construction = building_physics_lab_1
 					}
-					add_building_construction = building_physics_lab_1
 				}
-				break = yes
-			}
-			if = {
-				limit = {
-					has_modifier = autobuild_planet_labs_bio
-				}
-				every_tile = {
-					limit = {
-						has_building = building_basic_science_lab_1
-						autobuild_trigger_tile_has_pop = yes
+				autobuild_planet_labs_bio = {
+					every_tile = {
+						limit = {
+							has_building = building_basic_science_lab_1
+							autobuild_trigger_tile_has_pop = yes
+						}
+						add_building_construction = building_biolab_1
 					}
-					add_building_construction = building_biolab_1
 				}
-				break = yes
-			}
-			if = {
-				limit = {
-					has_modifier = autobuild_planet_labs_engineering
-				}
-				every_tile = {
-					limit = {
-						has_building = building_basic_science_lab_1
-						autobuild_trigger_tile_has_pop = yes
+				autobuild_planet_labs_engineering = {
+					every_tile = {
+						limit = {
+							has_building = building_basic_science_lab_1
+							autobuild_trigger_tile_has_pop = yes
+						}
+						add_building_construction = building_engineering_facility_1
 					}
-					add_building_construction = building_engineering_facility_1
 				}
-				break = yes
 			}
 		}
 		if = {

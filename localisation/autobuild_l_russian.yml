@@ -28,7 +28,7 @@
  autobuild_clean_blockers.tooltip:0 "Автоматическая расчистка плиток. §RВнимание§!, это читерная опция, тк блокираторы будут исчезать мгновенно."
  
  autobuild_ai_allowed:0 "Разрешить ИИ пользоваться автопостройкой."
- autobuild_ai_allowed.tooltip:0 "У ИИ здания будут строиться так же, как и у игрока."
+ autobuild_ai_allowed.tooltip:0 "У ИИ империй здания будут строиться так же, как и у игрока."
  
  # other menu
  autobuild_others_options_menu:0 "$modmenu_menu$ других опций."
@@ -425,7 +425,9 @@
  autobuild_engineering_facility_ratio.3_off:0 "$modmenu_off$ $autobuild_engineering_facility_ratio.3$"
  
  # cost menu
+ autobuild_cost_100000:0 "$autobuild_keep$ 100000 $minerals$."
  autobuild_cost_20000:0 "$autobuild_keep$ 20000 $minerals$."
+ autobuild_cost_10000:0 "$autobuild_keep$ 10000 $minerals$."
  autobuild_cost_5000:0 "$autobuild_keep$ 5000 $minerals$."
  autobuild_cost_2500:0 "$autobuild_keep$ 2500 $minerals$."
  autobuild_cost_1000:0 "$autobuild_keep$ 1000 $minerals$."

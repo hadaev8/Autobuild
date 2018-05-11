@@ -56,7 +56,7 @@ planet_edict = {
 	name = autobuild_clear_planetary_edicts
 	length = 0
 	potential = {
-		OR = {
+		or = {
 			has_modifier = free_from_autobuild
 			has_modifier = free_from_auto_update
 			has_modifier = planet_labs_autobuild
@@ -67,7 +67,7 @@ planet_edict = {
 			has_modifier = autobuild_planet_labs_engineering
 			has_modifier = autobuild_planet_labs_bio
 		}
-		NOT = {
+		not = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
@@ -108,7 +108,7 @@ planet_edict = {
 	length = 0
 	potential = {
 		autobuild_trigger_planet_special = no
-		NOT = {
+		not = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
@@ -151,7 +151,7 @@ planet_edict = {
 	length = 0
 	potential = {
 		autobuild_trigger_planet_special = no
-		NOT = {
+		not = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
@@ -194,7 +194,7 @@ planet_edict = {
 	length = 0
 	potential = {
 		autobuild_trigger_planet_special = no
-		NOT = {
+		not = {
 			has_global_flag = hide_autobuild_planetary_edicts
 		}
 	}
@@ -237,7 +237,7 @@ planet_edict = {
 	length = 0
 	potential = {
 		autobuild_trigger_planet_science = yes
-		NOT = {
+		not = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
@@ -279,7 +279,7 @@ planet_edict = {
 	length = 0
 	potential = {
 		autobuild_trigger_planet_science = yes
-		NOT = {
+		not = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
@@ -318,7 +318,7 @@ planet_edict = {
 	length = 0
 	potential = {
 		autobuild_trigger_planet_science = yes
-		NOT = {
+		not = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}
@@ -357,7 +357,7 @@ planet_edict = {
 	length = 0
 	potential = {
 		autobuild_trigger_planet_special = no
-		NOT = {
+		not = {
 			has_global_flag  = hide_autobuild_planetary_edicts
 		}
 	}

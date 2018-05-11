@@ -21,33 +21,6 @@ country_event = {
 		}
 	}
 	option = {
-		name = modmenu.1
-		custom_tooltip = modmenu.1.tooltip
-		trigger = {
-			has_global_flag = board_that_ship_installed
-		}
-		hidden_effect = {
-			country_event = {
-				id = board_that_ship_menu.1
-			}
-		}
-	}
-	option = {
-		name = modmenu.2
-		custom_tooltip = modmenu.2.tooltip
-		trigger = {
-			or = {
-				has_global_flag = has_nsc_active
-				has_global_flag = has_playable_guardians
-			}
-		}
-		hidden_effect = {
-			country_event = {
-				id = NSC_features.1
-			}
-		}
-	}
-	option = {
 		name = modmenu.4
 		custom_tooltip = modmenu.4.tooltip
 		trigger = {
@@ -56,42 +29,6 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = human_fallen_empires_menu.1
-			}
-		}
-	}
-	option = {
-		name = custom_crisis_strength
-		custom_tooltip = custom_crisis_strength.tooltip
-		trigger = {
-			has_global_flag = custom_crisis_strength_installed
-		}
-		hidden_effect = {
-			country_event = {
-				id = CSS_menu.1
-			}
-		}
-	}
-	option = {
-		name = terraforming_candidate_finder
-		custom_tooltip = terraforming_candidate_finder.tooltip
-		trigger = {
-			has_global_flag = terraforming_candidate_finder_installed
-		}
-		hidden_effect = {
-			country_event = {
-				id = tcf_menu.1
-			}
-		}
-	}
-	option = {
-		name = custom_difficulty
-		custom_tooltip = custom_difficulty.tooltip
-		trigger = {
-			has_global_flag = custom_difficulty_active
-		}
-		hidden_effect = {
-			country_event = {
-				id = custom_difficulty.0
 			}
 		}
 	}

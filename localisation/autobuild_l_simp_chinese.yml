@@ -426,7 +426,9 @@
  autobuild_engineering_facility_ratio.3_off:0 "$modmenu_off$ $autobuild_engineering_facility_ratio.3$"
  
  # cost menu
+ autobuild_cost_100000:0 "$autobuild_keep$ 100000 $minerals$."
  autobuild_cost_20000:0 "$autobuild_keep$ 20000 $minerals$."
+ autobuild_cost_10000:0 "$autobuild_keep$ 10000 $minerals$."
  autobuild_cost_5000:0 "$autobuild_keep$ 5000 $minerals$."
  autobuild_cost_2500:0 "$autobuild_keep$ 2500 $minerals$."
  autobuild_cost_1000:0 "$autobuild_keep$ 1000 $minerals$."

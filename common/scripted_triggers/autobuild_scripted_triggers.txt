@@ -343,8 +343,12 @@ autobuild_trigger_has_planet_capital_or_shelter = {
 # for tile
 autobuild_trigger_tile_has_strategic_res = {
 	or = {
-		alphamod_trigger_autobuild_tile_has_strategic_res = yes
-		sth_trigger_autobuild_tile_has_strategic_res = yes
+		has_cgm_buildings_planetary_strategic_resources = yes
+		has_planets_enhanced_planetary_strategic_resources = yes
+		has_alphamod_planetary_strategic_resources = yes
+		has_astrogeology_planetary_strategic_resources = yes
+		has_planetary_diversity_planetary_strategic_resources = yes
+		has_apsr_resource_local = yes
 		# fell free use this trigger for your mod
 		autobuild_trigger_tile_has_strategic_res_mod_api = yes
 		has_resource = sr_alien_pets

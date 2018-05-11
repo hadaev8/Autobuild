@@ -13,10 +13,10 @@
  
  autobuild_fleet:0 "Autom. Bau von Raumstationen."
  autobuild_fleet_allow_tooltip:0 "Any ship is suitable for autobuilding."
- autobuild_fleet.tooltip:0 "Alle momentan unbeschäftigten Konstruktionsschiffe werden automatisiert. Wenn Sie diese selbst nutzen wollen, deaktivieren Sie diese Option oder bauen Sie ein neues Konstruktionsschiff. Die Schiffe werden als "Blockierte Ereignisse" aufgeführt, das ist normal."
+ autobuild_fleet.tooltip:0 "Alle momentan unbeschäftigten Konstruktionsschiffe werden automatisch Bergbau- und Forschungsstationen bauen. Wenn Sie diese selbst nutzen wollen, deaktivieren Sie diese Option oder bauen Sie ein neues Konstruktionsschiff. Die Schiffe werden als "Blockierte Ereignisse" aufgeführt, das ist normal."
  
  autobuild_update:0 "Autom. Verbesserung von Gebäuden."
- autobuild_update.tooltip:0 "Alle Gebäude werden automatisch verbessert, ausgenommen einfache Forschungslabore und Gebäude die Einfluss kosten."
+ autobuild_update.tooltip:0 "Alle Gebäude werden automatisch verbessert, ausgenommen einfache Forschungslabore."
  
  autobuild_on_tile:0 "Autom. Bau auf guten Feldern."
  autobuild_on_tile.tooltip:0 "Alle Felder mit natürlichen Resourcen werden automatisch mit passenden Gebäuden bebaut, abhängig von Art und Menge der Resourcen."
@@ -425,7 +425,9 @@
  autobuild_engineering_facility_ratio.3_off:0 "$modmenu_off$ $autobuild_engineering_facility_ratio.3$"
  
  # cost menu
+ autobuild_cost_100000:0 "$autobuild_keep$ 100000 $minerals$."
  autobuild_cost_20000:0 "$autobuild_keep$ 20000 $minerals$."
+ autobuild_cost_10000:0 "$autobuild_keep$ 10000 $minerals$."
  autobuild_cost_5000:0 "$autobuild_keep$ 5000 $minerals$."
  autobuild_cost_2500:0 "$autobuild_keep$ 2500 $minerals$."
  autobuild_cost_1000:0 "$autobuild_keep$ 1000 $minerals$."
