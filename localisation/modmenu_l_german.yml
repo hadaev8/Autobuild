@@ -10,8 +10,8 @@
  modmenu_remove.tooltip:0 "Deaktiviere alle Mod-Einstellungen und entferne alle vom Mod erstellten Eigenschaften und Modifikatoren."
  modmenu_on:0 "§GAktiviere§!"
  modmenu_off:0 "§RDeaktiviere§!"
- modmenu_tooltip_on:0 "Klicke um diese Option zu $modmenu_on$n."
- modmenu_tooltip_off:0 "Klicke um diese Option zu $modmenu_off$n."
+ modmenu_tooltip_on:0 "Klicke um diese Option zu $modmenu_on$n.\n"
+ modmenu_tooltip_off:0 "Klicke um diese Option zu $modmenu_off$n.\n"
  modmenu_return:0 "Zurück"
  modmenu_yes:0 "Ja"
  modmenu_no:0 "Nein"
@@ -26,9 +26,6 @@
  modmenu.2:0 "§HNew Ship Classes & More§!"
  modmenu.2.tooltip:0 "$modmenu_configure$ $modmenu.2$"
 
- modmenu.3:0 "§HHarder Invaders§!"
- modmenu.3.tooltip:0 "$modmenu_configure$ $modmenu.3$"
-
  modmenu.4:0 "§HHuman Fallen Empires§!"
  modmenu.4.tooltip:0 "$modmenu_configure$ $modmenu.4$"
 
@@ -40,3 +37,6 @@
 
  custom_difficulty:0 "§HUltimate Custom Difficulty§!"
  custom_difficulty.tooltip:0 "$modmenu_configure$ $custom_difficulty$"
+
+ core_game_mechanics_and_ai:0 "§HCore Game Mechanics and AI§!"
+ core_game_mechanics_and_ai.tooltip:0 "$modmenu_configure$ $core_game_mechanics_and_ai$"

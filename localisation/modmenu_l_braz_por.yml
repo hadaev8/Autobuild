@@ -10,8 +10,8 @@
  modmenu_remove.tooltip:0 "Remove all mod's flags and modifiers."
  modmenu_on:0 "§GTurn On§!"
  modmenu_off:0 "§RTurn Off§!"
- modmenu_tooltip_on:0 "Pressing the button will $modmenu_on$ this option."
- modmenu_tooltip_off:0 "Pressing the button will $modmenu_off$ this option."
+ modmenu_tooltip_on:0 "Pressing the button will $modmenu_on$ this option.\n"
+ modmenu_tooltip_off:0 "Pressing the button will $modmenu_off$ this option.\n"
  modmenu_return:0 "§LReturn.§!"
  modmenu_yes:0 "Yes."
  modmenu_no:0 "No."
@@ -27,9 +27,6 @@
  modmenu.2:0 "§HNew Ship Classes & More§!"
  modmenu.2.tooltip:0 "$modmenu_configure$ $modmenu.2$"
 
- modmenu.3:0 "§HHarder Invaders§!"
- modmenu.3.tooltip:0 "$modmenu_configure$ $modmenu.3$"
-
  modmenu.4:0 "§HHuman Fallen Empires§!"
  modmenu.4.tooltip:0 "$modmenu_configure$ $modmenu.4$"
 
@@ -41,3 +38,6 @@
 
  custom_difficulty:0 "§HUltimate Custom Difficulty§!"
  custom_difficulty.tooltip:0 "$modmenu_configure$ $custom_difficulty$"
+
+ core_game_mechanics_and_ai:0 "§HCore Game Mechanics and AI§!"
+ core_game_mechanics_and_ai.tooltip:0 "$modmenu_configure$ $core_game_mechanics_and_ai$"

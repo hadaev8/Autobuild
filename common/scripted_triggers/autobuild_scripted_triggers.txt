@@ -392,9 +392,7 @@ autobuild_trigger_tile_has_res = {
 		owner = {
 			has_country_flag = autobuild_ignore_minerals
 		}
-		planet = {
-			autobuild_trigger_planet_minerals = no
-		}
+		autobuild_trigger_planet_minerals = no
 		or = {
 			has_resource = minerals
 			autobuild_trigger_tile_good_for_food_minerals = yes
@@ -404,9 +402,7 @@ autobuild_trigger_tile_has_res = {
 		owner = {
 			has_country_flag = autobuild_ignore_food
 		}
-		planet = {
-			autobuild_trigger_planet_food = no
-		}
+		autobuild_trigger_planet_food = no
 		or = {
 			has_resource = food
 			autobuild_trigger_tile_good_for_food_minerals = yes
@@ -416,9 +412,7 @@ autobuild_trigger_tile_has_res = {
 		owner = {
 			has_country_flag = autobuild_ignore_energy
 		}
-		planet = {
-			autobuild_trigger_planet_energy = no
-		}
+		autobuild_trigger_planet_energy = no
 		or = {
 			has_resource = energy
 			autobuild_trigger_tile_good_for_energy = yes
@@ -428,9 +422,7 @@ autobuild_trigger_tile_has_res = {
 		owner = {
 			has_country_flag = autobuild_ignore_science
 		}
-		planet = {
-			autobuild_trigger_planet_science = no
-		}
+		autobuild_trigger_planet_science = no
 		or = {
 			has_resource = physics_research
 			has_resource = society_research

@@ -10,8 +10,8 @@
  modmenu_remove.tooltip:0 "Reinicia las modificaciones personalizadas del Mod."
  modmenu_on:0 "§GActivar§!"
  modmenu_off:0 "§RDesactivar§!"
- modmenu_tooltip_on:0 "Presionar el botón para $modmenu_on$ esta opción."
- modmenu_tooltip_off:0 "Presionar el botón para $modmenu_off$ esta opción."
+ modmenu_tooltip_on:0 "Presionar el botón para $modmenu_on$ esta opción.\n"
+ modmenu_tooltip_off:0 "Presionar el botón para $modmenu_off$ esta opción.\n"
  modmenu_return:0 "§LVolver§!"
  modmenu_yes:0 "Si."
  modmenu_no:0 "No."
@@ -27,9 +27,6 @@
  modmenu.2:0 "§HNew Ship Classes & More§!"
  modmenu.2.tooltip:0 "$modmenu_configure$ $modmenu.2$"
 
- modmenu.3:0 "§HHarder Invaders§!"
- modmenu.3.tooltip:0 "$modmenu_configure$ $modmenu.3$"
-
  modmenu.4:0 "§HHuman Fallen Empires§!"
  modmenu.4.tooltip:0 "$modmenu_configure$ $modmenu.4$"
 
@@ -41,3 +38,6 @@
 
  custom_difficulty:0 "§HUltimate Custom Difficulty§!"
  custom_difficulty.tooltip:0 "$modmenu_configure$ $custom_difficulty$"
+
+ core_game_mechanics_and_ai:0 "§HCore Game Mechanics and AI§!"
+ core_game_mechanics_and_ai.tooltip:0 "$modmenu_configure$ $core_game_mechanics_and_ai$"

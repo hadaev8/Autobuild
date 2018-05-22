@@ -10,8 +10,8 @@
  modmenu_remove.tooltip:0 "Удалить все флаги и модификаторы мода."
  modmenu_on:0 "§GВключить§!"
  modmenu_off:0 "§RВыключить§!"
- modmenu_tooltip_on:0 "Нажатие на кнопку §GВключит§! эту опцию."
- modmenu_tooltip_off:0 "Нажатие на кнопку §RВыключит§! эту опцию."
+ modmenu_tooltip_on:0 "Нажатие на кнопку §GВключит§! эту опцию.\n"
+ modmenu_tooltip_off:0 "Нажатие на кнопку §RВыключит§! эту опцию.\n"
  modmenu_return:0 "§LВернуться.§!"
  modmenu_yes:0 "Да."
  modmenu_no:0 "Нет."
@@ -27,9 +27,6 @@
  modmenu.2:0 "§HNew Ship Classes & More§!"
  modmenu.2.tooltip:0 "$modmenu_configure$ $modmenu.2$"
 
- modmenu.3:0 "§HHarder Invaders§!"
- modmenu.3.tooltip:0 "$modmenu_configure$ $modmenu.3$"
-
  modmenu.4:0 "§HHuman Fallen Empires§!"
  modmenu.4.tooltip:0 "$modmenu_configure$ $modmenu.4$"
 
@@ -41,3 +38,6 @@
 
  custom_difficulty:0 "§HUltimate Custom Difficulty§!"
  custom_difficulty.tooltip:0 "$modmenu_configure$ $custom_difficulty$"
+
+ core_game_mechanics_and_ai:0 "§HCore Game Mechanics and AI§!"
+ core_game_mechanics_and_ai.tooltip:0 "$modmenu_configure$ $core_game_mechanics_and_ai$"

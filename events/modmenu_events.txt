@@ -36,13 +36,3 @@ country_event = {
 		name = modmenu_exit
 	}
 }
-
-country_event = {
-	id = modmenu.2
-	hide_window = yes
-	fire_only_once = yes
-
-	immediate = {
-		set_global_flag = mod_menu_installed
-	}
-}
