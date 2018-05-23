@@ -30,7 +30,6 @@ fleet_autobuild_on_button_effect = {
 	#	always = yes
 	#	is_ship_class = shipclass_constructor
 	}
-
 	effect = {
 		fleet_event = { id = autobuild_fleet.0 }
 		custom_tooltip = modmenu.tooltip

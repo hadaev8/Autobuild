@@ -50,6 +50,8 @@ autobuild_effect_planet_build = {
 	direct_build_affects_autobuild_init = yes
 	# fell free use this effect for your mod
 	autobuild_effect_mod_api = yes
+	planet_event = { id = autobuild.99 }
+	planet_event = { id = autobuild.100 }
 	planet_event = { id = autobuild.101 }
 	planet_event = { id = autobuild.102 }
 	planet_event = { id = autobuild.104 }
@@ -87,9 +89,9 @@ autobuild_build_power_plant = {
 			autobuild_trigger_planet_habitat = yes
 		}
 		add_building_construction = building_hab_solar_power_processor
-		else = {
-			add_building_construction = building_power_plant_1
-		}
+	}
+	else = {
+		add_building_construction = building_power_plant_1
 	}
 }
 
@@ -99,9 +101,9 @@ autobuild_build_mine = {
 			autobuild_trigger_planet_habitat = yes
 		}
 		add_building_construction = building_hab_astro_mining_facility
-		else = {
-			add_building_construction = building_mining_network_1
-		}
+	}
+	else = {
+		add_building_construction = building_mining_network_1
 	}
 }
 
@@ -111,9 +113,9 @@ autobuild_build_farm = {
 			autobuild_trigger_planet_habitat = yes
 		}
 		add_building_construction = building_hab_agri_bay
-		else = {
-			add_building_construction = building_hydroponics_farm_1
-		}
+	}
+	else = {
+		add_building_construction = building_hydroponics_farm_1
 	}
 }
 
@@ -123,18 +125,16 @@ autobuild_build_lab = {
 			autobuild_trigger_planet_habitat = yes
 		}
 		add_building_construction = building_hab_laboratory_module
-		else = {
-			# star trek mod exepion
-			if = {
-				limit = {
-					autobuild_trigger_is_sth = no
-				}
-				add_building_construction = building_basic_science_lab_1
-				else = {
-					sth_autobuild_build_basic_lab = yes
-				}
-			}
+	}
+	# star trek mod exception
+	else_if = {
+		limit = {
+			autobuild_trigger_is_sth = no
 		}
+		add_building_construction = building_basic_science_lab_1
+	}
+	else = {
+		sth_autobuild_build_basic_lab = yes
 	}
 }
 

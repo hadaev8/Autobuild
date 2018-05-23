@@ -38,634 +38,647 @@ country_event = {
 		every_owned_planet = {
 			autobuild_effect_planet_build = yes
 		}
-		# semi cheat options
-		# auto clean
-		if = {
-			limit = {
-				or = {
-					has_country_flag = autobuild_clean_blockers
-					and = {
-						is_ai = yes
-						has_global_flag = autobuild_ai_allowed
-					}
+	}
+}
+
+# clear blockers
+planet_event = {
+	id = autobuild.99
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		autobuild_trigger_planet_block = no
+		has_blocker = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_clean_blockers
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
 				}
-				autobuild_trigger_cost_energy = yes
 			}
-			every_owned_planet = {
+			autobuild_trigger_cost_energy = yes
+		}
+	}
+
+	immediate = {
+		every_tile = {
+			limit = {
+				has_blocker = yes
+			}
+			if = {
 				limit = {
-					autobuild_trigger_planet_block = no
-					has_blocker = yes
-				}
-				every_tile = {
-					limit = {
-						has_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_mountain_range
-							owner = {
-								energy > 400
-								has_technology = tech_tb_mountain_range
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -264.0
-								else = {
-									add_energy = -400
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_active_volcano
-							owner = {
-								energy > 400
-								has_technology = tech_tb_volcano
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -264.0
-								else = {
-									add_energy = -400
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_dangerous_wildlife
-							owner = {
-								energy > 400
-								has_technology = tech_tb_dangerous_wildlife
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -264.0
-								else = {
-									add_energy = -400
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_dense_jungle
-							owner = {
-								energy > 200
-								has_technology = tech_tb_dense_jungle
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_quicksand_basin
-							owner = {
-								energy > 200
-								has_technology = tech_tb_quicksand_basin
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_noxious_swamp
-							owner = {
-								energy > 200
-								has_technology = tech_tb_noxious_swamp
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_massive_glacier
-							owner = {
-								energy > 200
-								has_technology = tech_tb_massive_glacier
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_toxic_kelp
-							owner = {
-								energy > 200
-								has_technology = tech_tb_toxic_kelp
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_deep_sinkhole
-							owner = {
-								energy > 200
-								has_technology = tech_tb_deep_sinkhole
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_radioactive_wasteland
-							owner = {
-								energy > 200
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_city_ruins
-							owner = {
-								energy > 200
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_infestation
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_quarantine_zone
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_slums
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_crater
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_sinkhole_subterraneans
-							owner = {
-								energy > 300
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -198.0
-								else = {
-									add_energy = -300
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_bomb_crater
-							owner = {
-								energy > 200
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_failing_infrastructure
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_decrepit_dwellings
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_bombarded_land
-							owner = {
-								energy > 200
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_battlefield_debris
-							owner = {
-								energy > 200
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -132.0
-								else = {
-									add_energy = -200
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_ancient_ruins
-							owner = {
-								energy > 300
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -198.0
-								else = {
-									add_energy = -300
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_ancient_cryo_chambers
-							owner = {
-								energy > 300
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -198.0
-								else = {
-									add_energy = -300
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_exterminators_ruins
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_former_battlefield
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_strip_mine
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_unsupervised_settlement
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
-					}
-					if = {
-						limit = {
-							has_blocker = tb_collapsed_burrows
-							owner = {
-								energy > 100
-							}
-						}
-						owner = {
-							if = {
-								limit = {
-									has_ascension_perk = ap_mastery_of_nature
-								}
-								add_energy = -66.0
-								else = {
-									add_energy = -100
-								}
-							}
-						}
-						remove_blocker = yes
+					has_blocker = tb_mountain_range
+					owner = {
+						energy > 400
+						has_technology = tech_tb_mountain_range
 					}
 				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -264.0
+						else = {
+							add_energy = -400
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_active_volcano
+					owner = {
+						energy > 400
+						has_technology = tech_tb_volcano
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -264.0
+						else = {
+							add_energy = -400
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_dangerous_wildlife
+					owner = {
+						energy > 400
+						has_technology = tech_tb_dangerous_wildlife
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -264.0
+						else = {
+							add_energy = -400
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_dense_jungle
+					owner = {
+						energy > 200
+						has_technology = tech_tb_dense_jungle
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_quicksand_basin
+					owner = {
+						energy > 200
+						has_technology = tech_tb_quicksand_basin
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_noxious_swamp
+					owner = {
+						energy > 200
+						has_technology = tech_tb_noxious_swamp
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_massive_glacier
+					owner = {
+						energy > 200
+						has_technology = tech_tb_massive_glacier
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_toxic_kelp
+					owner = {
+						energy > 200
+						has_technology = tech_tb_toxic_kelp
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_deep_sinkhole
+					owner = {
+						energy > 200
+						has_technology = tech_tb_deep_sinkhole
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_radioactive_wasteland
+					owner = {
+						energy > 200
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_city_ruins
+					owner = {
+						energy > 200
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_infestation
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_quarantine_zone
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_slums
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_crater
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_sinkhole_subterraneans
+					owner = {
+						energy > 300
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -198.0
+						else = {
+							add_energy = -300
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_bomb_crater
+					owner = {
+						energy > 200
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_failing_infrastructure
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_decrepit_dwellings
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_bombarded_land
+					owner = {
+						energy > 200
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_battlefield_debris
+					owner = {
+						energy > 200
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -132.0
+						else = {
+							add_energy = -200
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_ancient_ruins
+					owner = {
+						energy > 300
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -198.0
+						else = {
+							add_energy = -300
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_ancient_cryo_chambers
+					owner = {
+						energy > 300
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -198.0
+						else = {
+							add_energy = -300
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_exterminators_ruins
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_former_battlefield
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_strip_mine
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_unsupervised_settlement
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
+			}
+			if = {
+				limit = {
+					has_blocker = tb_collapsed_burrows
+					owner = {
+						energy > 100
+					}
+				}
+				owner = {
+					if = {
+						limit = {
+							has_ascension_perk = ap_mastery_of_nature
+						}
+						add_energy = -66.0
+						else = {
+							add_energy = -100
+						}
+					}
+				}
+				remove_blocker = yes
 			}
 		}
-		# auto repair
-		if = {
-			limit = {
-				or = {
-					has_country_flag = autobuild_repair
-					and = {
-						is_ai = yes
-						has_global_flag = autobuild_ai_allowed
-					}
+	}
+}
+
+# auto repair
+planet_event = {
+	id = autobuild.100
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		autobuild_trigger_planet_block = no
+		any_tile = {
+			has_building = yes
+			is_ruined = yes
+		}
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_repair
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
 				}
-				minerals > 50
-				autobuild_trigger_cost = yes
 			}
-			every_owned_planet = {
-				limit = {
-					autobuild_trigger_planet_block = no
-					any_tile = {
-						has_building = yes
-						is_ruined = yes
-					}
+			minerals > 50
+			autobuild_trigger_cost = yes
+		}
+	}
+	
+	immediate = {
+		every_tile = {
+			limit = {
+				has_building = yes
+				is_ruined = yes
+				owner = {
+					minerals > 50
 				}
-				every_tile = {
-					limit = {
-						has_building = yes
-						is_ruined = yes
-						owner = {
-							minerals > 50
-						}
-					}
-					set_ruined = no
-					owner = {
-						add_minerals = -50
-					}
-				}
+			}
+			set_ruined = no
+			owner = {
+				add_minerals = -50
 			}
 		}
 	}
@@ -1368,67 +1381,63 @@ planet_event = {
 					has_modifier = strong_magnetic_field #5
 				}
 			}
-			if = {
-				limit = {
-					or = {
-						has_modifier = titanic_life #25
-						has_modifier = society_animal_life #25
-						has_modifier = dangerous_wildlife #20
-					}
+		}
+		else_if = {
+			limit = {
+				or = {
+					has_modifier = titanic_life #25
+					has_modifier = society_animal_life #25
+					has_modifier = dangerous_wildlife #20
 				}
-				every_tile = {
-					limit = {
-						has_building = building_basic_science_lab_1
-						autobuild_trigger_tile_has_pop = yes
-					}
-					add_building_construction = building_biolab_1
-				}
-				break = yes
 			}
-			if = {
+			every_tile = {
 				limit = {
-					or = {
-						has_modifier = unstable_tectonics #20
-					}
+					has_building = building_basic_science_lab_1
+					autobuild_trigger_tile_has_pop = yes
 				}
-				every_tile = {
-					limit = {
-						has_building = building_basic_science_lab_1
-						autobuild_trigger_tile_has_pop = yes
-					}
-					add_building_construction = building_engineering_facility_1
-				}
-				break = yes
+				add_building_construction = building_biolab_1
 			}
-			if = {
-				limit = {
-					or = {
-						has_modifier = atmospheric_hallucinogen #10
-						has_modifier = atmospheric_hallucinogen_good #10
-						has_modifier = subterranean_civilization #10
-					}
+		}
+		else_if = {
+			limit = {
+				or = {
+					has_modifier = unstable_tectonics #20
 				}
-				every_tile = {
-					limit = {
-						has_building = building_basic_science_lab_1
-						autobuild_trigger_tile_has_pop = yes
-					}
-					add_building_construction = building_biolab_1
-				}
-				break = yes
 			}
-			if = {
+			every_tile = {
 				limit = {
-					has_modifier = strong_magnetic_field #5
+					has_building = building_basic_science_lab_1
+					autobuild_trigger_tile_has_pop = yes
 				}
-				every_tile = {
-					limit = {
-						has_building = building_basic_science_lab_1
-						autobuild_trigger_tile_has_pop = yes
-					}
-					add_building_construction = building_physics_lab_1
+				add_building_construction = building_engineering_facility_1
+			}
+		}
+		else_if = {
+			limit = {
+				or = {
+					has_modifier = atmospheric_hallucinogen #10
+					has_modifier = atmospheric_hallucinogen_good #10
+					has_modifier = subterranean_civilization #10
 				}
-				break = yes
+			}
+			every_tile = {
+				limit = {
+					has_building = building_basic_science_lab_1
+					autobuild_trigger_tile_has_pop = yes
+				}
+				add_building_construction = building_biolab_1
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = strong_magnetic_field #5
+			}
+			every_tile = {
+				limit = {
+					has_building = building_basic_science_lab_1
+					autobuild_trigger_tile_has_pop = yes
+				}
+				add_building_construction = building_physics_lab_1
 			}
 		}
 		every_tile = {
@@ -1453,120 +1462,114 @@ planet_event = {
 					}
 				}
 				add_building_construction = building_biolab_1
-				else = {
-					if = {
-						limit = {
-							or = {
-								and = {
-									pop = {
-										has_trait = trait_natural_physicists
-									}
-									not = {
-										owner = {
-											has_country_flag = autobuild_labs_not_count_trait
-										}
-									}
+			}
+			else_if = {
+				limit = {
+					or = {
+						and = {
+							pop = {
+								has_trait = trait_natural_physicists
+							}
+							not = {
+								owner = {
+									has_country_flag = autobuild_labs_not_count_trait
 								}
-								has_resource = physics_research
+							}
+						}
+						has_resource = physics_research
+					}
+				}
+				add_building_construction = building_physics_lab_1
+			}
+			else_if = {
+				limit = {
+					or = {
+						and = {
+							pop = {
+								has_trait = trait_natural_engineers
+							}
+							not = {
+								owner = {
+									has_country_flag = autobuild_labs_not_count_trait
+								}
+							}
+						}
+						has_resource = engineering_research
+					}
+				}
+				add_building_construction = building_engineering_facility_1
+			}
+			else_if = {
+				limit = {
+					not = {
+						owner = {
+							has_country_flag = autobuild_labs_disable_random
+						}
+					}
+				}
+				random_list = {
+					10 = {
+						modifier = {
+							factor = 0
+							owner = {
+								has_country_flag = autobuild_physics_lab_ratio.0
+							}
+						}
+						modifier = {
+							factor = 2
+							owner = {
+								has_country_flag = autobuild_physics_lab_ratio.2
+							}
+						}
+						modifier = {
+							factor = 3
+							owner = {
+								has_country_flag = autobuild_physics_lab_ratio.3
 							}
 						}
 						add_building_construction = building_physics_lab_1
-						else = {
-							if = {
-								limit = {
-									or = {
-										and = {
-											pop = {
-												has_trait = trait_natural_engineers
-											}
-											not = {
-												owner = {
-													has_country_flag = autobuild_labs_not_count_trait
-												}
-											}
-										}
-										has_resource = engineering_research
-									}
-								}
-								add_building_construction = building_engineering_facility_1
-								else = {
-									if = {
-										limit = {
-											not = {
-												owner = {
-													has_country_flag = autobuild_labs_disable_random
-												}
-											}
-										}
-										random_list = {
-											10 = {
-												modifier = {
-													factor = 0
-													owner = {
-														has_country_flag = autobuild_physics_lab_ratio.0
-													}
-												}
-												modifier = {
-													factor = 2
-													owner = {
-														has_country_flag = autobuild_physics_lab_ratio.2
-													}
-												}
-												modifier = {
-													factor = 3
-													owner = {
-														has_country_flag = autobuild_physics_lab_ratio.3
-													}
-												}
-												add_building_construction = building_physics_lab_1
-											}
-											10 = {
-												modifier = {
-													factor = 0
-													owner = {
-														has_country_flag = autobuild_biolab_ratio.0
-													}
-												}
-												modifier = {
-													factor = 2
-													owner = {
-														has_country_flag = autobuild_biolab_ratio.2
-													}
-												}
-												modifier = {
-													factor = 3
-													owner = {
-														has_country_flag = autobuild_biolab_ratio.3
-													}
-												}
-												add_building_construction = building_biolab_1
-											}
-											10 = {
-												modifier = {
-													factor = 0
-													owner = {
-														has_country_flag = autobuild_engineering_facility_ratio.0
-													}
-												}
-												modifier = {
-													factor = 2
-													owner = {
-														has_country_flag = autobuild_engineering_facility_ratio.2
-													}
-												}
-												modifier = {
-													factor = 3
-													owner = {
-														has_country_flag = autobuild_engineering_facility_ratio.3
-													}
-												}
-												add_building_construction = building_engineering_facility_1
-											}
-										}
-									}
-								}
+					}
+					10 = {
+						modifier = {
+							factor = 0
+							owner = {
+								has_country_flag = autobuild_biolab_ratio.0
 							}
 						}
+						modifier = {
+							factor = 2
+							owner = {
+								has_country_flag = autobuild_biolab_ratio.2
+							}
+						}
+						modifier = {
+							factor = 3
+							owner = {
+								has_country_flag = autobuild_biolab_ratio.3
+							}
+						}
+						add_building_construction = building_biolab_1
+					}
+					10 = {
+						modifier = {
+							factor = 0
+							owner = {
+								has_country_flag = autobuild_engineering_facility_ratio.0
+							}
+						}
+						modifier = {
+							factor = 2
+							owner = {
+								has_country_flag = autobuild_engineering_facility_ratio.2
+							}
+						}
+						modifier = {
+							factor = 3
+							owner = {
+								has_country_flag = autobuild_engineering_facility_ratio.3
+							}
+						}
+						add_building_construction = building_engineering_facility_1
 					}
 				}
 			}
@@ -1644,15 +1647,12 @@ planet_event = {
 
 # remove mod's stuff
 country_event = {
-	id = autobuild.99
+	id = autobuild.999
 	hide_window = yes
 	is_triggered_only = yes
 
 	immediate = {
 		every_planet = {
-			limit = {
-				autobuild_trigger_planet_special = yes
-			}
 			autobuild_effect_clear_planet_modifiers = yes
 		}
 		every_owned_fleet = {

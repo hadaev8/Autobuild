@@ -92,9 +92,9 @@ planet_edict = {
 				has_global_flag  = hide_autobuild_planetary_edicts
 			}
 			remove_global_flag  = hide_autobuild_planetary_edicts
-			else = {
-				set_global_flag = hide_autobuild_planetary_edicts
-			}
+		}
+		else = {
+			set_global_flag = hide_autobuild_planetary_edicts
 		}
 	}
 	ai_weight = {

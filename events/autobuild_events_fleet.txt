@@ -10,6 +10,7 @@ fleet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		exists = this
 		autobuild_trigger_fleet_is_valid = yes
 	}
 
@@ -142,15 +143,15 @@ fleet_event = {
 								root = {
 									set_name = "Move to [prev.GetName]"
 								}
-								else = {
-									solar_system = {
-										remove_star_flag = autobuild_star_block
-									}
-									root = {
-										autobuild_effect_fleet_clear = yes
-										fleet_event = {
-											id = autobuild_fleet.0
-										}
+							}
+							else = {
+								solar_system = {
+									remove_star_flag = autobuild_star_block
+								}
+								root = {
+									autobuild_effect_fleet_clear = yes
+									fleet_event = {
+										id = autobuild_fleet.0
 									}
 								}
 							}
@@ -176,15 +177,15 @@ fleet_event = {
 									set_name = "Building..."
 									set_event_locked = yes
 								}
-								else = {
-									solar_system = {
-										remove_star_flag = autobuild_star_block
-									}
-									root = {
-										autobuild_effect_fleet_clear = yes
-										fleet_event = {
-											id = autobuild_fleet.0
-										}
+							}
+							else = {
+								solar_system = {
+									remove_star_flag = autobuild_star_block
+								}
+								root = {
+									autobuild_effect_fleet_clear = yes
+									fleet_event = {
+										id = autobuild_fleet.0
 									}
 								}
 							}
@@ -234,52 +235,50 @@ fleet_event = {
 											}
 										}
 									}
-									else = {
+								}
+								else_if = {
+									limit = {
+										has_deposit_for = shipclass_research_station
+									}
+									create_research_station = {
+										owner = root.owner
+									}
+									root.owner = {
+										add_minerals = -90
 										if = {
 											limit = {
-												has_deposit_for = shipclass_research_station
+												has_event_chain = mandate_orbresearch_chain
 											}
-											create_research_station = {
-												owner = root.owner
+											add_event_chain_counter = {
+												event_chain = mandate_orbresearch_chain
+												counter = orbresearch_built
+												amount = 1
 											}
-											root.owner = {
-												add_minerals = -90
-												if = {
-													limit = {
-														has_event_chain = mandate_orbresearch_chain
-													}
-													add_event_chain_counter = {
+											if = {
+												limit = {
+													has_completed_event_chain_counter = {
 														event_chain = mandate_orbresearch_chain
 														counter = orbresearch_built
-														amount = 1
 													}
-													if = {
-														limit = {
-															has_completed_event_chain_counter = {
-																event_chain = mandate_orbresearch_chain
-																counter = orbresearch_built
-															}
-														}
-														country_event = {
-															id = mandate.121
-														}
-													}
+												}
+												country_event = {
+													id = mandate.121
 												}
 											}
 										}
 									}
 								}
-								else = {
-									solar_system = {
-										remove_star_flag = autobuild_star_block
-									}
-									root = {
-										autobuild_effect_fleet_clear = yes
-										set_name = "Haven't minerals"
-										fleet_event = {
-											id = autobuild_fleet.0
-											days = 100
-										}
+							}
+							else = {
+								solar_system = {
+									remove_star_flag = autobuild_star_block
+								}
+								root = {
+									autobuild_effect_fleet_clear = yes
+									set_name = "Haven't minerals"
+									fleet_event = {
+										id = autobuild_fleet.0
+										days = 100
 									}
 								}
 							}

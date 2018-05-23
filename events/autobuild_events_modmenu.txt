@@ -43,9 +43,6 @@ country_event = {
 		}
 		custom_tooltip = autobuild_fleet_on.tooltip
 		hidden_effect = {
-			country_event = {
-				id = autobuild.3
-			}
 			every_owned_fleet = {
 				limit = {
 					autobuild_trigger_fleet_is_valid = yes
@@ -53,6 +50,9 @@ country_event = {
 				fleet_event = {
 					id = autobuild_fleet.0
 				}
+			}
+			country_event = {
+				id = autobuild.3
 			}
 		}
 	}
@@ -65,14 +65,14 @@ country_event = {
 		}
 		custom_tooltip = autobuild_fleet.tooltip
 		hidden_effect = {
-			country_event = {
-				id = autobuild.3
-			}
 			every_owned_fleet = {
 				limit = {
 					has_fleet_flag = autobuild_fleet
 				}
 				autobuild_effect_fleet_clear = yes
+			}
+			country_event = {
+				id = autobuild.3
 			}
 		}
 	}
@@ -85,10 +85,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_update_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_update
 			country_event = {
 				id = autobuild.3
 			}
-			set_country_flag = autobuild_update
 		}
 	}
 	option = {
@@ -98,10 +98,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_update_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_update
 			country_event = {
 				id = autobuild.3
 			}
-			remove_country_flag = autobuild_update
 		}
 	}
 	option = {
@@ -113,9 +113,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_on_tile_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_on_tile
 			country_event = {
 				id = autobuild.3
-			} set_country_flag = autobuild_on_tile
+			} 
 		}
 	}
 	option = {
@@ -125,9 +126,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_on_tile_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_on_tile
 			country_event = {
 				id = autobuild.3
-			} remove_country_flag = autobuild_on_tile
+			} 
 		}
 	}
 	option = {
@@ -139,9 +141,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_labs_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_labs
 			country_event = {
 				id = autobuild.3
-			} set_country_flag = autobuild_labs
+			} 
 		}
 	}
 	option = {
@@ -164,9 +167,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_7_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_7
 			country_event = {
 				id = autobuild.7
-			} set_country_flag = autobuild_7
+			} 
 		}
 	}
 	option = {
@@ -189,9 +193,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_robots_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_robots
 			country_event = {
 				id = autobuild.3
-			} set_country_flag = autobuild_robots
+			} 
 		}
 	}
 	option = {
@@ -201,9 +206,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_robots_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_robots
 			country_event = {
 				id = autobuild.3
-			} remove_country_flag = autobuild_robots
+			} 
 		}
 	}
 	option = {
@@ -224,9 +230,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_clean_blockers_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_clean_blockers
 			country_event = {
 				id = autobuild.3
-			} set_country_flag = autobuild_clean_blockers
+			} 
 		}
 	}
 	option = {
@@ -236,9 +243,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_clean_blockers_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_clean_blockers
 			country_event = {
 				id = autobuild.3
-			} remove_country_flag = autobuild_clean_blockers
+			}
 		}
 	}
 	option = {
@@ -289,7 +297,8 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ai_allowed.tooltip
 		hidden_effect = {
-			set_global_flag = autobuild_ai_allowed country_event = {
+			set_global_flag = autobuild_ai_allowed
+			country_event = {
 				id = autobuild.3
 			}
 		}
@@ -302,7 +311,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.3
-			} remove_global_flag = autobuild_ai_allowed
+			}
+			remove_global_flag = autobuild_ai_allowed
 		}
 	}
 	option = {
@@ -318,8 +328,9 @@ country_event = {
 		custom_tooltip = modmenu_remove.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.99
-			} country_event = {
+				id = autobuild.999
+			}
+			country_event = {
 				id = autobuild.3
 			}
 		}
@@ -349,9 +360,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_cost_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_cost
 			country_event = {
 				id = autobuild.3
-			} remove_country_flag = autobuild_cost
+			}
 		}
 	}
 	option = {
@@ -362,11 +374,11 @@ country_event = {
 			}
 		}
 		hidden_effect = {
+			autobuild_effect_clear_cost_flags = yes
+			set_country_flag = autobuild_cost_20000
 			country_event = {
 				id = autobuild.4
 			}
-			autobuild_effect_clear_cost_flags = yes
-			set_country_flag = autobuild_cost_20000
 		}
 	}
 	option = {
@@ -377,11 +389,11 @@ country_event = {
 			}
 		}
 		hidden_effect = {
+			autobuild_effect_clear_cost_flags = yes
+			set_country_flag = autobuild_cost_5000
 			country_event = {
 				id = autobuild.4
 			}
-			autobuild_effect_clear_cost_flags = yes
-			set_country_flag = autobuild_cost_5000
 		}
 	}
 	option = {
@@ -392,21 +404,21 @@ country_event = {
 			}
 		}
 		hidden_effect = {
+			autobuild_effect_clear_cost_flags = yes
+			set_country_flag = autobuild_cost_2500
 			country_event = {
 				id = autobuild.4
 			}
-			autobuild_effect_clear_cost_flags = yes
-			set_country_flag = autobuild_cost_2500
 		}
 	}
 	option = {
 		name = autobuild_cost_1000
 		hidden_effect = {
+			autobuild_effect_clear_cost_flags = yes
+			set_country_flag = autobuild_cost_1000
 			country_event = {
 				id = autobuild.4
 			}
-			autobuild_effect_clear_cost_flags = yes
-			set_country_flag = autobuild_cost_1000
 		}
 	}
 	option = {
@@ -417,11 +429,11 @@ country_event = {
 			}
 		}
 		hidden_effect = {
+			autobuild_effect_clear_cost_flags = yes
+			set_country_flag = autobuild_cost_500
 			country_event = {
 				id = autobuild.4
 			}
-			autobuild_effect_clear_cost_flags = yes
-			set_country_flag = autobuild_cost_500
 		}
 	}
 	option = {
