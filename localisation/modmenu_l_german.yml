@@ -17,26 +17,6 @@
  modmenu_no:0 "Nein"
  modmenu_configure:0 "Here you can configure mod"
 
- modmenu.0:0 "§HAutoBuild§!"
- modmenu.0.tooltip:0 "$modmenu_configure$ $modmenu.0$"
-
- modmenu.1:0 "§HBoard That Ship§!"
- modmenu.1.tooltip:0 "$modmenu_configure$ $modmenu.1$"
-
- modmenu.2:0 "§HNew Ship Classes & More§!"
- modmenu.2.tooltip:0 "$modmenu_configure$ $modmenu.2$"
-
- modmenu.4:0 "§HHuman Fallen Empires§!"
- modmenu.4.tooltip:0 "$modmenu_configure$ $modmenu.4$"
-
- custom_crisis_strength:0 "§HCustom Crisis Strength"
- custom_crisis_strength.tooltip:0 "$modmenu_configure$ $custom_crisis_strength$§!"
-
- terraforming_candidate_finder:0 "§HTerraforming Candidate Finder§!"
- terraforming_candidate_finder.tooltip:0 "$modmenu_configure$ $terraforming_candidate_finder$"
-
- custom_difficulty:0 "§HUltimate Custom Difficulty§!"
- custom_difficulty.tooltip:0 "$modmenu_configure$ $custom_difficulty$"
-
- core_game_mechanics_and_ai:0 "§HCore Game Mechanics and AI§!"
- core_game_mechanics_and_ai.tooltip:0 "$modmenu_configure$ $core_game_mechanics_and_ai$"
+ modmenu_terraforming_candidate_finder:0 "§HTerraforming Candidate Finder§!"
+ modmenu_custom_difficulty:0 "§HUltimate Custom Difficulty§!"
+ modmenu_core_game_mechanics_and_ai:0 "§HCore Game Mechanics and AI§!"

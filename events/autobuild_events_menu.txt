@@ -37,7 +37,7 @@ country_event = {
 			custom_tooltip = {
 				text = autobuild_fleet_allow_tooltip
 				any_owned_fleet = {
-					autobuild_trigger_fleet_is_valid = yes
+					autobuild_trigger_fleet_valid = yes
 				}
 			}
 		}
@@ -45,7 +45,7 @@ country_event = {
 		hidden_effect = {
 			every_owned_fleet = {
 				limit = {
-					autobuild_trigger_fleet_is_valid = yes
+					autobuild_trigger_fleet_valid = yes
 				}
 				fleet_event = {
 					id = autobuild_fleet.0
@@ -116,7 +116,7 @@ country_event = {
 			set_country_flag = autobuild_on_tile
 			country_event = {
 				id = autobuild.3
-			} 
+			}
 		}
 	}
 	option = {
@@ -129,7 +129,7 @@ country_event = {
 			remove_country_flag = autobuild_on_tile
 			country_event = {
 				id = autobuild.3
-			} 
+			}
 		}
 	}
 	option = {
@@ -144,7 +144,7 @@ country_event = {
 			set_country_flag = autobuild_labs
 			country_event = {
 				id = autobuild.3
-			} 
+			}
 		}
 	}
 	option = {
@@ -170,7 +170,7 @@ country_event = {
 			set_country_flag = autobuild_7
 			country_event = {
 				id = autobuild.7
-			} 
+			}
 		}
 	}
 	option = {
@@ -196,7 +196,7 @@ country_event = {
 			set_country_flag = autobuild_robots
 			country_event = {
 				id = autobuild.3
-			} 
+			}
 		}
 	}
 	option = {
@@ -209,7 +209,7 @@ country_event = {
 			remove_country_flag = autobuild_robots
 			country_event = {
 				id = autobuild.3
-			} 
+			}
 		}
 	}
 	option = {
@@ -233,7 +233,7 @@ country_event = {
 			set_country_flag = autobuild_clean_blockers
 			country_event = {
 				id = autobuild.3
-			} 
+			}
 		}
 	}
 	option = {
@@ -1835,10 +1835,28 @@ country_event = {
 		}
 		custom_tooltip = autobuild_rename_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_rename
 			country_event = {
 				id = autobuild.8
 			}
-			remove_country_flag = autobuild_rename
+		}
+	}
+	option = {
+		name = autobuild_assign_leader.defined_text
+		custom_tooltip = autobuild_assign_leader.tooltip.defined_text
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = autobuild_assign_leader
+				}
+				remove_country_flag = autobuild_assign_leader
+			}
+			else = {
+				set_country_flag = autobuild_assign_leader
+			}
+			country_event = {
+				id = autobuild.8
+			}
 		}
 	}
 	option = {
@@ -1965,7 +1983,7 @@ country_event = {
 				has_country_flag = autobuild_physics_lab_ratio.0
 			}
 		}
-		custom_tooltip = autobuild_physics_lab_ratio.0_on.tooltip
+		#custom_tooltip = autobuild_physics_lab_ratio.0_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -1977,7 +1995,7 @@ country_event = {
 		trigger = {
 			has_country_flag = autobuild_physics_lab_ratio.0
 		}
-		custom_tooltip = autobuild_physics_lab_ratio.0_off.tooltip
+		#custom_tooltip = autobuild_physics_lab_ratio.0_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -1991,7 +2009,7 @@ country_event = {
 				has_country_flag = autobuild_physics_lab_ratio.2
 			}
 		}
-		custom_tooltip = autobuild_physics_lab_ratio.2_on.tooltip
+		#custom_tooltip = autobuild_physics_lab_ratio.2_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2003,7 +2021,7 @@ country_event = {
 		trigger = {
 			has_country_flag = autobuild_physics_lab_ratio.2
 		}
-		custom_tooltip = autobuild_physics_lab_ratio.2_off.tooltip
+		#custom_tooltip = autobuild_physics_lab_ratio.2_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2017,7 +2035,7 @@ country_event = {
 				has_country_flag = autobuild_physics_lab_ratio.3
 			}
 		}
-		custom_tooltip = autobuild_physics_lab_ratio.3_on.tooltip
+		#custom_tooltip = autobuild_physics_lab_ratio.3_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2029,7 +2047,7 @@ country_event = {
 		trigger = {
 			has_country_flag = autobuild_physics_lab_ratio.3
 		}
-		custom_tooltip = autobuild_physics_lab_ratio.3_off.tooltip
+		#custom_tooltip = autobuild_physics_lab_ratio.3_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2043,7 +2061,7 @@ country_event = {
 				has_country_flag = autobuild_biolab_ratio.0
 			}
 		}
-		custom_tooltip = autobuild_biolab_ratio.0_on.tooltip
+		#custom_tooltip = autobuild_biolab_ratio.0_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2055,7 +2073,7 @@ country_event = {
 		trigger = {
 			has_country_flag = autobuild_biolab_ratio.0
 		}
-		custom_tooltip = autobuild_biolab_ratio.0_off.tooltip
+		#custom_tooltip = autobuild_biolab_ratio.0_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2069,7 +2087,7 @@ country_event = {
 				has_country_flag = autobuild_biolab_ratio.2
 			}
 		}
-		custom_tooltip = autobuild_biolab_ratio.2_on.tooltip
+		#custom_tooltip = autobuild_biolab_ratio.2_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2081,7 +2099,7 @@ country_event = {
 		trigger = {
 			has_country_flag = autobuild_biolab_ratio.2
 		}
-		custom_tooltip = autobuild_biolab_ratio.2_off.tooltip
+		#custom_tooltip = autobuild_biolab_ratio.2_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2095,7 +2113,7 @@ country_event = {
 				has_country_flag = autobuild_biolab_ratio.3
 			}
 		}
-		custom_tooltip = autobuild_biolab_ratio.3_on.tooltip
+		#custom_tooltip = autobuild_biolab_ratio.3_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2107,7 +2125,7 @@ country_event = {
 		trigger = {
 			has_country_flag = autobuild_biolab_ratio.3
 		}
-		custom_tooltip = autobuild_biolab_ratio.3_off.tooltip
+		#custom_tooltip = autobuild_biolab_ratio.3_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2121,7 +2139,7 @@ country_event = {
 				has_country_flag = autobuild_engineering_facility_ratio.0
 			}
 		}
-		custom_tooltip = autobuild_engineering_facility_ratio.0_on.tooltip
+		#custom_tooltip = autobuild_engineering_facility_ratio.0_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2133,7 +2151,7 @@ country_event = {
 		trigger = {
 			has_country_flag = autobuild_engineering_facility_ratio.0
 		}
-		custom_tooltip = autobuild_engineering_facility_ratio.0_off.tooltip
+		#custom_tooltip = autobuild_engineering_facility_ratio.0_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2147,7 +2165,7 @@ country_event = {
 				has_country_flag = autobuild_engineering_facility_ratio.2
 			}
 		}
-		custom_tooltip = autobuild_engineering_facility_ratio.2_on.tooltip
+		#custom_tooltip = autobuild_engineering_facility_ratio.2_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2159,7 +2177,7 @@ country_event = {
 		trigger = {
 			has_country_flag = autobuild_engineering_facility_ratio.2
 		}
-		custom_tooltip = autobuild_engineering_facility_ratio.2_off.tooltip
+		#custom_tooltip = autobuild_engineering_facility_ratio.2_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2173,7 +2191,7 @@ country_event = {
 				has_country_flag = autobuild_engineering_facility_ratio.3
 			}
 		}
-		custom_tooltip = autobuild_engineering_facility_ratio.3_on.tooltip
+		#custom_tooltip = autobuild_engineering_facility_ratio.3_on.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
@@ -2185,7 +2203,7 @@ country_event = {
 		trigger = {
 			has_country_flag = autobuild_engineering_facility_ratio.3
 		}
-		custom_tooltip = autobuild_engineering_facility_ratio.3_off.tooltip
+		#custom_tooltip = autobuild_engineering_facility_ratio.3_off.tooltip
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12

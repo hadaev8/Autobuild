@@ -1,0 +1,26 @@
+# main menu
+defined_text = {
+	name = autobuild_assign_leader_defined_text
+	text = {
+		trigger = {
+			has_country_flag = autobuild_assign_leader
+		}
+		localization_key = autobuild_assign_leader.0
+	}
+	text = {
+		localization_key = autobuild_assign_leader.1
+	}
+}
+
+defined_text = {
+	name = autobuild_assign_leader_tooltip_defined_text
+	text = {
+		trigger = {
+			has_country_flag = autobuild_assign_leader
+		}
+		localization_key = autobuild_assign_leader.0.tooltip
+	}
+	text = {
+		localization_key = autobuild_assign_leader.1.tooltip
+	}
+}

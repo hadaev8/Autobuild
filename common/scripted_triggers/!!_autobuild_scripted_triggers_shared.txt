@@ -17,3 +17,6 @@ has_planetary_diversity_planetary_strategic_resources = {
 has_apsr_resource_local = {
 	always = no
 }
+sth_trigger_autobuild_tile_has_strategic_res = {
+	always = no
+}

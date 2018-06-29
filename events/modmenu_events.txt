@@ -9,8 +9,7 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = modmenu.0
-		custom_tooltip = modmenu.0.tooltip
+		name = modmenu_autobuild
 		trigger = {
 			has_global_flag = autobuild_installed
 		}
@@ -21,8 +20,32 @@ country_event = {
 		}
 	}
 	option = {
-		name = modmenu.4
-		custom_tooltip = modmenu.4.tooltip
+		name = modmenu_board_that_ship
+		trigger = {
+			has_global_flag = board_that_ship_installed
+		}
+		hidden_effect = {
+			country_event = {
+				id = board_that_ship_menu.1
+			}
+		}
+	}
+	option = {
+		name = modmenu_ncs
+		trigger = {
+			or = {
+				has_global_flag = has_nsc_active
+				has_global_flag = has_playable_guardians
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = NSC_features.1
+			}
+		}
+	}
+	option = {
+		name = modmenu_human_fallen_empires
 		trigger = {
 			has_global_flag = human_fallen_empires_installed
 		}
@@ -33,6 +56,65 @@ country_event = {
 		}
 	}
 	option = {
+		name = modmenu_terraforming_candidate_finder
+		trigger = {
+			has_global_flag = terraforming_candidate_finder_installed
+		}
+		hidden_effect = {
+			country_event = {
+				id = tcf_menu.1
+			}
+		}
+	}
+	option = {
+		name = modmenu_custom_difficulty
+		trigger = {
+			has_global_flag = custom_difficulty_active
+		}
+		hidden_effect = {
+			country_event = {
+				id = custom_difficulty.0
+			}
+		}
+	}
+	option = {
+		name = modmenu_core_game_mechanics_and_ai
+		trigger = {
+			has_global_flag = core_game_mechanics_and_ai
+		}
+		hidden_effect = {
+			country_event = {
+				id = core_game_mechanics_and_ai_base.1
+			}
+		}
+	}
+	option = {
+		name = CrisisManagerTitleA
+		trigger = {
+			has_global_flag = CmtFlagActivated
+		}
+		hidden_effect = {
+			country_event = {
+				id = CrisisManagerMenu.3
+			}
+		}
+	}
+	option = {
 		name = modmenu_exit
+		hidden_effect = {
+			country_event = {
+				id = modmenu.2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = modmenu.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = mod_menu_installed
 	}
 }

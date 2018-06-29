@@ -12,11 +12,11 @@ modmenu_button_effect = {
 	}
 	effect = {
 		hidden_effect = {
-			from = {
+			#from = {
 				country_event = {
 					id = modmenu.1
 				}
-			}
+			#}
 		}
 		custom_tooltip = modmenu.tooltip
 	}

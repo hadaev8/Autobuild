@@ -1015,9 +1015,9 @@ planet_event = {
 				}
 				autobuild_trigger_tile_has_pop_or_can_deliver = yes
 				or = {
-					autobuild_trigger_tile_has_res = no
 					autobuild_trigger_tile_has_energy_more_than_others = yes
 					autobuild_trigger_tile_has_minerals_more_than_others = yes
+					autobuild_trigger_tile_has_res = no
 				}
 			}
 			add_building_construction = building_neuro_electric_amplifier

@@ -24,9 +24,9 @@ country_event = {
 				}
 			}
 		}
-		not = {
-			has_country_flag = autobuild_empire_block
-		}
+		# not = {
+			# has_country_flag = autobuild_empire_block
+		# }
 	}
 
 	immediate = {
@@ -37,6 +37,83 @@ country_event = {
 		# start local events
 		every_owned_planet = {
 			autobuild_effect_planet_build = yes
+		}
+	}
+}
+
+# assign leaders
+country_event = {
+	id = autobuild.98
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = autobuild_assign_leader
+	}
+
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				leader_class = admiral
+				not = {
+					exists = fleet
+				}
+			}
+			root = {
+				random_owned_fleet = {
+					limit = {
+						is_ship_class = shipclass_military
+						not = {
+							exists = leader
+						}
+
+					}
+					assign_leader = prevprev
+				}
+			}
+		}
+		random_owned_leader = {
+			limit = {
+				leader_class = general
+				not = {
+					exists = fleet
+				}
+			}
+			root = {
+				random_owned_fleet = {
+					limit = {
+						is_ship_class = shipclass_military
+						not = {
+							exists = leader
+						}
+
+					}
+					assign_leader = prevprev
+				}
+			}
+		}
+		random_owned_leader = {
+			limit = {
+				leader_class = scientist
+				nor = {
+					exists = fleet
+					is_researching_area = society
+					is_researching_area = engineering
+					is_researching_area = physics
+				}
+			}
+			root = {
+				random_owned_fleet = {
+					limit = {
+						is_ship_class = shipclass_science_ship
+						not = {
+							exists = leader
+						}
+
+					}
+					assign_leader = prevprev
+				}
+			}
 		}
 	}
 }
@@ -666,7 +743,7 @@ planet_event = {
 			autobuild_trigger_cost = yes
 		}
 	}
-	
+
 	immediate = {
 		every_tile = {
 			limit = {
@@ -833,6 +910,7 @@ planet_event = {
 					autobuild_trigger_has_any_mine = yes
 					autobuild_trigger_has_any_mine_not_replace = yes
 					autobuild_trigger_tile_has_minerals_more_than_others = yes
+					autobuild_trigger_tile_good_for_food_minerals = yes
 				}
 			}
 			build_pop = {
@@ -924,8 +1002,8 @@ planet_event = {
 									}
 									# have some other res
 									and = {
-										autobuild_trigger_tile_has_res = yes
 										autobuild_trigger_tile_has_energy_more_than_others = no
+										autobuild_trigger_tile_has_res = yes
 									}
 								}
 							}
@@ -1363,7 +1441,7 @@ planet_event = {
 				}
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				owner = {
 					not = {
@@ -1440,136 +1518,138 @@ planet_event = {
 				add_building_construction = building_physics_lab_1
 			}
 		}
-		every_tile = {
-			limit = {
-				has_building = building_basic_science_lab_1
-				autobuild_trigger_tile_has_pop = yes
-			}
-			if = {
+		else = {
+			every_tile = {
 				limit = {
-					or = {
-						and = {
-							pop = {
-								has_trait = trait_natural_sociologists
-							}
-							not = {
-								owner = {
-									has_country_flag = autobuild_labs_not_count_trait
+					has_building = building_basic_science_lab_1
+					autobuild_trigger_tile_has_pop = yes
+				}
+				if = {
+					limit = {
+						or = {
+							and = {
+								pop = {
+									has_trait = trait_natural_sociologists
+								}
+								not = {
+									owner = {
+										has_country_flag = autobuild_labs_not_count_trait
+									}
 								}
 							}
+							has_resource = society_research
 						}
-						has_resource = society_research
 					}
+					add_building_construction = building_biolab_1
 				}
-				add_building_construction = building_biolab_1
-			}
-			else_if = {
-				limit = {
-					or = {
-						and = {
-							pop = {
-								has_trait = trait_natural_physicists
-							}
-							not = {
-								owner = {
-									has_country_flag = autobuild_labs_not_count_trait
+				else_if = {
+					limit = {
+						or = {
+							and = {
+								pop = {
+									has_trait = trait_natural_physicists
+								}
+								not = {
+									owner = {
+										has_country_flag = autobuild_labs_not_count_trait
+									}
 								}
 							}
+							has_resource = physics_research
 						}
-						has_resource = physics_research
 					}
+					add_building_construction = building_physics_lab_1
 				}
-				add_building_construction = building_physics_lab_1
-			}
-			else_if = {
-				limit = {
-					or = {
-						and = {
-							pop = {
-								has_trait = trait_natural_engineers
-							}
-							not = {
-								owner = {
-									has_country_flag = autobuild_labs_not_count_trait
+				else_if = {
+					limit = {
+						or = {
+							and = {
+								pop = {
+									has_trait = trait_natural_engineers
+								}
+								not = {
+									owner = {
+										has_country_flag = autobuild_labs_not_count_trait
+									}
 								}
 							}
+							has_resource = engineering_research
 						}
-						has_resource = engineering_research
 					}
+					add_building_construction = building_engineering_facility_1
 				}
-				add_building_construction = building_engineering_facility_1
-			}
-			else_if = {
-				limit = {
-					not = {
-						owner = {
-							has_country_flag = autobuild_labs_disable_random
+				else_if = {
+					limit = {
+						not = {
+							owner = {
+								has_country_flag = autobuild_labs_disable_random
+							}
 						}
 					}
-				}
-				random_list = {
-					10 = {
-						modifier = {
-							factor = 0
-							owner = {
-								has_country_flag = autobuild_physics_lab_ratio.0
+					random_list = {
+						10 = {
+							modifier = {
+								factor = 0
+								owner = {
+									has_country_flag = autobuild_physics_lab_ratio.0
+								}
 							}
-						}
-						modifier = {
-							factor = 2
-							owner = {
-								has_country_flag = autobuild_physics_lab_ratio.2
+							modifier = {
+								factor = 2
+								owner = {
+									has_country_flag = autobuild_physics_lab_ratio.2
+								}
 							}
-						}
-						modifier = {
-							factor = 3
-							owner = {
-								has_country_flag = autobuild_physics_lab_ratio.3
+							modifier = {
+								factor = 3
+								owner = {
+									has_country_flag = autobuild_physics_lab_ratio.3
+								}
 							}
+							add_building_construction = building_physics_lab_1
 						}
-						add_building_construction = building_physics_lab_1
-					}
-					10 = {
-						modifier = {
-							factor = 0
-							owner = {
-								has_country_flag = autobuild_biolab_ratio.0
+						10 = {
+							modifier = {
+								factor = 0
+								owner = {
+									has_country_flag = autobuild_biolab_ratio.0
+								}
 							}
-						}
-						modifier = {
-							factor = 2
-							owner = {
-								has_country_flag = autobuild_biolab_ratio.2
+							modifier = {
+								factor = 2
+								owner = {
+									has_country_flag = autobuild_biolab_ratio.2
+								}
 							}
-						}
-						modifier = {
-							factor = 3
-							owner = {
-								has_country_flag = autobuild_biolab_ratio.3
+							modifier = {
+								factor = 3
+								owner = {
+									has_country_flag = autobuild_biolab_ratio.3
+								}
 							}
+							add_building_construction = building_biolab_1
 						}
-						add_building_construction = building_biolab_1
-					}
-					10 = {
-						modifier = {
-							factor = 0
-							owner = {
-								has_country_flag = autobuild_engineering_facility_ratio.0
+						10 = {
+							modifier = {
+								factor = 0
+								owner = {
+									has_country_flag = autobuild_engineering_facility_ratio.0
+								}
 							}
-						}
-						modifier = {
-							factor = 2
-							owner = {
-								has_country_flag = autobuild_engineering_facility_ratio.2
+							modifier = {
+								factor = 2
+								owner = {
+									has_country_flag = autobuild_engineering_facility_ratio.2
+								}
 							}
-						}
-						modifier = {
-							factor = 3
-							owner = {
-								has_country_flag = autobuild_engineering_facility_ratio.3
+							modifier = {
+								factor = 3
+								owner = {
+									has_country_flag = autobuild_engineering_facility_ratio.3
+								}
 							}
+							add_building_construction = building_engineering_facility_1
 						}
-						add_building_construction = building_engineering_facility_1
 					}
 				}
 			}
@@ -1585,11 +1665,16 @@ event = {
 	is_triggered_only = yes
 
 	immediate = {
+		# every_country = {
+			# country_event = {
+				# id = autobuild.1
+				# days = 15
+				# random = 10
+			# }
+		# }
 		every_country = {
 			country_event = {
-				id = autobuild.1
-				days = 15
-				random = 10
+				id = autobuild.98
 			}
 		}
 	}
@@ -1617,7 +1702,7 @@ planet_event = {
 	}
 }
 
-# on pop birth and migrate
+# on pop on actions
 pop_event = {
 	id = autobuild.158
 	hide_window = yes
@@ -1625,10 +1710,19 @@ pop_event = {
 
 	trigger = {
 		exists = planet
+		planet = {
+			not = {
+				has_planet_flag = autobuild.158_block
+			}
+		}
 	}
 
 	immediate = {
 		planet = {
+			set_timed_planet_flag = {
+				flag = autobuild.158_block
+				days = 10
+			}
 			autobuild_effect_planet_build = yes
 		}
 	}
@@ -1688,17 +1782,6 @@ country_event = {
 		remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 		remove_global_flag = hide_autobuild_planetary_edicts
 		remove_global_flag = autobuild_ai_allowed
-	}
-}
-
-# set global flag
-country_event = {
-	id = autobuild.200
-	hide_window = yes
-	fire_only_once = yes
-
-	immediate = {
-		set_global_flag = autobuild_installed
 	}
 }
 

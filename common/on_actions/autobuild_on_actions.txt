@@ -27,7 +27,7 @@ on_entering_system_fleet = {
 # From = Country
 on_ship_order = {
 	events = {
-		autobuild_fleet.51
+		#autobuild_fleet.51
 	}
 }
 
@@ -89,6 +89,12 @@ on_building_demolished = {
 on_building_replaced = {
 	events = {
 		autobuild.159
+	}
+}
+
+on_added_pop = {
+	events = {
+		autobuild.158
 	}
 }
 

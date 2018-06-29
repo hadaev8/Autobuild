@@ -6,7 +6,7 @@ autobuild_trigger_is_sth = {
 }
 
 # for fleet
-autobuild_trigger_fleet_is_valid = {
+autobuild_trigger_fleet_valid = {
 	exists = owner
 	is_ship_class = shipclass_constructor
 	is_disabled = no
@@ -22,7 +22,7 @@ autobuild_trigger_fleet_is_valid = {
 			}
 		}
 	}
-	not = {
+	nor = {
 		has_fleet_flag = autobuild_fleet
 		has_fleet_flag = autonomous_assembler
 	}
@@ -327,19 +327,6 @@ autobuild_trigger_has_planet_capital_or_shelter = {
 	}
 }
 
-# autobuild_trigger_has_any_capital_or_shelter = {
-	# or = {
-		# autobuild_trigger_has_planet_capital_or_shelter = yes
-		# has_building = building_hab_capital
-		# # temporal fix
-		# has_global_flag = gf_alphamod_activated
-		# has_global_flag = star_trek_new_horizons
-		# alphamod_trigger_autobuild_has_any_capital = yes
-		# # fell free use this trigger for your mod
-		# autobuild_trigger_has_any_capital_mod_api = yes
-	# }
-# }
-
 # for tile
 autobuild_trigger_tile_has_strategic_res = {
 	or = {
@@ -349,6 +336,7 @@ autobuild_trigger_tile_has_strategic_res = {
 		has_astrogeology_planetary_strategic_resources = yes
 		has_planetary_diversity_planetary_strategic_resources = yes
 		has_apsr_resource_local = yes
+		sth_trigger_autobuild_tile_has_strategic_res = yes
 		# fell free use this trigger for your mod
 		autobuild_trigger_tile_has_strategic_res_mod_api = yes
 		has_resource = sr_alien_pets
@@ -384,56 +372,21 @@ autobuild_trigger_tile_good_for_food_minerals = {
 
 autobuild_trigger_tile_has_res = {
 	or = {
-		has_deposit = yes
-		autobuild_trigger_tile_good_for_food_minerals = yes
-		autobuild_trigger_tile_good_for_energy = yes
-	}
-	nand = {
-		owner = {
-			has_country_flag = autobuild_ignore_minerals
-		}
-		autobuild_trigger_planet_minerals = no
-		or = {
-			has_resource = minerals
-			autobuild_trigger_tile_good_for_food_minerals = yes
-		}
-	}
-	nand = {
-		owner = {
-			has_country_flag = autobuild_ignore_food
-		}
-		autobuild_trigger_planet_food = no
-		or = {
-			has_resource = food
-			autobuild_trigger_tile_good_for_food_minerals = yes
-		}
-	}
-	nand = {
-		owner = {
-			has_country_flag = autobuild_ignore_energy
-		}
-		autobuild_trigger_planet_energy = no
-		or = {
-			has_resource = energy
-			autobuild_trigger_tile_good_for_energy = yes
-		}
-	}
-	nand = {
-		owner = {
-			has_country_flag = autobuild_ignore_science
-		}
-		autobuild_trigger_planet_science = no
-		or = {
-			has_resource = physics_research
-			has_resource = society_research
-			has_resource = engineering_research
-		}
+		autobuild_trigger_tile_has_strategic_res = yes
+		autobuild_trigger_tile_has_energy_more_than_others = yes
+		autobuild_trigger_tile_has_minerals_more_than_others = yes
+		autobuild_trigger_tile_has_food_more_than_others = yes
+		autobuild_trigger_tile_has_science_more_than_others = yes
 	}
 }
 
 autobuild_trigger_tile_has_energy_more_than_others = {
 	autobuild_trigger_tile_has_strategic_res = no
 	autobuild_trigger_tile_pop_robot_or_slave = no
+	or = {
+		has_resource = energy
+		autobuild_trigger_tile_good_for_energy = yes
+	}
 	or = {
 		owner = {
 			not = {
@@ -555,6 +508,10 @@ autobuild_trigger_tile_has_energy_more_than_others = {
 
 autobuild_trigger_tile_has_minerals_more_than_others = {
 	autobuild_trigger_tile_has_strategic_res = no
+	or = {
+		has_resource = minerals
+		autobuild_trigger_tile_good_for_food_minerals = yes
+	}
 	or = {
 		owner = {
 			not = {
@@ -699,7 +656,7 @@ autobuild_trigger_tile_has_food_more_than_others = {
 					food > 1000
 					has_monthly_income = {
 						resource = food
-						value > 30
+						value > 20
 					}
 				}
 			}
@@ -835,6 +792,11 @@ autobuild_trigger_tile_has_food_more_than_others = {
 autobuild_trigger_tile_has_science_more_than_others = {
 	autobuild_trigger_tile_has_strategic_res = no
 	autobuild_trigger_tile_pop_robot_or_slave = no
+	or = {
+		has_resource = physics_research
+		has_resource = society_research
+		has_resource = engineering_research
+	}
 	or = {
 		owner = {
 			not = {

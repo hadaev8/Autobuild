@@ -3,7 +3,7 @@
  # 
  
  autobuild.3.name:0 "Menu d'AutoBuild"
- autobuild.3.desc:0 "$modmenu_configure$ $modmenu_1$."
+ autobuild.3.desc:0 "$modmenu_configure$ $modmenu.0$."
  autobuild.4.desc:0 "$modmenu_configure$ Garder une réserve."
  autobuild.6.desc:0 "$modmenu_configure$ Construction automatique de bâtiments uniques."
  autobuild.7.desc:0 "$modmenu_configure$ $autobuild_7$"
@@ -71,6 +71,9 @@
  
  autobuild_rename:0 "Rename specialize planets."
  autobuild_rename.tooltip:0 "Will rename specialize planets."
+ 
+ autobuild_assign_leader:0 "Assign leaders."
+ autobuild_assign_leader.tooltip:0 "Now working for the appointment of admirals, generals and scientists to the fleets. The appointment of the governor cannot be made in the current API."
  
  # labs
  autobuild_labs:0 "Amélioration auto des labos"
@@ -189,35 +192,27 @@
  
  # main menu
  autobuild_update_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_update.tooltip$"
- autobuild_2_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_2.tooltip$"
  autobuild_on_tile_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_on_tile.tooltip$"
  autobuild_4_2_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_4_2.tooltip$"
  autobuild_labs_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_labs.tooltip$"
- autobuild_6_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_6.tooltip$"
  autobuild_7_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_7.tooltip$"
  autobuild_clean_blockers_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_clean_blockers.tooltip$"
  autobuild_fleet_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_fleet.tooltip$"
  autobuild_cost_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_cost.tooltip$"
  
  autobuild_update_on:0 "$modmenu_on$ $autobuild_update$"
- autobuild_2_on:0 "$modmenu_on$ $autobuild_2$"
  autobuild_on_tile_on:0 "$modmenu_on$ $autobuild_on_tile$"
  autobuild_4_2_on:0 "$modmenu_on$ $autobuild_4_2$"
  autobuild_labs_on:0 "$modmenu_on$ $autobuild_labs$"
- autobuild_6_on:0 "$modmenu_on$ $autobuild_6$"
  autobuild_7_on:0 "$modmenu_on$ $autobuild_7$"
  autobuild_clean_blockers_on:0 "$modmenu_on$ $autobuild_clean_blockers$"
  autobuild_fleet_on:0 "$modmenu_on$ $autobuild_fleet$"
  autobuild_cost_on:0 "$modmenu_on$ $autobuild_cost$"
  
  autobuild_update_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_update.tooltip$"
- autobuild_2_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_2.tooltip$"
  autobuild_on_tile_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_on_tile.tooltip$"
- autobuild_4_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_4.tooltip$"
- autobuild_4_1_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_4_1.tooltip$"
  autobuild_4_2_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_4_2.tooltip$"
  autobuild_labs_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_labs.tooltip$"
- autobuild_6_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_6.tooltip$"
  autobuild_7_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_7.tooltip$"
  autobuild_clean_blockers_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_clean_blockers.tooltip$"
  autobuild_fleet_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_fleet.tooltip$"
@@ -225,11 +220,9 @@
  autobuild_cost_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_cost.tooltip$"
  
  autobuild_update_off:0 "$modmenu_off$ $autobuild_update$"
- autobuild_2_off:0 "$modmenu_off$ $autobuild_2$"
  autobuild_on_tile_off:0 "$modmenu_off$ $autobuild_on_tile$"
  autobuild_4_2_off:0 "$modmenu_off$ $autobuild_4_2$"
  autobuild_labs_off:0 "$modmenu_off$ $autobuild_labs$"
- autobuild_6_off:0 "$modmenu_off$ $autobuild_6$"
  autobuild_7_off:0 "$modmenu_off$ $autobuild_7$"
  autobuild_clean_blockers_off:0 "$modmenu_off$ $autobuild_clean_blockers$"
  autobuild_fleet_off:0 "$modmenu_off$ $autobuild_fleet$"
@@ -244,10 +237,10 @@
  autobuild_robots_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_robots.tooltip$"
  autobuild_robots_off:0 "$modmenu_off$ $autobuild_robots$"
  autobuild_robots_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_robots.tooltip$"
- autobuild_update4_on:0 "$modmenu_on$ $autobuild_update4$"
- autobuild_update4_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_update4.tooltip$"
- autobuild_update4_off:0 "$modmenu_off$ $autobuild_update4$"
- autobuild_update4_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_update4.tooltip$"
+ autobuild_update_on:0 "$modmenu_on$ $autobuild_update$"
+ autobuild_update_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_update.tooltip$"
+ autobuild_update_off:0 "$modmenu_off$ $autobuild_update$"
+ autobuild_update_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_update.tooltip$"
  
  # on ept tile
  autobuild_mine_ratio.0:0 "$autobuild_mine_ratio$0"
@@ -334,6 +327,13 @@
  autobuild_rename_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_rename.tooltip$"
  autobuild_rename_off:0 "$modmenu_off$ $autobuild_rename$"
  autobuild_rename_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_rename.tooltip$"
+ 
+ autobuild_assign_leader.defined_text:0 "[Root.autobuild_assign_leader_defined_text]"
+ autobuild_assign_leader.tooltip.defined_text:0 "[Root.autobuild_assign_leader_tooltip_defined_text]"
+ autobuild_assign_leader.0:0 "$modmenu_off$ $autobuild_assign_leader$"
+ autobuild_assign_leader.1:0 "$modmenu_on$ $autobuild_assign_leader$"
+ autobuild_assign_leader.0.tooltip:0 "$modmenu_tooltip_off$$autobuild_assign_leader.tooltip$"
+ autobuild_assign_leader.1.tooltip:0 "$modmenu_tooltip_on$$autobuild_assign_leader.tooltip$"
  
  # unique buildings
  autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique.tooltip$"

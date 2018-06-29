@@ -11,10 +11,11 @@ fleet_event = {
 
 	trigger = {
 		exists = this
-		autobuild_trigger_fleet_is_valid = yes
+		autobuild_trigger_fleet_valid = yes
 	}
 
 	immediate = {
+		clear_fleet_actions = this
 		set_fleet_flag = autobuild_fleet
 		# probably not good idea
 		# closest_system = {
