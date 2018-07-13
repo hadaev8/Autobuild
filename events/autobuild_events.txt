@@ -7,7 +7,32 @@
 
 namespace = autobuild
 
-# main event
+# by on_tech_increased
+country_event = {
+	id = autobuild.0
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		num_owned_planets > 0
+		or = {
+			is_ai = no
+			and = {
+				has_global_flag = autobuild_ai_allowed
+				not = {
+					is_country_type = primitive
+				}
+			}
+		}
+	}
+
+	immediate = {
+		every_owned_planet = {
+			autobuild_effect_planet_build = yes
+		}
+	}
+}
+
 country_event = {
 	id = autobuild.1
 	hide_window = yes
@@ -34,9 +59,9 @@ country_event = {
 		# 	flag = autobuild_empire_block
 		# 	days = 90
 		# }
-		# start local events
 		every_owned_planet = {
-			autobuild_effect_planet_build = yes
+			#autobuild_effect_planet_build = yes
+			autobuild_effect_planet_monthly_build = yes
 		}
 	}
 }
@@ -1665,18 +1690,17 @@ event = {
 	is_triggered_only = yes
 
 	immediate = {
-		# every_country = {
-			# country_event = {
-				# id = autobuild.1
-				# days = 15
-				# random = 10
-			# }
-		# }
-		every_country = {
+		 every_country = {
+			country_event = {
+				id = autobuild.1
+				days = 15
+				random = 10
+			}
 			country_event = {
 				id = autobuild.98
 			}
 		}
+		set_global_flag = autobuild_installed
 	}
 }
 

@@ -3,6 +3,7 @@
  
  
  autobuild.3.name:0 "AutoBuild menu"
+ modmenu_autobuild:0 "§H$autobuild.3.name$§H"
  autobuild.3.desc:0 "$modmenu_configure$ $modmenu.0$."
  autobuild.4.desc:0 "$modmenu_configure$ resources in reserve."
  autobuild.6.desc:0 "$modmenu_configure$ autobuild unique buildings."

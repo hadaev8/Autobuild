@@ -82,6 +82,12 @@ autobuild_effect_planet_build = {
 	direct_build_affects_autobuild_finish = yes
 }
 
+autobuild_effect_planet_monthly_build = {
+	# repair
+	planet_event = { id = autobuild.100 }
+	# robots
+	planet_event = { id = autobuild.102 }
+}
 # for tile, root is planet
 autobuild_build_power_plant = {
 	if = {

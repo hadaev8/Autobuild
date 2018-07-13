@@ -4,6 +4,7 @@
  
  
  autobuild.3.name:0 "自動建設選單"
+ modmenu_autobuild:0 "§H$autobuild.3.name$§H"
  autobuild.3.desc:0 "$modmenu_configure$ $modmenu.0$."
  autobuild.4.desc:0 "$modmenu_configure$ 保存資源."
  autobuild.6.desc:0 "$modmenu_configure$ 自動建造獨特建築."

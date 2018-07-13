@@ -35,7 +35,7 @@ on_ship_order = {
 # This = Country
 on_tech_increased = {
 	events = {
-		autobuild.1
+		autobuild.0
 	}
 }
 
