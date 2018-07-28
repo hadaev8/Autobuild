@@ -265,6 +265,7 @@ country_event = {
 			if = {
 				limit = {
 					nor = {
+						has_country_flag = autobuild_cost_100000
 						has_country_flag = autobuild_cost_20000
 						has_country_flag = autobuild_cost_5000
 						has_country_flag = autobuild_cost_2500
@@ -339,7 +340,7 @@ country_event = {
 		name = modmenu_exit
 		hidden_effect = {
 			country_event = {
-				id = autobuild.1
+				id = autobuild.0
 			}
 		}
 	}
@@ -363,6 +364,21 @@ country_event = {
 			remove_country_flag = autobuild_cost
 			country_event = {
 				id = autobuild.3
+			}
+		}
+	}
+	option = {
+		name = autobuild_cost_100000
+		trigger = {
+			not = {
+				has_country_flag = autobuild_cost_100000
+			}
+		}
+		hidden_effect = {
+			autobuild_effect_clear_cost_flags = yes
+			set_country_flag = autobuild_cost_100000
+			country_event = {
+				id = autobuild.4
 			}
 		}
 	}
@@ -448,7 +464,7 @@ country_event = {
 		name = modmenu_exit
 		hidden_effect = {
 			country_event = {
-				id = autobuild.1
+				id = autobuild.0
 			}
 		}
 	}
@@ -1048,7 +1064,7 @@ country_event = {
 		name = modmenu_exit
 		hidden_effect = {
 			country_event = {
-				id = autobuild.1
+				id = autobuild.0
 			}
 		}
 	}
@@ -1422,7 +1438,7 @@ country_event = {
 		name = modmenu_exit
 		hidden_effect = {
 			country_event = {
-				id = autobuild.1
+				id = autobuild.0
 			}
 		}
 	}
@@ -1871,7 +1887,7 @@ country_event = {
 		name = modmenu_exit
 		hidden_effect = {
 			country_event = {
-				id = autobuild.1
+				id = autobuild.0
 			}
 		}
 	}
@@ -1909,7 +1925,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_labs_not_count_planet
+			}
+			set_country_flag = autobuild_labs_not_count_planet
 		}
 	}
 	option = {
@@ -1921,7 +1938,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_labs_not_count_planet
+			}
+			remove_country_flag = autobuild_labs_not_count_planet
 		}
 	}
 	option = {
@@ -1935,7 +1953,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_labs_not_count_trait
+			}
+			set_country_flag = autobuild_labs_not_count_trait
 		}
 	}
 	option = {
@@ -1947,7 +1966,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_labs_not_count_trait
+			}
+			remove_country_flag = autobuild_labs_not_count_trait
 		}
 	}
 	option = {
@@ -1961,7 +1981,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_labs_disable_random
+			}
+			set_country_flag = autobuild_labs_disable_random
 		}
 	}
 	option = {
@@ -1973,7 +1994,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_labs_disable_random
+			}
+			remove_country_flag = autobuild_labs_disable_random
 		}
 	}
 	option = {
@@ -1987,7 +2009,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_physics_lab_ratio.0
+			}
+			set_country_flag = autobuild_physics_lab_ratio.0
 		}
 	}
 	option = {
@@ -1999,7 +2022,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_physics_lab_ratio.0
+			}
+			remove_country_flag = autobuild_physics_lab_ratio.0
 		}
 	}
 	option = {
@@ -2013,7 +2037,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_physics_lab_ratio.2
+			}
+			set_country_flag = autobuild_physics_lab_ratio.2
 		}
 	}
 	option = {
@@ -2025,7 +2050,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_physics_lab_ratio.2
+			}
+			remove_country_flag = autobuild_physics_lab_ratio.2
 		}
 	}
 	option = {
@@ -2039,7 +2065,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_physics_lab_ratio.3
+			}
+			set_country_flag = autobuild_physics_lab_ratio.3
 		}
 	}
 	option = {
@@ -2051,7 +2078,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_physics_lab_ratio.3
+			}
+			remove_country_flag = autobuild_physics_lab_ratio.3
 		}
 	}
 	option = {
@@ -2065,7 +2093,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_biolab_ratio.0
+			}
+			set_country_flag = autobuild_biolab_ratio.0
 		}
 	}
 	option = {
@@ -2077,7 +2106,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_biolab_ratio.0
+			}
+			remove_country_flag = autobuild_biolab_ratio.0
 		}
 	}
 	option = {
@@ -2091,7 +2121,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_biolab_ratio.2
+			}
+			set_country_flag = autobuild_biolab_ratio.2
 		}
 	}
 	option = {
@@ -2103,7 +2134,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_biolab_ratio.2
+			}
+			remove_country_flag = autobuild_biolab_ratio.2
 		}
 	}
 	option = {
@@ -2117,7 +2149,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_biolab_ratio.3
+			}
+			set_country_flag = autobuild_biolab_ratio.3
 		}
 	}
 	option = {
@@ -2129,7 +2162,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_biolab_ratio.3
+			}
+			remove_country_flag = autobuild_biolab_ratio.3
 		}
 	}
 	option = {
@@ -2143,7 +2177,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_engineering_facility_ratio.0
+			}
+			set_country_flag = autobuild_engineering_facility_ratio.0
 		}
 	}
 	option = {
@@ -2155,7 +2190,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_engineering_facility_ratio.0
+			}
+			remove_country_flag = autobuild_engineering_facility_ratio.0
 		}
 	}
 	option = {
@@ -2169,7 +2205,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_engineering_facility_ratio.2
+			}
+			set_country_flag = autobuild_engineering_facility_ratio.2
 		}
 	}
 	option = {
@@ -2181,7 +2218,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_engineering_facility_ratio.2
+			}
+			remove_country_flag = autobuild_engineering_facility_ratio.2
 		}
 	}
 	option = {
@@ -2195,7 +2233,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} set_country_flag = autobuild_engineering_facility_ratio.3
+			}
+			set_country_flag = autobuild_engineering_facility_ratio.3
 		}
 	}
 	option = {
@@ -2207,7 +2246,8 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = autobuild.12
-			} remove_country_flag = autobuild_engineering_facility_ratio.3
+			}
+			remove_country_flag = autobuild_engineering_facility_ratio.3
 		}
 	}
 	option = {
@@ -2222,7 +2262,7 @@ country_event = {
 		name = modmenu_exit
 		hidden_effect = {
 			country_event = {
-				id = autobuild.1
+				id = autobuild.0
 			}
 		}
 	}

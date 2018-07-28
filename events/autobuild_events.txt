@@ -49,16 +49,9 @@ country_event = {
 				}
 			}
 		}
-		# not = {
-			# has_country_flag = autobuild_empire_block
-		# }
 	}
 
 	immediate = {
-		# set_timed_country_flag = {
-		# 	flag = autobuild_empire_block
-		# 	days = 90
-		# }
 		every_owned_planet = {
 			#autobuild_effect_planet_build = yes
 			autobuild_effect_planet_monthly_build = yes
