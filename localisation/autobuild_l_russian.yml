@@ -37,6 +37,9 @@
  autobuild_4_2:0 "Дайте рабам их шахты!"
  autobuild_4_2.tooltip:0 "В клетках с электростанциями и лабораториями и с населением в рабстве будут построены шахты, нам же не нужны умные рабы?"
  
+ autobuild_fleet_outpost:0 "Автопострйока аванпостов."
+ autobuild_fleet_outpost.tooltip:0 "Аванпосты строятся в пограничных незанятых системах, учитываются скидки на стоимость влияния только из ванильной игры."
+ 
  autobuild_ship_ignore_1_and_less_mineral:0 "Игнорировать 1 минерал."
  autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "Корабли автопостройки не будут строить добывающие станции там, где только 1 минерал."
  
@@ -282,6 +285,10 @@
  autobuild_lab_ratio.4_off:0 "$modmenu_off$ $autobuild_lab_ratio.4$"
  
  # other menu
+ autobuild_fleet_outpost_on:0 "$modmenu_on$ $autobuild_fleet_outpost$"
+ autobuild_fleet_outpost_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_fleet_outpost.tooltip$"
+ autobuild_fleet_outpost_off:0 "$modmenu_off$ $autobuild_fleet_outpost$"
+ autobuild_fleet_outpost_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_fleet_outpost.tooltip$"
  autobuild_ship_ignore_1_and_less_mineral_on:0 "$modmenu_on$ $autobuild_ship_ignore_1_and_less_mineral$"
  autobuild_ship_ignore_1_and_less_mineral_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_ship_ignore_1_and_less_mineral.tooltip$"
  autobuild_ship_ignore_1_and_less_mineral_off:0 "$modmenu_off$ $autobuild_ship_ignore_1_and_less_mineral$"

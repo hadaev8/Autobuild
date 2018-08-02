@@ -1210,8 +1210,6 @@ planet_event = {
 					}
 					autobuild_build_lab = yes
 				}
-				1 = {
-				}
 			}
 		}
 	}

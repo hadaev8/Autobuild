@@ -1478,6 +1478,34 @@ country_event = {
 		}
 	}
 	option = {
+		name = autobuild_fleet_outpost_on
+		trigger = {
+			has_country_flag = autobuild_fleet_outpost_disabled
+		}
+		custom_tooltip = autobuild_fleet_outpost_on.tooltip
+		hidden_effect = {
+			remove_country_flag = autobuild_fleet_outpost_disabled
+			country_event = {
+				id = autobuild.8
+			}
+		}
+	}
+	option = {
+		name = autobuild_fleet_outpost_off
+		trigger = {
+			not = {
+				has_country_flag = autobuild_ship_ignore_1_and_less_mineral
+			}
+		}
+		custom_tooltip = autobuild_fleet_outpost_off.tooltip
+		hidden_effect = {
+			set_country_flag = autobuild_fleet_outpost_disabled
+			country_event = {
+				id = autobuild.8
+			}
+		}
+	}
+	option = {
 		name = autobuild_ship_ignore_1_and_less_mineral_on
 		trigger = {
 			not = {
@@ -1486,11 +1514,11 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ship_ignore_1_and_less_mineral_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_ship_ignore_1_and_less_mineral
+			remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 			country_event = {
 				id = autobuild.8
 			}
-			set_country_flag = autobuild_ship_ignore_1_and_less_mineral
-			remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 		}
 	}
 	option = {
@@ -1500,10 +1528,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ship_ignore_1_and_less_mineral_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_ship_ignore_1_and_less_mineral
 			country_event = {
 				id = autobuild.8
 			}
-			remove_country_flag = autobuild_ship_ignore_1_and_less_mineral
 		}
 	}
 	option = {
@@ -1515,11 +1543,11 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ship_ignore_2_and_less_mineral_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_ship_ignore_2_and_less_mineral
+			remove_country_flag = autobuild_ship_ignore_1_and_less_mineral
 			country_event = {
 				id = autobuild.8
 			}
-			set_country_flag = autobuild_ship_ignore_2_and_less_mineral
-			remove_country_flag = autobuild_ship_ignore_1_and_less_mineral
 		}
 	}
 	option = {
@@ -1529,10 +1557,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ship_ignore_2_and_less_mineral_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 			country_event = {
 				id = autobuild.8
 			}
-			remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 		}
 	}
 	option = {
@@ -1544,10 +1572,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ignore_minerals_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_ignore_minerals
 			country_event = {
 				id = autobuild.8
 			}
-			set_country_flag = autobuild_ignore_minerals
 		}
 	}
 	option = {
@@ -1557,10 +1585,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ignore_minerals_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_ignore_minerals
 			country_event = {
 				id = autobuild.8
 			}
-			remove_country_flag = autobuild_ignore_minerals
 		}
 	}
 	option = {
@@ -1572,10 +1600,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ignore_food_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_ignore_food
 			country_event = {
 				id = autobuild.8
 			}
-			set_country_flag = autobuild_ignore_food
 		}
 	}
 	option = {
@@ -1585,9 +1613,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ignore_food_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_ignore_food
 			country_event = {
 				id = autobuild.8
-			} remove_country_flag = autobuild_ignore_food
+			}
 		}
 	}
 	option = {
@@ -1599,10 +1628,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ignore_energy_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_ignore_energy
 			country_event = {
 				id = autobuild.8
 			}
-			set_country_flag = autobuild_ignore_energy
 		}
 	}
 	option = {
@@ -1612,10 +1641,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ignore_energy_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_ignore_energy
 			country_event = {
 				id = autobuild.8
 			}
-			remove_country_flag = autobuild_ignore_energy
 		}
 	}
 	option = {
@@ -1627,10 +1656,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ignore_science_on.tooltip
 		hidden_effect = {
+			set_country_flag = autobuild_ignore_science
 			country_event = {
 				id = autobuild.8
 			}
-			set_country_flag = autobuild_ignore_science
 		}
 	}
 	option = {
@@ -1640,10 +1669,10 @@ country_event = {
 		}
 		custom_tooltip = autobuild_ignore_science_off.tooltip
 		hidden_effect = {
+			remove_country_flag = autobuild_ignore_science
 			country_event = {
 				id = autobuild.8
 			}
-			remove_country_flag = autobuild_ignore_science
 		}
 	}
 	option = {

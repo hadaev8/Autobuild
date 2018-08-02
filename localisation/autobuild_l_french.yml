@@ -37,6 +37,9 @@
  autobuild_4_2:0 "Les esclaves, à la mine!"
  autobuild_4_2.tooltip:0 "Si vous avez activé la mesure Esclavage automatique, cette mesure-ci ne sera pas prise en compte. Un réseau minier sera construit sur les cases où un esclave gère une centrale électrique ou un laboratoire. Un esclave intelligent ? Un esclave qui gère nos richesses ? Quelle idée absurde !"
  
+ autobuild_fleet_outpost:0 "Outpost autobuild."
+ autobuild_fleet_outpost.tooltip:0 "Outposts are built in border unoccupied systems, discounts on the cost of influence only from the vanilla game are taken into account."
+ 
  autobuild_ship_ignore_1_and_less_mineral:0 "Ignorer astres à 1 minéral"
  autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "Les vaisseaux de construction en mode automatique ne construiront pas de station de minage sur les astres n'ayant qu'1 seul minéral."
  
@@ -282,6 +285,10 @@
  autobuild_lab_ratio.4_off:0 "$modmenu_off$ $autobuild_lab_ratio.4$"
  
  # other menu
+ autobuild_fleet_outpost_on:0 "$modmenu_on$ $autobuild_fleet_outpost$"
+ autobuild_fleet_outpost_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_fleet_outpost.tooltip$"
+ autobuild_fleet_outpost_off:0 "$modmenu_off$ $autobuild_fleet_outpost$"
+ autobuild_fleet_outpost_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_fleet_outpost.tooltip$"
  autobuild_ship_ignore_1_and_less_mineral_on:0 "$modmenu_on$ $autobuild_ship_ignore_1_and_less_mineral$"
  autobuild_ship_ignore_1_and_less_mineral_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_ship_ignore_1_and_less_mineral.tooltip$"
  autobuild_ship_ignore_1_and_less_mineral_off:0 "$modmenu_off$ $autobuild_ship_ignore_1_and_less_mineral$"

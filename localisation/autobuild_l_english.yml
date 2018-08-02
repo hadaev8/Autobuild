@@ -37,6 +37,9 @@
  autobuild_4_2:0 "Give Mines to the Slaves!"
  autobuild_4_2.tooltip:0 "AutoBuild mines in every tile that has a slave population and either a labortory or power plant already there. Who needs smart slaves?"
  
+ autobuild_fleet_outpost:0 "Outpost autobuild."
+ autobuild_fleet_outpost.tooltip:0 "Outposts are built in border unoccupied systems, discounts on the cost of influence only from the vanilla game are taken into account."
+ 
  autobuild_ship_ignore_1_and_less_mineral:0 "Ignore 1 mineral."
  autobuild_ship_ignore_1_and_less_mineral.tooltip:0 "AutoBuild Ships will not build a mining station where there is only 1 mineral."
  
@@ -282,6 +285,10 @@
  autobuild_lab_ratio.4_off:0 "$modmenu_off$ $autobuild_lab_ratio.4$"
  
  # other menu
+ autobuild_fleet_outpost_on:0 "$modmenu_on$ $autobuild_fleet_outpost$"
+ autobuild_fleet_outpost_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_fleet_outpost.tooltip$"
+ autobuild_fleet_outpost_off:0 "$modmenu_off$ $autobuild_fleet_outpost$"
+ autobuild_fleet_outpost_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_fleet_outpost.tooltip$"
  autobuild_ship_ignore_1_and_less_mineral_on:0 "$modmenu_on$ $autobuild_ship_ignore_1_and_less_mineral$"
  autobuild_ship_ignore_1_and_less_mineral_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_ship_ignore_1_and_less_mineral.tooltip$"
  autobuild_ship_ignore_1_and_less_mineral_off:0 "$modmenu_off$ $autobuild_ship_ignore_1_and_less_mineral$"

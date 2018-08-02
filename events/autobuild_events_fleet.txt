@@ -56,13 +56,13 @@ fleet_event = {
 				find_closest_system = {
 					trigger = {
 						id = autobuild_fleet.0.trigger.0
-						exists = owner
+									exists = owner
 						owner = {
 							is_country = root.owner
-						}
-						any_planet = {
-							autobuild_trigger_fleet_valid_planet = yes
-						}
+								}
+								any_planet = {
+									autobuild_trigger_fleet_valid_planet = yes
+								}
 						not = {
 							any_ship_in_system = {
 								exists = owner
@@ -71,6 +71,7 @@ fleet_event = {
 										is_hostile = root.owner
 									}
 									is_constructing = megastructure
+									is_constructing = starbase
 								}
 							}
 						}
@@ -93,7 +94,7 @@ fleet_event = {
 							id = autobuild_fleet.0.effect.0.1
 							root = {
 								autobuild_effect_fleet_clear = yes
-								set_name = "Target not found, wait"
+								set_name = "Target not found"
 								fleet_event = {
 									id = autobuild_fleet.0
 									days = 101
@@ -105,7 +106,22 @@ fleet_event = {
 				find_closest_planet = {
 					trigger = {
 						id = autobuild_fleet.0.trigger.1
-						autobuild_trigger_fleet_valid_planet = yes
+						or = {
+							and = {
+								solar_system = {
+									exists = owner
+								}
+								autobuild_trigger_fleet_valid_planet = yes
+							}
+							and = {
+								solar_system = {
+									not = {
+										exists = owner
+									}
+								}
+								is_primary_star = yes
+							}
+						}
 					}
 					found_planet = {
 						effect = {
@@ -113,10 +129,6 @@ fleet_event = {
 							if = {
 								limit = {
 									solar_system = {
-										exists = owner
-										owner = {
-											is_country = root.owner
-										}
 										not = {
 											any_ship_in_system = {
 												exists = owner
@@ -199,87 +211,210 @@ fleet_event = {
 							}
 							if = {
 								limit = {
-									has_orbital_station = no
-									root.owner = {
-										minerals > 90
-										autobuild_trigger_cost = yes
+									solar_system = {
+										exists = owner
 									}
 								}
 								if = {
 									limit = {
-										has_deposit_for = shipclass_mining_station
+										has_orbital_station = no
+										root.owner = {
+											minerals > 90
+											autobuild_trigger_cost = yes
+										}
 									}
-									create_mining_station = {
-										owner = root.owner
-									}
-									root.owner = {
-										add_minerals = -90
-										if = {
-											limit = {
-												has_event_chain = mandate_miner_chain
-											}
-											add_event_chain_counter = {
-												event_chain = mandate_miner_chain
-												counter = mining_stations_built
-												amount = 1
-											}
+									if = {
+										limit = {
+											has_deposit_for = shipclass_mining_station
+										}
+										create_mining_station = {
+											owner = root.owner
+										}
+										root.owner = {
+											add_minerals = -90
 											if = {
 												limit = {
-													has_completed_event_chain_counter = {
-														event_chain = mandate_miner_chain
-														counter = mining_stations_built
+													has_event_chain = mandate_miner_chain
+												}
+												add_event_chain_counter = {
+													event_chain = mandate_miner_chain
+													counter = mining_stations_built
+													amount = 1
+												}
+												if = {
+													limit = {
+														has_completed_event_chain_counter = {
+															event_chain = mandate_miner_chain
+															counter = mining_stations_built
+														}
+													}
+													country_event = {
+														id = mandate.111
 													}
 												}
-												country_event = {
-													id = mandate.111
+											}
+										}
+									}
+									else_if = {
+										limit = {
+											has_deposit_for = shipclass_research_station
+										}
+										create_research_station = {
+											owner = root.owner
+										}
+										root.owner = {
+											add_minerals = -90
+											if = {
+												limit = {
+													has_event_chain = mandate_orbresearch_chain
+												}
+												add_event_chain_counter = {
+													event_chain = mandate_orbresearch_chain
+													counter = orbresearch_built
+													amount = 1
+												}
+												if = {
+													limit = {
+														has_completed_event_chain_counter = {
+															event_chain = mandate_orbresearch_chain
+															counter = orbresearch_built
+														}
+													}
+													country_event = {
+														id = mandate.121
+													}
 												}
 											}
 										}
 									}
 								}
-								else_if = {
-									limit = {
-										has_deposit_for = shipclass_research_station
+								else = {
+									solar_system = {
+										remove_star_flag = autobuild_star_block
 									}
-									create_research_station = {
-										owner = root.owner
-									}
-									root.owner = {
-										add_minerals = -90
-										if = {
-											limit = {
-												has_event_chain = mandate_orbresearch_chain
-											}
-											add_event_chain_counter = {
-												event_chain = mandate_orbresearch_chain
-												counter = orbresearch_built
-												amount = 1
-											}
-											if = {
-												limit = {
-													has_completed_event_chain_counter = {
-														event_chain = mandate_orbresearch_chain
-														counter = orbresearch_built
-													}
-												}
-												country_event = {
-													id = mandate.121
-												}
-											}
+									root = {
+										autobuild_effect_fleet_clear = yes
+										set_name = "Haven't minerals"
+										fleet_event = {
+											id = autobuild_fleet.0
+											days = 100
 										}
 									}
 								}
 							}
 							else = {
-								solar_system = {
-									remove_star_flag = autobuild_star_block
+								if = {
+									limit = {
+										root.owner = {
+											influence > 75
+											minerals > 200
+										}
+									}
+									solar_system = {
+										create_starbase = {
+											size = starbase_outpost
+											owner = root.owner
+										}
+									}
+									root.owner = {
+										add_minerals = -200
+										set_variable = {
+											which = autobuild_fleet_outpost_cost
+											value = 75
+										}
+										if = {
+											limit = {
+												has_ascension_perk = ap_interstellar_dominion
+											}
+											multiply_variable = {
+												which = autobuild_fleet_outpost_cost
+												value = 0.8
+											}
+										}
+										if = {
+											limit = {
+												has_ethic = ethic_xenophobe
+											}
+											multiply_variable = {
+												which = autobuild_fleet_outpost_cost
+												value = 0.8
+											}
+										}
+										if = {
+											limit = {
+												has_ethic = ethic_fanatic_xenophobe
+											}
+											multiply_variable = {
+												which = autobuild_fleet_outpost_cost
+												value = 0.6
+											}
+										}
+										if = {
+											limit = {
+												has_valid_civic = civic_hive_devouring_swarm
+											}
+											multiply_variable = {
+												which = autobuild_fleet_outpost_cost
+												value = 0.5
+											}
+										}
+										if = {
+											limit = {
+												has_valid_civic = civic_machine_terminator
+											}
+											multiply_variable = {
+												which = autobuild_fleet_outpost_cost
+												value = 0.7
+											}
+										}
+										if = {
+											limit = {
+												has_swapped_tradition = tr_purity_the_chosen
+											}
+											multiply_variable = {
+												which = autobuild_fleet_outpost_cost
+												value = 0.95
+											}
+										}
+										if = {
+											limit = {
+												has_tradition = tr_expansion_reach_for_the_stars
+											}
+											multiply_variable = {
+												which = autobuild_fleet_outpost_cost
+												value = 0.5
+											}
+										}
+										if = {
+											limit = {
+												exists = ruler
+												ruler = {
+													has_trait = trait_ruler_expansionist
+												}
+											}
+											multiply_variable = {
+												which = autobuild_fleet_outpost_cost
+												value = 0.85
+											}
+										}
+										#log = "outpost costs: [this.autobuild_fleet_outpost_cost]"
+										while = {
+											count = autobuild_fleet_outpost_cost
+											add_influence = -1
+										}
+									}
 								}
-								root = {
-									autobuild_effect_fleet_clear = yes
-									set_name = "Haven't minerals"
-									fleet_event = {
-										id = autobuild_fleet.0
-										days = 100
+								else = {
+									solar_system = {
+										remove_star_flag = autobuild_star_block
+									}
+									root = {
+										autobuild_effect_fleet_clear = yes
+										set_name = "Haven't res"
+										fleet_event = {
+											id = autobuild_fleet.0
+											days = 100
+										}
 									}
 								}
 							}
