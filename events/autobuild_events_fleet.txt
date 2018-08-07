@@ -66,6 +66,10 @@ fleet_event = {
 							and = {
 								not = {
 									exists = owner
+									# not good
+									root.owner = {
+										has_country_flag = autobuild_fleet_outpost_disabled
+									}
 								}
 								is_surveyed = {
 									who = root.owner
