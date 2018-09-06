@@ -945,6 +945,73 @@ planet_event = {
 	}
 }
 
+planet_event = {
+	id = autobuild.103
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_tile = {
+			limit = {
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_tile_pop_robot_or_slave = yes
+				or = {
+					autobuild_trigger_has_any_power_plant = yes
+					autobuild_trigger_has_any_science_lab = yes
+				}
+			}
+			autobuild_build_mine = yes
+		}
+	}
+}
+
+planet_event = {
+	id = autobuild.104
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		autobuild_trigger_planet_food = no
+		autobuild_trigger_has_any_farm = yes
+	}
+
+	immediate = {
+		every_tile = {
+			limit = {
+				autobuild_trigger_has_any_farm = yes
+			}
+			remove_building = yes
+		}
+	}
+}
+
+planet_event = {
+	id = autobuild.105
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		autobuild_trigger_has_any_farm = yes
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				autobuild_trigger_planet_food = yes
+			}
+			remove_planet_flag = planet_farms_autobuild
+			remove_modifier = planet_farms_autobuild
+			remove_modifier = human_fallen_empires_population_green_ring
+		}
+		every_tile = {
+			limit = {
+				autobuild_trigger_has_any_farm = yes
+			}
+			remove_building = yes
+		}
+	}
+}
+
 # autobuild on tiles
 planet_event = {
 	id = autobuild.132

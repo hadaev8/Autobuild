@@ -54,7 +54,7 @@ autobuild_effect_planet_build = {
 	planet_event = { id = autobuild.100 }
 	planet_event = { id = autobuild.101 }
 	planet_event = { id = autobuild.102 }
-	planet_event = { id = autobuild.104 }
+	
 	planet_event = { id = autobuild.106 }
 	planet_event = { id = autobuild.107 }
 	planet_event = { id = autobuild.108 }
@@ -64,6 +64,7 @@ autobuild_effect_planet_build = {
 	planet_event = { id = autobuild.112 }
 	planet_event = { id = autobuild.113 }
 	planet_event = { id = autobuild.114 }
+	planet_event = { id = autobuild.115 }
 	planet_event = { id = autobuild.116 }
 	planet_event = { id = autobuild.117 }
 	planet_event = { id = autobuild.118 }
@@ -75,6 +76,7 @@ autobuild_effect_planet_build = {
 	planet_event = { id = autobuild.124 }
 	planet_event = { id = autobuild.125 }
 	planet_event = { id = autobuild.126 }
+	planet_event = { id = autobuild.127 }
 
 	planet_event = { id = autobuild.132 }
 	planet_event = { id = autobuild.138 }

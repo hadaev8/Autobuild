@@ -349,6 +349,8 @@
  
  autobuild_building_power_hub_1_on:0 "$modmenu_on$ $building_power_hub_1$"
  autobuild_building_power_hub_1_off:0 "$modmenu_off$ $building_power_hub_1$"
+ autobuild_building_stronghold_on:0 "$modmenu_on$ $building_stronghold$"
+ autobuild_building_stronghold_off:0 "$modmenu_off$ $building_stronghold$"
  autobuild_building_mineral_silo_1_on:0 "$modmenu_on$ $building_mineral_silo_1$"
  autobuild_building_mineral_silo_1_off:0 "$modmenu_off$ $building_mineral_silo_1$"
  autobuild_building_mineral_processing_plant_1_on:0 "$modmenu_on$ $building_mineral_processing_plant_1$"

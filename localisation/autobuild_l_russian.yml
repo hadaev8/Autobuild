@@ -14,7 +14,7 @@
  
  autobuild_fleet:0 "Автопостройка: Космостанции."
  autobuild_fleet_allow_tooltip:0 "Любой корабль подходит для автопостройки."
- autobuild_fleet.tooltip:0 "Все текущие строительные корабли будут назначены на автопостройку научных и добывающих станций. Если вы хотите использовать их для своих нужд, отключите эту опцию или постройте новый строительный корабль. Корабли будут значиться "событие заблокировано", это нормально."
+ autobuild_fleet.tooltip:0 "Все текущие строительные корабли будут назначены на автопостройку научных и добывающих станций, также аванпостов. Если вы хотите использовать их для своих нужд, отключите эту опцию или постройте новый строительный корабль. Корабли будут помечены "событие заблокировано", это нормально."
  
  autobuild_update:0 "Автоулучшения зданий."
  autobuild_update.tooltip:0 "Все постройки (кроме базовых лабораторий) будут автоматически улучшаться."
@@ -349,6 +349,8 @@
  
  autobuild_building_power_hub_1_on:0 "$modmenu_on$ $building_power_hub_1$"
  autobuild_building_power_hub_1_off:0 "$modmenu_off$ $building_power_hub_1$"
+ autobuild_building_stronghold_on:0 "$modmenu_on$ $building_stronghold$"
+ autobuild_building_stronghold_off:0 "$modmenu_off$ $building_stronghold$"
  autobuild_building_mineral_silo_1_on:0 "$modmenu_on$ $building_mineral_silo_1$"
  autobuild_building_mineral_silo_1_off:0 "$modmenu_off$ $building_mineral_silo_1$"
  autobuild_building_mineral_processing_plant_1_on:0 "$modmenu_on$ $building_mineral_processing_plant_1$"

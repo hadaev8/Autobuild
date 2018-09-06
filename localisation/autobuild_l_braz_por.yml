@@ -14,7 +14,7 @@
  
  autobuild_fleet:0 "AutoBuild Space Stations."
  autobuild_fleet_allow_tooltip:0 "Any ship is suitable for autobuilding."
- autobuild_fleet.tooltip:0 "All current idle construction ships will be assigned to autobuild mining and science stations. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be listed as "event blocked", this is normal."
+ autobuild_fleet.tooltip:0 "All current idle construction ships will be assigned to autobuild mining and science stations, also outposts. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be listed as "event blocked", this is normal."
  
  autobuild_update:0 "AutoImprove Buildings."
  autobuild_update.tooltip:0 "All buildings automatically improve, except for basic laboratories."
@@ -349,6 +349,8 @@
  
  autobuild_building_power_hub_1_on:0 "$modmenu_on$ $building_power_hub_1$"
  autobuild_building_power_hub_1_off:0 "$modmenu_off$ $building_power_hub_1$"
+ autobuild_building_stronghold_on:0 "$modmenu_on$ $building_stronghold$"
+ autobuild_building_stronghold_off:0 "$modmenu_off$ $building_stronghold$"
  autobuild_building_mineral_silo_1_on:0 "$modmenu_on$ $building_mineral_silo_1$"
  autobuild_building_mineral_silo_1_off:0 "$modmenu_off$ $building_mineral_silo_1$"
  autobuild_building_mineral_processing_plant_1_on:0 "$modmenu_on$ $building_mineral_processing_plant_1$"

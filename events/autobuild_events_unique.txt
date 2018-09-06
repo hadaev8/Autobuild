@@ -224,7 +224,7 @@ planet_event = {
 # auto generated
 # local autobuild clinics
 planet_event = {
-	id = autobuild.104
+	id = autobuild.115
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -1070,6 +1070,50 @@ planet_event = {
 				}
 			}
 			add_building_construction = building_war_factory
+		}
+	}
+}
+
+# local building_stronghold
+planet_event = {
+	id = autobuild.127
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		not = {
+			has_building = building_stronghold
+		}
+		autobuild_trigger_planet_block_build = no
+		autobuild_trigger_has_planet_capital = yes
+		exists = owner
+		owner = {
+			or = {
+				has_country_flag = autobuild_building_stronghold
+				and = {
+					is_ai = yes
+					has_global_flag = autobuild_ai_allowed
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_tile = {
+			limit = {
+				or = {
+					has_building = no
+					and = {
+						autobuild_trigger_has_any_regular_building = yes
+						root = {
+							free_building_tiles = 0
+						}
+					}
+				}
+				autobuild_trigger_tile_has_pop = yes
+				autobuild_trigger_tile_has_res = no
+			}
+			add_building_construction = building_stronghold
 		}
 	}
 }

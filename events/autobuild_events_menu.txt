@@ -502,6 +502,34 @@ country_event = {
 		}
 	}
 	option = {
+		name = autobuild_building_stronghold_on
+		trigger = {
+			not = {
+				has_country_flag = autobuild_building_stronghold
+			}
+		}
+		custom_tooltip = autobuild_planet_unique_on.tooltip
+		hidden_effect = {
+			country_event = {
+				id = autobuild.6
+			}
+			set_country_flag = autobuild_building_stronghold
+		}
+	}
+	option = {
+		name = autobuild_building_stronghold_off
+		trigger = {
+			has_country_flag = autobuild_building_stronghold
+		}
+		custom_tooltip = autobuild_planet_unique_off.tooltip
+		hidden_effect = {
+			country_event = {
+				id = autobuild.6
+			}
+			remove_country_flag = autobuild_building_stronghold
+		}
+	}
+	option = {
 		name = autobuild_building_power_hub_1_on
 		trigger = {
 			not = {
@@ -1460,16 +1488,8 @@ country_event = {
 		custom_tooltip = autobuild_4_2_on.tooltip
 		hidden_effect = {
 			every_owned_planet = {
-				every_tile = {
-					limit = {
-						autobuild_trigger_tile_has_pop = yes
-						autobuild_trigger_tile_pop_robot_or_slave = yes
-						or = {
-							autobuild_trigger_has_any_power_plant = yes
-							autobuild_trigger_has_any_science_lab = yes
-						}
-					}
-					autobuild_build_mine = yes
+				planet_event = {
+					id = autobuild.103
 				}
 			}
 			country_event = {
@@ -1687,15 +1707,8 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_ignore_food
 			every_owned_planet = {
-				limit = {
-					autobuild_trigger_planet_food = no
-					autobuild_trigger_has_any_farm = yes
-				}
-				every_tile = {
-					limit = {
-						autobuild_trigger_has_any_farm = yes
-					}
-					remove_building = yes
+				planet_event = {
+					id = autobuild.104
 				}
 			}
 			country_event = {
@@ -1714,24 +1727,8 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_ignore_food
 			every_owned_planet = {
-				limit = {
-					or = {
-						autobuild_trigger_has_any_farm = yes
-						autobuild_trigger_planet_food = yes
-					}
-				}
-				if = {
-					limit = {
-						autobuild_trigger_planet_food = yes
-					}
-					remove_modifier = planet_farms_autobuild
-					remove_modifier = human_fallen_empires_population_green_ring
-				}
-				every_tile = {
-					limit = {
-						autobuild_trigger_has_any_farm = yes
-					}
-					remove_building = yes
+				planet_event = {
+					id = autobuild.105
 				}
 			}
 			country_event = {

@@ -475,6 +475,7 @@ fleet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		exists = from
 		from = {
 			any_ship_in_system = {
 				fleet = {
@@ -526,10 +527,7 @@ ship_event = {
 	immediate = {
 		log = "Stop autobuild ship"
 		fleet = {
-			clear_fleet_actions = this
-			set_event_locked = no
-			remove_fleet_flag = autobuild_fleet
-			set_name = "Construction Ship"
+			autobuild_effect_fleet_clear = yes
 		}
 	}
 }
