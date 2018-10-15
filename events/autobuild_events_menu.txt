@@ -190,6 +190,7 @@ country_event = {
 			not = {
 				has_country_flag = autobuild_robots
 			}
+			autobuild_trigger_is_sth = no
 		}
 		custom_tooltip = autobuild_robots_on.tooltip
 		hidden_effect = {
@@ -203,6 +204,7 @@ country_event = {
 		name = autobuild_robots_off
 		trigger = {
 			has_country_flag = autobuild_robots
+			autobuild_trigger_is_sth = no
 		}
 		custom_tooltip = autobuild_robots_off.tooltip
 		hidden_effect = {
@@ -215,6 +217,9 @@ country_event = {
 	option = {
 		name = autobuild_planet_unique
 		custom_tooltip = autobuild_planet_unique.tooltip
+		trigger = {
+			autobuild_trigger_is_sth = no
+		}
 		hidden_effect = {
 			country_event = {
 				id = autobuild.6

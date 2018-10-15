@@ -27,14 +27,6 @@ planet_event = {
 			has_technology = tech_mine_betharian
 			autobuild_trigger_cost = yes
 		}
-		# any_tile = {
-		# 	has_resource = sr_betharian
-		# 	not = {
-		# 		has_building = betharian_power_plant
-		# 	}
-		# 	autobuild_trigger_has_any_regular_building_or_nothing = yes
-		# 	autobuild_trigger_tile_has_pop = yes
-		# }
 	}
 
 	immediate = {
@@ -75,15 +67,6 @@ planet_event = {
 			has_technology = tech_alien_life_studies
 			autobuild_trigger_cost = yes
 		}
-		# any_tile = {
-		# 	has_resource = sr_alien_pets
-		# 	nor = {
-		# 		has_building = building_xeno_zoo
-		# 		has_building = building_animal_evaluation_laboratory
-		# 	}
-		# 	autobuild_trigger_has_any_regular_building = yes
-		# 	autobuild_trigger_tile_has_pop = yes
-		# }
 	}
 
 	immediate = {
@@ -111,8 +94,9 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = no
-		not = {
+		nor = {
 			has_building = building_power_hub_1
 			has_building = building_power_hub_2
 			has_building = building_akx_worm_1
@@ -170,6 +154,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = no
 		nor = {
 			has_building = building_mineral_processing_plant_1
@@ -229,6 +214,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		nor = {
 			has_building = building_clinic
 			has_building = building_hospital
@@ -286,6 +272,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = no
 		not = {
 			has_building = building_akx_worm_2
@@ -345,6 +332,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_visitor_center
 		}
@@ -400,6 +388,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = no
 		not = {
 			has_building = building_slave_processing
@@ -454,6 +443,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = no
 		not = {
 			has_building = building_temple
@@ -503,6 +493,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = no
 		not = {
 			has_building = building_autochthon_monument
@@ -549,6 +540,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_paradise_dome
 		}
@@ -598,6 +590,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_habitat = yes
 		not = {
 			has_building = building_hab_cultural_center
@@ -642,6 +635,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_clone_vats
 		}
@@ -691,6 +685,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_planetary_shield_generator
 		}
@@ -740,6 +735,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_military_academy
 		}
@@ -789,6 +785,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_hive_synapse
 		}
@@ -839,6 +836,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_symbol_purity
 		}
@@ -886,6 +884,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_uplink_node
 		}
@@ -932,6 +931,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_spare_parts_depot
 		}
@@ -981,6 +981,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_neuro_electric_amplifier
 		}
@@ -1033,6 +1034,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		not = {
 			has_building = building_war_factory
 		}
@@ -1081,8 +1083,10 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		not = {
+		autobuild_trigger_is_sth = no
+		nor = {
 			has_building = building_stronghold
+			has_building = building_fortress
 		}
 		autobuild_trigger_planet_block_build = no
 		autobuild_trigger_has_planet_capital = yes

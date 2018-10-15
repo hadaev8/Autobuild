@@ -833,6 +833,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		autobuild_trigger_is_sth = no
 		autobuild_trigger_planet_block = no
 		free_pop_tiles > 0
 		sector_controlled = no
@@ -912,9 +913,6 @@ planet_event = {
 					name = buildable_robot_pop_2
 					grown = no
 				}
-				# last_created_pop = {
-				# 	wipe_pop_ethos = yes
-				# }
 				owner = {
 					add_minerals = -100
 				}
@@ -935,9 +933,6 @@ planet_event = {
 				name = buildable_robot_pop_1
 				grown = no
 			}
-			# last_created_pop = {
-			# 	wipe_pop_ethos = yes
-			# }
 			owner = {
 				add_minerals = -100
 			}
