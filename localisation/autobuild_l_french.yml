@@ -4,7 +4,7 @@
  
  autobuild.3.name:0 "Menu d'AutoBuild"
  modmenu_autobuild:0 "§H$autobuild.3.name$§H"
- autobuild.3.desc:0 "$modmenu_configure$ $modmenu.0$."
+ autobuild.3.desc:0 "$modmenu_configure$ $autobuild.3.name$."
  autobuild.4.desc:0 "$modmenu_configure$ Garder une réserve."
  autobuild.6.desc:0 "$modmenu_configure$ Construction automatique de bâtiments uniques."
  autobuild.7.desc:0 "$modmenu_configure$ $autobuild_7$"
@@ -27,9 +27,6 @@
  
  autobuild_clean_blockers:0 "Suppression des bloqueurs"
  autobuild_clean_blockers.tooltip:0 "Supprime les bloqueurs. §RAttention§!, il s'agit d'une triche, les bloqueurs seront supprimés instantanément."
- 
- autobuild_ai_allowed:0 "Les IAs utilisent aussi AutoBuild"
- autobuild_ai_allowed.tooltip:0 "Les bâtiments des IAs vont être construits de la même manière que ceux du joueur."
  
  # other menu
  autobuild_others_options_menu:0 "§BMenu§! des autres options."
@@ -77,7 +74,20 @@
  autobuild_rename.tooltip:0 "Will rename specialize planets."
  
  autobuild_assign_leader:0 "Assign leaders."
- autobuild_assign_leader.tooltip:0 "Now working for the appointment of admirals, generals and scientists to the fleets. The appointment of the governor cannot be made in the current API."
+ autobuild_assign_leader.tooltip:0 "Now working for the appointment of admirals, generals and scientists to the fleets. The assignment of the governor cannot be made in the current API."
+ 
+ # global options
+ autobuild_global_menu:0 "§BMenu§! of global options."
+ autobuild_global_menu.desc:0 "The options in this menu affect any empire in the game (players and AI)."
+ 
+ autobuild_ai_allowed:0 "Les IAs utilisent aussi AutoBuild"
+ autobuild_ai_allowed.tooltip:0 "Les bâtiments des IAs vont être construits de la même manière que ceux du joueur."
+ 
+ autobuild_global_cheat_off:0 "Disable cheats options."
+ autobuild_global_cheat_off.tooltip:0 "Remove semi-cheat options."
+ 
+ autobuild_global_direct_hight_tier:0 "Direct hight tier upgrade."
+ autobuild_global_direct_hight_tier.tooltip:0 "Upgrade to higest aviable tier building."
  
  # labs
  autobuild_labs:0 "Amélioration auto des labos"
@@ -232,11 +242,6 @@
  autobuild_fleet_off:0 "$modmenu_off$ $autobuild_fleet$"
  autobuild_cost_off:0 "$modmenu_off$ $autobuild_cost$"
  
- autobuild_ai_allowed_on:0 "$modmenu_on$ $autobuild_ai_allowed$"
- autobuild_ai_allowed_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_ai_allowed.tooltip$"
- autobuild_ai_allowed_off:0 "$modmenu_off$ $autobuild_ai_allowed$"
- autobuild_ai_allowed_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_ai_allowed.tooltip$"
- 
  autobuild_robots_on:0 "$modmenu_on$ $autobuild_robots$"
  autobuild_robots_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_robots.tooltip$"
  autobuild_robots_off:0 "$modmenu_off$ $autobuild_robots$"
@@ -342,6 +347,27 @@
  autobuild_assign_leader.1:0 "$modmenu_on$ $autobuild_assign_leader$"
  autobuild_assign_leader.0.tooltip:0 "$modmenu_tooltip_off$$autobuild_assign_leader.tooltip$"
  autobuild_assign_leader.1.tooltip:0 "$modmenu_tooltip_on$$autobuild_assign_leader.tooltip$"
+ 
+ autobuild_ai_allowed.defined_text:0 "[Root.autobuild_ai_allowed_defined_text]"
+ autobuild_ai_allowed.tooltip.defined_text:0 "[Root.autobuild_ai_allowed_tooltip_defined_text]"
+ autobuild_ai_allowed.0:0 "$modmenu_off$ $autobuild_ai_allowed$"
+ autobuild_ai_allowed.1:0 "$modmenu_on$ $autobuild_ai_allowed$"
+ autobuild_ai_allowed.0.tooltip:0 "$modmenu_tooltip_off$$autobuild_ai_allowed.tooltip$"
+ autobuild_ai_allowed.1.tooltip:0 "$modmenu_tooltip_on$$autobuild_ai_allowed.tooltip$"
+ 
+ autobuild_global_cheat_off.defined_text:0 "[Root.autobuild_global_cheat_off_defined_text]"
+ autobuild_global_cheat_off.tooltip.defined_text:0 "[Root.autobuild_global_cheat_off_tooltip_defined_text]"
+ autobuild_global_cheat_off.0:0 "$modmenu_off$ $autobuild_global_cheat_off$"
+ autobuild_global_cheat_off.1:0 "$modmenu_on$ $autobuild_global_cheat_off$"
+ autobuild_global_cheat_off.0.tooltip:0 "$modmenu_tooltip_off$$autobuild_global_cheat_off.tooltip$"
+ autobuild_global_cheat_off.1.tooltip:0 "$modmenu_tooltip_on$$autobuild_global_cheat_off.tooltip$"
+ 
+ autobuild_global_direct_hight_tier.defined_text:0 "[Root.autobuild_global_direct_hight_tier_defined_text]"
+ autobuild_global_direct_hight_tier.tooltip.defined_text:0 "[Root.autobuild_global_direct_hight_tier_tooltip_defined_text]"
+ autobuild_global_direct_hight_tier.0:0 "$modmenu_off$ $autobuild_global_direct_hight_tier$"
+ autobuild_global_direct_hight_tier.1:0 "$modmenu_on$ $autobuild_global_direct_hight_tier$"
+ autobuild_global_direct_hight_tier.0.tooltip:0 "$modmenu_tooltip_off$$autobuild_global_direct_hight_tier.tooltip$"
+ autobuild_global_direct_hight_tier.1.tooltip:0 "$modmenu_tooltip_on$$autobuild_global_direct_hight_tier.tooltip$"
  
  # unique buildings
  autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique.tooltip$"

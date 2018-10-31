@@ -1,15 +1,15 @@
 #
 # menu events
 
-namespace = autobuild
+namespace = autobuild_menu
 
 
 # main menu
 country_event = {
-	id = autobuild.3
+	id = autobuild_menu.3
 	title = autobuild.3.name
 	desc = autobuild.3.desc
-	picture = GFX_evt_alien_city
+	picture = GFX_evt_autobuild_menu
 	is_triggered_only = yes
 
 	option = {
@@ -27,7 +27,7 @@ country_event = {
 			set_country_flag = autobuild_on_tile
 			set_country_flag = autobuild_labs
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -52,7 +52,7 @@ country_event = {
 				}
 			}
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -72,7 +72,7 @@ country_event = {
 				autobuild_effect_fleet_clear = yes
 			}
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -87,7 +87,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_update
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -100,7 +100,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_update
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -115,7 +115,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_on_tile
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -128,7 +128,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_on_tile
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -143,7 +143,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_labs
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -154,7 +154,7 @@ country_event = {
 		}
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 		}
 	}
@@ -169,7 +169,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_7
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 		}
 	}
@@ -180,7 +180,7 @@ country_event = {
 		}
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 		}
 	}
@@ -196,7 +196,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_robots
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -210,7 +210,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_robots
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -222,22 +222,23 @@ country_event = {
 		}
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 		}
 	}
 	option = {
 		name = autobuild_clean_blockers_on
 		trigger = {
-			not = {
+			nor = {
 				has_country_flag = autobuild_clean_blockers
+				has_global_flag = autobuild_global_cheat_off
 			}
 		}
 		custom_tooltip = autobuild_clean_blockers_on.tooltip
 		hidden_effect = {
 			set_country_flag = autobuild_clean_blockers
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -245,12 +246,15 @@ country_event = {
 		name = autobuild_clean_blockers_off
 		trigger = {
 			has_country_flag = autobuild_clean_blockers
+			not = {
+				has_global_flag = autobuild_global_cheat_off
+			}
 		}
 		custom_tooltip = autobuild_clean_blockers_off.tooltip
 		hidden_effect = {
 			remove_country_flag = autobuild_clean_blockers
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -265,7 +269,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_cost
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 			if = {
 				limit = {
@@ -290,42 +294,29 @@ country_event = {
 		custom_tooltip = autobuild_cost_menu.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.4
+				id = autobuild_menu.4
 			}
 		}
 	}
 	option = {
-		name = autobuild_ai_allowed_on
+		name = autobuild_global_menu
 		trigger = {
-			not = {
-				has_global_flag = autobuild_ai_allowed
+			or = {
+				is_multiplayer = no
+				has_country_flag = autobuild_host
 			}
-		}
-		custom_tooltip = autobuild_ai_allowed.tooltip
-		hidden_effect = {
-			set_global_flag = autobuild_ai_allowed
-			country_event = {
-				id = autobuild.3
-			}
-		}
-	}
-	option = {
-		name = autobuild_ai_allowed_off
-		trigger = {
-			has_global_flag = autobuild_ai_allowed
 		}
 		hidden_effect = {
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.9
 			}
-			remove_global_flag = autobuild_ai_allowed
 		}
 	}
 	option = {
 		name = autobuild_others_options_menu
 		hidden_effect = {
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -337,7 +328,7 @@ country_event = {
 				id = autobuild.999
 			}
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -353,10 +344,10 @@ country_event = {
 
 # cost menu
 country_event = {
-	id = autobuild.4
+	id = autobuild_menu.4
 	title = autobuild.3.name
 	desc = autobuild.4.desc
-	picture = GFX_evt_alien_city
+	picture = GFX_evt_autobuild_menu
 	is_triggered_only = yes
 
 	option = {
@@ -368,7 +359,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_cost
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -383,7 +374,7 @@ country_event = {
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_100000
 			country_event = {
-				id = autobuild.4
+				id = autobuild_menu.4
 			}
 		}
 	}
@@ -398,7 +389,7 @@ country_event = {
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_20000
 			country_event = {
-				id = autobuild.4
+				id = autobuild_menu.4
 			}
 		}
 	}
@@ -413,7 +404,7 @@ country_event = {
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_5000
 			country_event = {
-				id = autobuild.4
+				id = autobuild_menu.4
 			}
 		}
 	}
@@ -428,7 +419,7 @@ country_event = {
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_2500
 			country_event = {
-				id = autobuild.4
+				id = autobuild_menu.4
 			}
 		}
 	}
@@ -438,7 +429,7 @@ country_event = {
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_1000
 			country_event = {
-				id = autobuild.4
+				id = autobuild_menu.4
 			}
 		}
 	}
@@ -453,7 +444,7 @@ country_event = {
 			autobuild_effect_clear_cost_flags = yes
 			set_country_flag = autobuild_cost_500
 			country_event = {
-				id = autobuild.4
+				id = autobuild_menu.4
 			}
 		}
 	}
@@ -461,7 +452,7 @@ country_event = {
 		name = modmenu_return
 		hidden_effect = {
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -477,10 +468,10 @@ country_event = {
 
 # unic buildings menu
 country_event = {
-	id = autobuild.6
+	id = autobuild_menu.6
 	title = autobuild.3.name
 	desc = autobuild.6.desc
-	picture = GFX_evt_alien_city
+	picture = GFX_evt_autobuild_menu
 	is_triggered_only = yes
 
 	option = {
@@ -502,7 +493,7 @@ country_event = {
 			set_country_flag = autobuild_building_temple
 			set_country_flag = autobuild_building_clinic
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 		}
 	}
@@ -516,7 +507,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			set_country_flag = autobuild_building_stronghold
 		}
@@ -529,7 +520,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			remove_country_flag = autobuild_building_stronghold
 		}
@@ -544,7 +535,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_power_hub_1
 		}
 	}
@@ -556,7 +547,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_power_hub_1
 		}
 	}
@@ -570,7 +561,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_mineral_processing_plant_1
 		}
 	}
@@ -582,7 +573,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_mineral_processing_plant_1
 		}
 	}
@@ -599,7 +590,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_autochthon_monument
 		}
 	}
@@ -611,7 +602,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_autochthon_monument
 		}
 	}
@@ -625,7 +616,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_temple
 		}
 	}
@@ -637,7 +628,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_temple
 		}
 	}
@@ -654,7 +645,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_clone_vats
 		}
 	}
@@ -666,7 +657,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_clone_vats
 		}
 	}
@@ -680,7 +671,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_planetary_shield_generator
 		}
 	}
@@ -692,7 +683,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_planetary_shield_generator
 		}
 	}
@@ -709,7 +700,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_slave_processing
 		}
 	}
@@ -721,7 +712,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_slave_processing
 		}
 	}
@@ -738,7 +729,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_clinic
 		}
 	}
@@ -750,7 +741,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_clinic
 		}
 	}
@@ -767,7 +758,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_military_academy
 		}
 	}
@@ -779,7 +770,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_military_academy
 		}
 	}
@@ -793,7 +784,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_paradise_dome
 		}
 	}
@@ -805,7 +796,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_paradise_dome
 		}
 	}
@@ -819,7 +810,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_visitor_center
 		}
 	}
@@ -831,7 +822,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_visitor_center
 		}
 	}
@@ -845,7 +836,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_hive_synapse
 		}
 	}
@@ -857,7 +848,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_hive_synapse
 		}
 	}
@@ -871,7 +862,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_symbol_purity
 		}
 	}
@@ -883,7 +874,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_symbol_purity
 		}
 	}
@@ -897,7 +888,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} set_country_flag = autobuild_building_hab_cultural_center
 		}
 	}
@@ -909,7 +900,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			} remove_country_flag = autobuild_building_hab_cultural_center
 		}
 	}
@@ -923,7 +914,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			set_country_flag = autobuild_building_akx_worm_1
 		}
@@ -936,7 +927,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			remove_country_flag = autobuild_building_akx_worm_1
 		}
@@ -951,7 +942,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			set_country_flag = autobuild_building_akx_worm_2
 		}
@@ -964,7 +955,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			remove_country_flag = autobuild_building_akx_worm_2
 		}
@@ -980,7 +971,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			set_country_flag = autobuild_building_uplink_node
 		}
@@ -993,7 +984,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			remove_country_flag = autobuild_building_uplink_node
 		}
@@ -1009,7 +1000,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			set_country_flag = autobuild_building_spare_parts_depot
 		}
@@ -1022,7 +1013,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			remove_country_flag = autobuild_building_spare_parts_depot
 		}
@@ -1037,7 +1028,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			set_country_flag = autobuild_building_neuro_electric_amplifier
 		}
@@ -1050,7 +1041,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			remove_country_flag = autobuild_building_neuro_electric_amplifier
 		}
@@ -1067,7 +1058,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			set_country_flag = autobuild_building_war_factory
 		}
@@ -1080,7 +1071,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.6
+				id = autobuild_menu.6
 			}
 			remove_country_flag = autobuild_building_war_factory
 		}
@@ -1089,7 +1080,7 @@ country_event = {
 		name = modmenu_return
 		hidden_effect = {
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -1105,10 +1096,10 @@ country_event = {
 
 # on empty tiles settings menu
 country_event = {
-	id = autobuild.7
+	id = autobuild_menu.7
 	title = autobuild.3.name
 	desc = autobuild.7.desc
-	picture = GFX_evt_alien_city
+	picture = GFX_evt_autobuild_menu
 	is_triggered_only = yes
 
 	option = {
@@ -1119,7 +1110,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_7
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -1133,7 +1124,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_mine_ratio.0
 		}
@@ -1146,7 +1137,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_mine_ratio.0
 		}
@@ -1161,7 +1152,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_mine_ratio.2
 		}
@@ -1174,7 +1165,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_mine_ratio.2
 		}
@@ -1189,7 +1180,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_mine_ratio.3
 		}
@@ -1202,7 +1193,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_mine_ratio.3
 		}
@@ -1217,7 +1208,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_mine_ratio.4
 		}
@@ -1230,7 +1221,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_mine_ratio.4
 		}
@@ -1245,7 +1236,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_power_plant_ratio.0
 		}
@@ -1258,7 +1249,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_power_plant_ratio.0
 		}
@@ -1273,7 +1264,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_power_plant_ratio.2
 		}
@@ -1286,7 +1277,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_power_plant_ratio.2
 		}
@@ -1301,7 +1292,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_power_plant_ratio.3
 		}
@@ -1314,7 +1305,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_power_plant_ratio.3
 		}
@@ -1329,7 +1320,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_power_plant_ratio.4
 		}
@@ -1342,7 +1333,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_power_plant_ratio.4
 		}
@@ -1357,7 +1348,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_lab_ratio.0
 		}
@@ -1370,7 +1361,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_lab_ratio.0
 		}
@@ -1385,7 +1376,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_lab_ratio.2
 		}
@@ -1398,7 +1389,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_lab_ratio.2
 		}
@@ -1413,7 +1404,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_lab_ratio.3
 		}
@@ -1426,7 +1417,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_lab_ratio.3
 		}
@@ -1441,7 +1432,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			set_country_flag = autobuild_lab_ratio.4
 		}
@@ -1454,7 +1445,7 @@ country_event = {
 		custom_tooltip = autobuild_planet_unique_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.7
+				id = autobuild_menu.7
 			}
 			remove_country_flag = autobuild_lab_ratio.4
 		}
@@ -1463,7 +1454,7 @@ country_event = {
 		name = modmenu_return
 		hidden_effect = {
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -1479,10 +1470,10 @@ country_event = {
 
 # other options
 country_event = {
-	id = autobuild.8
+	id = autobuild_menu.8
 	title = autobuild.3.name
 	desc = autobuild.3.desc
-	picture = GFX_evt_alien_city
+	picture = GFX_evt_autobuild_menu
 	is_triggered_only = yes
 
 	option = {
@@ -1498,7 +1489,7 @@ country_event = {
 				}
 			}
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1511,7 +1502,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_fleet_outpost_disabled
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1526,7 +1517,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_fleet_outpost_disabled
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1542,7 +1533,7 @@ country_event = {
 			set_country_flag = autobuild_ship_ignore_1_and_less_mineral
 			remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1555,7 +1546,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_ship_ignore_1_and_less_mineral
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1571,7 +1562,7 @@ country_event = {
 			set_country_flag = autobuild_ship_ignore_2_and_less_mineral
 			remove_country_flag = autobuild_ship_ignore_1_and_less_mineral
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1584,7 +1575,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_ship_ignore_2_and_less_mineral
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1599,7 +1590,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_ignore_minerals
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1612,7 +1603,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_ignore_minerals
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1627,7 +1618,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_ignore_food
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1640,7 +1631,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_ignore_food
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1655,7 +1646,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_ignore_energy
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1668,7 +1659,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_ignore_energy
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1683,7 +1674,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = autobuild_ignore_science
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1696,7 +1687,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_ignore_science
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1717,7 +1708,7 @@ country_event = {
 				}
 			}
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1737,7 +1728,7 @@ country_event = {
 				}
 			}
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1772,7 +1763,7 @@ country_event = {
 				}
 			}
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1781,12 +1772,13 @@ country_event = {
 		trigger = {
 			not = {
 				has_country_flag = autobuild_repair
+				has_global_flag = autobuild_global_cheat_off
 			}
 		}
 		custom_tooltip = autobuild_repair_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 			set_country_flag = autobuild_repair
 		}
@@ -1795,11 +1787,14 @@ country_event = {
 		name = autobuild_repair_off
 		trigger = {
 			has_country_flag = autobuild_repair
+			not = {
+				has_global_flag = autobuild_global_cheat_off
+			}
 		}
 		custom_tooltip = autobuild_repair_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 			remove_country_flag = autobuild_repair
 		}
@@ -1814,7 +1809,7 @@ country_event = {
 		custom_tooltip = autobuild_ignore_sector_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 			set_country_flag = autobuild_ignore_sector
 		}
@@ -1827,7 +1822,7 @@ country_event = {
 		custom_tooltip = autobuild_ignore_sector_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 			remove_country_flag = autobuild_ignore_sector
 		}
@@ -1842,7 +1837,7 @@ country_event = {
 		custom_tooltip = autobuild_local_resettle_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 			set_country_flag = autobuild_local_resettle
 		}
@@ -1855,7 +1850,7 @@ country_event = {
 		custom_tooltip = autobuild_local_resettle_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 			remove_country_flag = autobuild_local_resettle
 		}
@@ -1870,7 +1865,7 @@ country_event = {
 		custom_tooltip = autobuild_rename_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 			set_country_flag = autobuild_rename
 		}
@@ -1884,7 +1879,7 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = autobuild_rename
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1902,7 +1897,7 @@ country_event = {
 				set_country_flag = autobuild_assign_leader
 			}
 			country_event = {
-				id = autobuild.8
+				id = autobuild_menu.8
 			}
 		}
 	}
@@ -1910,7 +1905,91 @@ country_event = {
 		name = modmenu_return
 		hidden_effect = {
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
+			}
+		}
+	}
+	option = {
+		name = modmenu_exit
+		hidden_effect = {
+			country_event = {
+				id = autobuild.0
+			}
+		}
+	}
+}
+
+# global menu
+# have flag means on
+country_event = {
+	id = autobuild_menu.9
+	title = autobuild.3.name
+	desc = autobuild_global_menu.desc
+	picture = GFX_evt_autobuild_menu
+	is_triggered_only = yes
+
+	# ai allowed
+	option = {
+		name = autobuild_ai_allowed.defined_text
+		custom_tooltip = autobuild_global_cheat.tooltip.defined_text
+		hidden_effect = {
+			if = {
+				limit = {
+					has_global_flag = autobuild_ai_allowed
+				}
+				remove_global_flag = autobuild_ai_allowed
+			}
+			else = {
+				set_global_flag = autobuild_ai_allowed
+			}
+			country_event = {
+				id = autobuild_menu.9
+			}
+		}
+	}
+	# block cheat options
+	option = {
+		name = autobuild_global_cheat_off.defined_text
+		custom_tooltip = autobuild_global_cheat.tooltip.defined_text
+		hidden_effect = {
+			if = {
+				limit = {
+					has_global_flag = autobuild_global_cheat_off
+				}
+				remove_global_flag = autobuild_global_cheat_off
+			}
+			else = {
+				set_global_flag = autobuild_global_cheat_off
+			}
+			country_event = {
+				id = autobuild_menu.9
+			}
+		}
+	}
+	# direct hight tier
+	option = {
+		name = autobuild_global_direct_hight_tier.defined_text
+		custom_tooltip = autobuild_global_direct_hight_tier.tooltip.defined_text
+		hidden_effect = {
+			if = {
+				limit = {
+					has_global_flag = autobuild_global_direct_hight_tier
+				}
+				remove_global_flag = autobuild_global_direct_hight_tier
+			}
+			else = {
+				set_global_flag = autobuild_global_direct_hight_tier
+			}
+			country_event = {
+				id = autobuild_menu.9
+			}
+		}
+	}
+	option = {
+		name = modmenu_return
+		hidden_effect = {
+			country_event = {
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -1926,10 +2005,10 @@ country_event = {
 
 # labs menu
 country_event = {
-	id = autobuild.12
+	id = autobuild_menu.12
 	title = autobuild.3.name
 	desc = autobuild.3.desc
-	picture = GFX_evt_alien_city
+	picture = GFX_evt_autobuild_menu
 	is_triggered_only = yes
 
 	option = {
@@ -1940,7 +2019,7 @@ country_event = {
 		custom_tooltip = autobuild_labs_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 			remove_country_flag = autobuild_labs
 		}
@@ -1955,7 +2034,7 @@ country_event = {
 		custom_tooltip = autobuild_labs_not_count_planet_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_labs_not_count_planet
 		}
@@ -1968,7 +2047,7 @@ country_event = {
 		custom_tooltip = autobuild_labs_not_count_planet_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_labs_not_count_planet
 		}
@@ -1983,7 +2062,7 @@ country_event = {
 		custom_tooltip = autobuild_labs_not_count_trait_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_labs_not_count_trait
 		}
@@ -1996,7 +2075,7 @@ country_event = {
 		custom_tooltip = autobuild_labs_not_count_trait_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_labs_not_count_trait
 		}
@@ -2011,7 +2090,7 @@ country_event = {
 		custom_tooltip = autobuild_labs_disable_random_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_labs_disable_random
 		}
@@ -2024,7 +2103,7 @@ country_event = {
 		custom_tooltip = autobuild_labs_disable_random_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_labs_disable_random
 		}
@@ -2039,7 +2118,7 @@ country_event = {
 		#custom_tooltip = autobuild_physics_lab_ratio.0_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_physics_lab_ratio.0
 		}
@@ -2052,7 +2131,7 @@ country_event = {
 		#custom_tooltip = autobuild_physics_lab_ratio.0_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_physics_lab_ratio.0
 		}
@@ -2067,7 +2146,7 @@ country_event = {
 		#custom_tooltip = autobuild_physics_lab_ratio.2_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_physics_lab_ratio.2
 		}
@@ -2080,7 +2159,7 @@ country_event = {
 		#custom_tooltip = autobuild_physics_lab_ratio.2_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_physics_lab_ratio.2
 		}
@@ -2095,7 +2174,7 @@ country_event = {
 		#custom_tooltip = autobuild_physics_lab_ratio.3_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_physics_lab_ratio.3
 		}
@@ -2108,7 +2187,7 @@ country_event = {
 		#custom_tooltip = autobuild_physics_lab_ratio.3_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_physics_lab_ratio.3
 		}
@@ -2123,7 +2202,7 @@ country_event = {
 		#custom_tooltip = autobuild_biolab_ratio.0_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_biolab_ratio.0
 		}
@@ -2136,7 +2215,7 @@ country_event = {
 		#custom_tooltip = autobuild_biolab_ratio.0_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_biolab_ratio.0
 		}
@@ -2151,7 +2230,7 @@ country_event = {
 		#custom_tooltip = autobuild_biolab_ratio.2_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_biolab_ratio.2
 		}
@@ -2164,7 +2243,7 @@ country_event = {
 		#custom_tooltip = autobuild_biolab_ratio.2_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_biolab_ratio.2
 		}
@@ -2179,7 +2258,7 @@ country_event = {
 		#custom_tooltip = autobuild_biolab_ratio.3_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_biolab_ratio.3
 		}
@@ -2192,7 +2271,7 @@ country_event = {
 		#custom_tooltip = autobuild_biolab_ratio.3_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_biolab_ratio.3
 		}
@@ -2207,7 +2286,7 @@ country_event = {
 		#custom_tooltip = autobuild_engineering_facility_ratio.0_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_engineering_facility_ratio.0
 		}
@@ -2220,7 +2299,7 @@ country_event = {
 		#custom_tooltip = autobuild_engineering_facility_ratio.0_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_engineering_facility_ratio.0
 		}
@@ -2235,7 +2314,7 @@ country_event = {
 		#custom_tooltip = autobuild_engineering_facility_ratio.2_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_engineering_facility_ratio.2
 		}
@@ -2248,7 +2327,7 @@ country_event = {
 		#custom_tooltip = autobuild_engineering_facility_ratio.2_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_engineering_facility_ratio.2
 		}
@@ -2263,7 +2342,7 @@ country_event = {
 		#custom_tooltip = autobuild_engineering_facility_ratio.3_on.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			set_country_flag = autobuild_engineering_facility_ratio.3
 		}
@@ -2276,7 +2355,7 @@ country_event = {
 		#custom_tooltip = autobuild_engineering_facility_ratio.3_off.tooltip
 		hidden_effect = {
 			country_event = {
-				id = autobuild.12
+				id = autobuild_menu.12
 			}
 			remove_country_flag = autobuild_engineering_facility_ratio.3
 		}
@@ -2285,7 +2364,7 @@ country_event = {
 		name = modmenu_return
 		hidden_effect = {
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}

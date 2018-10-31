@@ -28,9 +28,6 @@
  autobuild_clean_blockers:0 "Авторасчистка."
  autobuild_clean_blockers.tooltip:0 "Автоматическая расчистка плиток. §RВнимание§!, это читерная опция, тк блокираторы будут исчезать мгновенно."
  
- autobuild_ai_allowed:0 "Разрешить ИИ пользоваться автопостройкой."
- autobuild_ai_allowed.tooltip:0 "У ИИ империй здания будут строиться так же, как и у игрока."
- 
  # other menu
  autobuild_others_options_menu:0 "$modmenu_menu$ других опций."
  
@@ -78,6 +75,19 @@
  
  autobuild_assign_leader:0 "Назначить лидеров."
  autobuild_assign_leader.tooltip:0 "Сейчас работает для назначения адмиралов, генералов и ученых на флотилию. Назначение губернатора невозможно сделать в текущем АПИ."
+ 
+ # global options
+ autobuild_global_menu:0 "§BМеню§! глобальных опций."
+ autobuild_global_menu.desc:0 "Опции в этом меню затрагивают любую империю в игре (игроков и ии)."
+ 
+ autobuild_ai_allowed:0 "Разрешить ИИ пользоваться автопостройкой."
+ autobuild_ai_allowed.tooltip:0 "У ИИ империй здания будут строиться так же, как и у игрока."
+ 
+ autobuild_global_cheat_off:0 "Отключить чит опции."
+ autobuild_global_cheat_off.tooltip:0 "Убирает чит опции."
+ 
+ autobuild_global_direct_hight_tier:0 "Упгрейд до максимального уровня."
+ autobuild_global_direct_hight_tier.tooltip:0 "Здания будут улучшаться до максимально возможного уровня."
  
  # labs
  autobuild_labs:0 "Автоулучшение лабораторий."
@@ -232,11 +242,6 @@
  autobuild_fleet_off:0 "$modmenu_off$ $autobuild_fleet$"
  autobuild_cost_off:0 "$modmenu_off$ $autobuild_cost$"
  
- autobuild_ai_allowed_on:0 "$modmenu_on$ $autobuild_ai_allowed$"
- autobuild_ai_allowed_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_ai_allowed.tooltip$"
- autobuild_ai_allowed_off:0 "$modmenu_off$ $autobuild_ai_allowed$"
- autobuild_ai_allowed_off.tooltip:0 "$modmenu_tooltip_off$$autobuild_ai_allowed.tooltip$"
- 
  autobuild_robots_on:0 "$modmenu_on$ $autobuild_robots$"
  autobuild_robots_on.tooltip:0 "$modmenu_tooltip_on$$autobuild_robots.tooltip$"
  autobuild_robots_off:0 "$modmenu_off$ $autobuild_robots$"
@@ -342,6 +347,27 @@
  autobuild_assign_leader.1:0 "$modmenu_on$ $autobuild_assign_leader$"
  autobuild_assign_leader.0.tooltip:0 "$modmenu_tooltip_off$$autobuild_assign_leader.tooltip$"
  autobuild_assign_leader.1.tooltip:0 "$modmenu_tooltip_on$$autobuild_assign_leader.tooltip$"
+ 
+ autobuild_ai_allowed.defined_text:0 "[Root.autobuild_ai_allowed_defined_text]"
+ autobuild_ai_allowed.tooltip.defined_text:0 "[Root.autobuild_ai_allowed_tooltip_defined_text]"
+ autobuild_ai_allowed.0:0 "$modmenu_off$ $autobuild_ai_allowed$"
+ autobuild_ai_allowed.1:0 "$modmenu_on$ $autobuild_ai_allowed$"
+ autobuild_ai_allowed.0.tooltip:0 "$modmenu_tooltip_off$$autobuild_ai_allowed.tooltip$"
+ autobuild_ai_allowed.1.tooltip:0 "$modmenu_tooltip_on$$autobuild_ai_allowed.tooltip$"
+ 
+ autobuild_global_cheat_off.defined_text:0 "[Root.autobuild_global_cheat_off_defined_text]"
+ autobuild_global_cheat_off.tooltip.defined_text:0 "[Root.autobuild_global_cheat_off_tooltip_defined_text]"
+ autobuild_global_cheat_off.0:0 "$modmenu_off$ $autobuild_global_cheat_off$"
+ autobuild_global_cheat_off.1:0 "$modmenu_on$ $autobuild_global_cheat_off$"
+ autobuild_global_cheat_off.0.tooltip:0 "$modmenu_tooltip_off$$autobuild_global_cheat_off.tooltip$"
+ autobuild_global_cheat_off.1.tooltip:0 "$modmenu_tooltip_on$$autobuild_global_cheat_off.tooltip$"
+ 
+ autobuild_global_direct_hight_tier.defined_text:0 "[Root.autobuild_global_direct_hight_tier_defined_text]"
+ autobuild_global_direct_hight_tier.tooltip.defined_text:0 "[Root.autobuild_global_direct_hight_tier_tooltip_defined_text]"
+ autobuild_global_direct_hight_tier.0:0 "$modmenu_off$ $autobuild_global_direct_hight_tier$"
+ autobuild_global_direct_hight_tier.1:0 "$modmenu_on$ $autobuild_global_direct_hight_tier$"
+ autobuild_global_direct_hight_tier.0.tooltip:0 "$modmenu_tooltip_off$$autobuild_global_direct_hight_tier.tooltip$"
+ autobuild_global_direct_hight_tier.1.tooltip:0 "$modmenu_tooltip_on$$autobuild_global_direct_hight_tier.tooltip$"
  
  # unique buildings
  autobuild_planet_unique_on.tooltip:0 "$modmenu_on$ $autobuild_planet_unique.tooltip$"

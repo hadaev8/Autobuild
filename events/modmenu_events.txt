@@ -15,7 +15,7 @@ country_event = {
 		}
 		hidden_effect = {
 			country_event = {
-				id = autobuild.3
+				id = autobuild_menu.3
 			}
 		}
 	}
@@ -46,6 +46,9 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		# old flag
 		set_global_flag = mod_menu_installed
+		# new flag
+		set_global_flag = modmenu_installed
 	}
 }

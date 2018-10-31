@@ -1,0 +1,32 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_evt_autobuild_menu"
+		texturefile = "gfx/event_pictures/autobuild_menu_0.dds"
+		animation = {
+			animationmaskfile = "gfx/event_pictures/autobuild_menu_4.dds"
+			animationtexturefile = "gfx/event_pictures/autobuild_menu_1.dds"
+			animationlooping = yes
+			animationtime = 2.0
+			animationblendmode = "add"
+			animationtype = "rotating"
+		}
+		animation = {
+			animationmaskfile = "gfx/event_pictures/autobuild_menu_4.dds"
+			animationtexturefile = "gfx/event_pictures/autobuild_menu_2.dds"
+			animationlooping = yes
+			animationtime = 1.0
+			animationblendmode = "add"
+			animationtype = "rotating"
+			animationtexturescale = { x = 0.5 y = 0.5 }
+		}
+		animation = {
+			animationmaskfile = "gfx/event_pictures/autobuild_menu_4.dds"
+			animationtexturefile = "gfx/event_pictures/autobuild_menu_5.dds"
+			animationlooping = yes
+			animationdelay = 600.0
+			animationtime = 10.0
+			animationblendmode = "add"
+			animationtype = "pulsing"
+		}
+	}
+}

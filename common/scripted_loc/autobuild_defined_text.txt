@@ -3,7 +3,7 @@ defined_text = {
 	name = autobuild_assign_leader_defined_text
 	text = {
 		trigger = {
-			has_country_flag = autobuild_assign_leader
+			has_global_flag = autobuild_assign_leader
 		}
 		localization_key = autobuild_assign_leader.0
 	}
@@ -16,11 +16,90 @@ defined_text = {
 	name = autobuild_assign_leader_tooltip_defined_text
 	text = {
 		trigger = {
-			has_country_flag = autobuild_assign_leader
+			has_global_flag = autobuild_assign_leader
 		}
 		localization_key = autobuild_assign_leader.0.tooltip
 	}
 	text = {
 		localization_key = autobuild_assign_leader.1.tooltip
+	}
+}
+
+# global options
+defined_text = {
+	name = autobuild_ai_allowed_defined_text
+	text = {
+		trigger = {
+			has_global_flag = autobuild_ai_allowed
+		}
+		localization_key = autobuild_ai_allowed.0
+	}
+	text = {
+		localization_key = autobuild_ai_allowed.1
+	}
+}
+
+defined_text = {
+	name = autobuild_ai_allowed_tooltip_defined_text
+	text = {
+		trigger = {
+			has_global_flag = autobuild_ai_allowed
+		}
+		localization_key = autobuild_ai_allowed.0.tooltip
+	}
+	text = {
+		localization_key = autobuild_ai_allowed.1.tooltip
+	}
+}
+
+defined_text = {
+	name = autobuild_global_cheat_off_defined_text
+	text = {
+		trigger = {
+			has_global_flag = autobuild_global_cheat_off
+		}
+		localization_key = autobuild_global_cheat_off.0
+	}
+	text = {
+		localization_key = autobuild_global_cheat_off.1
+	}
+}
+
+defined_text = {
+	name = autobuild_global_cheat_off_tooltip_defined_text
+	text = {
+		trigger = {
+			has_global_flag = autobuild_global_cheat_off
+		}
+		localization_key = autobuild_global_cheat_off.0.tooltip
+	}
+	text = {
+		localization_key = autobuild_global_cheat_off.1.tooltip
+	}
+}
+
+defined_text = {
+	name = autobuild_global_direct_hight_tier_defined_text
+	text = {
+		trigger = {
+			has_global_flag = autobuild_global_direct_hight_tier
+		}
+		localization_key = autobuild_global_direct_hight_tier.0
+	}
+	text = {
+		localization_key = autobuild_global_direct_hight_tier.1
+	}
+}
+
+defined_text = {
+	name = autobuild_global_direct_hight_tier_tooltip_defined_text
+	text = {
+		trigger = {
+			has_global_flag = autobuild_global_direct_hight_tier
+		}
+		localization_key = autobuild_global_direct_hight_tier.0.tooltip
+	}
+	text = {
+		localization_key = autobuild_global_direct_hight_tier.1.tooltip
 	}
 }
