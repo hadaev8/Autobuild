@@ -9,27 +9,27 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = autobuild_menu.1.name
-		# trigger = {
-		# 	has_global_flag = autobuild_installed
-		# }
+		name = modmenu_autobuild
+		trigger = {
+			has_global_flag = autobuild_installed
+		}
 		hidden_effect = {
 			country_event = {
-				id = autobuild_menu.1
+				id = autobuild_menu.3
 			}
 		}
 	}
-	# option = {
-		# name = modmenu_human_fallen_empires
-		# trigger = {
-			# has_global_flag = human_fallen_empires_installed
-		# }
-		# hidden_effect = {
-			# country_event = {
-				# id = human_fallen_empires_menu.1
-			# }
-		# }
-	# }
+	option = {
+		name = modmenu_human_fallen_empires
+		trigger = {
+			has_global_flag = human_fallen_empires_installed
+		}
+		hidden_effect = {
+			country_event = {
+				id = human_fallen_empires_menu.1
+			}
+		}
+	}
 	option = {
 		name = modmenu_exit
 		hidden_effect = {

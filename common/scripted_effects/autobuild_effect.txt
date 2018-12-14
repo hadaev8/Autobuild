@@ -1,0 +1,9 @@
+#
+
+# for fleet
+autobuild_effect_fleet_clear = {
+	clear_fleet_actions = this
+	set_event_locked = no
+	remove_fleet_flag = autobuild_fleet
+	set_name = "Construction Ship"
+}

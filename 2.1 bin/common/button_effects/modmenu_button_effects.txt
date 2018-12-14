@@ -1,0 +1,23 @@
+
+#Scope type varies depending on what is selected
+# This = selected object or player country
+# From = player country
+
+modmenu_button_effect = {
+	potential = {
+		exists = from
+	}
+	allow = {
+		always = yes
+	}
+	effect = {
+		hidden_effect = {
+			#from = {
+				country_event = {
+					id = modmenu.1
+				}
+			#}
+		}
+		custom_tooltip = modmenu.tooltip
+	}
+}

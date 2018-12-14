@@ -6,7 +6,7 @@ guiTypes = {
 		moveable = no
 		orientation = upper_left
 
-		show_position = { x = -1 y = 34 }
+		show_position = { x = 30 y = 34 }
         hide_position = { x = -570 y = 34 }
         animation_time = 200
         animation_type = decelerated
@@ -100,7 +100,7 @@ guiTypes = {
 		buttonType = {
 			name = "tab_demographics"
 			quadTextureSprite = "GFX_tab_2_inactive"
-			position = { x= 250 y = @tabheight }
+			position = { x= 114 y = @tabheight }
 			font = "cg_16b"
 			buttonText = "DEMOGRAPHICS"
 			buttonFont = "cg_16b"
@@ -112,7 +112,7 @@ guiTypes = {
 		buttonType = {
 			name = "tab_demographics_active"
 			quadTextureSprite = "GFX_tab_2_active"
-			position = { x= 250 y = @tabheight }
+			position = { x= 114 y = @tabheight }
 			font = "cg_16b"
 			buttonText = "DEMOGRAPHICS"
 			buttonFont = "cg_16b"
@@ -125,7 +125,7 @@ guiTypes = {
 		buttonType = {
 			name = "tab_advisor"
 			quadTextureSprite = "GFX_tab_2_inactive"
-			position = { x = 386 y = @tabheight }
+			position = { x= 250 y = @tabheight }
 			font = "cg_16b"
 			buttonText = "GOVERNMENT_ADVISOR_TAB"
 			buttonFont = "cg_16b"
@@ -138,7 +138,7 @@ guiTypes = {
 		buttonType = {
 			name = "tab_advisor_active"
 			quadTextureSprite = "GFX_tab_2_active"
-			position = { x = 386 y = @tabheight }
+			position = { x= 250 y = @tabheight }
 			font = "cg_16b"
 			buttonText = "GOVERNMENT_ADVISOR_TAB"
 			buttonFont = "cg_16b"
@@ -193,7 +193,7 @@ guiTypes = {
 				size = { width = 546 height = 195 }
 				moveable = no
 				#clipping = yes # disabled for button
-			
+
 				effectbuttonType = {
 					name = modmenu_button
 					quadTextureSprite = GFX_button_150_24
@@ -295,22 +295,22 @@ guiTypes = {
 					format = left
 					text_color_code = "E"
 				}
-				
+
 				iconType = {
 					name = "ruler_skill"
 					spriteType = "GFX_leader_skill"
 					position = { x = -3 y = 71 }
 					scale = 0.90
 					frame = 5
-				}				
-				
+				}
+
 				buttonType = {
 					name = "rename_ruler"
 					spriteType = "GFX_invisible"
 					position = { x = -5 y = 35 }
 					size = { x = 335 y = 25 }
 					orientation = left
-				}				
+				}
 
 				instantTextBoxType = {
 					name = "species"
@@ -322,7 +322,7 @@ guiTypes = {
 					format = left
 				}
 			}
-			
+
 			buttonType = {
 				name = "government_reform"
 				quadTextureSprite = "GFX_standard_button_142_34_button"
@@ -332,7 +332,7 @@ guiTypes = {
 				orientation = "UPPER_LEFT"
 				clicksound = confirm_click
 			}
-			
+
 			instantTextBoxType = {
 				name = "government_title"
 				position = { x = 5 y = 240 }
@@ -343,13 +343,13 @@ guiTypes = {
 				fixedSize = yes
 				format = center
 			}
-			
+
 			containerWindowType = {
 				name = "civics_window"
 				position = { x = 135 y = 220 }
 				size = { width = 130 height = 80 }
 				moveable = no
-				
+
 				containerWindowType = {
 					name = "election_bg"
 					size = { width = 120 height = 60 }
@@ -360,7 +360,7 @@ guiTypes = {
 						spriteType = "GFX_tiles_dark_area_cut_8"
 					}
 				}
-			
+
 				instantTextBoxType = {
 					name = "civics_label"
 					position = { x = 3 y = 49 }
@@ -419,9 +419,9 @@ guiTypes = {
 					orientation = "UPPER_LEFT"
 				}
 			}
-			
+
 			containerWindowType = {
-				name = "piracy_window"
+				name = "cohesion_window"
 				size = { width = 100 height = 45 }
 				position = { x = 3 y = 495 }
 
@@ -430,37 +430,37 @@ guiTypes = {
 					spriteType = "GFX_tiles_dark_area_cut_8"
 					alwaysTransparent = yes
 				}
-				
+
 				instantTextBoxType = {
-					name = "piracy_label"
+					name = "cohesion_label"
 					position = { x = 5 y = 2 }
 					font = "cg_16b"
-					text = "PIRACY_LABEL"
+					text = "COHESION_LABEL"
 					maxWidth = 100
 					maxHeight = 22
 					fixedSize = yes
 					format = left
-				}					
-				
+				}
+
 				iconType = {
-					name = "piracy_icon"
-					quadTextureSprite = "GFX_piracy_risk"
-					position = { x = 10 y = 23 }
+					name = "cohesion_icon"
+					quadTextureSprite = "GFX_empire_cohesion"
+					position = { x = 8 y = 21 }
 					orientation = "UPPER_LEFT"
-				}	
+				}
 
 				instantTextBoxType = {
-					name = "piracy_risk"
-					position = { x = 35 y = 23 }
+					name = "cohesion_risk"
+					position = { x = 32 y = 23 }
 					font = "cg_16b"
 					text = "12%"
 					maxWidth = 50
 					maxHeight = 22
 					fixedSize = yes
 					format = left
-				}				
+				}
 			}
-			
+
 			containerWindowType = {
 				name = "government_spec_window"
 				size = { width = 250 height = 155 }
@@ -471,7 +471,7 @@ guiTypes = {
 					spriteType = "GFX_tiles_dark_area_cut_8"
 					alwaysTransparent = yes
 				}
-				
+
 				instantTextBoxType = {
 					name = "authority_label"
 					position = { x = 6 y = 3 }
@@ -484,7 +484,7 @@ guiTypes = {
 					fixedSize = yes
 					format = left
 				}
-				
+
 				# Government
 				iconType = {
 					name = "government_authority"
@@ -493,12 +493,12 @@ guiTypes = {
 					scale = 0.6
 					orientation = "UPPER_LEFT"
 				}
-				
+
 				containerWindowType = {
 					name = "election_window"
 					size = { width = 250 height = 50 }
 					position = { x = 73 y = 3 }
-					
+
 					instantTextBoxType = {
 						name = "next_election_label"
 						position = { x = 0 y = 0 }
@@ -534,12 +534,12 @@ guiTypes = {
 						clicksound = confirm_click
 					}
 				}
-				
+
 				containerWindowType = {
 					name = "heir_window"
 					size = { width = 250 height = 50 }
 					position = { x = 6 y = 80 }
-					
+
 					instantTextBoxType = {
 						name = "heir_label"
 						position = { x = 0 y = -30 }
@@ -572,7 +572,7 @@ guiTypes = {
 						#alwaysTransparent = yes
 						#text_color_code = "E"
 					}
-					
+
 					buttonType = {
 						name = "rename_heir"
 						spriteType = "GFX_invisible"
@@ -587,7 +587,7 @@ guiTypes = {
 						position = { x = -3 y = 51 }
 						scale = 0.90
 						frame = 5
-					}						
+					}
 
 					overlappingElementsBoxType = {
 						name = "traits"
@@ -1328,11 +1328,6 @@ guiTypes = {
 		size = { width =104 height=30 }
 		moveable = no
 
-		background = {
-			name = "piechart_background"
-			spriteType = "GFX_tiles_frame_light"
-		}
-
 		iconType = {
 			name ="species_plupp"
 			spriteType = "GFX_species_plupp"
@@ -1350,6 +1345,14 @@ guiTypes = {
 			fixedsize = yes
 			orientation = right
 			alwaysTransparent = yes
+		}
+
+		buttonType = {
+			name = "piechart_button"
+			quadTextureSprite = "GFX_button_light"
+			position = { x=0 y=0 }
+			size = { x=100 y=28 }
+			clicksound = "menu_slide_open"
 		}
 	}
 

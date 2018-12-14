@@ -1,0 +1,107 @@
+#
+
+autobuild_trigger_fleet_valid = {
+	is_ship_class = shipclass_constructor
+	not = {
+		has_fleet_flag = autobuild_fleet
+	}
+	is_fleet_idle = yes
+	is_disabled = no
+	is_in_combat = no
+	#sector_controlled = no
+	# try to filter out non sector constructors
+	# exists = solar_system
+	# solar_system = {
+		# not = {
+			# any_planet = {
+				# sector_controlled = yes
+			# }
+		# }
+	# }
+}
+
+autobuild_trigger_fleet_valid_planet = {
+	nor = {
+		exists = owner
+		has_planet_flag = autobuild_fleet_planet_block
+	}
+	has_orbital_station = no
+	nor = {
+		has_deposit = d_trade_value_1
+		has_deposit = d_trade_value_2
+		has_deposit = d_trade_value_3
+		has_deposit = d_trade_value_4
+		has_deposit = d_trade_value_5
+		has_deposit = d_trade_value_6
+		has_deposit = d_trade_value_7
+		has_deposit = d_trade_value_8
+		has_deposit = d_trade_value_9
+		has_deposit = d_trade_value_10
+	}
+	is_surveyed = {
+		who = root.owner
+		status = yes
+	}
+	or = {
+		# research station spawn is broken
+		# has_deposit_for = shipclass_research_station
+		has_deposit_for = shipclass_mining_station
+		# and = {
+		# 	or = {
+		# 		orbital_deposit_tile = {
+		# 			has_resource = {
+		# 				type = energy
+		# 				amount > 0
+		# 			}
+		# 		}
+		# 		nor = {
+		# 			and = {
+		# 				root.owner = {
+		# 					has_country_flag = autobuild_ship_ignore_2_and_less_mineral
+		# 				}
+		# 				orbital_deposit_tile = {
+		# 					has_resource = {
+		# 						type = minerals
+		# 						amount < 3
+		# 					}
+		# 				}
+		# 			}
+		# 			and = {
+		# 				root.owner = {
+		# 					has_country_flag = autobuild_ship_ignore_1_and_less_mineral
+		# 				}
+		# 				orbital_deposit_tile = {
+		# 					has_resource = {
+		# 						type = minerals
+		# 						amount < 2
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
+	}
+	nor = {
+		and = {
+			has_resource = { type = exotic_gases amount > 0 }
+			root.owner = { not = { has_technology = tech_exotic_gases } }
+		}
+		and = {
+			has_resource = { type = volatile_motes amount > 0 }
+			root.owner = { not = { has_technology = tech_volatile_motes } }
+		}
+		and = {
+			has_resource = { type = rare_crystals amount > 0 }
+			root.owner = { not = { has_technology = tech_rare_crystals } }
+		}
+		and = {
+			has_resource = { type = sr_dark_matter amount > 0 }
+			root.owner = { not = { has_technology = tech_mine_dark_matter } }
+		}
+		and = {
+			has_deposit = d_living_metal_deposit
+			root.owner = { not = { has_technology = tech_mine_living_metal } }
+		}
+	}
+	has_any_megastructure = no
+}
