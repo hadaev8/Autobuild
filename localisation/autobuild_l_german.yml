@@ -2,11 +2,11 @@
  # loc keys
  # menu
  autobuild_menu.1.name:0 "Autobuild"
- autobuild_menu.1.desc:0 "Main menu."
- autobuild_picture_off:0 "§HRemove§! the stupid picture from the menu."
- autobuild_fleet_on_all:0 "§GSend§! all construction ships to autobuild."
- autobuild_fleet_on_one:0 "§GSend§! one construction ship to autobuild."
- autobuild_fleet_allow.tooltip:0 "Any ship is suitable for autobuild."
- autobuild_fleet_on.tooltip:0 "Construction ships will be assigned to autobuild research (not now) and mining stations. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be marked "event blocked", this is normal."
- autobuild_fleet_off:0 "§RRecall§! all ships from autobuild."
+ autobuild_menu.1.desc:0 "Hauptmenü"
+ autobuild_picture_off:0 "§HLösche§! das bescheuerte Bild vom Menü."
+ autobuild_fleet_on_all:0 "§GSende§! alle Konstuktionsschiffe zum automatischen Bauen."
+ autobuild_fleet_on_one:0 "§GSende§! ein Konstuktionsschiff zum automatischen Bauen."
+ autobuild_fleet_allow.tooltip:0 "Erlaube jedem Schiff automatisch zu Bauen."
+ autobuild_fleet_on.tooltip:0 "Construction ships will be assigned to autobuild research §R(not now, wating for patch (how many patches we need to fix 2.2?), currently its broken)§! and mining stations. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be marked "event blocked", this is normal."
+ autobuild_fleet_off:0 "§RRufe§! alle Schiffe vom automatischen Bauen zurück."
  #

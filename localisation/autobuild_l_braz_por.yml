@@ -7,6 +7,6 @@
  autobuild_fleet_on_all:0 "§GSend§! all construction ships to autobuild."
  autobuild_fleet_on_one:0 "§GSend§! one construction ship to autobuild."
  autobuild_fleet_allow.tooltip:0 "Any ship is suitable for autobuild."
- autobuild_fleet_on.tooltip:0 "Construction ships will be assigned to autobuild research (not now) and mining stations. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be marked "event blocked", this is normal."
+ autobuild_fleet_on.tooltip:0 "Construction ships will be assigned to autobuild research §R(not now, wating for patch (how many patches we need to fix 2.2?), currently its broken)§! and mining stations. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be marked "event blocked", this is normal."
  autobuild_fleet_off:0 "§RRecall§! all ships from autobuild."
  #

@@ -19,17 +19,17 @@ country_event = {
 			}
 		}
 	}
-	# option = {
-		# name = modmenu_human_fallen_empires
-		# trigger = {
-			# has_global_flag = human_fallen_empires_installed
-		# }
-		# hidden_effect = {
-			# country_event = {
-				# id = human_fallen_empires_menu.1
-			# }
-		# }
-	# }
+	option = {
+		name = modmenu_hfe
+		trigger = {
+			has_global_flag = hfe_installed
+		}
+		hidden_effect = {
+			country_event = {
+				id = hfe_menu.1
+			}
+		}
+	}
 	option = {
 		name = modmenu_exit
 		hidden_effect = {

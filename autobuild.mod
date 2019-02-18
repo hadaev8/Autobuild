@@ -1,5 +1,5 @@
 name="AutoBuild ENG/RUS/FRA/GER/SPA"
-path="mod/autobuild"
+path="mod/autobuild-master" # WARNING changed here dir to master to match github folder
 tags={
 	"Economy"
 	"Buildings"

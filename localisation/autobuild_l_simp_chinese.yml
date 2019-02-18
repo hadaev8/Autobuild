@@ -1,12 +1,12 @@
 ﻿l_simp_chinese:
  # loc keys
  # menu
- autobuild_menu.1.name:0 "Autobuild"
- autobuild_menu.1.desc:0 "Main menu."
- autobuild_picture_off:0 "§HRemove§! the stupid picture from the menu."
- autobuild_fleet_on_all:0 "§GSend§! all construction ships to autobuild."
- autobuild_fleet_on_one:0 "§GSend§! one construction ship to autobuild."
- autobuild_fleet_allow.tooltip:0 "Any ship is suitable for autobuild."
- autobuild_fleet_on.tooltip:0 "Construction ships will be assigned to autobuild research (not now) and mining stations. If you want to use them for your needs, disable this option or build a new construction ship. Ships will be marked "event blocked", this is normal."
- autobuild_fleet_off:0 "§RRecall§! all ships from autobuild."
+ autobuild_menu.1.name:0 "自动建造"
+ autobuild_menu.1.desc:0 "主菜单"
+ autobuild_picture_off:0 "§H移除§!上面这张沙雕图片 "
+ autobuild_fleet_on_all:0 "派遣§G所有§!工程船前往自动建造"
+ autobuild_fleet_on_one:0 "派遣§G一艘§!工程船前往自动建造"
+ autobuild_fleet_allow.tooltip:0 "任意船都可用于自动建造"
+ autobuild_fleet_on.tooltip:0 "工程船将会被分配去建造科研站§R(等待版本(谁知道我要在2.2修复多少个版本)，反正现在是不能用的）和资源站。如果你想自己使用工程船，取消这个功能或者建造一艘新的工程船。工程船将会显示“事件锁定”，这是正常现象"
+ autobuild_fleet_off:0 "§R召回§!所有被用于自动建造的船只"
  #

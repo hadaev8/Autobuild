@@ -5,41 +5,42 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		# every_planet_within_border = {
-		# 	limit = {
-		# 		not = {
-		# 			exists = owner
-		# 		}
-		# 		has_orbital_station = no
-		# 		has_deposit_for = shipclass_research_station
-		# 	}
-		# 	create_research_station = {
-		# 		owner = root
-		# 	}
-		# }
-		# every_planet_within_border = {
-		# 	limit = {
-		# 		not = {
-		# 			exists = owner
-		# 		}
-		# 		has_orbital_station = no
-		# 		has_deposit_for = shipclass_mining_station
-		# 	}
-		# 	create_mining_station = {
-		# 		owner = root
-		# 	}
-		# }
-		every_megastructure = {
+		every_planet_within_border = {
 			limit = {
+				not = {
+					exists = owner
+				}
+				has_orbital_station = no
 				or = {
-					is_megastructure_type = gateway_ruined
-					is_megastructure_type = gateway_restored
-					is_megastructure_type = gateway_final
-					is_megastructure_type = lgate_base
+					has_deposit_for = shipclass_research_station
+					has_deposit_for = shipclass_mining_station
 				}
 			}
-			remove_megastructure = this
+			if = {
+				limit = {
+					has_deposit_for = shipclass_research_station
+				}
+				create_research_station = {
+					owner = root
+				}
+			}
+			else = {
+				create_mining_station = {
+					owner = root
+				}
+			}
 		}
+		# every_megastructure = {
+		# 	limit = {
+		# 		or = {
+		# 			is_megastructure_type = gateway_ruined
+		# 			is_megastructure_type = gateway_restored
+		# 			is_megastructure_type = gateway_final
+		# 			is_megastructure_type = lgate_base
+		# 		}
+		# 	}
+		# 	remove_megastructure = this
+		# }
 	}
 }
 
@@ -84,14 +85,14 @@ fleet_event = {
 						trigger = {
 							id = autobuild_fleet.0.trigger.0
 							is_owned_by = root.owner
-							any_planet = {
+							any_system_planet = {
 								autobuild_trigger_fleet_valid_planet = yes
 							}
 							# remove autopost for now
 							# or = {
 							# 	and = {
 							# 		is_owned_by = root.owner
-							# 		any_planet = {
+							# 		any_system_planet = {
 							# 			autobuild_trigger_fleet_valid_planet = yes
 							# 		}
 							# 	}

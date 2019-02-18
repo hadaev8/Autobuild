@@ -13,7 +13,7 @@ autobuild_trigger_fleet_valid = {
 	# exists = solar_system
 	# solar_system = {
 		# not = {
-			# any_planet = {
+			# any_system_planet = {
 				# sector_controlled = yes
 			# }
 		# }

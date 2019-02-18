@@ -35,7 +35,7 @@ fleet_event = {
 		# 				is_constructing = megastructure
 		# 			}
 		# 		}
-		# 		any_planet = {
+		# 		any_system_planet = {
 		# 			autobuild_trigger_fleet_valid_planet = yes
 		# 		}
 		# 	}
@@ -59,7 +59,7 @@ fleet_event = {
 						or = {
 							and = {
 								is_owned_by = root.owner
-								any_planet = {
+								any_system_planet = {
 									autobuild_trigger_fleet_valid_planet = yes
 								}
 							}
