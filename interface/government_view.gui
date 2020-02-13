@@ -152,7 +152,7 @@ guiTypes = {
 			name = "heading"
 			font = "malgun_goth_24"
 			text = "GOVERNMENT_VIEW"
-			position = { x = 70 y = 10 }
+			position = { x = 35 y = 10 }
 			maxWidth = 400
 			maxHeight = 20
 			fixedSize = yes
@@ -163,7 +163,7 @@ guiTypes = {
 		buttonType = {
 			name = "empire_rename_button"
 			spriteType = "GFX_invisible"
-			position = { x = 65 y = 10 }
+			position = { x = 35 y = 10 }
 			size = { x = 300 y = 25 }
 			orientation = left
 		}
@@ -192,6 +192,7 @@ guiTypes = {
 				position = { x = 2 y = 26 }
 				size = { width = 546 height = 195 }
 				moveable = no
+				# mod
 				#clipping = yes # disabled for button
 
 				effectbuttonType = {

@@ -1,0 +1,27 @@
+namespace = autobuild_clear
+
+
+planet_event = {
+	id = autobuild_clear.0
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+	}
+}
+
+planet_event = {
+	id = autobuild_clear.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = {
+			has_country_flag = autobuild_clear_
+		}
+	}
+
+	immediate = {
+	}
+}
