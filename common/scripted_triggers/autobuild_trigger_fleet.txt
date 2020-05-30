@@ -44,7 +44,7 @@ autobuild_trigger_fleet_valid_planet = {
 	}
 	or = {
 		# research station spawn is broken
-		# has_deposit_for = shipclass_research_station
+		has_deposit_for = shipclass_research_station
 		has_deposit_for = shipclass_mining_station
 		# and = {
 		# 	or = {
